@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welding Smart MCQ Set 1 – Arc Welding Processes | THE EXAM ENGINEER</title>
+<style>
+:root{
+  --navy:#12306b; --navy-deep:#0c2350; --orange:#f07f1a;
+  --bg:#f3f6fb; --card:#ffffff; --text:#16213a; --muted:#5b6782;
+  --line:#d9e0ec; --opt:#f7f9fd; --opt-hover:#eaf0fa;
+  --ok:#17803d; --ok-bg:#e6f6ec; --bad:#c0272d; --bad-bg:#fdecec;
+  --ex-bg:#fff7ee; --ex-line:#f3c58f; --chip:#e9eef8;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --navy:#2b4f9a; --navy-deep:#16264a; --orange:#ff9a3d;
+    --bg:#0f1524; --card:#18213a; --text:#e8edf8; --muted:#a3aec6;
+    --line:#2c3857; --opt:#1e2944; --opt-hover:#26345a;
+    --ok:#4cd17e; --ok-bg:#163a26; --bad:#ff6b70; --bad-bg:#3d1a1e;
+    --ex-bg:#2a2216; --ex-line:#6b4b22; --chip:#25304d;
+    color-scheme: dark;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:"Segoe UI","Noto Sans","Nirmala UI","Mangal",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  line-height:1.6;font-size:16px}
+header{background:var(--navy-deep);color:#fff;padding:22px 16px 18px}
+.wrap{max-width:860px;margin:0 auto}
+.brand{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand a{color:var(--orange);font-weight:700;text-decoration:none}
+.brand a:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.channel{font-weight:800;letter-spacing:.5px}
+h1{margin:14px 0 4px;font-size:clamp(1.4rem,4.5vw,2rem);line-height:1.2}
+.sub{margin:0;color:#c9d5ee;font-size:.95rem}
+.rules{margin-top:10px;font-size:.88rem;color:#c9d5ee}
+.bar{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:3px solid var(--orange);
+  box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.bar .wrap{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding:10px 16px}
+.seg{display:inline-flex;border:2px solid var(--navy);border-radius:999px;overflow:hidden}
+.seg button{border:0;background:transparent;color:var(--text);padding:6px 14px;font:inherit;font-weight:700;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--navy);color:#fff}
+.stats{display:flex;gap:12px;flex-wrap:wrap;font-size:.9rem;font-weight:600}
+.stats .c{color:var(--ok)} .stats .w{color:var(--bad)} .stats .s{color:var(--orange)}
+.tools button{border:1px solid var(--line);background:var(--opt);color:var(--text);border-radius:8px;
+  padding:6px 10px;font:inherit;font-size:.85rem;cursor:pointer}
+.tools button:hover{background:var(--opt-hover)}
+button:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+main{padding:18px 16px 40px}
+.q{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--navy);
+  border-radius:10px;padding:16px 16px 14px;margin:0 0 16px}
+.qhead{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.qno{font-weight:800;color:var(--navy)}
+@media (prefers-color-scheme: dark){.qno{color:#8fb0f5}}
+.chip{background:var(--chip);color:var(--muted);font-size:.75rem;font-weight:700;padding:2px 9px;border-radius:999px}
+.chip.lv-t{background:var(--bad-bg);color:var(--bad)}
+.chip.lv-h{background:var(--ex-bg);color:var(--orange)}
+.qtext{font-weight:600;margin:4px 0 12px}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;text-align:left;width:100%;border:1.5px solid var(--line);
+  background:var(--opt);color:var(--text);border-radius:8px;padding:9px 12px;font:inherit;cursor:pointer}
+.opt:hover:not(:disabled){background:var(--opt-hover)}
+.opt:disabled{cursor:default}
+.opt .l{font-weight:800;min-width:1.8em;color:var(--muted)}
+.opt.right{border-color:var(--ok);background:var(--ok-bg)}
+.opt.right .l{color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.opt.wrong .l{color:var(--bad)}
+.opt.sel{border-color:var(--navy);background:var(--opt-hover);box-shadow:inset 0 0 0 1px var(--navy)}
+.opt.sel .l{color:var(--navy)}
+@media (prefers-color-scheme: dark){.opt.sel .l{color:#8fb0f5}.opt.sel{border-color:#8fb0f5;box-shadow:inset 0 0 0 1px #8fb0f5}}
+.timer{font-variant-numeric:tabular-nums;font-weight:800}
+.timer.low{color:var(--bad)}
+.tools{display:flex;gap:6px;flex-wrap:wrap}
+.tools button.primary{background:var(--orange);border-color:var(--orange);color:#fff;font-weight:700}
+.tools button.primary:hover{filter:brightness(1.05);background:var(--orange)}
+.hidden{display:none !important}
+.result{background:var(--card);border:2px solid var(--orange);border-radius:12px;padding:16px;margin-bottom:18px}
+.result h2{margin:0 0 10px;font-size:1.2rem;color:var(--orange)}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+.rgrid div{background:var(--opt);border-radius:8px;padding:8px 10px}
+.rgrid b{display:block;font-size:1.3rem}
+.result p{margin:10px 0 0;color:var(--muted);font-size:.9rem}
+.ex{margin-top:12px;background:var(--ex-bg);border:1px solid var(--ex-line);border-radius:8px;padding:12px 14px;font-size:.95rem}
+.ex .ans{font-weight:800;color:var(--ok);margin-bottom:4px}
+.ex .verdict-bad{color:var(--bad)}
+.sec{margin:24px 0 12px;font-weight:800;color:var(--orange);font-size:1.05rem;border-bottom:2px solid var(--line);padding-bottom:4px}
+footer{text-align:center;color:var(--muted);font-size:.82rem;padding:10px 16px 30px}
+footer a{color:var(--orange)}
+@media (prefers-reduced-motion: no-preference){.ex{animation:show .25s ease-out}
+  @keyframes show{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <span class="channel">THE EXAM ENGINEER</span>
+      <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a>
+    </div>
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+    <p class="rules" id="rules"></p>
+  </div>
+</header>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="seg" role="group" aria-label="Language">
+      <button id="bEn" aria-pressed="true">English</button>
+      <button id="bHi" aria-pressed="false">हिंदी</button>
+    </div>
+    <div class="seg" role="group" aria-label="Mode">
+      <button id="mTest" aria-pressed="true"></button>
+      <button id="mPrac" aria-pressed="false"></button>
+    </div>
+    <div class="stats" aria-live="polite">
+      <span class="timer" id="timer"></span>
+      <span id="sAtt"></span><span class="c" id="sC"></span><span class="w" id="sW"></span><span class="s" id="sS"></span>
+    </div>
+    <div class="tools">
+      <button id="bSubmit" class="primary"></button>
+      <button id="bShow"></button>
+      <button id="bReset"></button>
+    </div>
+  </div>
+</div>
+
+<main><div class="wrap"><div id="result"></div><div id="list"></div></div></main>
+
+<footer>
+  <div id="foot"></div>
+  <div>© 2026 THE EXAM ENGINEER · <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a> · theexamengineer1@gmail.com</div>
+  <div>SSC JE AIR 14 · RRB JE 2025 (DMS)</div>
+</footer>
+
+<script>
+const UI = {
+  en:{title:"Welding Smart MCQ – Set 1",
+      sub:"Arc Welding Processes · RRB JE CBT-2 (Mechanical & Allied) · RRB JE PYQ based",
+      rules:"25 questions · 20 minutes (RRB CBT-2 pace: 150 Qs in 120 min) · +1 correct, −1/3 wrong",
+      rulesP:"Practice mode · no timer · tap an option to see the answer with full explanation instantly",
+      test:"Test",prac:"Practice",submit:"Submit test",time:"Time left",
+      cSub:"Submit the test now? You cannot change answers after submitting.",
+      cMode:"Switching mode will reset your current attempt. Continue?",
+      res:"Your result",un:"Not attempted",taken:"Time taken",acc:"Accuracy",auto:"Time over – test submitted automatically.",
+      resNote:"Answers and full explanations are now shown below each question. Read the explanation of every wrong and unattempted question.",
+      att:"Attempted",c:"Correct",w:"Wrong",s:"Score",show:"Show all answers",hide:"Hide unattempted answers",reset:"Reset",
+      ans:"Correct answer",yours:"Your answer is wrong.",right:"Your answer is correct.",num:"Simple numericals",
+      lv:{p:"PYQ level",h:"Higher",t:"Tough"},
+      foot:"Original work, free for personal study. Share as it is with the channel link – no re-branding."},
+  hi:{title:"वेल्डिंग स्मार्ट MCQ – सेट 1",
+      sub:"आर्क वेल्डिंग प्रक्रियाएँ (Arc Welding Processes) · RRB JE CBT-2 (मैकेनिकल एवं संबद्ध) · RRB JE PYQ आधारित",
+      rules:"25 प्रश्न · 20 मिनट (RRB CBT-2 गति: 120 मिनट में 150 प्रश्न) · सही +1, गलत −1/3",
+      rulesP:"प्रैक्टिस मोड · कोई टाइमर नहीं · विकल्प पर टैप करें, उत्तर और पूरी व्याख्या तुरंत दिखेगी",
+      test:"टेस्ट",prac:"प्रैक्टिस",submit:"टेस्ट सबमिट करें",time:"शेष समय",
+      cSub:"क्या अभी टेस्ट सबमिट करें? सबमिट के बाद उत्तर नहीं बदल सकेंगे।",
+      cMode:"मोड बदलने पर आपका वर्तमान प्रयास रीसेट हो जाएगा। जारी रखें?",
+      res:"आपका परिणाम",un:"बिना प्रयास",taken:"लिया गया समय",acc:"सटीकता",auto:"समय समाप्त – टेस्ट स्वतः सबमिट हो गया।",
+      resNote:"अब हर प्रश्न के नीचे उत्तर और पूरी व्याख्या दिख रही है। हर गलत और बिना प्रयास वाले प्रश्न की व्याख्या ज़रूर पढ़ें।",
+      att:"प्रयास",c:"सही",w:"गलत",s:"स्कोर",show:"सभी उत्तर दिखाएँ",hide:"बिना प्रयास वाले उत्तर छिपाएँ",reset:"रीसेट",
+      ans:"सही उत्तर",yours:"आपका उत्तर गलत है।",right:"आपका उत्तर सही है।",num:"सरल न्यूमेरिकल",
+      lv:{p:"PYQ स्तर",h:"उच्च",t:"कठिन"},
+      foot:"मौलिक कार्य, व्यक्तिगत अध्ययन हेतु निःशुल्क। चैनल लिंक सहित जैसा है वैसा ही शेयर करें – री-ब्रांडिंग नहीं।"}
+};
+
+const Q = [
+/* 1 */ {ans:3, lv:"p", tag:{en:"Process selection",hi:"प्रक्रिया चयन"},
+en:{q:"40 mm thick carbon-steel plates for a pressure-vessel shell need long straight seams in the flat position, with a high deposition rate and no arc glare for the operator. Which process is best suited?",
+o:["Shielded Metal Arc Welding (SMAW)","Tungsten Inert Gas (TIG) welding","Oxy-acetylene gas welding","Submerged Arc Welding (SAW)"],
+e:"<b>Submerged Arc Welding (SAW)</b> – the arc burns under a blanket of granular flux, so there is no visible arc, no glare, no spatter and very little fume. A continuous consumable bare-wire electrode, very high current (up to 1000 A and more) and automatic travel give the highest deposition rate and deep penetration – ideal for long straight seams in thick plates (pressure vessels, ship hulls, boilers, large pipes).<br><b>Why not the others:</b> Shielded Metal Arc Welding (SMAW) is manual, with stub loss and slag removal after every pass – too slow for 40 mm production seams. Tungsten Inert Gas (TIG) welding has the lowest deposition rate and is meant for thin, high-quality work. Oxy-acetylene gas welding is slow and gives a wide Heat-Affected Zone (HAZ) – suited to thin sheets and repair.<br><b>Limitation to remember:</b> Submerged Arc Welding works only in flat and horizontal-fillet positions, because loose flux falls off."},
+hi:{q:"प्रेशर-वेसल शेल की 40 mm मोटी कार्बन-स्टील प्लेटों में फ्लैट पोजीशन में लंबी सीधी सीम (seam) बनानी है, अधिक डिपॉज़िशन दर (deposition rate) के साथ और ऑपरेटर के लिए आर्क की चमक (glare) के बिना। सबसे उपयुक्त प्रक्रिया कौन-सी है?",
+o:["शील्डेड मेटल आर्क वेल्डिंग (Shielded Metal Arc Welding – SMAW)","टंगस्टन इनर्ट गैस (Tungsten Inert Gas – TIG) वेल्डिंग","ऑक्सी-एसिटिलीन गैस वेल्डिंग (Oxy-acetylene gas welding)","सबमर्ज्ड आर्क वेल्डिंग (Submerged Arc Welding – SAW)"],
+e:"<b>सबमर्ज्ड आर्क वेल्डिंग (Submerged Arc Welding)</b> – आर्क दानेदार फ्लक्स (granular flux) की परत के नीचे जलता है, इसलिए आर्क दिखाई नहीं देता – न चमक, न स्पैटर (spatter), धुआँ भी बहुत कम। लगातार उपभोज्य नंगी तार (consumable bare wire), बहुत अधिक करंट (1000 A से भी ऊपर) और ऑटोमैटिक ट्रैवल से सबसे अधिक डिपॉज़िशन और गहरी पेनिट्रेशन (penetration) मिलती है – मोटी प्लेटों की लंबी सीधी सीम के लिए आदर्श (प्रेशर वेसल, जहाज़, बॉयलर, बड़े पाइप)।<br><b>अन्य क्यों नहीं:</b> शील्डेड मेटल आर्क वेल्डिंग मैनुअल है – हर पास के बाद स्टब लॉस (stub loss) और स्लैग हटाना पड़ता है, 40 mm प्रोडक्शन सीम के लिए धीमी। टंगस्टन इनर्ट गैस वेल्डिंग का डिपॉज़िशन सबसे कम है – पतली, उच्च-गुणवत्ता वाली वेल्डिंग के लिए। ऑक्सी-एसिटिलीन गैस वेल्डिंग धीमी है और हीट-अफेक्टेड ज़ोन (Heat-Affected Zone – HAZ) चौड़ा देती है – पतली शीट व मरम्मत के लिए।<br><b>सीमा याद रखें:</b> सबमर्ज्ड आर्क वेल्डिंग केवल फ्लैट और हॉरिज़ॉन्टल-फिलेट पोजीशन में होती है, क्योंकि ढीला फ्लक्स गिर जाता है।"}},
+
+/* 2 */ {ans:2, lv:"h", tag:{en:"Polarity",hi:"पोलैरिटी"},
+en:{q:"Metal Inert Gas (MIG) welding, also called Gas Metal Arc Welding (GMAW), is normally run on Direct Current Reverse Polarity (DCRP – electrode positive) mainly because it:",
+o:["keeps the wire cool so that it does not melt too fast","puts two-thirds of the heat on the work for the deepest penetration","gives a stable arc with smooth, steady metal transfer","allows welding without any shielding gas around the arc"],
+e:"In Metal Inert Gas welding the wire is the consumable electrode and must melt continuously. On Direct Current Reverse Polarity (electrode positive) the arc is stable, droplets detach smoothly (spray transfer becomes possible), spatter is low, and the work – now the negative pole – gets <b>cathodic cleaning</b> of its oxide film, which is useful on aluminium. Alternating Current (AC) is rarely used because the arc goes out at every current zero, disturbing metal transfer.<br><b>Why not the others:</b> (a) reverse polarity makes the wire hotter, not cooler – that is why burn-off is high. (b) 'two-thirds heat on the work' is the classic Direct Current Straight Polarity (DCSP) statement. (d) Metal Inert Gas welding always needs argon/helium (or carbon dioxide in Metal Active Gas welding).<br><b>Exam fact:</b> MIG → DCRP · carbon arc → DCSP · TIG on steel → DCSP · TIG on aluminium → AC (RRB-CBT2 Jul'26 asked 'why DC in MIG')."},
+hi:{q:"मेटल इनर्ट गैस (Metal Inert Gas – MIG) वेल्डिंग, जिसे गैस मेटल आर्क वेल्डिंग (Gas Metal Arc Welding – GMAW) भी कहते हैं, सामान्यतः डायरेक्ट करंट रिवर्स पोलैरिटी (Direct Current Reverse Polarity – DCRP, इलेक्ट्रोड धनात्मक) पर की जाती है, मुख्यतः क्योंकि यह:",
+o:["तार को ठंडा रखती है ताकि वह बहुत तेज़ी से न पिघले","दो-तिहाई ऊष्मा जॉब पर देती है, जिससे सबसे गहरी पेनिट्रेशन मिलती है","स्थिर आर्क और सुचारु, एकसमान मेटल ट्रांसफर देती है","आर्क के चारों ओर बिना शील्डिंग गैस के वेल्डिंग संभव बनाती है"],
+e:"मेटल इनर्ट गैस वेल्डिंग में तार ही उपभोज्य इलेक्ट्रोड (consumable electrode) है जिसे लगातार पिघलना है। डायरेक्ट करंट रिवर्स पोलैरिटी (इलेक्ट्रोड +) पर आर्क स्थिर रहता है, बूँदें आसानी से अलग होती हैं (स्प्रे ट्रांसफर संभव), स्पैटर कम होता है और जॉब – जो अब ऋणात्मक है – की ऑक्साइड परत की <b>कैथोडिक क्लीनिंग (cathodic cleaning)</b> होती है, जो एल्युमिनियम पर उपयोगी है। अल्टरनेटिंग करंट (Alternating Current – AC) कम प्रयोग होता है क्योंकि हर करंट-ज़ीरो पर आर्क बुझता है और मेटल ट्रांसफर बिगड़ता है।<br><b>अन्य क्यों नहीं:</b> (a) रिवर्स पोलैरिटी में तार अधिक गर्म होता है, ठंडा नहीं – इसलिए बर्न-ऑफ अधिक है। (b) 'दो-तिहाई ऊष्मा जॉब पर' – यह डायरेक्ट करंट स्ट्रेट पोलैरिटी (Direct Current Straight Polarity – DCSP) का कथन है। (d) मेटल इनर्ट गैस वेल्डिंग में आर्गन/हीलियम (या मेटल एक्टिव गैस वेल्डिंग में कार्बन डाइऑक्साइड) हमेशा चाहिए।<br><b>परीक्षा तथ्य:</b> MIG → DCRP · कार्बन आर्क → DCSP · स्टील पर TIG → DCSP · एल्युमिनियम पर TIG → AC (RRB-CBT2 Jul'26 में 'MIG में DC क्यों' पूछा गया)।"}},
+
+/* 3 */ {ans:0, lv:"h", tag:{en:"Polarity",hi:"पोलैरिटी"},
+en:{q:"Direct Current Straight Polarity (DCSP – electrode negative) is preferred for Tungsten Inert Gas (TIG) welding of steel because:",
+o:["the tungsten stays cooler while the work gets deep penetration","the electrode gets two-thirds heat, so filler melts faster into the pool","cathodic cleaning removes the oxide layer from the steel surface","magnetic arc blow is fully eliminated on straight polarity"],
+e:"In a direct-current arc about two-thirds of the heat is released at the positive pole. On Direct Current Straight Polarity the work is positive → about ⅔ heat on the job → narrow, deep penetration. The tungsten (negative) gets only about ⅓ heat, so it does not overheat, melt or spit tungsten into the weld; a given electrode can carry much more current on straight polarity than on reverse polarity.<br><b>Why not the others:</b> (b) describes Direct Current Reverse Polarity (DCRP). (c) cathodic (oxide) cleaning happens only when the electrode is positive – it is needed for aluminium, not steel. (d) arc blow is a direct-current problem on both polarities; only Alternating Current removes it.<br><b>Memory hook:</b> Straight = Stick negative → work hot → deep. Reverse = Rod positive → rod hot → shallow."},
+hi:{q:"स्टील की टंगस्टन इनर्ट गैस (Tungsten Inert Gas – TIG) वेल्डिंग के लिए डायरेक्ट करंट स्ट्रेट पोलैरिटी (Direct Current Straight Polarity – DCSP, इलेक्ट्रोड ऋणात्मक) पसंद की जाती है, क्योंकि:",
+o:["टंगस्टन ठंडा रहता है जबकि जॉब को गहरी पेनिट्रेशन मिलती है","इलेक्ट्रोड को दो-तिहाई ऊष्मा मिलती है, जिससे फिलर तेज़ी से पिघलता है","कैथोडिक क्लीनिंग स्टील की सतह से ऑक्साइड परत हटा देती है","स्ट्रेट पोलैरिटी पर मैग्नेटिक आर्क ब्लो पूरी तरह समाप्त हो जाता है"],
+e:"डायरेक्ट करंट आर्क में लगभग दो-तिहाई ऊष्मा धनात्मक पोल पर निकलती है। स्ट्रेट पोलैरिटी में जॉब धनात्मक है → लगभग ⅔ ऊष्मा जॉब पर → संकरी, गहरी पेनिट्रेशन। टंगस्टन (ऋणात्मक) को केवल ⅓ ऊष्मा मिलती है, इसलिए वह न ज़्यादा गर्म होता है, न पिघलता है, न वेल्ड में टंगस्टन गिरता है; एक ही इलेक्ट्रोड स्ट्रेट पोलैरिटी पर रिवर्स की तुलना में कहीं अधिक करंट सह सकता है।<br><b>अन्य क्यों नहीं:</b> (b) यह डायरेक्ट करंट रिवर्स पोलैरिटी (DCRP) का वर्णन है। (c) कैथोडिक (ऑक्साइड) क्लीनिंग केवल तब होती है जब इलेक्ट्रोड धनात्मक हो – यह एल्युमिनियम के लिए चाहिए, स्टील के लिए नहीं। (d) आर्क ब्लो दोनों डायरेक्ट करंट पोलैरिटी में होता है; केवल अल्टरनेटिंग करंट इसे हटाता है।<br><b>याद रखने की ट्रिक:</b> Straight = Stick negative → जॉब गर्म → गहरी। Reverse = Rod positive → रॉड गर्म → उथली।"}},
+
+/* 4 */ {ans:2, lv:"h", tag:{en:"Polarity / metals",hi:"पोलैरिटी / धातुएँ"},
+en:{q:"Tungsten Inert Gas (TIG) welding of aluminium is generally done on Alternating Current (AC) because:",
+o:["AC gives deeper penetration than straight polarity on all metals","argon ionises only on AC, so a direct-current arc cannot be struck","alternating half-cycles clean the oxide and cool the tungsten","aluminium's high conductivity makes every direct-current arc unstable"],
+e:"Aluminium is covered by a tough, high-melting oxide film (aluminium oxide melts near 2050 °C while aluminium melts near 660 °C). In the electrode-positive half-cycle, positive ions bombard the work and break the oxide (cathodic cleaning); in the electrode-negative half-cycle the tungsten cools and the work gets penetration. Alternating Current therefore combines the cleaning of reverse polarity with the electrode safety of straight polarity. A high-frequency unit keeps the arc alive at each current zero.<br><b>Why not the others:</b> (a) Direct Current Straight Polarity gives deeper penetration than AC. (b) argon works perfectly on direct current – TIG of steel is done on straight polarity with argon. (d) direct-current arcs on aluminium are stable; the real problem is the oxide, not conductivity.<br><b>Exam link:</b> the same oxide problem is why aluminium–magnesium gas welding needs a fluoride/chloride flux (RRB-CBT2 Jul'26)."},
+hi:{q:"एल्युमिनियम की टंगस्टन इनर्ट गैस (Tungsten Inert Gas – TIG) वेल्डिंग सामान्यतः अल्टरनेटिंग करंट (Alternating Current – AC) पर की जाती है, क्योंकि:",
+o:["AC सभी धातुओं पर स्ट्रेट पोलैरिटी से अधिक गहरी पेनिट्रेशन देता है","आर्गन केवल AC पर आयनित होती है, इसलिए डायरेक्ट करंट आर्क नहीं बनता","बदलते हाफ-साइकिल ऑक्साइड साफ़ करते हैं और टंगस्टन को ठंडा करते हैं","एल्युमिनियम की उच्च चालकता हर डायरेक्ट करंट आर्क को अस्थिर कर देती है"],
+e:"एल्युमिनियम पर कठोर, उच्च गलनांक वाली ऑक्साइड परत होती है (एल्युमिनियम ऑक्साइड लगभग 2050 °C पर पिघलता है, जबकि एल्युमिनियम लगभग 660 °C पर)। इलेक्ट्रोड-धनात्मक हाफ-साइकिल में धनात्मक आयन जॉब पर टकराकर ऑक्साइड तोड़ते हैं (कैथोडिक क्लीनिंग); इलेक्ट्रोड-ऋणात्मक हाफ-साइकिल में टंगस्टन ठंडा होता है और जॉब को पेनिट्रेशन मिलती है। इस प्रकार अल्टरनेटिंग करंट रिवर्स पोलैरिटी की क्लीनिंग और स्ट्रेट पोलैरिटी की इलेक्ट्रोड-सुरक्षा दोनों देता है। हाई-फ्रीक्वेंसी यूनिट हर करंट-ज़ीरो पर आर्क को बुझने नहीं देती।<br><b>अन्य क्यों नहीं:</b> (a) डायरेक्ट करंट स्ट्रेट पोलैरिटी AC से अधिक गहरी पेनिट्रेशन देती है। (b) आर्गन डायरेक्ट करंट पर भी पूरी तरह काम करती है – स्टील की TIG वेल्डिंग स्ट्रेट पोलैरिटी व आर्गन से ही होती है। (d) एल्युमिनियम पर डायरेक्ट करंट आर्क स्थिर रहता है; असली समस्या ऑक्साइड है, चालकता नहीं।<br><b>परीक्षा लिंक:</b> इसी ऑक्साइड समस्या के कारण एल्युमिनियम–मैग्नीशियम की गैस वेल्डिंग में फ्लोराइड/क्लोराइड फ्लक्स चाहिए (RRB-CBT2 Jul'26)।"}},
+
+/* 5 */ {ans:2, lv:"p", tag:{en:"Submerged arc",hi:"सबमर्ज्ड आर्क"},
+en:{q:"Consider the following statements about Submerged Arc Welding (SAW):<br>I. Part of the granular flux melts to form slag that protects the bead.<br>II. Submerged Arc Welding is easily used in the overhead position.<br>III. The arc is hidden under the flux, so ultraviolet glare is minimal.<br>Which of the statements are correct?",
+o:["I and II only","II and III only","I and III only","I, II and III"],
+e:"<b>Statement I ✔</b> – part of the granular flux fuses into slag that shields the molten pool and slows cooling; the unfused flux is recovered and reused.<br><b>Statement III ✔</b> – the arc is completely covered, so there is no visible arc, no spatter, and the welder needs no dark filter glass.<br><b>Statement II ✘</b> – loose flux cannot stay on a vertical or overhead joint; Submerged Arc Welding is limited to flat and horizontal-fillet positions (circular seams are welded by rotating the job under the head).<br><b>Holistic recap:</b> consumable bare wire electrode (RRB-CBT2 Jun'25, Apr'25-I) · flux fed through a hopper/feeder tube · automatic or semi-automatic · constant-voltage power source · 300–2000 A · deep penetration, very high deposition · used for ships, pressure vessels, boilers, pipes and structural girders."},
+hi:{q:"सबमर्ज्ड आर्क वेल्डिंग (Submerged Arc Welding – SAW) के बारे में निम्न कथनों पर विचार करें:<br>I. दानेदार फ्लक्स का एक भाग पिघलकर स्लैग बनाता है जो बीड (bead) की रक्षा करता है।<br>II. सबमर्ज्ड आर्क वेल्डिंग ओवरहेड पोजीशन में आसानी से की जाती है।<br>III. आर्क फ्लक्स के नीचे छिपा रहता है, इसलिए पराबैंगनी (ultraviolet) चमक न्यूनतम होती है।<br>कौन-से कथन सही हैं?",
+o:["केवल I और II","केवल II और III","केवल I और III","I, II और III"],
+e:"<b>कथन I ✔</b> – दानेदार फ्लक्स का एक भाग पिघलकर स्लैग बनता है जो पिघले पूल (pool) को ढककर बचाता है और ठंडा होने की दर धीमी करता है; बिना पिघला फ्लक्स इकट्ठा करके दोबारा प्रयोग होता है।<br><b>कथन III ✔</b> – आर्क पूरी तरह ढका रहता है, इसलिए न आर्क दिखता है, न स्पैटर होता है, और वेल्डर को गहरे फ़िल्टर ग्लास की ज़रूरत नहीं।<br><b>कथन II ✘</b> – ढीला फ्लक्स वर्टिकल या ओवरहेड जोड़ पर टिक नहीं सकता; सबमर्ज्ड आर्क वेल्डिंग केवल फ्लैट और हॉरिज़ॉन्टल-फिलेट पोजीशन तक सीमित है (गोलाकार सीम में जॉब को हेड के नीचे घुमाया जाता है)।<br><b>संपूर्ण सार:</b> उपभोज्य नंगा तार इलेक्ट्रोड (RRB-CBT2 Jun'25, Apr'25-I) · फ्लक्स हॉपर/फीडर ट्यूब से · ऑटोमैटिक या सेमी-ऑटोमैटिक · कॉन्स्टेंट-वोल्टेज पावर सोर्स · 300–2000 A · गहरी पेनिट्रेशन, बहुत अधिक डिपॉज़िशन · जहाज़, प्रेशर वेसल, बॉयलर, पाइप व स्ट्रक्चरल गर्डर में प्रयोग।"}},
+
+/* 6 */ {ans:1, lv:"h", tag:{en:"Atomic hydrogen",hi:"एटॉमिक हाइड्रोजन"},
+en:{q:"Which of the following is NOT true for Atomic Hydrogen Welding (AHW)?",
+o:["two tungsten electrodes carry the arc between them","the workpiece is connected in the electrical circuit","molecular hydrogen breaks into atoms inside the arc","the atoms recombine on the job surface, releasing heat"],
+e:"In Atomic Hydrogen Welding (Langmuir's process) an Alternating Current arc is struck between <b>two tungsten electrodes</b>; the work is <b>not</b> part of the circuit – that is why the torch can be moved freely like a gas flame. Hydrogen gas flowing through the arc dissociates (H₂ → 2H, absorbing heat); when the atoms reach the cooler work they recombine (2H → H₂), releasing that heat right on the surface at about 3700–4000 °C. The hydrogen also shields the pool from oxidation.<br><b>Uses:</b> tool and die steels, thin sheets, alloy steels, hard-facing.<br><b>Trap:</b> it is an <b>arc</b> process. Some books wrongly mark Atomic Hydrogen Welding as 'not an arc process' – the correct answer to that RRB question (RRB-CBT2 Apr'25-I) is electroslag welding."},
+hi:{q:"एटॉमिक हाइड्रोजन वेल्डिंग (Atomic Hydrogen Welding – AHW) के लिए निम्न में से कौन-सा सत्य नहीं है?",
+o:["दो टंगस्टन इलेक्ट्रोड के बीच आर्क बनता है","वर्कपीस विद्युत परिपथ (circuit) में जुड़ा होता है","आर्क के अंदर आणविक हाइड्रोजन परमाणुओं में टूटती है","परमाणु जॉब की सतह पर पुनः जुड़कर ऊष्मा छोड़ते हैं"],
+e:"एटॉमिक हाइड्रोजन वेल्डिंग (लैंगम्यूर/Langmuir प्रक्रिया) में अल्टरनेटिंग करंट आर्क <b>दो टंगस्टन इलेक्ट्रोड</b> के बीच बनता है; जॉब परिपथ का भाग <b>नहीं</b> होता – इसलिए टॉर्च को गैस फ्लेम की तरह स्वतंत्र रूप से चलाया जा सकता है। आर्क से गुज़रती हाइड्रोजन गैस टूटती है (H₂ → 2H, ऊष्मा अवशोषित); जब परमाणु ठंडे जॉब पर पहुँचते हैं तो पुनः जुड़ते हैं (2H → H₂) और वही ऊष्मा सीधे सतह पर लगभग 3700–4000 °C पर छोड़ते हैं। हाइड्रोजन पूल को ऑक्सीकरण से भी बचाती है।<br><b>उपयोग:</b> टूल व डाई स्टील, पतली शीट, एलॉय स्टील, हार्ड-फेसिंग।<br><b>ट्रैप:</b> यह एक <b>आर्क</b> प्रक्रिया है। कुछ पुस्तकें गलती से इसे 'आर्क प्रक्रिया नहीं' बताती हैं – उस RRB प्रश्न (RRB-CBT2 Apr'25-I) का सही उत्तर इलेक्ट्रोस्लैग वेल्डिंग है।"}},
+
+/* 7 */ {ans:0, lv:"h", tag:{en:"Assertion–Reason",hi:"अभिकथन–कारण"},
+en:{q:"<b>Assertion (A):</b> In Atomic Hydrogen Welding (AHW), intense heat is released at the surface of the work.<br><b>Reason (R):</b> Recombination of atomic hydrogen into molecular hydrogen is an exothermic process.",
+o:["Both A and R are true, and R explains A","Both A and R are true, but R does not explain A","A is true, but R is false","A is false, but R is true"],
+e:"Both statements are true and R is the correct reason for A. Breaking the H–H bond in the arc is endothermic (about 436 kJ per mole is absorbed); recombination on the work is exothermic and returns the same energy exactly at the job surface, so heat is concentrated where it is needed. This lets Atomic Hydrogen Welding produce flame-like heat of about 3700–4000 °C without the work being part of the circuit.<br><b>Related comparison:</b> in oxy-acetylene welding the hottest point is the tip of the inner cone (about 3200 °C); in electron beam welding the heat comes from the kinetic energy of electrons striking the job; in thermit welding it comes from an exothermic aluminium–iron oxide reaction."},
+hi:{q:"<b>अभिकथन (A):</b> एटॉमिक हाइड्रोजन वेल्डिंग (Atomic Hydrogen Welding – AHW) में तीव्र ऊष्मा जॉब की सतह पर निकलती है।<br><b>कारण (R):</b> परमाणु हाइड्रोजन का आणविक हाइड्रोजन में पुनः जुड़ना एक ऊष्माक्षेपी (exothermic) प्रक्रिया है।",
+o:["A और R दोनों सत्य हैं, और R, A की सही व्याख्या है","A और R दोनों सत्य हैं, पर R, A की व्याख्या नहीं है","A सत्य है, पर R असत्य है","A असत्य है, पर R सत्य है"],
+e:"दोनों कथन सत्य हैं और R, A का सही कारण है। आर्क में H–H बंध तोड़ना ऊष्माशोषी (endothermic) है (लगभग 436 kJ प्रति मोल अवशोषित); जॉब पर पुनः जुड़ना ऊष्माक्षेपी है और वही ऊर्जा ठीक जॉब की सतह पर लौटा देता है, इसलिए ऊष्मा वहीं केंद्रित होती है जहाँ चाहिए। इसी से एटॉमिक हाइड्रोजन वेल्डिंग जॉब को परिपथ में जोड़े बिना लगभग 3700–4000 °C की फ्लेम जैसी ऊष्मा देती है।<br><b>संबंधित तुलना:</b> ऑक्सी-एसिटिलीन वेल्डिंग में सबसे गर्म बिंदु इनर कोन का सिरा (लगभग 3200 °C) है; इलेक्ट्रॉन बीम वेल्डिंग में ऊष्मा जॉब से टकराते इलेक्ट्रॉनों की गतिज ऊर्जा से आती है; थर्मिट वेल्डिंग में एल्युमिनियम–आयरन ऑक्साइड की ऊष्माक्षेपी अभिक्रिया से।"}},
+
+/* 8 */ {ans:3, lv:"p", tag:{en:"MIG vs MAG",hi:"MIG बनाम MAG"},
+en:{q:"Which statement about Metal Active Gas (MAG) welding – i.e. carbon dioxide (CO₂) welding – compared with Metal Inert Gas (MIG) welding is correct?",
+o:["CO₂ is inert, so Metal Active Gas welding behaves exactly like MIG","CO₂ shielding is preferred for aluminium and magnesium alloys","CO₂ shielding gives a spatter-free, spray-type metal transfer","CO₂ is active and cheaper, but it produces more spatter"],
+e:"Carbon dioxide dissociates in the arc (2CO₂ → 2CO + O₂), so it is chemically <b>active</b> and can oxidise the pool. Wires with extra deoxidisers (silicon, manganese) are therefore used, and the process is limited to carbon and low-alloy steels. Carbon dioxide is far cheaper than argon/helium and gives broader, deeper penetration, but the arc is harsher – globular transfer and more spatter.<br><b>Why not the others:</b> (a) only argon and helium are inert. (b) aluminium and magnesium would oxidise – they need pure argon/helium (Metal Inert Gas welding). (c) true spray transfer needs an argon-rich gas.<br><b>Exam pair:</b> Metal Inert Gas ↔ inert argon/helium · Metal Active Gas ↔ active carbon dioxide or argon + carbon dioxide mix (old Railway JE/SSE PYQ: 'main difference between MIG and MAG')."},
+hi:{q:"मेटल एक्टिव गैस (Metal Active Gas – MAG) वेल्डिंग, अर्थात कार्बन डाइऑक्साइड (CO₂) वेल्डिंग, की मेटल इनर्ट गैस (Metal Inert Gas – MIG) वेल्डिंग से तुलना में कौन-सा कथन सही है?",
+o:["CO₂ अक्रिय है, इसलिए मेटल एक्टिव गैस वेल्डिंग बिल्कुल MIG जैसी है","CO₂ शील्डिंग एल्युमिनियम और मैग्नीशियम मिश्रधातुओं के लिए पसंद की जाती है","CO₂ शील्डिंग स्पैटर-रहित, स्प्रे-प्रकार का मेटल ट्रांसफर देती है","CO₂ सक्रिय और सस्ती है, परंतु इससे स्पैटर अधिक होता है"],
+e:"कार्बन डाइऑक्साइड आर्क में टूटती है (2CO₂ → 2CO + O₂), इसलिए यह रासायनिक रूप से <b>सक्रिय</b> है और पूल का ऑक्सीकरण कर सकती है। इसलिए अतिरिक्त डीऑक्सीडाइज़र (सिलिकॉन, मैंगनीज़) वाले तार प्रयोग होते हैं और यह प्रक्रिया कार्बन व लो-एलॉय स्टील तक सीमित है। कार्बन डाइऑक्साइड आर्गन/हीलियम से बहुत सस्ती है और चौड़ी, गहरी पेनिट्रेशन देती है, पर आर्क कठोर होता है – ग्लोब्युलर ट्रांसफर और अधिक स्पैटर।<br><b>अन्य क्यों नहीं:</b> (a) केवल आर्गन और हीलियम अक्रिय हैं। (b) एल्युमिनियम और मैग्नीशियम का ऑक्सीकरण हो जाएगा – उन्हें शुद्ध आर्गन/हीलियम (मेटल इनर्ट गैस वेल्डिंग) चाहिए। (c) वास्तविक स्प्रे ट्रांसफर के लिए आर्गन-प्रधान गैस चाहिए।<br><b>परीक्षा जोड़ी:</b> मेटल इनर्ट गैस ↔ अक्रिय आर्गन/हीलियम · मेटल एक्टिव गैस ↔ सक्रिय कार्बन डाइऑक्साइड या आर्गन + कार्बन डाइऑक्साइड मिश्रण (पुराना रेलवे JE/SSE PYQ: 'MIG और MAG में मुख्य अंतर')।"}},
+
+/* 9 */ {ans:2, lv:"p", tag:{en:"Match the following",hi:"सुमेलित करें"},
+en:{q:"Match List-I (process) with List-II (key feature):<br>P. Shielded Metal Arc Welding (SMAW)<br>Q. Submerged Arc Welding (SAW)<br>R. Metal Inert Gas (MIG) welding<br>S. Tungsten Inert Gas (TIG) welding<br>1. Non-consumable electrode, filler added separately<br>2. Granular flux fed over the joint<br>3. Flux-coated consumable stick<br>4. Continuous bare wire with gas shield",
+o:["P-2, Q-3, R-1, S-4","P-3, Q-4, R-2, S-1","P-3, Q-2, R-4, S-1","P-4, Q-2, R-3, S-1"],
+e:"<b>Shielded Metal Arc Welding</b> (Manual Metal Arc) – coated stick; the coating burns to give gas + slag; manual, all positions (RRB-CBT2 Apr'25-I).<br><b>Submerged Arc Welding</b> – bare wire under granular flux; automatic, flat position.<br><b>Metal Inert Gas / Gas Metal Arc Welding</b> – continuous bare wire, argon/helium shield; semi-automatic, fast.<br><b>Tungsten Inert Gas / Gas Tungsten Arc Welding</b> – tungsten does not melt; filler rod is fed separately or not at all (autogenous weld).<br><b>One-line memory:</b> coated stick = SMAW · flux blanket = SAW · wire + gas = MIG · tungsten + gas = TIG · tubular wire with flux inside = Flux-Cored Arc Welding (FCAW) · two tungstens + hydrogen = Atomic Hydrogen Welding (AHW)."},
+hi:{q:"सूची-I (प्रक्रिया) को सूची-II (मुख्य विशेषता) से सुमेलित करें:<br>P. शील्डेड मेटल आर्क वेल्डिंग (Shielded Metal Arc Welding – SMAW)<br>Q. सबमर्ज्ड आर्क वेल्डिंग (Submerged Arc Welding – SAW)<br>R. मेटल इनर्ट गैस (Metal Inert Gas – MIG) वेल्डिंग<br>S. टंगस्टन इनर्ट गैस (Tungsten Inert Gas – TIG) वेल्डिंग<br>1. अनुपभोज्य (non-consumable) इलेक्ट्रोड, फिलर अलग से<br>2. जोड़ पर दानेदार फ्लक्स डाला जाता है<br>3. फ्लक्स-लेपित उपभोज्य स्टिक<br>4. गैस शील्ड के साथ लगातार नंगा तार",
+o:["P-2, Q-3, R-1, S-4","P-3, Q-4, R-2, S-1","P-3, Q-2, R-4, S-1","P-4, Q-2, R-3, S-1"],
+e:"<b>शील्डेड मेटल आर्क वेल्डिंग</b> (मैनुअल मेटल आर्क) – लेपित स्टिक; कोटिंग जलकर गैस + स्लैग देती है; मैनुअल, सभी पोजीशन (RRB-CBT2 Apr'25-I)।<br><b>सबमर्ज्ड आर्क वेल्डिंग</b> – दानेदार फ्लक्स के नीचे नंगा तार; ऑटोमैटिक, फ्लैट पोजीशन।<br><b>मेटल इनर्ट गैस / गैस मेटल आर्क वेल्डिंग</b> – लगातार नंगा तार, आर्गन/हीलियम शील्ड; सेमी-ऑटोमैटिक, तेज़।<br><b>टंगस्टन इनर्ट गैस / गैस टंगस्टन आर्क वेल्डिंग</b> – टंगस्टन नहीं पिघलता; फिलर रॉड अलग से या बिल्कुल नहीं (ऑटोजीनस वेल्ड)।<br><b>एक-लाइन याद:</b> लेपित स्टिक = SMAW · फ्लक्स की परत = SAW · तार + गैस = MIG · टंगस्टन + गैस = TIG · अंदर फ्लक्स वाला ट्यूबलर तार = फ्लक्स-कोर्ड आर्क वेल्डिंग (Flux-Cored Arc Welding – FCAW) · दो टंगस्टन + हाइड्रोजन = एटॉमिक हाइड्रोजन वेल्डिंग (AHW)।"}},
+
+/* 10 */ {ans:0, lv:"h", tag:{en:"Scenario",hi:"परिस्थिति"},
+en:{q:"Overhead repair of a mild-steel railway bridge girder on site is done by Shielded Metal Arc Welding (SMAW) and not by Submerged Arc Welding (SAW), because:",
+o:["granular flux cannot stay in place in out-of-position joints","Submerged Arc welds have lower tensile strength than SMAW welds","SMAW gives a higher deposition rate than Submerged Arc Welding","Submerged Arc Welding needs costly inert gas, difficult on site"],
+e:"Submerged Arc Welding needs a heap of loose flux over the joint – gravity makes it fall off in vertical and overhead positions, and the heavy automatic carriage is not portable. Shielded Metal Arc Welding needs only a power source, cables, holder and electrodes, works in all positions (flat 1G → horizontal 2G → vertical 3G → overhead 4G, the hardest) and is the standard process for site and repair work.<br><b>Why not the others:</b> (b) Submerged Arc welds are sound and strong. (c) Submerged Arc Welding has a much higher deposition rate. (d) it uses no shielding gas – the flux does the shielding.<br><b>Tip for overhead SMAW:</b> short arc, lower current, smaller electrode; the <b>pinch effect</b> (electromagnetic force) helps carry droplets upward into the joint."},
+hi:{q:"साइट पर माइल्ड-स्टील रेलवे पुल गर्डर की ओवरहेड मरम्मत शील्डेड मेटल आर्क वेल्डिंग (Shielded Metal Arc Welding – SMAW) से की जाती है, सबमर्ज्ड आर्क वेल्डिंग (Submerged Arc Welding – SAW) से नहीं, क्योंकि:",
+o:["आउट-ऑफ़-पोजीशन जोड़ों में दानेदार फ्लक्स अपनी जगह टिक नहीं सकता","सबमर्ज्ड आर्क वेल्ड की तन्य सामर्थ्य SMAW वेल्ड से कम होती है","SMAW, सबमर्ज्ड आर्क वेल्डिंग से अधिक डिपॉज़िशन दर देती है","सबमर्ज्ड आर्क वेल्डिंग को महँगी अक्रिय गैस चाहिए, जो साइट पर कठिन है"],
+e:"सबमर्ज्ड आर्क वेल्डिंग में जोड़ पर ढीले फ्लक्स का ढेर चाहिए – गुरुत्व के कारण वह वर्टिकल व ओवरहेड पोजीशन में गिर जाता है, और भारी ऑटोमैटिक कैरिज पोर्टेबल नहीं है। शील्डेड मेटल आर्क वेल्डिंग में केवल पावर सोर्स, केबल, होल्डर और इलेक्ट्रोड चाहिए, यह सभी पोजीशन में होती है (फ्लैट 1G → हॉरिज़ॉन्टल 2G → वर्टिकल 3G → ओवरहेड 4G, सबसे कठिन) और साइट व मरम्मत कार्य की मानक प्रक्रिया है।<br><b>अन्य क्यों नहीं:</b> (b) सबमर्ज्ड आर्क वेल्ड मज़बूत और दोषरहित होते हैं। (c) सबमर्ज्ड आर्क वेल्डिंग का डिपॉज़िशन कहीं अधिक है। (d) इसमें शील्डिंग गैस नहीं लगती – शील्डिंग फ्लक्स करता है।<br><b>ओवरहेड SMAW टिप:</b> छोटा आर्क, कम करंट, छोटा इलेक्ट्रोड; <b>पिंच इफ़ेक्ट (pinch effect)</b> (विद्युत-चुंबकीय बल) बूँदों को ऊपर जोड़ में पहुँचाने में मदद करता है।"}},
+
+/* 11 */ {ans:1, lv:"h", tag:{en:"Metal transfer",hi:"मेटल ट्रांसफर"},
+en:{q:"In Metal Inert Gas (MIG) welding, which metal-transfer mode is used for thin sheets and all-position work because of its low heat input?",
+o:["Spray transfer","Short-circuit (dip) transfer","Globular transfer","Rotating spray transfer"],
+e:"In <b>short-circuit (dip) transfer</b>, at low current and voltage the wire tip touches the pool, a short circuit occurs, a droplet is pinched off and the arc re-ignites – about 20–200 times a second. Heat input is low, the pool is small and freezes fast → thin sheets, root passes, vertical and overhead work.<br><b>Other modes:</b> Globular – medium current, large irregular drops, more spatter (common with carbon dioxide shielding). Spray – high current with argon-rich gas, fine droplets, deep penetration, but only flat/horizontal and thicker plates (old RRB PYQ: 'in MIG, metal is transferred as a fine spray'). Rotating spray – very high current, very high deposition. Pulsed spray gives spray-like transfer at a low average current.<br><b>Exam link:</b> in Metal Active Gas / carbon dioxide dip transfer, weld appearance is best controlled by circuit <b>inductance</b>."},
+hi:{q:"मेटल इनर्ट गैस (Metal Inert Gas – MIG) वेल्डिंग में कम ऊष्मा-निवेश (heat input) के कारण पतली शीट और सभी पोजीशन के कार्य के लिए कौन-सा मेटल-ट्रांसफर मोड प्रयोग होता है?",
+o:["स्प्रे ट्रांसफर (Spray)","शॉर्ट-सर्किट (डिप) ट्रांसफर (Short-circuit / Dip)","ग्लोब्युलर ट्रांसफर (Globular)","रोटेटिंग स्प्रे ट्रांसफर (Rotating spray)"],
+e:"<b>शॉर्ट-सर्किट (डिप) ट्रांसफर</b> में कम करंट व वोल्टेज पर तार का सिरा पूल को छूता है, शॉर्ट सर्किट होता है, एक बूँद अलग होती है और आर्क फिर जलता है – लगभग 20–200 बार प्रति सेकंड। ऊष्मा-निवेश कम, पूल छोटा और जल्दी जमता है → पतली शीट, रूट पास, वर्टिकल व ओवरहेड कार्य।<br><b>अन्य मोड:</b> ग्लोब्युलर – मध्यम करंट, बड़ी अनियमित बूँदें, अधिक स्पैटर (कार्बन डाइऑक्साइड शील्डिंग में आम)। स्प्रे – आर्गन-प्रधान गैस के साथ उच्च करंट, महीन बूँदें, गहरी पेनिट्रेशन, पर केवल फ्लैट/हॉरिज़ॉन्टल और मोटी प्लेट (पुराना RRB PYQ: 'MIG में धातु महीन स्प्रे के रूप में ट्रांसफर होती है')। रोटेटिंग स्प्रे – बहुत उच्च करंट, बहुत अधिक डिपॉज़िशन। पल्स्ड स्प्रे कम औसत करंट पर स्प्रे जैसा ट्रांसफर देता है।<br><b>परीक्षा लिंक:</b> मेटल एक्टिव गैस / कार्बन डाइऑक्साइड डिप ट्रांसफर में वेल्ड की बनावट सबसे अधिक परिपथ के <b>इंडक्टेंस (inductance)</b> से नियंत्रित होती है।"}},
+
+/* 12 */ {ans:3, lv:"h", tag:{en:"Plasma arc",hi:"प्लाज़्मा आर्क"},
+en:{q:"A Plasma Arc Welding (PAW) arc is much hotter than a Tungsten Inert Gas (TIG) arc because:",
+o:["it uses a consumable electrode of a higher melting point","oxygen in the plasma gas adds extra heat by combustion","an Alternating Current supply doubles the arc voltage","the arc is squeezed through a nozzle, raising energy density"],
+e:"Plasma Arc Welding also uses a non-consumable tungsten electrode, but the arc is forced through a small, water-cooled copper <b>constricting nozzle</b>. Constriction raises current density and ionisation, giving a stiff, columnar jet at about 15,000–30,000 °C (compared with roughly 6000 °C in a Tungsten Inert Gas arc). This allows <b>keyhole welding</b> – the jet pierces the full thickness and molten metal flows in behind it – and also <b>plasma cutting</b> of stainless steel, aluminium and copper, which oxy-fuel cutting cannot do.<br><b>Why not the others:</b> the electrode is non-consumable; the plasma gas is argon or argon–hydrogen, not oxygen; Plasma Arc Welding is normally run on Direct Current Straight Polarity.<br><b>PYQ link:</b> joining two 0.1 mm stainless-steel foils → plasma arc (micro-plasma) welding."},
+hi:{q:"प्लाज़्मा आर्क वेल्डिंग (Plasma Arc Welding – PAW) का आर्क टंगस्टन इनर्ट गैस (Tungsten Inert Gas – TIG) आर्क से बहुत अधिक गर्म होता है, क्योंकि:",
+o:["इसमें अधिक गलनांक वाला उपभोज्य इलेक्ट्रोड प्रयोग होता है","प्लाज़्मा गैस में ऑक्सीजन दहन द्वारा अतिरिक्त ऊष्मा देती है","अल्टरनेटिंग करंट सप्लाई आर्क वोल्टेज को दोगुना कर देती है","आर्क को नोज़ल से दबाया जाता है, जिससे ऊर्जा घनत्व बढ़ता है"],
+e:"प्लाज़्मा आर्क वेल्डिंग में भी अनुपभोज्य टंगस्टन इलेक्ट्रोड होता है, पर आर्क को छोटे, पानी से ठंडे किए गए कॉपर <b>कंस्ट्रिक्टिंग नोज़ल (constricting nozzle)</b> से ज़बरदस्ती निकाला जाता है। संकुचन से करंट घनत्व और आयनन बढ़ता है, जिससे लगभग 15,000–30,000 °C का कड़ा, स्तंभ जैसा जेट बनता है (टंगस्टन इनर्ट गैस आर्क में लगभग 6000 °C)। इससे <b>कीहोल वेल्डिंग (keyhole welding)</b> संभव होती है – जेट पूरी मोटाई को भेदता है और पीछे पिघली धातु भर जाती है – और स्टेनलेस स्टील, एल्युमिनियम व कॉपर की <b>प्लाज़्मा कटिंग</b> भी, जो ऑक्सी-फ्यूल कटिंग नहीं कर सकती।<br><b>अन्य क्यों नहीं:</b> इलेक्ट्रोड अनुपभोज्य है; प्लाज़्मा गैस आर्गन या आर्गन–हाइड्रोजन है, ऑक्सीजन नहीं; प्लाज़्मा आर्क वेल्डिंग सामान्यतः डायरेक्ट करंट स्ट्रेट पोलैरिटी पर होती है।<br><b>PYQ लिंक:</b> 0.1 mm की दो स्टेनलेस-स्टील फॉइल जोड़नी हों → प्लाज़्मा आर्क (माइक्रो-प्लाज़्मा) वेल्डिंग।"}},
+
+/* 13 */ {ans:1, lv:"t", tag:{en:"Plasma arc",hi:"प्लाज़्मा आर्क"},
+en:{q:"In a 'transferred arc' plasma torch, the arc is established between:",
+o:["the electrode and the constricting nozzle","the electrode and the workpiece","the two tungsten electrodes of the torch","the constricting nozzle and the workpiece"],
+e:"<b>Transferred arc:</b> electrode (negative) to the work (positive). The work is in the circuit, so most of the heat goes into the job → used for welding and cutting of electrically conductive metals; higher efficiency.<br><b>Non-transferred arc:</b> electrode to the nozzle; the plasma gas carries the heat out like a flame and the work is not in the circuit → used for plasma spraying/coating and for non-conductive materials.<br>A low-current <b>pilot arc</b> between electrode and nozzle is struck first to start the transferred arc.<br><b>Option (c)</b> describes Atomic Hydrogen Welding. <b>PYQ link (HPPSC):</b> 'transferred arc process' belongs to Plasma Arc Machining/Welding."},
+hi:{q:"'ट्रांसफ़र्ड आर्क (transferred arc)' प्लाज़्मा टॉर्च में आर्क किसके बीच बनता है?",
+o:["इलेक्ट्रोड और कंस्ट्रिक्टिंग नोज़ल के बीच","इलेक्ट्रोड और वर्कपीस के बीच","टॉर्च के दो टंगस्टन इलेक्ट्रोड के बीच","कंस्ट्रिक्टिंग नोज़ल और वर्कपीस के बीच"],
+e:"<b>ट्रांसफ़र्ड आर्क:</b> इलेक्ट्रोड (ऋणात्मक) से जॉब (धनात्मक) तक। जॉब परिपथ में होता है, इसलिए अधिकांश ऊष्मा जॉब में जाती है → विद्युत-चालक धातुओं की वेल्डिंग व कटिंग के लिए; दक्षता अधिक।<br><b>नॉन-ट्रांसफ़र्ड आर्क:</b> इलेक्ट्रोड से नोज़ल तक; प्लाज़्मा गैस ऊष्मा को फ्लेम की तरह बाहर ले जाती है और जॉब परिपथ में नहीं होता → प्लाज़्मा स्प्रेइंग/कोटिंग और अचालक पदार्थों के लिए।<br>ट्रांसफ़र्ड आर्क शुरू करने के लिए पहले इलेक्ट्रोड और नोज़ल के बीच कम करंट का <b>पायलट आर्क (pilot arc)</b> बनाया जाता है।<br><b>विकल्प (c)</b> एटॉमिक हाइड्रोजन वेल्डिंग का वर्णन है। <b>PYQ लिंक (HPPSC):</b> 'ट्रांसफ़र्ड आर्क प्रक्रिया' प्लाज़्मा आर्क मशीनिंग/वेल्डिंग से संबंधित है।"}},
+
+/* 14 */ {ans:2, lv:"h", tag:{en:"Shielding gas",hi:"शील्डिंग गैस"},
+en:{q:"For Tungsten Inert Gas (TIG) welding of thick copper, which shielding gas gives a higher arc voltage and deeper penetration than argon?",
+o:["Carbon dioxide","Neon","Helium","Oxygen"],
+e:"Helium has a higher ionisation potential (about 24.6 eV against about 15.8 eV for argon) and higher thermal conductivity, so for the same current the arc voltage – and therefore heat input (voltage × current) – is higher. That gives deeper penetration and faster travel on thick, highly conductive metals like copper and aluminium.<br><b>Argon</b> is heavier than air (a better blanket at low flow), cheaper, gives easier arc starting and a smoother, quieter arc – preferred for thin sheets. Argon–helium mixtures combine both benefits (RRB-CBT2 Jun'25: TIG gas = argon–helium mixtures).<br><b>Why not the others:</b> carbon dioxide and oxygen are active and would oxidise the tungsten electrode; neon is not used commercially for welding."},
+hi:{q:"मोटे कॉपर की टंगस्टन इनर्ट गैस (Tungsten Inert Gas – TIG) वेल्डिंग में कौन-सी शील्डिंग गैस आर्गन की तुलना में अधिक आर्क वोल्टेज और गहरी पेनिट्रेशन देती है?",
+o:["कार्बन डाइऑक्साइड","नियॉन","हीलियम","ऑक्सीजन"],
+e:"हीलियम का आयनन विभव (ionisation potential) अधिक है (लगभग 24.6 eV, आर्गन का लगभग 15.8 eV) और ऊष्मा चालकता भी अधिक है, इसलिए समान करंट पर आर्क वोल्टेज – और इसलिए ऊष्मा-निवेश (वोल्टेज × करंट) – अधिक होता है। इससे कॉपर व एल्युमिनियम जैसी मोटी, अधिक चालक धातुओं पर गहरी पेनिट्रेशन और तेज़ ट्रैवल मिलता है।<br><b>आर्गन</b> हवा से भारी है (कम प्रवाह पर भी अच्छी परत), सस्ती है, आर्क आसानी से शुरू होता है और आर्क शांत व सुचारु रहता है – पतली शीट के लिए पसंद। आर्गन–हीलियम मिश्रण दोनों लाभ देता है (RRB-CBT2 Jun'25: TIG गैस = आर्गन–हीलियम मिश्रण)।<br><b>अन्य क्यों नहीं:</b> कार्बन डाइऑक्साइड और ऑक्सीजन सक्रिय हैं, टंगस्टन इलेक्ट्रोड का ऑक्सीकरण कर देंगी; नियॉन व्यावसायिक वेल्डिंग में प्रयोग नहीं होती।"}},
+
+/* 15 */ {ans:3, lv:"h", tag:{en:"TIG defect",hi:"TIG दोष"},
+en:{q:"Tungsten inclusion in a Tungsten Inert Gas (TIG) weld is most likely caused by:",
+o:["using straight polarity instead of AC on steel","using pure argon in place of helium shielding","keeping a slow travel speed on thin sheet","the electrode dipping into the pool or being overloaded"],
+e:"Tungsten pieces get trapped when the hot electrode touches the molten pool or filler rod, when the current is too high for the electrode diameter (the tip melts and spits), when reverse polarity is used with a small electrode, or with touch-starting. Because tungsten is very dense, inclusions show up as bright white spots on a radiograph.<br><b>Remedies:</b> high-frequency or lift-arc starting, correct current for the electrode size, keep a steady gap, re-grind a contaminated tip, use thoriated/ceriated tungsten for direct current and zirconiated tungsten for alternating current.<br><b>Trap:</b> Tungsten Inert Gas welding uses no flux, so it can never have <b>slag inclusion</b> – but tungsten inclusion is its typical defect."},
+hi:{q:"टंगस्टन इनर्ट गैस (Tungsten Inert Gas – TIG) वेल्ड में टंगस्टन इन्क्लूज़न (tungsten inclusion) का सबसे संभावित कारण है:",
+o:["स्टील पर AC के स्थान पर स्ट्रेट पोलैरिटी का प्रयोग","हीलियम के स्थान पर शुद्ध आर्गन शील्डिंग का प्रयोग","पतली शीट पर धीमी ट्रैवल स्पीड रखना","इलेक्ट्रोड का पूल में डूबना या उस पर अधिक करंट (ओवरलोड)"],
+e:"टंगस्टन के टुकड़े तब फँसते हैं जब गर्म इलेक्ट्रोड पिघले पूल या फिलर रॉड को छू जाए, जब करंट इलेक्ट्रोड व्यास के लिए बहुत अधिक हो (सिरा पिघलकर छिटकता है), जब छोटे इलेक्ट्रोड के साथ रिवर्स पोलैरिटी प्रयोग हो, या टच-स्टार्टिंग से। टंगस्टन बहुत घना है, इसलिए रेडियोग्राफ़ पर ये चमकीले सफ़ेद धब्बे दिखते हैं।<br><b>उपाय:</b> हाई-फ्रीक्वेंसी या लिफ्ट-आर्क स्टार्टिंग, इलेक्ट्रोड आकार के अनुसार सही करंट, स्थिर गैप, दूषित सिरे को दोबारा ग्राइंड करना, डायरेक्ट करंट के लिए थोरिएटेड/सीरिएटेड टंगस्टन और अल्टरनेटिंग करंट के लिए ज़िरकोनिएटेड टंगस्टन।<br><b>ट्रैप:</b> टंगस्टन इनर्ट गैस वेल्डिंग में फ्लक्स नहीं होता, इसलिए इसमें <b>स्लैग इन्क्लूज़न</b> कभी नहीं हो सकता – पर टंगस्टन इन्क्लूज़न इसका विशिष्ट दोष है।"}},
+
+/* 16 */ {ans:1, lv:"h", tag:{en:"Stud arc",hi:"स्टड आर्क"},
+en:{q:"In stud arc welding, the ceramic ferrule placed around the stud:",
+o:["melts and acts as the filler metal","shields the arc and confines the molten metal","insulates the stud from the welding gun","supplies flux that forms a slag blanket"],
+e:"In stud arc welding the <b>stud itself is the electrode</b>. The gun lifts the stud to draw an arc, the stud end and the base plate melt, and the stud is then plunged into the pool. The ceramic ferrule concentrates the heat, shields the arc from air, protects the operator from glare and moulds the molten metal into a neat fillet; it is broken off after welding. (Some studs carry a small flux pellet on the tip for deoxidation – that is separate from the ferrule.)<br><b>Uses:</b> shear connectors on bridge girders, studs on ship decks, boilers and car bodies – fast, needs access from one side only.<br><b>Note:</b> some books group stud and projection welding under resistance welding (capacitor-discharge stud welding); for RRB, treat stud arc welding as an arc process."},
+hi:{q:"स्टड आर्क वेल्डिंग (stud arc welding) में स्टड के चारों ओर लगाया गया सिरेमिक फेरूल (ceramic ferrule):",
+o:["पिघलकर फिलर धातु का कार्य करता है","आर्क को ढकता है और पिघली धातु को सीमित रखता है","स्टड को वेल्डिंग गन से विद्युत-रोधित करता है","फ्लक्स देता है जो स्लैग की परत बनाता है"],
+e:"स्टड आर्क वेल्डिंग में <b>स्टड स्वयं इलेक्ट्रोड</b> होता है। गन स्टड को उठाकर आर्क बनाती है, स्टड का सिरा और बेस प्लेट पिघलते हैं, फिर स्टड को पूल में दबा दिया जाता है। सिरेमिक फेरूल ऊष्मा केंद्रित करता है, आर्क को हवा से बचाता है, ऑपरेटर को चमक से बचाता है और पिघली धातु को साफ़ फिलेट का आकार देता है; वेल्डिंग के बाद इसे तोड़ दिया जाता है। (कुछ स्टड के सिरे पर डीऑक्सीडेशन के लिए छोटी फ्लक्स गोली होती है – वह फेरूल से अलग है।)<br><b>उपयोग:</b> पुल गर्डर पर शियर कनेक्टर, जहाज़ के डेक, बॉयलर व कार बॉडी पर स्टड – तेज़, केवल एक ओर से पहुँच चाहिए।<br><b>नोट:</b> कुछ पुस्तकें स्टड व प्रोजेक्शन वेल्डिंग को रेज़िस्टेंस वेल्डिंग में रखती हैं (कैपेसिटर-डिस्चार्ज स्टड वेल्डिंग); RRB के लिए स्टड आर्क वेल्डिंग को आर्क प्रक्रिया मानें।"}},
+
+/* 17 */ {ans:2, lv:"h", tag:{en:"Flux-cored",hi:"फ्लक्स-कोर्ड"},
+en:{q:"Self-shielded Flux-Cored Arc Welding (FCAW) is preferred over Metal Inert Gas (MIG) welding for outdoor site work because:",
+o:["it gives better weld quality than MIG on all metals","it leaves no slag, so no cleaning is needed after welding","wind cannot blow away a shield produced inside the wire","it uses a tungsten electrode that never burns off"],
+e:"Flux-Cored Arc Welding uses a <b>tubular wire filled with flux</b>. In the self-shielded type the core produces both gas and slag right at the arc, so no external gas cylinder is needed and a breeze cannot strip the shield – ideal for structures, pipelines and shipyards. The gas-shielded type also uses an external carbon dioxide or argon mix. Compared with Shielded Metal Arc Welding there is no stub loss and the wire feeds continuously → higher deposition.<br><b>Why not the others:</b> (a) Metal Inert Gas welding gives cleaner welds in still air. (b) Flux-Cored Arc Welding does form slag that must be chipped. (d) the wire is consumable.<br><b>Flux family to remember:</b> flux outside the rod = Shielded Metal Arc Welding · flux inside the wire = Flux-Cored Arc Welding · flux heaped over the joint = Submerged Arc Welding."},
+hi:{q:"बाहरी साइट कार्य के लिए सेल्फ़-शील्डेड फ्लक्स-कोर्ड आर्क वेल्डिंग (Flux-Cored Arc Welding – FCAW) को मेटल इनर्ट गैस (Metal Inert Gas – MIG) वेल्डिंग से अधिक पसंद किया जाता है, क्योंकि:",
+o:["यह सभी धातुओं पर MIG से बेहतर वेल्ड गुणवत्ता देती है","इसमें स्लैग नहीं बनता, इसलिए वेल्डिंग के बाद सफ़ाई नहीं चाहिए","तार के अंदर बनी शील्ड को हवा उड़ा नहीं सकती","इसमें टंगस्टन इलेक्ट्रोड होता है जो कभी नहीं जलता"],
+e:"फ्लक्स-कोर्ड आर्क वेल्डिंग में <b>फ्लक्स से भरा ट्यूबलर तार</b> होता है। सेल्फ़-शील्डेड प्रकार में कोर ही आर्क पर गैस और स्लैग दोनों बनाता है, इसलिए बाहरी गैस सिलेंडर नहीं चाहिए और हवा शील्ड को हटा नहीं सकती – स्ट्रक्चर, पाइपलाइन और शिपयार्ड के लिए आदर्श। गैस-शील्डेड प्रकार में बाहरी कार्बन डाइऑक्साइड या आर्गन मिश्रण भी होता है। शील्डेड मेटल आर्क वेल्डिंग की तुलना में स्टब लॉस नहीं और तार लगातार चलता है → अधिक डिपॉज़िशन।<br><b>अन्य क्यों नहीं:</b> (a) शांत हवा में मेटल इनर्ट गैस वेल्डिंग अधिक साफ़ वेल्ड देती है। (b) फ्लक्स-कोर्ड आर्क वेल्डिंग में स्लैग बनता है जिसे चिप करना पड़ता है। (d) तार उपभोज्य है।<br><b>फ्लक्स परिवार याद रखें:</b> रॉड के बाहर फ्लक्स = शील्डेड मेटल आर्क वेल्डिंग · तार के अंदर फ्लक्स = फ्लक्स-कोर्ड आर्क वेल्डिंग · जोड़ पर फ्लक्स का ढेर = सबमर्ज्ड आर्क वेल्डिंग।"}},
+
+/* 18 */ {ans:1, lv:"p", tag:{en:"Electroslag",hi:"इलेक्ट्रोस्लैग"},
+en:{q:"Which statement about electroslag welding is correct?",
+o:["an arc burns throughout and melts the plate edges","resistance of the molten slag supplies the welding heat","it is mainly used for thin sheets in the flat position","it joins the plates in solid state without any melting"],
+e:"An arc is struck only to <b>start</b>: it melts the flux into a conductive slag pool, and then the arc goes out. Current passing through the molten slag (I²R heating) keeps it at about 1900 °C, which melts the wire and plate edges. Water-cooled copper shoes slide up the vertical joint to contain the pool. It gives single-pass welds in very thick plates (about 50–150 mm and more) in the <b>vertical</b> position – heavy machine frames, pressure vessels, ship hulls.<br><b>RRB-CBT2 Apr'25-I:</b> 'which is NOT an arc welding process?' → electroslag welding.<br><b>Sister process:</b> electrogas welding looks similar (vertical, copper shoes) but the heat comes from an arc under a gas shield, borrowing principles from Submerged Arc Welding."},
+hi:{q:"इलेक्ट्रोस्लैग वेल्डिंग (electroslag welding) के बारे में कौन-सा कथन सही है?",
+o:["आर्क लगातार जलता रहता है और प्लेट के किनारे पिघलाता है","पिघले स्लैग का प्रतिरोध वेल्डिंग की ऊष्मा देता है","यह मुख्यतः फ्लैट पोजीशन में पतली शीट के लिए प्रयोग होती है","यह बिना पिघलाए ठोस अवस्था में प्लेटों को जोड़ती है"],
+e:"आर्क केवल <b>शुरुआत</b> के लिए बनाया जाता है: यह फ्लक्स को पिघलाकर चालक स्लैग पूल बनाता है, फिर आर्क बुझ जाता है। पिघले स्लैग से गुज़रता करंट (I²R ऊष्मा) उसे लगभग 1900 °C पर रखता है, जो तार और प्लेट के किनारों को पिघलाता है। पानी से ठंडे कॉपर शू वर्टिकल जोड़ पर ऊपर खिसकते हुए पूल को रोकते हैं। यह बहुत मोटी प्लेटों (लगभग 50–150 mm और अधिक) में <b>वर्टिकल</b> पोजीशन में एक ही पास में वेल्ड देती है – भारी मशीन फ्रेम, प्रेशर वेसल, जहाज़ के हल।<br><b>RRB-CBT2 Apr'25-I:</b> 'कौन-सी आर्क वेल्डिंग प्रक्रिया नहीं है?' → इलेक्ट्रोस्लैग वेल्डिंग।<br><b>सहोदर प्रक्रिया:</b> इलेक्ट्रोगैस वेल्डिंग दिखने में समान है (वर्टिकल, कॉपर शू), पर इसमें ऊष्मा गैस शील्ड के नीचे आर्क से आती है और यह सबमर्ज्ड आर्क वेल्डिंग के सिद्धांत भी लेती है।"}},
+
+/* 19 */ {ans:3, lv:"t", tag:{en:"Power source",hi:"पावर सोर्स"},
+en:{q:"Metal Inert Gas (MIG) welding and Submerged Arc Welding (SAW) use a constant-voltage (flat characteristic) power source because:",
+o:["the welding current stays constant whatever the arc length","it is the cheapest type of welding power source available","it removes arc blow from direct-current wire-fed processes","current changes sharply with arc length, so the arc self-adjusts"],
+e:"With a flat volt–ampere characteristic, a small increase in arc length causes a large drop in current → the wire melts more slowly → the arc shortens back. A shorter arc raises the current → faster burn-off → the arc lengthens again. With a constant-speed wire feed, the arc length therefore regulates itself (<b>self-adjusting arc</b>).<br><b>Contrast:</b> manual Shielded Metal Arc Welding and Tungsten Inert Gas welding use a <b>constant-current (drooping)</b> source – the welder's hand changes the arc length, but current (and so heat and deposition) stays nearly steady. Option (a) describes that drooping source.<br><b>Duty cycle note:</b> automatic processes like Submerged Arc Welding are rated near 100 % duty cycle; manual sets about 60 %."},
+hi:{q:"मेटल इनर्ट गैस (Metal Inert Gas – MIG) वेल्डिंग और सबमर्ज्ड आर्क वेल्डिंग (Submerged Arc Welding – SAW) में कॉन्स्टेंट-वोल्टेज (फ्लैट विशेषता) पावर सोर्स प्रयोग होता है, क्योंकि:",
+o:["आर्क लंबाई चाहे जो हो, वेल्डिंग करंट स्थिर रहता है","यह उपलब्ध सबसे सस्ता वेल्डिंग पावर सोर्स है","यह डायरेक्ट करंट वायर-फ़ेड प्रक्रियाओं में आर्क ब्लो हटा देता है","आर्क लंबाई के साथ करंट तेज़ी से बदलता है, जिससे आर्क स्वयं समायोजित होता है"],
+e:"फ्लैट वोल्ट–एम्पियर विशेषता में आर्क लंबाई थोड़ी बढ़ने पर करंट बहुत गिरता है → तार धीरे पिघलता है → आर्क फिर छोटा हो जाता है। छोटा आर्क करंट बढ़ाता है → तेज़ बर्न-ऑफ → आर्क फिर लंबा होता है। इस प्रकार स्थिर गति से तार फ़ीड होने पर आर्क लंबाई स्वयं नियंत्रित रहती है (<b>सेल्फ़-एडजस्टिंग आर्क</b>)।<br><b>तुलना:</b> मैनुअल शील्डेड मेटल आर्क वेल्डिंग और टंगस्टन इनर्ट गैस वेल्डिंग में <b>कॉन्स्टेंट-करंट (ड्रूपिंग/drooping)</b> सोर्स होता है – वेल्डर का हाथ आर्क लंबाई बदलता है, पर करंट (और इसलिए ऊष्मा व डिपॉज़िशन) लगभग स्थिर रहता है। विकल्प (a) उसी ड्रूपिंग सोर्स का वर्णन है।<br><b>ड्यूटी साइकिल नोट:</b> सबमर्ज्ड आर्क वेल्डिंग जैसी ऑटोमैटिक प्रक्रियाएँ लगभग 100 % ड्यूटी साइकिल पर रेटेड होती हैं; मैनुअल सेट लगभग 60 %।"}},
+
+/* 20 */ {ans:0, lv:"h", tag:{en:"Ranking",hi:"क्रम"},
+en:{q:"Arrange the following in decreasing order of deposition rate: Shielded Metal Arc Welding (SMAW), Submerged Arc Welding (SAW), Metal Inert Gas (MIG) welding, Tungsten Inert Gas (TIG) welding.",
+o:["SAW > MIG > SMAW > TIG","MIG > SAW > TIG > SMAW","SMAW > SAW > MIG > TIG","TIG > MIG > SAW > SMAW"],
+e:"<b>Submerged Arc Welding</b> – very high current (up to about 2000 A), continuous wire, often multi-wire → roughly 10–20 kg/h or more.<br><b>Metal Inert Gas welding</b> – continuous wire, no stoppage to change electrodes → roughly 3–8 kg/h.<br><b>Shielded Metal Arc Welding</b> – limited by electrode length, stub loss, slag removal and rod changing → roughly 1–3 kg/h.<br><b>Tungsten Inert Gas welding</b> – filler added separately by hand at low current → lowest, but the best quality.<br><b>PYQ link:</b> 'which process does not have a high deposition rate?' → Shielded Metal Arc Welding. For quality and precision the ladder reverses: TIG > MIG > SMAW."},
+hi:{q:"डिपॉज़िशन दर के घटते क्रम में व्यवस्थित करें: शील्डेड मेटल आर्क वेल्डिंग (SMAW), सबमर्ज्ड आर्क वेल्डिंग (SAW), मेटल इनर्ट गैस (MIG) वेल्डिंग, टंगस्टन इनर्ट गैस (TIG) वेल्डिंग।",
+o:["SAW > MIG > SMAW > TIG","MIG > SAW > TIG > SMAW","SMAW > SAW > MIG > TIG","TIG > MIG > SAW > SMAW"],
+e:"<b>सबमर्ज्ड आर्क वेल्डिंग</b> – बहुत अधिक करंट (लगभग 2000 A तक), लगातार तार, अक्सर कई तार → लगभग 10–20 kg/h या अधिक।<br><b>मेटल इनर्ट गैस वेल्डिंग</b> – लगातार तार, इलेक्ट्रोड बदलने का रुकाव नहीं → लगभग 3–8 kg/h।<br><b>शील्डेड मेटल आर्क वेल्डिंग</b> – इलेक्ट्रोड की लंबाई, स्टब लॉस, स्लैग हटाना और रॉड बदलना सीमित करते हैं → लगभग 1–3 kg/h।<br><b>टंगस्टन इनर्ट गैस वेल्डिंग</b> – कम करंट पर फिलर हाथ से अलग डाला जाता है → सबसे कम, पर गुणवत्ता सबसे अच्छी।<br><b>PYQ लिंक:</b> 'किस प्रक्रिया की डिपॉज़िशन दर अधिक नहीं है?' → शील्डेड मेटल आर्क वेल्डिंग। गुणवत्ता व परिशुद्धता का क्रम उल्टा है: TIG > MIG > SMAW।"}},
+
+/* 21 */ {ans:0, lv:"p", tag:{en:"Carbon arc",hi:"कार्बन आर्क"},
+en:{q:"Carbon arc welding is done on Direct Current Straight Polarity (DCSP) because Direct Current Reverse Polarity (DCRP) would:",
+o:["overheat the carbon rod and add carbon to the weld","give too deep a penetration on thin sheets","produce severe arc blow on the job","need argon shielding gas around the arc"],
+e:"On reverse polarity about ⅔ of the heat goes to the positive electrode – the carbon/graphite rod would erode rapidly and carbon particles would transfer into the pool, making the weld hard and brittle (<b>carbon pick-up</b>). On straight polarity the rod is negative and cooler, the arc is stable and the work receives the heat. Filler rod is fed separately; a twin-carbon-arc variant also exists.<br><b>Why not the others:</b> reverse polarity gives shallower, not deeper, penetration; arc blow occurs with any direct current; carbon arc welding needs no argon.<br><b>PYQ links:</b> RRB-CBT2 Apr'25-II – DCSP stands for Direct Current Straight Polarity; old Railway PYQ – carbon electrode → direct-current set with straight polarity."},
+hi:{q:"कार्बन आर्क वेल्डिंग डायरेक्ट करंट स्ट्रेट पोलैरिटी (Direct Current Straight Polarity – DCSP) पर की जाती है, क्योंकि डायरेक्ट करंट रिवर्स पोलैरिटी (Direct Current Reverse Polarity – DCRP) से:",
+o:["कार्बन रॉड अधिक गर्म होगी और वेल्ड में कार्बन मिलेगा","पतली शीट पर बहुत अधिक गहरी पेनिट्रेशन होगी","जॉब पर गंभीर आर्क ब्लो उत्पन्न होगा","आर्क के चारों ओर आर्गन शील्डिंग गैस चाहिए होगी"],
+e:"रिवर्स पोलैरिटी में लगभग ⅔ ऊष्मा धनात्मक इलेक्ट्रोड पर जाती है – कार्बन/ग्रेफ़ाइट रॉड तेज़ी से घिसेगी और कार्बन कण पूल में जाकर वेल्ड को कठोर व भंगुर बना देंगे (<b>कार्बन पिक-अप</b>)। स्ट्रेट पोलैरिटी में रॉड ऋणात्मक और ठंडी रहती है, आर्क स्थिर रहता है और ऊष्मा जॉब को मिलती है। फिलर रॉड अलग से दी जाती है; ट्विन-कार्बन-आर्क प्रकार भी होता है।<br><b>अन्य क्यों नहीं:</b> रिवर्स पोलैरिटी उथली पेनिट्रेशन देती है, गहरी नहीं; आर्क ब्लो किसी भी डायरेक्ट करंट में होता है; कार्बन आर्क वेल्डिंग में आर्गन नहीं चाहिए।<br><b>PYQ लिंक:</b> RRB-CBT2 Apr'25-II – DCSP का पूर्ण रूप Direct Current Straight Polarity; पुराना रेलवे PYQ – कार्बन इलेक्ट्रोड → स्ट्रेट पोलैरिटी वाला डायरेक्ट करंट सेट।"}},
+
+/* 22 */ {ans:3, lv:"p", num:true, tag:{en:"Numerical – heat input",hi:"न्यूमेरिकल – ऊष्मा-निवेश"},
+en:{q:"Shielded Metal Arc Welding (SMAW) is done at 25 V and 200 A with a travel speed of 5 mm/s. The heat-transfer efficiency is 0.8. The net heat input per unit length of weld is:",
+o:["1000 J/mm","640 J/mm","4000 J/mm","800 J/mm"],
+e:"Net heat input H = η × V × I ÷ v = 0.8 × 25 × 200 ÷ 5 = <b>800 J/mm</b>.<br><b>Distractor check:</b> (a) 1000 J/mm forgets the efficiency; (c) 4000 is the net power in watts (0.8 × 25 × 200) without dividing by speed; (b) 640 applies the efficiency twice.<br><b>Concept:</b> heat input rises with voltage and current and falls with travel speed. Higher heat input → wider Heat-Affected Zone (HAZ), slower cooling, more distortion; very low heat input → lack of fusion and cold-cracking risk.<br><b>Typical heat-transfer efficiency:</b> Submerged Arc Welding ≈ 0.9–0.99 (heat trapped under flux) · Shielded Metal Arc and Metal Inert Gas ≈ 0.7–0.85 · Tungsten Inert Gas ≈ 0.4–0.7."},
+hi:{q:"शील्डेड मेटल आर्क वेल्डिंग (Shielded Metal Arc Welding – SMAW) 25 V और 200 A पर 5 mm/s की ट्रैवल स्पीड से की जाती है। ऊष्मा-स्थानांतरण दक्षता (heat-transfer efficiency) 0.8 है। वेल्ड की प्रति इकाई लंबाई शुद्ध ऊष्मा-निवेश (net heat input) है:",
+o:["1000 J/mm","640 J/mm","4000 J/mm","800 J/mm"],
+e:"शुद्ध ऊष्मा-निवेश H = η × V × I ÷ v = 0.8 × 25 × 200 ÷ 5 = <b>800 J/mm</b>।<br><b>गलत विकल्प कैसे बने:</b> (a) 1000 J/mm में दक्षता भूल गए; (c) 4000 वाट में शुद्ध शक्ति है (0.8 × 25 × 200), स्पीड से भाग नहीं दिया; (b) 640 में दक्षता दो बार लगा दी।<br><b>अवधारणा:</b> ऊष्मा-निवेश वोल्टेज व करंट के साथ बढ़ता है और ट्रैवल स्पीड बढ़ने पर घटता है। अधिक ऊष्मा-निवेश → चौड़ा हीट-अफेक्टेड ज़ोन (HAZ), धीमी ठंडक, अधिक विकृति (distortion); बहुत कम ऊष्मा-निवेश → लैक ऑफ़ फ़्यूज़न और कोल्ड-क्रैकिंग का खतरा।<br><b>सामान्य ऊष्मा-स्थानांतरण दक्षता:</b> सबमर्ज्ड आर्क वेल्डिंग ≈ 0.9–0.99 (ऊष्मा फ्लक्स के नीचे फँसी रहती है) · शील्डेड मेटल आर्क व मेटल इनर्ट गैस ≈ 0.7–0.85 · टंगस्टन इनर्ट गैस ≈ 0.4–0.7।"}},
+
+/* 23 */ {ans:0, lv:"t", num:true, tag:{en:"Numerical – duty cycle",hi:"न्यूमेरिकल – ड्यूटी साइकिल"},
+en:{q:"A Metal Inert Gas (MIG) welding set is rated 400 A at 60 % duty cycle. The permissible duty cycle when welding at 300 A is:",
+o:["100 % (can run continuously)","45 %","80 %","34 %"],
+e:"Heating of the set ∝ I² × time, so I₁²D₁ = I₂²D₂ → D₂ = 0.6 × (400/300)² = 0.6 × 1.78 ≈ 107 %. A duty cycle cannot exceed 100 %, so the set can run <b>continuously</b> at 300 A.<br><b>Distractor check:</b> (b) 45 % = 0.6 × 300/400 – a direct ratio, ignores the square; (c) 80 % = 0.6 × 400/300 – linear; (d) 34 % = 0.6 × (300/400)² – the ratio inverted.<br><b>Duty cycle</b> = arc-on time ÷ total time, usually over a 10-minute period; 60 % means 6 minutes welding + 4 minutes rest at the rated current. Manual sets ≈ 60 %, automatic sets ≈ 100 %. The reverse question is also common: 300 A at 60 % → about 232 A at 100 %."},
+hi:{q:"एक मेटल इनर्ट गैस (Metal Inert Gas – MIG) वेल्डिंग सेट 60 % ड्यूटी साइकिल पर 400 A रेटेड है। 300 A पर वेल्डिंग करते समय अनुमेय ड्यूटी साइकिल है:",
+o:["100 % (लगातार चल सकता है)","45 %","80 %","34 %"],
+e:"सेट का गर्म होना ∝ I² × समय, अतः I₁²D₁ = I₂²D₂ → D₂ = 0.6 × (400/300)² = 0.6 × 1.78 ≈ 107 %। ड्यूटी साइकिल 100 % से अधिक नहीं हो सकती, इसलिए सेट 300 A पर <b>लगातार</b> चल सकता है।<br><b>गलत विकल्प कैसे बने:</b> (b) 45 % = 0.6 × 300/400 – सीधा अनुपात, वर्ग भूल गए; (c) 80 % = 0.6 × 400/300 – रैखिक; (d) 34 % = 0.6 × (300/400)² – अनुपात उल्टा।<br><b>ड्यूटी साइकिल</b> = आर्क-ऑन समय ÷ कुल समय, सामान्यतः 10 मिनट की अवधि में; 60 % का अर्थ है रेटेड करंट पर 6 मिनट वेल्डिंग + 4 मिनट विश्राम। मैनुअल सेट ≈ 60 %, ऑटोमैटिक ≈ 100 %। उल्टा प्रश्न भी आम है: 60 % पर 300 A → 100 % पर लगभग 232 A।"}},
+
+/* 24 */ {ans:1, lv:"p", num:true, tag:{en:"Numerical – maximum power",hi:"न्यूमेरिकल – अधिकतम शक्ति"},
+en:{q:"A direct-current welding source has a linear voltage–current characteristic with an open-circuit voltage of 60 V and a short-circuit current of 400 A. The maximum arc power is:",
+o:["12 kW","6 kW","24 kW","3 kW"],
+e:"Linear source: V = OCV × (1 − I/SCC), where OCV is the open-circuit voltage and SCC the short-circuit current. Power P = V × I is maximum when V = OCV/2 and I = SCC/2 → P_max = 30 V × 200 A = OCV × SCC ÷ 4 = <b>6 kW</b>.<br><b>Distractor check:</b> (c) 24 kW = OCV × SCC – full voltage and full current together, which is impossible; (a) 12 kW halves only once; (d) 3 kW divides by 8.<br><b>Physical meaning:</b> at open circuit the current is zero, at short circuit the voltage is zero – both give zero power, so the peak lies exactly in the middle of the straight line. Same idea as the GATE PYQ: OCV 80 V, SCC 300 A → current for maximum power = 150 A."},
+hi:{q:"एक डायरेक्ट करंट वेल्डिंग सोर्स की वोल्टेज–करंट विशेषता रैखिक है, ओपन-सर्किट वोल्टेज (open-circuit voltage) 60 V और शॉर्ट-सर्किट करंट (short-circuit current) 400 A है। अधिकतम आर्क शक्ति है:",
+o:["12 kW","6 kW","24 kW","3 kW"],
+e:"रैखिक सोर्स: V = OCV × (1 − I/SCC), जहाँ OCV ओपन-सर्किट वोल्टेज और SCC शॉर्ट-सर्किट करंट है। शक्ति P = V × I अधिकतम तब होती है जब V = OCV/2 और I = SCC/2 → P_max = 30 V × 200 A = OCV × SCC ÷ 4 = <b>6 kW</b>।<br><b>गलत विकल्प कैसे बने:</b> (c) 24 kW = OCV × SCC – पूरा वोल्टेज और पूरा करंट एक साथ, जो असंभव है; (a) 12 kW में केवल एक बार आधा किया; (d) 3 kW में 8 से भाग दिया।<br><b>भौतिक अर्थ:</b> ओपन सर्किट पर करंट शून्य, शॉर्ट सर्किट पर वोल्टेज शून्य – दोनों पर शक्ति शून्य, इसलिए अधिकतम ठीक सीधी रेखा के मध्य में होता है। GATE PYQ भी यही: OCV 80 V, SCC 300 A → अधिकतम शक्ति के लिए करंट = 150 A।"}},
+
+/* 25 */ {ans:1, lv:"h", num:true, tag:{en:"Numerical – operating point",hi:"न्यूमेरिकल – ऑपरेटिंग पॉइंट"},
+en:{q:"The arc characteristic is V = 20 + 4l (V in volts, l in mm). The power source is linear with an open-circuit voltage of 80 V and a short-circuit current of 400 A. The welding current at an arc length of 5 mm is:",
+o:["300 A","200 A","100 A","400 A"],
+e:"Arc voltage at l = 5 mm: V = 20 + 4 × 5 = 40 V.<br>Source line: V = 80 − (80/400) × I = 80 − 0.2 I.<br>Operating point: 40 = 80 − 0.2 I → I = <b>200 A</b> (arc power 8 kW – here also the maximum, because 40 V = open-circuit voltage ÷ 2).<br><b>Concept:</b> the operating point is where the arc characteristic meets the source characteristic. A longer arc → higher arc voltage → current falls (at 7.5 mm: V = 50 V, I = 150 A). The steeper (more drooping) the source line, the smaller this current change – that is why manual welding uses a drooping source.<br><b>Ayrton's equation:</b> V = a + b·l, where 'a' is the electrode-drop constant and 'b' is the voltage per unit arc length."},
+hi:{q:"आर्क विशेषता V = 20 + 4l है (V वोल्ट में, l mm में)। पावर सोर्स रैखिक है, ओपन-सर्किट वोल्टेज 80 V और शॉर्ट-सर्किट करंट 400 A। 5 mm आर्क लंबाई पर वेल्डिंग करंट है:",
+o:["300 A","200 A","100 A","400 A"],
+e:"l = 5 mm पर आर्क वोल्टेज: V = 20 + 4 × 5 = 40 V।<br>सोर्स रेखा: V = 80 − (80/400) × I = 80 − 0.2 I।<br>ऑपरेटिंग पॉइंट: 40 = 80 − 0.2 I → I = <b>200 A</b> (आर्क शक्ति 8 kW – यहाँ यही अधिकतम भी है, क्योंकि 40 V = ओपन-सर्किट वोल्टेज ÷ 2)।<br><b>अवधारणा:</b> ऑपरेटिंग पॉइंट वह है जहाँ आर्क विशेषता और सोर्स विशेषता मिलती हैं। लंबा आर्क → अधिक आर्क वोल्टेज → करंट घटता है (7.5 mm पर: V = 50 V, I = 150 A)। सोर्स रेखा जितनी अधिक ढलान वाली (ड्रूपिंग) होगी, करंट में बदलाव उतना कम – इसलिए मैनुअल वेल्डिंग में ड्रूपिंग सोर्स प्रयोग होता है।<br><b>एर्टन (Ayrton) समीकरण:</b> V = a + b·l, जहाँ 'a' इलेक्ट्रोड-ड्रॉप स्थिरांक और 'b' प्रति इकाई आर्क लंबाई वोल्टेज है।"}}
+];
+
+const LIMIT = 20*60;
+let lang = "en";
+let mode = "test";
+let picked = new Array(Q.length).fill(null);
+let showAll = false;
+let submitted = false;
+let autoSub = false;
+let left = LIMIT;
+let tick = null;
+const L = ["a","b","c","d"];
+const $ = id => document.getElementById(id);
+
+function fmt(t){ const m=Math.floor(t/60), s=t%60; return String(m).padStart(2,"0")+":"+String(s).padStart(2,"0"); }
+
+function startTimer(){
+  stopTimer();
+  if(mode!=="test" || submitted) return;
+  tick = setInterval(()=>{
+    left--;
+    if(left<=0){ left=0; autoSub=true; doSubmit(); return; }
+    paintTimer();
+  },1000);
+}
+function stopTimer(){ if(tick){clearInterval(tick); tick=null;} }
+function paintTimer(){
+  const t=$("timer"), u=UI[lang];
+  if(mode!=="test"){ t.classList.add("hidden"); return; }
+  t.classList.remove("hidden");
+  t.textContent = submitted ? u.taken+": "+fmt(LIMIT-left) : u.time+": "+fmt(left);
+  t.classList.toggle("low", !submitted && left<=120);
+}
+
+function isRevealed(i){ return mode==="practice" ? (picked[i]!==null || showAll) : submitted; }
+
+function render(){
+  const u = UI[lang];
+  document.documentElement.lang = lang;
+  $("title").textContent = u.title;
+  $("subtitle").textContent = u.sub;
+  $("rules").textContent = mode==="test" ? u.rules : u.rulesP;
+  $("foot").textContent = u.foot;
+  $("mTest").textContent = u.test; $("mPrac").textContent = u.prac;
+  $("mTest").setAttribute("aria-pressed", mode==="test");
+  $("mPrac").setAttribute("aria-pressed", mode==="practice");
+  $("bSubmit").textContent = u.submit;
+  $("bSubmit").classList.toggle("hidden", !(mode==="test" && !submitted));
+  $("bShow").textContent = showAll ? u.hide : u.show;
+  $("bShow").classList.toggle("hidden", mode!=="practice");
+  $("bReset").textContent = u.reset;
+  $("bEn").setAttribute("aria-pressed", lang==="en");
+  $("bHi").setAttribute("aria-pressed", lang==="hi");
+
+  let html = "";
+  Q.forEach((q,i)=>{
+    if(q.num && i>0 && !Q[i-1].num) html += `<div class="sec">${u.num}</div>`;
+    const d = q[lang], p = picked[i], rev = isRevealed(i);
+    const lvClass = q.lv==="t" ? "lv-t" : q.lv==="h" ? "lv-h" : "";
+    html += `<article class="q" id="q${i}">
+      <div class="qhead"><span class="qno">Q${i+1}.</span><span class="chip">${q.tag[lang]}</span><span class="chip ${lvClass}">${u.lv[q.lv]}</span></div>
+      <div class="qtext">${d.q}</div><div class="opts">`;
+    d.o.forEach((o,j)=>{
+      let cls = "opt";
+      if(rev && j===q.ans) cls += " right";
+      if(rev && p===j && p!==q.ans) cls += " wrong";
+      if(!rev && p===j) cls += " sel";
+      html += `<button class="${cls}" data-q="${i}" data-o="${j}" ${rev?"disabled":""} aria-pressed="${p===j}"><span class="l">(${L[j]})</span><span>${o}</span></button>`;
+    });
+    html += `</div>`;
+    if(rev){
+      let v = "";
+      if(p!==null) v = p===q.ans ? `<div>${u.right}</div>` : `<div class="verdict-bad">${u.yours}</div>`;
+      else if(mode==="test") v = `<div class="verdict-bad">${u.un}</div>`;
+      html += `<div class="ex">${v}<div class="ans">${u.ans}: (${L[q.ans]})</div>${d.e}</div>`;
+    }
+    html += `</article>`;
+  });
+  $("list").innerHTML = html;
+  stats(); paintTimer(); result();
+}
+
+function counts(){
+  let c=0,w=0,a=0;
+  picked.forEach((p,i)=>{ if(p!==null){a++; if(p===Q[i].ans)c++; else w++;} });
+  return {c,w,a,s:(c-w/3).toFixed(2)};
+}
+
+function stats(){
+  const u = UI[lang], k = counts();
+  const hide = mode==="test" && !submitted;
+  $("sAtt").textContent = `${u.att}: ${k.a}/${Q.length}`;
+  $("sC").textContent = `${u.c}: ${k.c}`;
+  $("sW").textContent = `${u.w}: ${k.w}`;
+  $("sS").textContent = `${u.s}: ${k.s}`;
+  ["sC","sW","sS"].forEach(id=>$(id).classList.toggle("hidden", hide));
+}
+
+function result(){
+  const box = $("result");
+  if(!(mode==="test" && submitted)){ box.innerHTML=""; return; }
+  const u = UI[lang], k = counts();
+  const acc = k.a ? Math.round(k.c*100/k.a) : 0;
+  box.innerHTML = `<section class="result" aria-live="polite">
+    <h2>${u.res}: ${k.s} / ${Q.length}</h2>
+    <div class="rgrid">
+      <div>${u.c}<b>${k.c}</b></div><div>${u.w}<b>${k.w}</b></div>
+      <div>${u.un}<b>${Q.length-k.a}</b></div><div>${u.acc}<b>${acc}%</b></div>
+      <div>${u.taken}<b>${fmt(LIMIT-left)}</b></div>
+    </div>
+    <p>${autoSub ? u.auto+" " : ""}${u.resNote}</p></section>`;
+}
+
+function doSubmit(){
+  submitted = true; stopTimer(); render();
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function resetAll(){
+  picked = new Array(Q.length).fill(null);
+  showAll=false; submitted=false; autoSub=false; left=LIMIT;
+  render(); startTimer(); window.scrollTo({top:0});
+}
+
+$("list").addEventListener("click", e=>{
+  const b = e.target.closest(".opt");
+  if(!b || b.disabled) return;
+  const i = +b.dataset.q, j = +b.dataset.o;
+  if(mode==="test"){ picked[i] = picked[i]===j ? null : j; }
+  else { if(picked[i]!==null) return; picked[i] = j; }
+  render();
+  const btn = document.querySelector(`#q${i} .opt[data-o="${j}"]`) || document.querySelector(`#q${i} .opt`);
+  if(btn) btn.focus({preventScroll:true});
+});
+$("bEn").onclick = ()=>{ lang="en"; render(); };
+$("bHi").onclick = ()=>{ lang="hi"; render(); };
+function setMode(m){
+  if(m===mode) return;
+  const dirty = picked.some(p=>p!==null) || submitted;
+  if(dirty && !confirm(UI[lang].cMode)) return;
+  mode = m; resetAll();
+}
+$("mTest").onclick = ()=>setMode("test");
+$("mPrac").onclick = ()=>setMode("practice");
+$("bSubmit").onclick = ()=>{ if(confirm(UI[lang].cSub)) doSubmit(); };
+$("bShow").onclick = ()=>{ showAll=!showAll; render(); };
+$("bReset").onclick = resetAll;
+render(); startTimer();
+</script>
+</body>
+</html>
