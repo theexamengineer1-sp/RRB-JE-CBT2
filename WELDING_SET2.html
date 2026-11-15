@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welding Smart MCQ Set 2 – Gas Welding & Flame Cutting | THE EXAM ENGINEER</title>
+<style>
+:root{
+  --navy:#12306b; --navy-deep:#0c2350; --orange:#f07f1a;
+  --bg:#f3f6fb; --card:#ffffff; --text:#16213a; --muted:#5b6782;
+  --line:#d9e0ec; --opt:#f7f9fd; --opt-hover:#eaf0fa;
+  --ok:#17803d; --ok-bg:#e6f6ec; --bad:#c0272d; --bad-bg:#fdecec;
+  --ex-bg:#fff7ee; --ex-line:#f3c58f; --chip:#e9eef8;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --navy:#2b4f9a; --navy-deep:#16264a; --orange:#ff9a3d;
+    --bg:#0f1524; --card:#18213a; --text:#e8edf8; --muted:#a3aec6;
+    --line:#2c3857; --opt:#1e2944; --opt-hover:#26345a;
+    --ok:#4cd17e; --ok-bg:#163a26; --bad:#ff6b70; --bad-bg:#3d1a1e;
+    --ex-bg:#2a2216; --ex-line:#6b4b22; --chip:#25304d;
+    color-scheme: dark;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:"Segoe UI","Noto Sans","Nirmala UI","Mangal",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  line-height:1.6;font-size:16px}
+header{background:var(--navy-deep);color:#fff;padding:22px 16px 18px}
+.wrap{max-width:860px;margin:0 auto}
+.brand{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand a{color:var(--orange);font-weight:700;text-decoration:none}
+.brand a:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.channel{font-weight:800;letter-spacing:.5px}
+h1{margin:14px 0 4px;font-size:clamp(1.4rem,4.5vw,2rem);line-height:1.2}
+.sub{margin:0;color:#c9d5ee;font-size:.95rem}
+.rules{margin-top:10px;font-size:.88rem;color:#c9d5ee}
+.bar{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:3px solid var(--orange);
+  box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.bar .wrap{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding:10px 16px}
+.seg{display:inline-flex;border:2px solid var(--navy);border-radius:999px;overflow:hidden}
+.seg button{border:0;background:transparent;color:var(--text);padding:6px 14px;font:inherit;font-weight:700;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--navy);color:#fff}
+.stats{display:flex;gap:12px;flex-wrap:wrap;font-size:.9rem;font-weight:600}
+.stats .c{color:var(--ok)} .stats .w{color:var(--bad)} .stats .s{color:var(--orange)}
+.tools button{border:1px solid var(--line);background:var(--opt);color:var(--text);border-radius:8px;
+  padding:6px 10px;font:inherit;font-size:.85rem;cursor:pointer}
+.tools button:hover{background:var(--opt-hover)}
+button:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+main{padding:18px 16px 40px}
+.q{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--navy);
+  border-radius:10px;padding:16px 16px 14px;margin:0 0 16px}
+.qhead{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.qno{font-weight:800;color:var(--navy)}
+@media (prefers-color-scheme: dark){.qno{color:#8fb0f5}}
+.chip{background:var(--chip);color:var(--muted);font-size:.75rem;font-weight:700;padding:2px 9px;border-radius:999px}
+.chip.lv-t{background:var(--bad-bg);color:var(--bad)}
+.chip.lv-h{background:var(--ex-bg);color:var(--orange)}
+.qtext{font-weight:600;margin:4px 0 12px}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;text-align:left;width:100%;border:1.5px solid var(--line);
+  background:var(--opt);color:var(--text);border-radius:8px;padding:9px 12px;font:inherit;cursor:pointer}
+.opt:hover:not(:disabled){background:var(--opt-hover)}
+.opt:disabled{cursor:default}
+.opt .l{font-weight:800;min-width:1.8em;color:var(--muted)}
+.opt.right{border-color:var(--ok);background:var(--ok-bg)}
+.opt.right .l{color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.opt.wrong .l{color:var(--bad)}
+.opt.sel{border-color:var(--navy);background:var(--opt-hover);box-shadow:inset 0 0 0 1px var(--navy)}
+.opt.sel .l{color:var(--navy)}
+@media (prefers-color-scheme: dark){.opt.sel .l{color:#8fb0f5}.opt.sel{border-color:#8fb0f5;box-shadow:inset 0 0 0 1px #8fb0f5}}
+.timer{font-variant-numeric:tabular-nums;font-weight:800}
+.timer.low{color:var(--bad)}
+.tools{display:flex;gap:6px;flex-wrap:wrap}
+.tools button.primary{background:var(--orange);border-color:var(--orange);color:#fff;font-weight:700}
+.tools button.primary:hover{filter:brightness(1.05);background:var(--orange)}
+.hidden{display:none !important}
+.result{background:var(--card);border:2px solid var(--orange);border-radius:12px;padding:16px;margin-bottom:18px}
+.result h2{margin:0 0 10px;font-size:1.2rem;color:var(--orange)}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+.rgrid div{background:var(--opt);border-radius:8px;padding:8px 10px}
+.rgrid b{display:block;font-size:1.3rem}
+.result p{margin:10px 0 0;color:var(--muted);font-size:.9rem}
+.ex{margin-top:12px;background:var(--ex-bg);border:1px solid var(--ex-line);border-radius:8px;padding:12px 14px;font-size:.95rem}
+.ex .ans{font-weight:800;color:var(--ok);margin-bottom:4px}
+.ex .verdict-bad{color:var(--bad)}
+.sec{margin:24px 0 12px;font-weight:800;color:var(--orange);font-size:1.05rem;border-bottom:2px solid var(--line);padding-bottom:4px}
+footer{text-align:center;color:var(--muted);font-size:.82rem;padding:10px 16px 30px}
+footer a{color:var(--orange)}
+@media (prefers-reduced-motion: no-preference){.ex{animation:show .25s ease-out}
+  @keyframes show{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <span class="channel">THE EXAM ENGINEER</span>
+      <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a>
+    </div>
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+    <p class="rules" id="rules"></p>
+  </div>
+</header>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="seg" role="group" aria-label="Language">
+      <button id="bEn" aria-pressed="true">English</button>
+      <button id="bHi" aria-pressed="false">हिंदी</button>
+    </div>
+    <div class="seg" role="group" aria-label="Mode">
+      <button id="mTest" aria-pressed="true"></button>
+      <button id="mPrac" aria-pressed="false"></button>
+    </div>
+    <div class="stats" aria-live="polite">
+      <span class="timer" id="timer"></span>
+      <span id="sAtt"></span><span class="c" id="sC"></span><span class="w" id="sW"></span><span class="s" id="sS"></span>
+    </div>
+    <div class="tools">
+      <button id="bSubmit" class="primary"></button>
+      <button id="bShow"></button>
+      <button id="bReset"></button>
+    </div>
+  </div>
+</div>
+
+<main><div class="wrap"><div id="result"></div><div id="list"></div></div></main>
+
+<footer>
+  <div id="foot"></div>
+  <div>© 2026 THE EXAM ENGINEER · <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a> · theexamengineer1@gmail.com</div>
+  <div>SSC JE AIR 14 · RRB JE 2025 (DMS)</div>
+</footer>
+
+<script>
+const UI = {
+  en:{title:"Welding Smart MCQ – Set 2",
+      sub:"Gas Welding & Flame Cutting · RRB JE CBT-2 (Mechanical & Allied) · RRB JE PYQ based",
+      rules:"25 questions · 20 minutes (RRB CBT-2 pace: 150 Qs in 120 min) · +1 correct, −1/3 wrong",
+      rulesP:"Practice mode · no timer · tap an option to see the answer with full explanation instantly",
+      test:"Test",prac:"Practice",submit:"Submit test",time:"Time left",
+      cSub:"Submit the test now? You cannot change answers after submitting.",
+      cMode:"Switching mode will reset your current attempt. Continue?",
+      res:"Your result",un:"Not attempted",taken:"Time taken",acc:"Accuracy",auto:"Time over – test submitted automatically.",
+      resNote:"Answers and full explanations are now shown below each question. Read the explanation of every wrong and unattempted question.",
+      att:"Attempted",c:"Correct",w:"Wrong",s:"Score",show:"Show all answers",hide:"Hide unattempted answers",reset:"Reset",
+      ans:"Correct answer",yours:"Your answer is wrong.",right:"Your answer is correct.",num:"Simple numericals",
+      lv:{e:"Easy",p:"PYQ level",h:"Higher",t:"Tough"},
+      foot:"Original work, free for personal study. Share as it is with the channel link – no re-branding."},
+  hi:{title:"वेल्डिंग स्मार्ट MCQ – सेट 2",
+      sub:"गैस वेल्डिंग एवं फ्लेम कटिंग (Gas Welding & Flame Cutting) · RRB JE CBT-2 (मैकेनिकल एवं संबद्ध) · RRB JE PYQ आधारित",
+      rules:"25 प्रश्न · 20 मिनट (RRB CBT-2 गति: 120 मिनट में 150 प्रश्न) · सही +1, गलत −1/3",
+      rulesP:"प्रैक्टिस मोड · कोई टाइमर नहीं · विकल्प पर टैप करें, उत्तर और पूरी व्याख्या तुरंत दिखेगी",
+      test:"टेस्ट",prac:"प्रैक्टिस",submit:"टेस्ट सबमिट करें",time:"शेष समय",
+      cSub:"क्या अभी टेस्ट सबमिट करें? सबमिट के बाद उत्तर नहीं बदल सकेंगे।",
+      cMode:"मोड बदलने पर आपका वर्तमान प्रयास रीसेट हो जाएगा। जारी रखें?",
+      res:"आपका परिणाम",un:"बिना प्रयास",taken:"लिया गया समय",acc:"सटीकता",auto:"समय समाप्त – टेस्ट स्वतः सबमिट हो गया।",
+      resNote:"अब हर प्रश्न के नीचे उत्तर और पूरी व्याख्या दिख रही है। हर गलत और बिना प्रयास वाले प्रश्न की व्याख्या ज़रूर पढ़ें।",
+      att:"प्रयास",c:"सही",w:"गलत",s:"स्कोर",show:"सभी उत्तर दिखाएँ",hide:"बिना प्रयास वाले उत्तर छिपाएँ",reset:"रीसेट",
+      ans:"सही उत्तर",yours:"आपका उत्तर गलत है।",right:"आपका उत्तर सही है।",num:"सरल न्यूमेरिकल",
+      lv:{e:"आसान",p:"PYQ स्तर",h:"उच्च",t:"कठिन"},
+      foot:"मौलिक कार्य, व्यक्तिगत अध्ययन हेतु निःशुल्क। चैनल लिंक सहित जैसा है वैसा ही शेयर करें – री-ब्रांडिंग नहीं।"}
+};
+
+const Q = [
+/* 1 */ {ans:0, lv:"h", tag:{en:"Flames · stainless steel",hi:"फ्लेम · स्टेनलेस स्टील"},
+en:{q:"A welder joining thin stainless-steel sheet by oxy-acetylene welding finds the bead dull and scaly, and the joint later loses its corrosion resistance. What was the most likely flame setting, and what is the correction?",
+o:["Oxidising; shift to neutral or slightly carburising","Carburising; shift to a slightly oxidising flame","Neutral; shift to a strongly oxidising flame","Carburising; shift to a strongly carburising flame"],
+e:"Stainless steel resists corrosion because its 12–18 % chromium forms a thin protective chromium-oxide film. An <b>oxidising flame</b> (excess oxygen) burns chromium out of the molten pool, so the bead turns dull, scaly and dark and the joint later rusts. The correction is a <b>neutral or slightly carburising</b> flame, which shields the pool from oxygen.<br><b>Why not the others:</b> (b) and (c) push towards more oxygen – the very cause. (d) a strongly carburising flame adds carbon, forming chromium carbides at grain boundaries (weld decay – intergranular corrosion).<br><b>Flame–metal map:</b> neutral → mild steel, cast iron, copper, aluminium · carburising → high-carbon steel, Monel, nickel, hard-facing · oxidising → brass, bronze. (RRB-CBT2 Jul'26 asked the stainless-steel case.)"},
+hi:{q:"एक वेल्डर ऑक्सी-एसिटिलीन वेल्डिंग से पतली स्टेनलेस-स्टील शीट जोड़ता है; बीड (bead) धुँधला और पपड़ीदार दिखता है और बाद में जोड़ की संक्षारण-प्रतिरोधकता (corrosion resistance) घट जाती है। सबसे संभावित फ्लेम सेटिंग और उसका सुधार क्या है?",
+o:["ऑक्सीडाइज़िंग; न्यूट्रल या हल्की कार्बुराइज़िंग पर बदलें","कार्बुराइज़िंग; हल्की ऑक्सीडाइज़िंग फ्लेम पर बदलें","न्यूट्रल; तेज़ ऑक्सीडाइज़िंग फ्लेम पर बदलें","कार्बुराइज़िंग; तेज़ कार्बुराइज़िंग फ्लेम पर बदलें"],
+e:"स्टेनलेस स्टील में 12–18 % क्रोमियम पतली सुरक्षात्मक क्रोमियम-ऑक्साइड परत बनाता है, इसी से वह जंग नहीं पकड़ता। <b>ऑक्सीडाइज़िंग फ्लेम</b> (अतिरिक्त ऑक्सीजन) पिघले पूल से क्रोमियम जला देती है, इसलिए बीड धुँधला, पपड़ीदार व काला हो जाता है और बाद में जोड़ में जंग लगती है। सुधार है <b>न्यूट्रल या हल्की कार्बुराइज़िंग</b> फ्लेम, जो पूल को ऑक्सीजन से बचाती है।<br><b>अन्य क्यों नहीं:</b> (b) और (c) और अधिक ऑक्सीजन की ओर ले जाते हैं – यही तो कारण है। (d) तेज़ कार्बुराइज़िंग फ्लेम कार्बन जोड़ती है, जिससे ग्रेन बाउंड्री पर क्रोमियम कार्बाइड बनते हैं (वेल्ड डिके – इंटरग्रेन्युलर संक्षारण)।<br><b>फ्लेम–धातु मानचित्र:</b> न्यूट्रल → माइल्ड स्टील, कास्ट आयरन, कॉपर, एल्युमिनियम · कार्बुराइज़िंग → हाई-कार्बन स्टील, मोनेल, निकल, हार्ड-फेसिंग · ऑक्सीडाइज़िंग → पीतल (brass), कांस्य (bronze)। (RRB-CBT2 Jul'26 में स्टेनलेस स्टील वाला प्रश्न पूछा गया।)"}},
+
+/* 2 */ {ans:1, lv:"h", tag:{en:"Flame structure",hi:"फ्लेम संरचना"},
+en:{q:"In a carburising oxy-acetylene flame, the length of the 'acetylene feather' indicates:",
+o:["the excess oxygen in the mixture","the amount of excess acetylene","the gas pressure at the tip","the heat lost into the job"],
+e:"A carburising (reducing) flame shows three zones: the bright inner cone, a whitish <b>acetylene feather</b> around it, and the outer envelope. The feather is unburnt excess acetylene; its length compared with the inner cone tells how much excess there is – a '2X flame' has a feather twice the inner-cone length. As oxygen is increased the feather shrinks; the moment it just disappears, the flame is <b>neutral</b>. This is exactly how welders set a neutral flame in practice.<br><b>Why not the others:</b> excess oxygen gives a short, pointed inner cone with no feather (oxidising flame); pressure and heat loss change the flame size, not the feather.<br><b>Numbers:</b> carburising flame ≈ 3000–3100 °C, oxygen : acetylene ≈ 0.9 : 1."},
+hi:{q:"कार्बुराइज़िंग ऑक्सी-एसिटिलीन फ्लेम में 'एसिटिलीन फ़ेदर (acetylene feather)' की लंबाई किसका संकेत देती है?",
+o:["मिश्रण में अतिरिक्त ऑक्सीजन का","अतिरिक्त एसिटिलीन की मात्रा का","टिप पर गैस के दाब का","जॉब में खोई ऊष्मा का"],
+e:"कार्बुराइज़िंग (रिड्यूसिंग) फ्लेम में तीन क्षेत्र दिखते हैं: चमकीला इनर कोन, उसके चारों ओर सफ़ेद-सा <b>एसिटिलीन फ़ेदर</b>, और बाहरी आवरण (outer envelope)। फ़ेदर बिना जली अतिरिक्त एसिटिलीन है; इनर कोन की तुलना में उसकी लंबाई बताती है कि एसिटिलीन कितनी अधिक है – '2X फ्लेम' में फ़ेदर इनर कोन से दोगुना लंबा होता है। ऑक्सीजन बढ़ाने पर फ़ेदर छोटा होता है; जैसे ही वह ठीक गायब होता है, फ्लेम <b>न्यूट्रल</b> हो जाती है। व्यवहार में वेल्डर इसी तरह न्यूट्रल फ्लेम सेट करते हैं।<br><b>अन्य क्यों नहीं:</b> अतिरिक्त ऑक्सीजन से इनर कोन छोटा व नुकीला होता है और फ़ेदर नहीं होता (ऑक्सीडाइज़िंग फ्लेम); दाब और ऊष्मा-हानि फ्लेम का आकार बदलते हैं, फ़ेदर नहीं।<br><b>संख्याएँ:</b> कार्बुराइज़िंग फ्लेम ≈ 3000–3100 °C, ऑक्सीजन : एसिटिलीन ≈ 0.9 : 1।"}},
+
+/* 3 */ {ans:2, lv:"t", tag:{en:"Flames · brass",hi:"फ्लेम · पीतल"},
+en:{q:"Brass is gas welded with a slightly oxidising flame mainly because:",
+o:["a carburising flame would form zinc carbide","brass needs the hottest flame to melt its copper","the oxide film on the pool reduces zinc fuming","excess oxygen burns out lead impurities"],
+e:"Brass contains 30–40 % zinc, which boils at only about 907 °C – far below the flame temperature. With a neutral flame, zinc vaporises and burns, giving white zinc-oxide fumes (toxic – causes 'metal fume fever') and a porous weld that has lost zinc. A <b>slightly oxidising flame</b> forms a thin oxide skin on the pool that acts like a lid and suppresses zinc fuming. A borax-based flux is used with it.<br><b>Why not the others:</b> (a) zinc carbide is not the issue; (b) brass melts at only about 900–940 °C, so it does not need the hottest flame; (d) oxygen does not remove lead.<br><b>Remember:</b> oxidising flame = hottest (≈ 3300–3500 °C), used for brass and bronze."},
+hi:{q:"पीतल (brass) की गैस वेल्डिंग हल्की ऑक्सीडाइज़िंग फ्लेम से मुख्यतः इसलिए की जाती है क्योंकि:",
+o:["कार्बुराइज़िंग फ्लेम से ज़िंक कार्बाइड बन जाएगा","पीतल के कॉपर को पिघलाने के लिए सबसे गर्म फ्लेम चाहिए","पूल पर बनी ऑक्साइड परत ज़िंक के धुएँ को कम करती है","अतिरिक्त ऑक्सीजन लेड की अशुद्धियाँ जला देती है"],
+e:"पीतल में 30–40 % ज़िंक होता है, जो केवल लगभग 907 °C पर उबलता है – फ्लेम तापमान से बहुत कम। न्यूट्रल फ्लेम में ज़िंक वाष्पित होकर जलता है, सफ़ेद ज़िंक-ऑक्साइड धुआँ बनता है (विषैला – 'मेटल फ्यूम फ़ीवर') और वेल्ड में ज़िंक कम होकर छिद्र (porosity) आ जाते हैं। <b>हल्की ऑक्सीडाइज़िंग फ्लेम</b> पूल पर पतली ऑक्साइड परत बनाती है जो ढक्कन की तरह ज़िंक के धुएँ को रोकती है। इसके साथ बोरैक्स-आधारित फ्लक्स प्रयोग होता है।<br><b>अन्य क्यों नहीं:</b> (a) ज़िंक कार्बाइड समस्या नहीं है; (b) पीतल लगभग 900–940 °C पर ही पिघलता है, सबसे गर्म फ्लेम की ज़रूरत नहीं; (d) ऑक्सीजन लेड नहीं हटाती।<br><b>याद रखें:</b> ऑक्सीडाइज़िंग फ्लेम = सबसे गर्म (≈ 3300–3500 °C), पीतल व कांस्य के लिए।"}},
+
+/* 4 */ {ans:3, lv:"p", tag:{en:"Flame temperatures",hi:"फ्लेम तापमान"},
+en:{q:"Arrange the following flames in decreasing order of maximum temperature: oxidising, neutral, carburising, oxy-hydrogen.",
+o:["neutral > oxidising > carburising > oxy-hydrogen","oxy-hydrogen > oxidising > neutral > carburising","oxidising > carburising > neutral > oxy-hydrogen","oxidising > neutral > carburising > oxy-hydrogen"],
+e:"Oxidising (oxygen : acetylene ≈ 1.5 : 1) ≈ 3300–3500 °C &gt; neutral (1 : 1) ≈ 3200 °C &gt; carburising (≈ 0.9 : 1) ≈ 3000–3100 °C &gt; oxy-hydrogen ≈ 2500 °C (air-acetylene ≈ 2300 °C is lower still).<br>Extra oxygen burns acetylene faster and more completely near the tip, so the oxidising flame is the hottest – yet it is used least because it oxidises steel. Oxy-acetylene is the hottest of all fuel-gas flames, which is why it is the standard for welding steel.<br><b>Traps:</b> (c) puts carburising above neutral; (b) puts oxy-hydrogen on top – both wrong.<br><b>Numbers wall:</b> arc 5000–6000 °C · plasma ≈ 20,000 °C · thermit ≈ 2500–3000 °C."},
+hi:{q:"निम्न फ्लेम को अधिकतम तापमान के घटते क्रम में व्यवस्थित करें: ऑक्सीडाइज़िंग, न्यूट्रल, कार्बुराइज़िंग, ऑक्सी-हाइड्रोजन।",
+o:["न्यूट्रल > ऑक्सीडाइज़िंग > कार्बुराइज़िंग > ऑक्सी-हाइड्रोजन","ऑक्सी-हाइड्रोजन > ऑक्सीडाइज़िंग > न्यूट्रल > कार्बुराइज़िंग","ऑक्सीडाइज़िंग > कार्बुराइज़िंग > न्यूट्रल > ऑक्सी-हाइड्रोजन","ऑक्सीडाइज़िंग > न्यूट्रल > कार्बुराइज़िंग > ऑक्सी-हाइड्रोजन"],
+e:"ऑक्सीडाइज़िंग (ऑक्सीजन : एसिटिलीन ≈ 1.5 : 1) ≈ 3300–3500 °C &gt; न्यूट्रल (1 : 1) ≈ 3200 °C &gt; कार्बुराइज़िंग (≈ 0.9 : 1) ≈ 3000–3100 °C &gt; ऑक्सी-हाइड्रोजन ≈ 2500 °C (एयर-एसिटिलीन ≈ 2300 °C और भी कम)।<br>अतिरिक्त ऑक्सीजन टिप के पास एसिटिलीन को तेज़ी व पूर्णता से जलाती है, इसलिए ऑक्सीडाइज़िंग फ्लेम सबसे गर्म है – फिर भी सबसे कम प्रयोग होती है क्योंकि यह स्टील का ऑक्सीकरण करती है। सभी फ्यूल-गैस फ्लेम में ऑक्सी-एसिटिलीन सबसे गर्म है, इसीलिए स्टील वेल्डिंग का मानक है।<br><b>ट्रैप:</b> (c) कार्बुराइज़िंग को न्यूट्रल से ऊपर रखता है; (b) ऑक्सी-हाइड्रोजन को सबसे ऊपर – दोनों गलत।<br><b>नंबर वॉल:</b> आर्क 5000–6000 °C · प्लाज़्मा ≈ 20,000 °C · थर्मिट ≈ 2500–3000 °C।"}},
+
+/* 5 */ {ans:1, lv:"p", tag:{en:"Flame structure",hi:"फ्लेम संरचना"},
+en:{q:"In a neutral oxy-acetylene flame, the maximum temperature occurs:",
+o:["at the base of the inner cone, near the nozzle","just ahead of the tip of the bright inner cone","at the far end of the outer envelope","uniformly throughout the outer envelope"],
+e:"The neutral flame has two zones. In the bright <b>inner cone</b>, acetylene burns with oxygen from the cylinder: C₂H₂ + O₂ → 2CO + H₂ (primary combustion). The maximum temperature, about 3200 °C, lies just in front of the tip of this cone, so the welder holds the cone tip about 2–3 mm above the pool. This zone is also reducing (carbon monoxide + hydrogen), which protects the pool from oxidation.<br>In the <b>outer envelope</b>, carbon monoxide and hydrogen burn with oxygen from the air (secondary combustion) – lower temperature; it mainly preheats and shields.<br><b>PYQ:</b> 'maximum flame temperature occurs at the inner cone' (Railway JE, NPSC)."},
+hi:{q:"न्यूट्रल ऑक्सी-एसिटिलीन फ्लेम में अधिकतम तापमान कहाँ होता है?",
+o:["इनर कोन के आधार पर, नोज़ल के पास","चमकीले इनर कोन के सिरे से ठीक आगे","बाहरी आवरण के दूर वाले सिरे पर","पूरे बाहरी आवरण में एकसमान"],
+e:"न्यूट्रल फ्लेम के दो क्षेत्र हैं। चमकीले <b>इनर कोन</b> में एसिटिलीन सिलेंडर की ऑक्सीजन से जलती है: C₂H₂ + O₂ → 2CO + H₂ (प्राथमिक दहन)। अधिकतम तापमान, लगभग 3200 °C, इस कोन के सिरे से ठीक आगे होता है, इसलिए वेल्डर कोन का सिरा पूल से लगभग 2–3 mm ऊपर रखता है। यह क्षेत्र रिड्यूसिंग (कार्बन मोनोऑक्साइड + हाइड्रोजन) भी है, जो पूल को ऑक्सीकरण से बचाता है।<br><b>बाहरी आवरण</b> में कार्बन मोनोऑक्साइड और हाइड्रोजन हवा की ऑक्सीजन से जलते हैं (द्वितीयक दहन) – तापमान कम; यह मुख्यतः प्रीहीट और सुरक्षा करता है।<br><b>PYQ:</b> 'अधिकतम फ्लेम तापमान इनर कोन पर होता है' (रेलवे JE, NPSC)।"}},
+
+/* 6 */ {ans:0, lv:"h", tag:{en:"Assertion–Reason",hi:"अभिकथन–कारण"},
+en:{q:"<b>Assertion (A):</b> Only about 40 % of the oxygen needed for complete combustion of acetylene comes from the cylinder.<br><b>Reason (R):</b> The outer envelope burns carbon monoxide and hydrogen using oxygen from the surrounding air.",
+o:["Both A and R are true, and R explains A","Both A and R are true, but R does not explain A","A is true, but R is false","A is false, but R is true"],
+e:"Complete combustion: C₂H₂ + 2.5 O₂ → 2CO₂ + H₂O, i.e. 2.5 volumes of oxygen per volume of acetylene. Only <b>1 volume</b> comes from the cylinder (inner cone: C₂H₂ + O₂ → 2CO + H₂); the remaining <b>1.5 volumes</b> come from the atmosphere in the outer envelope (2CO + H₂ + 1.5 O₂ → 2CO₂ + H₂O). 1 ÷ 2.5 = 40 %. So both statements are true and R explains A.<br><b>Why it matters:</b> this is why a neutral flame uses equal cylinder volumes (1 : 1) even though full combustion needs 2.5 : 1 – a favourite numerical twist (see Q24)."},
+hi:{q:"<b>अभिकथन (A):</b> एसिटिलीन के पूर्ण दहन हेतु आवश्यक ऑक्सीजन का केवल लगभग 40 % सिलेंडर से आता है।<br><b>कारण (R):</b> बाहरी आवरण आसपास की हवा की ऑक्सीजन से कार्बन मोनोऑक्साइड और हाइड्रोजन को जलाता है।",
+o:["A और R दोनों सत्य हैं, और R, A की सही व्याख्या है","A और R दोनों सत्य हैं, पर R, A की व्याख्या नहीं है","A सत्य है, पर R असत्य है","A असत्य है, पर R सत्य है"],
+e:"पूर्ण दहन: C₂H₂ + 2.5 O₂ → 2CO₂ + H₂O, अर्थात एक आयतन एसिटिलीन के लिए 2.5 आयतन ऑक्सीजन। इसमें केवल <b>1 आयतन</b> सिलेंडर से आता है (इनर कोन: C₂H₂ + O₂ → 2CO + H₂); बाकी <b>1.5 आयतन</b> बाहरी आवरण में वायुमंडल से आता है (2CO + H₂ + 1.5 O₂ → 2CO₂ + H₂O)। 1 ÷ 2.5 = 40 %। अतः दोनों कथन सत्य हैं और R, A की व्याख्या करता है।<br><b>महत्व:</b> इसी कारण न्यूट्रल फ्लेम में सिलेंडर से बराबर आयतन (1 : 1) लगता है, जबकि पूर्ण दहन के लिए 2.5 : 1 चाहिए – न्यूमेरिकल का पसंदीदा ट्विस्ट (Q24 देखें)।"}},
+
+/* 7 */ {ans:1, lv:"p", tag:{en:"Acetylene storage",hi:"एसिटिलीन भंडारण"},
+en:{q:"Consider the following statements about acetylene:<br>I. Free acetylene above about 1 bar (gauge) may decompose explosively.<br>II. In cylinders it is dissolved in acetone held in a porous filler.<br>III. Acetylene cylinders are stored lying horizontal to save space.<br>Which of the statements are correct?",
+o:["I only","I and II only","II and III only","I, II and III"],
+e:"<b>I ✔</b> – free acetylene is unstable; above about 1 bar gauge (≈ 15 psi) it can decompose explosively even without air.<br><b>II ✔</b> – so it is dissolved in acetone (one volume of acetone dissolves about 25 volumes of acetylene per atmosphere), held in a porous mass that fills the cylinder – the 'dissolved acetylene' cylinder.<br><b>III ✘</b> – acetylene cylinders must always be stored and used <b>upright</b>; lying down, liquid acetone is drawn out with the gas, damaging the regulator and spoiling the flame.<br><b>Also remember:</b> acetylene is made by CaC₂ + 2H₂O → C₂H₂ + Ca(OH)₂; oxygen is stored at 120–150 bar in seamless steel cylinders; a fusible plug (melts ≈ 100 °C) protects the acetylene cylinder from fire."},
+hi:{q:"एसिटिलीन के बारे में निम्न कथनों पर विचार करें:<br>I. लगभग 1 bar (गेज) से ऊपर मुक्त एसिटिलीन विस्फोटक रूप से विघटित हो सकती है।<br>II. सिलेंडर में यह छिद्रयुक्त भराव (porous filler) में रखे एसीटोन में घुली होती है।<br>III. जगह बचाने के लिए एसिटिलीन सिलेंडर क्षैतिज लिटाकर रखे जाते हैं।<br>कौन-से कथन सही हैं?",
+o:["केवल I","केवल I और II","केवल II और III","I, II और III"],
+e:"<b>I ✔</b> – मुक्त एसिटिलीन अस्थिर है; लगभग 1 bar गेज (≈ 15 psi) से ऊपर यह हवा के बिना भी विस्फोटक रूप से विघटित हो सकती है।<br><b>II ✔</b> – इसलिए इसे एसीटोन में घोला जाता है (एक आयतन एसीटोन प्रति वायुमंडल लगभग 25 आयतन एसिटिलीन घोलता है), जो सिलेंडर में भरे छिद्रयुक्त पदार्थ में रहता है – 'डिज़ॉल्व्ड एसिटिलीन' सिलेंडर।<br><b>III ✘</b> – एसिटिलीन सिलेंडर हमेशा <b>सीधा खड़ा</b> रखकर ही रखा व प्रयोग किया जाता है; लिटाने पर द्रव एसीटोन गैस के साथ बाहर आता है, रेगुलेटर खराब करता है और फ्लेम बिगाड़ता है।<br><b>यह भी याद रखें:</b> एसिटिलीन बनती है CaC₂ + 2H₂O → C₂H₂ + Ca(OH)₂ से; ऑक्सीजन 120–150 bar पर सीमलेस स्टील सिलेंडर में; फ्यूज़िबल प्लग (≈ 100 °C पर पिघलता है) आग में एसिटिलीन सिलेंडर की रक्षा करता है।"}},
+
+/* 8 */ {ans:3, lv:"e", tag:{en:"Equipment",hi:"उपकरण"},
+en:{q:"In a standard oxy-acetylene welding set, the cylinders are painted:",
+o:["oxygen maroon, acetylene black","oxygen black, acetylene green","oxygen grey, acetylene maroon","oxygen black, acetylene maroon"],
+e:"As per the Indian gas-cylinder colour code, the <b>oxygen</b> cylinder is painted <b>black</b> and the dissolved <b>acetylene</b> cylinder <b>maroon</b>. Hoses follow a similar idea – oxygen hose black, acetylene hose red/maroon.<br><b>Why it matters:</b> colour coding plus different threads (Q12) make it almost impossible to connect the wrong gas.<br><b>Trap:</b> option (a) simply swaps the two colours.<br><b>Related PYQs:</b> 'black colour is painted on the oxygen cylinder' · 'acetylene cylinders are coloured maroon' (Railway JE/SSE)."},
+hi:{q:"एक मानक ऑक्सी-एसिटिलीन वेल्डिंग सेट में सिलेंडरों का रंग होता है:",
+o:["ऑक्सीजन मरून, एसिटिलीन काला","ऑक्सीजन काला, एसिटिलीन हरा","ऑक्सीजन ग्रे, एसिटिलीन मरून","ऑक्सीजन काला, एसिटिलीन मरून"],
+e:"भारतीय गैस-सिलेंडर रंग कोड के अनुसार <b>ऑक्सीजन</b> सिलेंडर <b>काला</b> और डिज़ॉल्व्ड <b>एसिटिलीन</b> सिलेंडर <b>मरून</b> रंग का होता है। होज़ में भी यही विचार – ऑक्सीजन होज़ काला, एसिटिलीन होज़ लाल/मरून।<br><b>महत्व:</b> रंग कोड और अलग थ्रेड (Q12) मिलकर गलत गैस जोड़ना लगभग असंभव बना देते हैं।<br><b>ट्रैप:</b> विकल्प (a) में दोनों रंग उलट दिए गए हैं।<br><b>संबंधित PYQ:</b> 'ऑक्सीजन सिलेंडर पर काला रंग' · 'एसिटिलीन सिलेंडर मरून रंग के' (रेलवे JE/SSE)।"}},
+
+/* 9 */ {ans:2, lv:"h", tag:{en:"Safety",hi:"सुरक्षा"},
+en:{q:"Oil or grease must never be used on oxygen regulator fittings because:",
+o:["oil chokes the fine bore of the regulator seat","oil reacts with acetylene to form acetone","oil can ignite violently in high-pressure oxygen","oil lowers the purity of oxygen at the torch"],
+e:"Oil and grease are hydrocarbons. In contact with pure oxygen at high pressure they can ignite on their own – no spark needed – because the heat of sudden oxygen compression (when a cylinder valve is opened quickly) is enough. The result is a fire or explosion at the regulator. Hence: no oil, grease or oily gloves on oxygen fittings, and always open valves slowly.<br><b>Why not the others:</b> (a) blockage is a minor issue; (b) oil does not produce acetone; (d) purity is not the safety concern.<br><b>Safety set:</b> cylinders upright and chained · flashback arrestor fitted · leak test with soapy water, never a flame · keep cylinders away from heat and sparks."},
+hi:{q:"ऑक्सीजन रेगुलेटर की फिटिंग पर कभी भी तेल या ग्रीस नहीं लगाना चाहिए, क्योंकि:",
+o:["तेल रेगुलेटर सीट के बारीक छेद को बंद कर देता है","तेल एसिटिलीन से क्रिया कर एसीटोन बनाता है","उच्च-दाब ऑक्सीजन में तेल तीव्रता से जल उठ सकता है","तेल टॉर्च पर ऑक्सीजन की शुद्धता घटा देता है"],
+e:"तेल और ग्रीस हाइड्रोकार्बन हैं। उच्च दाब की शुद्ध ऑक्सीजन के संपर्क में ये बिना चिंगारी के स्वयं जल सकते हैं – सिलेंडर वाल्व तेज़ी से खोलने पर ऑक्सीजन के अचानक संपीडन की ऊष्मा ही काफ़ी है। परिणाम – रेगुलेटर पर आग या विस्फोट। इसलिए ऑक्सीजन फिटिंग पर तेल, ग्रीस या तेल लगे दस्ताने नहीं, और वाल्व हमेशा धीरे खोलें।<br><b>अन्य क्यों नहीं:</b> (a) छेद बंद होना मामूली बात है; (b) तेल से एसीटोन नहीं बनता; (d) शुद्धता सुरक्षा का मुद्दा नहीं।<br><b>सुरक्षा सेट:</b> सिलेंडर सीधे खड़े व चेन से बँधे · फ्लैशबैक अरेस्टर लगा हो · लीक जाँच साबुन के पानी से, कभी फ्लेम से नहीं · सिलेंडर ऊष्मा व चिंगारी से दूर।"}},
+
+/* 10 */ {ans:0, lv:"t", tag:{en:"Equipment",hi:"उपकरण"},
+en:{q:"The main advantage of a two-stage pressure regulator over a single-stage regulator is that it:",
+o:["keeps working pressure constant as the cylinder empties","mixes oxygen and acetylene before they reach the torch","allows acetylene to be drawn safely above 1 bar","stops a flashback from reaching the cylinder valve"],
+e:"A regulator reduces the high cylinder pressure to a steady working pressure (RRB-CBT2 Apr'25-I). In a <b>single-stage</b> regulator the delivery pressure drifts as the cylinder pressure falls, so the welder keeps re-adjusting it. A <b>two-stage</b> regulator first drops the pressure to an intermediate value, then to working pressure, so the output stays almost <b>constant</b> till the cylinder is nearly empty – giving a steadier flame.<br><b>Why not the others:</b> mixing happens in the torch (RRB-CBT2 Jun'25); acetylene must never be drawn above about 1 bar; flashback is stopped by the flashback arrestor.<br><b>PYQ link:</b> single-stage regulators are mostly used in gas cutting (Railway JE); a regulator carries two gauges – cylinder pressure and working pressure."},
+hi:{q:"सिंगल-स्टेज रेगुलेटर की तुलना में टू-स्टेज प्रेशर रेगुलेटर का मुख्य लाभ यह है कि यह:",
+o:["सिलेंडर खाली होने पर भी कार्य-दाब स्थिर रखता है","टॉर्च तक पहुँचने से पहले ऑक्सीजन व एसिटिलीन मिलाता है","एसिटिलीन को 1 bar से ऊपर सुरक्षित निकालने देता है","फ्लैशबैक को सिलेंडर वाल्व तक पहुँचने से रोकता है"],
+e:"रेगुलेटर सिलेंडर के उच्च दाब को स्थिर कार्य-दाब (working pressure) तक घटाता है (RRB-CBT2 Apr'25-I)। <b>सिंगल-स्टेज</b> रेगुलेटर में सिलेंडर दाब गिरने के साथ डिलीवरी दाब बदलता रहता है, इसलिए वेल्डर को बार-बार समायोजन करना पड़ता है। <b>टू-स्टेज</b> रेगुलेटर पहले दाब को एक मध्यवर्ती मान तक, फिर कार्य-दाब तक घटाता है, इसलिए सिलेंडर लगभग खाली होने तक आउटपुट लगभग <b>स्थिर</b> रहता है – फ्लेम अधिक स्थिर।<br><b>अन्य क्यों नहीं:</b> मिश्रण टॉर्च में होता है (RRB-CBT2 Jun'25); एसिटिलीन कभी 1 bar से ऊपर नहीं निकालनी चाहिए; फ्लैशबैक को फ्लैशबैक अरेस्टर रोकता है।<br><b>PYQ लिंक:</b> सिंगल-स्टेज रेगुलेटर अधिकतर गैस कटिंग में (रेलवे JE); रेगुलेटर पर दो गेज होते हैं – सिलेंडर दाब और कार्य-दाब।"}},
+
+/* 11 */ {ans:3, lv:"h", tag:{en:"Equipment",hi:"उपकरण"},
+en:{q:"A low-pressure (injector-type) blowpipe is essential when:",
+o:["both gases are supplied from dissolved cylinders","the oxygen cylinder pressure falls below 10 bar","thick plates are welded by the rightward method","acetylene is supplied from a low-pressure generator"],
+e:"There are two torch types. <b>High-pressure (equal-pressure) blowpipe</b> – both gases arrive at roughly equal, moderate pressure; used with dissolved-acetylene cylinders. <b>Low-pressure (injector) blowpipe</b> – a high-velocity oxygen jet passes through an injector and <b>sucks in</b> acetylene supplied at very low pressure, as from an <b>acetylene generator</b> (calcium carbide + water on site).<br><b>Why not the others:</b> (a) dissolved cylinders suit the equal-pressure torch; (b) and (c) have nothing to do with the torch type.<br><b>Related PYQs:</b> 'oxygen and acetylene at equal pressure → high-pressure blowpipe' · 'large acetylene consumption → acetylene generator' · 'many cylinders connected for a big job → cylinder manifold'."},
+hi:{q:"लो-प्रेशर (इंजेक्टर-प्रकार) ब्लोपाइप कब आवश्यक होता है?",
+o:["जब दोनों गैसें डिज़ॉल्व्ड सिलेंडर से आती हों","जब ऑक्सीजन सिलेंडर का दाब 10 bar से कम हो","जब मोटी प्लेट राइटवर्ड विधि से वेल्ड हो","जब एसिटिलीन लो-प्रेशर जनरेटर से आती हो"],
+e:"टॉर्च के दो प्रकार हैं। <b>हाई-प्रेशर (इक्वल-प्रेशर) ब्लोपाइप</b> – दोनों गैसें लगभग बराबर, मध्यम दाब पर आती हैं; डिज़ॉल्व्ड-एसिटिलीन सिलेंडर के साथ। <b>लो-प्रेशर (इंजेक्टर) ब्लोपाइप</b> – तेज़ ऑक्सीजन जेट इंजेक्टर से गुज़रकर बहुत कम दाब पर आने वाली एसिटिलीन को <b>खींच लेता</b> है, जैसे <b>एसिटिलीन जनरेटर</b> (साइट पर कैल्शियम कार्बाइड + पानी) से।<br><b>अन्य क्यों नहीं:</b> (a) डिज़ॉल्व्ड सिलेंडर इक्वल-प्रेशर टॉर्च के लिए; (b) और (c) का टॉर्च के प्रकार से कोई संबंध नहीं।<br><b>संबंधित PYQ:</b> 'ऑक्सीजन व एसिटिलीन बराबर दाब पर → हाई-प्रेशर ब्लोपाइप' · 'अधिक एसिटिलीन खपत → एसिटिलीन जनरेटर' · 'बड़े कार्य हेतु कई सिलेंडर जोड़ना → सिलेंडर मैनिफ़ोल्ड'।"}},
+
+/* 12 */ {ans:1, lv:"p", tag:{en:"Equipment · safety",hi:"उपकरण · सुरक्षा"},
+en:{q:"To prevent wrong connection, acetylene regulator and hose fittings are provided with:",
+o:["right-hand threads with a plain hexagon nut","left-hand threads, usually with a grooved nut","push-fit quick couplings with colour code only","metric fine threads identical to the oxygen side"],
+e:"All fuel-gas (acetylene) fittings have <b>left-hand threads</b>, and the nut usually has a groove or notch cut on its corners so it can be recognised by sight and touch. Oxygen fittings have normal right-hand threads with plain nuts. So an acetylene hose physically cannot be screwed onto an oxygen regulator – mixing gases inside a regulator could cause an explosion.<br><b>Why not the others:</b> (a) describes the oxygen side; (c) colour alone is not trusted for safety; (d) identical threads would defeat the purpose.<br><b>One line:</b> fuel gas → left-hand thread, grooved nut, maroon/red · oxygen → right-hand thread, plain nut, black."},
+hi:{q:"गलत कनेक्शन रोकने के लिए एसिटिलीन रेगुलेटर और होज़ फिटिंग में होते हैं:",
+o:["राइट-हैंड थ्रेड और सादा षट्भुज नट","लेफ़्ट-हैंड थ्रेड, सामान्यतः खाँचेदार नट के साथ","केवल रंग कोड वाले पुश-फ़िट क्विक कपलिंग","ऑक्सीजन जैसे ही मीट्रिक फ़ाइन थ्रेड"],
+e:"सभी फ्यूल-गैस (एसिटिलीन) फिटिंग में <b>लेफ़्ट-हैंड थ्रेड</b> होते हैं, और नट के कोनों पर प्रायः खाँचा (groove) कटा होता है ताकि देखकर व छूकर पहचाना जा सके। ऑक्सीजन फिटिंग में सामान्य राइट-हैंड थ्रेड और सादा नट होते हैं। इसलिए एसिटिलीन होज़ भौतिक रूप से ऑक्सीजन रेगुलेटर पर कस ही नहीं सकता – रेगुलेटर के अंदर गैसें मिलने से विस्फोट हो सकता है।<br><b>अन्य क्यों नहीं:</b> (a) ऑक्सीजन वाली ओर का वर्णन है; (c) केवल रंग पर सुरक्षा के लिए भरोसा नहीं किया जाता; (d) एक जैसे थ्रेड से उद्देश्य ही विफल।<br><b>एक लाइन:</b> फ्यूल गैस → लेफ़्ट-हैंड थ्रेड, खाँचेदार नट, मरून/लाल · ऑक्सीजन → राइट-हैंड थ्रेड, सादा नट, काला।"}},
+
+/* 13 */ {ans:2, lv:"p", tag:{en:"Technique",hi:"तकनीक"},
+en:{q:"The correct sequence for lighting an oxy-acetylene torch is:",
+o:["open oxygen slightly, ignite, then add acetylene","open both valves fully together, then ignite at the tip","open acetylene, ignite, then add oxygen to adjust","strike the lighter, then open the oxygen valve alone"],
+e:"Correct lighting: open the acetylene valve slightly and ignite with a spark lighter (never a matchstick) – a smoky yellow flame appears. Then open oxygen gradually until the feather just disappears (neutral flame). Lighting acetylene first means only a fuel flame burns at the tip, so the flame cannot run back into an oxygen-rich mixture inside the torch.<br><b>Why not the others:</b> (a) oxygen first invites a pop or backfire; (b) a fully open premixed jet ignites violently; (d) oxygen alone does not burn – it only supports burning.<br><b>Shut-down (as taught in Indian textbooks):</b> close acetylene first, then oxygen; then close the cylinder valves and release the regulator pressure."},
+hi:{q:"ऑक्सी-एसिटिलीन टॉर्च जलाने का सही क्रम है:",
+o:["ऑक्सीजन थोड़ी खोलें, जलाएँ, फिर एसिटिलीन जोड़ें","दोनों वाल्व पूरे एक साथ खोलें, फिर टिप पर जलाएँ","एसिटिलीन खोलें, जलाएँ, फिर ऑक्सीजन से समायोजित करें","लाइटर जलाएँ, फिर केवल ऑक्सीजन वाल्व खोलें"],
+e:"सही तरीका: एसिटिलीन वाल्व थोड़ा खोलें और स्पार्क लाइटर से जलाएँ (माचिस कभी नहीं) – धुएँदार पीली फ्लेम दिखती है। फिर धीरे-धीरे ऑक्सीजन खोलें जब तक फ़ेदर ठीक गायब न हो (न्यूट्रल फ्लेम)। पहले एसिटिलीन जलाने से टिप पर केवल फ्यूल फ्लेम जलती है, इसलिए फ्लेम टॉर्च के अंदर ऑक्सीजन-युक्त मिश्रण में वापस नहीं जा सकती।<br><b>अन्य क्यों नहीं:</b> (a) पहले ऑक्सीजन से पॉप या बैकफ़ायर हो सकता है; (b) पूरा खुला मिश्रित जेट हिंसक रूप से जलता है; (d) अकेली ऑक्सीजन नहीं जलती – वह केवल जलने में सहायक है।<br><b>बंद करना (भारतीय पाठ्यपुस्तकों के अनुसार):</b> पहले एसिटिलीन, फिर ऑक्सीजन बंद करें; फिर सिलेंडर वाल्व बंद कर रेगुलेटर का दाब निकाल दें।"}},
+
+/* 14 */ {ans:0, lv:"p", tag:{en:"Safety",hi:"सुरक्षा"},
+en:{q:"Case 1: a sharp pop, the flame goes out and then relights. Case 2: a hissing or squealing sound, with the flame burning inside the torch. Identify the two cases.",
+o:["Case 1 is backfire, Case 2 is flashback","Case 1 is flashback, Case 2 is backfire","both are backfire of differing severity","both are flashback of differing severity"],
+e:"<b>Backfire</b> – a momentary return of the flame into the tip with a sharp pop; the flame may go out or relight by itself. It is a warning sign, usually not dangerous by itself.<br><b>Flashback</b> – the flame burns back <b>inside</b> the torch or hose, heard as a hissing or squealing sound, often with smoke or a hot handle. It is dangerous: shut the torch and cylinder valves at once. A flashback arrestor with a non-return valve stops it from reaching the cylinder (Q15).<br><b>Trap:</b> (b) swaps the names; (c) and (d) treat two different events as one."},
+hi:{q:"स्थिति 1: तेज़ 'पॉप' की आवाज़, फ्लेम बुझती है और फिर जल जाती है। स्थिति 2: सीटी/सरसराहट की आवाज़, फ्लेम टॉर्च के अंदर जल रही है। दोनों स्थितियों को पहचानें।",
+o:["स्थिति 1 बैकफ़ायर है, स्थिति 2 फ्लैशबैक है","स्थिति 1 फ्लैशबैक है, स्थिति 2 बैकफ़ायर है","दोनों अलग तीव्रता के बैकफ़ायर हैं","दोनों अलग तीव्रता के फ्लैशबैक हैं"],
+e:"<b>बैकफ़ायर (backfire)</b> – फ्लेम का तेज़ 'पॉप' के साथ क्षणभर के लिए टिप में लौटना; फ्लेम बुझ सकती है या स्वयं फिर जल सकती है। यह चेतावनी है, सामान्यतः स्वयं में खतरनाक नहीं।<br><b>फ्लैशबैक (flashback)</b> – फ्लेम टॉर्च या होज़ के <b>अंदर</b> पीछे की ओर जलती है, सीटी/सरसराहट की आवाज़, प्रायः धुआँ या गर्म हैंडल। यह खतरनाक है: तुरंत टॉर्च और सिलेंडर वाल्व बंद करें। नॉन-रिटर्न वाल्व वाला फ्लैशबैक अरेस्टर इसे सिलेंडर तक पहुँचने से रोकता है (Q15)।<br><b>ट्रैप:</b> (b) में नाम उलटे हैं; (c) और (d) दो अलग घटनाओं को एक मानते हैं।"}},
+
+/* 15 */ {ans:3, lv:"e", tag:{en:"Equipment",hi:"उपकरण"},
+en:{q:"Which device stops a flame from travelling back into the hose and cylinder?",
+o:["Pressure regulator","Spark lighter","Injector nozzle","Flashback arrestor"],
+e:"A <b>flashback arrestor</b> (fitted at the regulator outlet and/or the torch inlet) contains a sintered flame barrier, a non-return valve and often a pressure-sensitive cut-off. It quenches a flame travelling backwards and blocks reverse gas flow into the hose and cylinder.<br><b>Why not the others:</b> the regulator reduces pressure; the spark lighter ignites the flame; the injector nozzle sucks acetylene into a low-pressure torch.<br><b>Related PYQ:</b> the 'hydraulic back-pressure valve' (water seal) did the same job on old acetylene-generator systems (Railway JE)."},
+hi:{q:"कौन-सा उपकरण फ्लेम को होज़ और सिलेंडर में वापस जाने से रोकता है?",
+o:["प्रेशर रेगुलेटर","स्पार्क लाइटर","इंजेक्टर नोज़ल","फ्लैशबैक अरेस्टर"],
+e:"<b>फ्लैशबैक अरेस्टर</b> (रेगुलेटर आउटलेट और/या टॉर्च इनलेट पर लगा) में सिंटर्ड फ्लेम बैरियर, नॉन-रिटर्न वाल्व और प्रायः दाब-संवेदी कट-ऑफ़ होता है। यह पीछे जाती फ्लेम को बुझाता है और होज़ व सिलेंडर में गैस का उल्टा प्रवाह रोकता है।<br><b>अन्य क्यों नहीं:</b> रेगुलेटर दाब घटाता है; स्पार्क लाइटर फ्लेम जलाता है; इंजेक्टर नोज़ल लो-प्रेशर टॉर्च में एसिटिलीन खींचता है।<br><b>संबंधित PYQ:</b> पुराने एसिटिलीन-जनरेटर सिस्टम में यही काम 'हाइड्रॉलिक बैक-प्रेशर वाल्व' (वाटर सील) करता था (रेलवे JE)।"}},
+
+/* 16 */ {ans:1, lv:"h", tag:{en:"Technique",hi:"तकनीक"},
+en:{q:"For 8 mm mild-steel plate, where fast welding with less gas is required, the correct technique and its feature is:",
+o:["Leftward: rod ahead, flame on the unwelded plate","Rightward: flame on the completed weld, rod behind","Leftward: torch leads, rod follows the flame","Rightward: rod ahead, flame on the unwelded plate"],
+e:"For plates above about 5 mm the <b>rightward (backhand)</b> technique is used: welding moves from left to right, the torch leads, the filler rod follows <b>behind</b> the flame, and the flame points back at the completed weld. This keeps the pool hot, gives better penetration and a slight annealing of the deposit, faster speed and 20–25 % less gas and rod.<br><b>Leftward (forehand)</b> – rod <b>ahead</b> of the torch, flame pointing at the unwelded plate (preheating it); suits plates up to about 5 mm (RRB-CBT2 Apr'25-II: rod applied before the torch = forehand).<br><b>Trap:</b> (c) and (d) attach correct features to the wrong name – read every word."},
+hi:{q:"8 mm माइल्ड-स्टील प्लेट के लिए, जहाँ कम गैस में तेज़ वेल्डिंग चाहिए, सही तकनीक और उसकी विशेषता है:",
+o:["लेफ़्टवर्ड: रॉड आगे, फ्लेम बिना वेल्ड प्लेट पर","राइटवर्ड: फ्लेम पूर्ण वेल्ड पर, रॉड पीछे","लेफ़्टवर्ड: टॉर्च आगे, रॉड फ्लेम के पीछे","राइटवर्ड: रॉड आगे, फ्लेम बिना वेल्ड प्लेट पर"],
+e:"लगभग 5 mm से मोटी प्लेट के लिए <b>राइटवर्ड (बैकहैंड)</b> तकनीक प्रयोग होती है: वेल्डिंग बाएँ से दाएँ चलती है, टॉर्च आगे रहता है, फिलर रॉड फ्लेम के <b>पीछे</b> चलती है और फ्लेम पूर्ण हुए वेल्ड की ओर रहती है। इससे पूल गर्म रहता है, बेहतर पेनिट्रेशन, जमा धातु का हल्का एनीलिंग, तेज़ गति और 20–25 % कम गैस व रॉड।<br><b>लेफ़्टवर्ड (फ़ोरहैंड)</b> – रॉड टॉर्च के <b>आगे</b>, फ्लेम बिना वेल्ड प्लेट की ओर (उसे प्रीहीट करती है); लगभग 5 mm तक की प्लेट के लिए (RRB-CBT2 Apr'25-II: टॉर्च से पहले रॉड = फ़ोरहैंड)।<br><b>ट्रैप:</b> (c) और (d) में सही विशेषताएँ गलत नाम के साथ जोड़ी गई हैं – हर शब्द पढ़ें।"}},
+
+/* 17 */ {ans:2, lv:"t", tag:{en:"Statement-based",hi:"कथन-आधारित"},
+en:{q:"Consider the following statements:<br>I. Rightward welding saves about 20–25 % in gas and filler rod.<br>II. Rightward welding needs a wider V-angle than leftward welding.<br>III. Leftward welding is preferred for plates up to about 5 mm.<br>Which of the statements are correct?",
+o:["I and II only","II and III only","I and III only","I, II and III"],
+e:"<b>I ✔</b> – rightward is faster and needs a smaller groove and fewer passes, saving about 20–25 % gas and filler rod.<br><b>III ✔</b> – leftward is easier to control and best for thin plates up to about 5 mm.<br><b>II ✘</b> – it is the other way round: because the flame is directed into the root, rightward welding needs a <b>smaller</b> included V-angle (about 60°) than leftward (about 80–90°).<br><b>Angles to know:</b> forehand torch angle about 60–70° to the work, rod about 30–40°; backhand torch angle about 40–50° (OPSC, NPSC, Railway SSE PYQs).<br><b>Tip:</b> smaller angle → less metal to deposit → less gas and rod → faster – all of rightward's advantages come from one root reason."},
+hi:{q:"निम्न कथनों पर विचार करें:<br>I. राइटवर्ड वेल्डिंग में गैस और फिलर रॉड की लगभग 20–25 % बचत होती है।<br>II. राइटवर्ड वेल्डिंग में लेफ़्टवर्ड से अधिक चौड़ा V-कोण चाहिए।<br>III. लगभग 5 mm तक की प्लेट के लिए लेफ़्टवर्ड वेल्डिंग पसंद की जाती है।<br>कौन-से कथन सही हैं?",
+o:["केवल I और II","केवल II और III","केवल I और III","I, II और III"],
+e:"<b>I ✔</b> – राइटवर्ड तेज़ है, इसमें छोटा ग्रूव और कम पास लगते हैं, इसलिए लगभग 20–25 % गैस व फिलर रॉड की बचत।<br><b>III ✔</b> – लेफ़्टवर्ड नियंत्रित करना आसान है और लगभग 5 mm तक की पतली प्लेट के लिए सर्वोत्तम।<br><b>II ✘</b> – उल्टा है: फ्लेम रूट की ओर होने से राइटवर्ड वेल्डिंग में लेफ़्टवर्ड (लगभग 80–90°) की तुलना में <b>छोटा</b> V-कोण (लगभग 60°) चाहिए।<br><b>कोण याद रखें:</b> फ़ोरहैंड में टॉर्च कोण जॉब से लगभग 60–70°, रॉड लगभग 30–40°; बैकहैंड में टॉर्च कोण लगभग 40–50° (OPSC, NPSC, रेलवे SSE PYQ)।<br><b>टिप:</b> छोटा कोण → कम धातु भरनी → कम गैस व रॉड → तेज़ – राइटवर्ड के सभी लाभ एक ही मूल कारण से हैं।"}},
+
+/* 18 */ {ans:0, lv:"p", tag:{en:"Gas vs arc",hi:"गैस बनाम आर्क"},
+en:{q:"Gas welding is preferred over arc welding for thin sheet and cast-iron repair mainly because:",
+o:["heat is applied slowly and can be controlled","the flame temperature is higher than an arc","the heat-affected zone is narrower than in arc","no filler metal is needed for the joint"],
+e:"The oxy-acetylene flame (≈ 3200 °C) is cooler and less concentrated than an electric arc (≈ 5000–6000 °C). Heat goes in slowly and the welder can lift the flame away at any moment, so thin sheets do not burn through and brittle cast iron is heated and cooled gradually, reducing cracking. It also needs no electricity – handy for site repair.<br><b>Why not the others:</b> (b) the arc is hotter; (c) gas welding gives a <b>wider</b> heat-affected zone, not narrower; (d) a filler rod is normally used.<br><b>Gas vs arc in one line:</b> gas = slow heating, wide heat-affected zone, thin work and repair · arc = concentrated heat, narrow zone, thick sections and production."},
+hi:{q:"पतली शीट और कास्ट-आयरन की मरम्मत के लिए गैस वेल्डिंग को आर्क वेल्डिंग से मुख्यतः इसलिए पसंद किया जाता है क्योंकि:",
+o:["ऊष्मा धीरे दी जाती है और नियंत्रित की जा सकती है","फ्लेम का तापमान आर्क से अधिक होता है","हीट-अफेक्टेड ज़ोन आर्क से संकरा होता है","जोड़ के लिए फिलर धातु की ज़रूरत नहीं होती"],
+e:"ऑक्सी-एसिटिलीन फ्लेम (≈ 3200 °C) विद्युत आर्क (≈ 5000–6000 °C) से ठंडी और कम केंद्रित है। ऊष्मा धीरे-धीरे जाती है और वेल्डर किसी भी क्षण फ्लेम हटा सकता है, इसलिए पतली शीट में छेद नहीं होता और भंगुर कास्ट आयरन धीरे गर्म व ठंडा होता है, जिससे दरारें कम होती हैं। बिजली की भी ज़रूरत नहीं – साइट मरम्मत में उपयोगी।<br><b>अन्य क्यों नहीं:</b> (b) आर्क अधिक गर्म है; (c) गैस वेल्डिंग में हीट-अफेक्टेड ज़ोन <b>चौड़ा</b> होता है, संकरा नहीं; (d) सामान्यतः फिलर रॉड प्रयोग होती है।<br><b>गैस बनाम आर्क एक लाइन में:</b> गैस = धीमी ऊष्मा, चौड़ा हीट-अफेक्टेड ज़ोन, पतला कार्य व मरम्मत · आर्क = केंद्रित ऊष्मा, संकरा ज़ोन, मोटे सेक्शन व उत्पादन।"}},
+
+/* 19 */ {ans:3, lv:"p", tag:{en:"Other gas flames",hi:"अन्य गैस फ्लेम"},
+en:{q:"An air-acetylene flame (about 2300 °C) is mainly used for:",
+o:["welding thick mild-steel plates","cutting stainless-steel sections","welding aluminium alloy castings","soldering and light brazing work"],
+e:"Air-acetylene burns acetylene with atmospheric air (no oxygen cylinder) through a Bunsen-type torch, giving about 2300 °C – too cool to weld steel but ideal for soldering, light brazing, plumbing and heating jobs.<br><b>Other fuel-gas flames:</b> oxy-hydrogen ≈ 2500 °C – aluminium, lead, low-temperature brazing · oxy-propane / liquefied petroleum gas – cutting and heating (cheap, high total heat) · oxy-acetylene ≈ 3200 °C – welding steel and cutting.<br><b>Why not the others:</b> thick steel needs oxy-acetylene or arc welding; stainless steel is cut by plasma; aluminium castings are welded by Tungsten Inert Gas welding or oxy-acetylene with flux."},
+hi:{q:"एयर-एसिटिलीन फ्लेम (लगभग 2300 °C) मुख्यतः किसके लिए प्रयोग होती है?",
+o:["मोटी माइल्ड-स्टील प्लेट की वेल्डिंग","स्टेनलेस-स्टील सेक्शन की कटिंग","एल्युमिनियम मिश्रधातु कास्टिंग की वेल्डिंग","सोल्डरिंग और हल्का ब्रेज़िंग कार्य"],
+e:"एयर-एसिटिलीन में एसिटिलीन वायुमंडलीय हवा से (बिना ऑक्सीजन सिलेंडर) बुन्सन-प्रकार के टॉर्च में जलती है, लगभग 2300 °C देती है – स्टील वेल्डिंग के लिए कम, पर सोल्डरिंग, हल्की ब्रेज़िंग, प्लंबिंग व हीटिंग के लिए आदर्श।<br><b>अन्य फ्यूल-गैस फ्लेम:</b> ऑक्सी-हाइड्रोजन ≈ 2500 °C – एल्युमिनियम, लेड, कम तापमान ब्रेज़िंग · ऑक्सी-प्रोपेन / द्रवीकृत पेट्रोलियम गैस (liquefied petroleum gas) – कटिंग व हीटिंग (सस्ती, अधिक कुल ऊष्मा) · ऑक्सी-एसिटिलीन ≈ 3200 °C – स्टील वेल्डिंग व कटिंग।<br><b>अन्य क्यों नहीं:</b> मोटे स्टील के लिए ऑक्सी-एसिटिलीन या आर्क वेल्डिंग; स्टेनलेस स्टील प्लाज़्मा से कटता है; एल्युमिनियम कास्टिंग टंगस्टन इनर्ट गैस वेल्डिंग या फ्लक्स सहित ऑक्सी-एसिटिलीन से।"}},
+
+/* 20 */ {ans:2, lv:"h", tag:{en:"Flame cutting",hi:"फ्लेम कटिंग"},
+en:{q:"While oxy-cutting a 50 mm mild-steel plate, the cut can continue even with the preheat flames turned low, because:",
+o:["the kerf walls reflect flame heat back into the cut","the oxygen jet itself is at a very high temperature","oxidation of iron is exothermic and supplies heat","the slag insulates the cut above its melting point"],
+e:"Oxy-fuel cutting is a <b>chemical</b> process. Preheat flames raise steel to its ignition (kindling) temperature, about 870 °C; a jet of pure oxygen then burns the iron (3Fe + 2O₂ → Fe₃O₄ + heat). This reaction is strongly <b>exothermic</b> – on thick sections it supplies most of the heat needed to keep the next layer at ignition temperature, so the preheat contributes little once the cut is running. The molten oxide (slag) is blown out, leaving the kerf.<br><b>Why not the others:</b> (a) reflection is negligible; (b) the oxygen jet is cold – it only reacts; (d) the slag is blown away, not retained.<br><b>Conditions for oxy-cutting:</b> ignition temperature below melting point · oxide melts below the metal · reaction gives enough heat · oxide fluid and easily blown · low thermal conductivity."},
+hi:{q:"50 mm माइल्ड-स्टील प्लेट की ऑक्सी-कटिंग में प्रीहीट फ्लेम कम करने पर भी कट जारी रह सकता है, क्योंकि:",
+o:["कर्फ़ की दीवारें फ्लेम की ऊष्मा कट में वापस परावर्तित करती हैं","ऑक्सीजन जेट स्वयं बहुत अधिक तापमान पर होता है","आयरन का ऑक्सीकरण ऊष्माक्षेपी है और ऊष्मा देता है","स्लैग अपने गलनांक से ऊपर कट को ऊष्मारोधी बनाता है"],
+e:"ऑक्सी-फ्यूल कटिंग एक <b>रासायनिक</b> प्रक्रिया है। प्रीहीट फ्लेम स्टील को उसके इग्निशन (किंडलिंग) तापमान, लगभग 870 °C, तक ले जाती है; फिर शुद्ध ऑक्सीजन का जेट आयरन को जलाता है (3Fe + 2O₂ → Fe₃O₄ + ऊष्मा)। यह अभिक्रिया प्रबल <b>ऊष्माक्षेपी</b> है – मोटे सेक्शन में अगली परत को इग्निशन तापमान पर रखने वाली अधिकांश ऊष्मा यही देती है, इसलिए कट चलने के बाद प्रीहीट का योगदान कम रह जाता है। पिघला ऑक्साइड (स्लैग) उड़ा दिया जाता है और कर्फ़ (kerf) बनता है।<br><b>अन्य क्यों नहीं:</b> (a) परावर्तन नगण्य है; (b) ऑक्सीजन जेट ठंडा होता है – वह केवल क्रिया करता है; (d) स्लैग उड़ा दिया जाता है, रुकता नहीं।<br><b>ऑक्सी-कटिंग की शर्तें:</b> इग्निशन तापमान गलनांक से कम · ऑक्साइड धातु से कम तापमान पर पिघले · अभिक्रिया पर्याप्त ऊष्मा दे · ऑक्साइड तरल व आसानी से उड़े · कम ऊष्मा चालकता।"}},
+
+/* 21 */ {ans:1, lv:"h", tag:{en:"Flame cutting",hi:"फ्लेम कटिंग"},
+en:{q:"Conventional oxy-fuel cutting fails on stainless steel mainly because:",
+o:["its thermal conductivity is far higher than mild steel's","its chromium oxide melts above the steel's melting point","its ignition temperature is below about 500 °C","its nickel content makes the steel non-magnetic"],
+e:"Stainless steel (12–18 % chromium) forms <b>chromium oxide (Cr₂O₃)</b> during cutting. This oxide is refractory – it melts at about 2400 °C, far above the steel itself (≈ 1400–1450 °C). It does not flow out of the kerf; instead it forms a protective skin that stops oxygen reaching fresh metal, so the cut stops. This breaks the condition 'oxide must melt below the metal'.<br><b>Why not the others:</b> (a) stainless steel actually has <b>lower</b> conductivity than mild steel; (c) false; (d) magnetism plays no role in oxy-cutting.<br><b>How stainless steel is cut:</b> plasma arc, powder (flux) cutting, laser or water-jet. (RRB-CBT2 Jul'26: limitation of oxy-fuel = cannot cut stainless steel efficiently.)"},
+hi:{q:"पारंपरिक ऑक्सी-फ्यूल कटिंग स्टेनलेस स्टील पर मुख्यतः क्यों विफल होती है?",
+o:["इसकी ऊष्मा चालकता माइल्ड स्टील से बहुत अधिक है","इसका क्रोमियम ऑक्साइड स्टील के गलनांक से ऊपर पिघलता है","इसका इग्निशन तापमान लगभग 500 °C से कम है","इसका निकल स्टील को अचुंबकीय बना देता है"],
+e:"स्टेनलेस स्टील (12–18 % क्रोमियम) कटिंग के दौरान <b>क्रोमियम ऑक्साइड (Cr₂O₃)</b> बनाता है। यह ऑक्साइड दुर्गलनीय (refractory) है – लगभग 2400 °C पर पिघलता है, स्टील (≈ 1400–1450 °C) से बहुत ऊपर। यह कर्फ़ से बहकर नहीं निकलता, बल्कि सुरक्षात्मक परत बनाकर ऑक्सीजन को ताज़ी धातु तक पहुँचने से रोकता है, इसलिए कट रुक जाता है। यह शर्त टूटती है – 'ऑक्साइड धातु से कम तापमान पर पिघलना चाहिए'।<br><b>अन्य क्यों नहीं:</b> (a) स्टेनलेस स्टील की चालकता वास्तव में माइल्ड स्टील से <b>कम</b> है; (c) असत्य; (d) ऑक्सी-कटिंग में चुंबकत्व की कोई भूमिका नहीं।<br><b>स्टेनलेस स्टील कैसे कटता है:</b> प्लाज़्मा आर्क, पाउडर (फ्लक्स) कटिंग, लेज़र या वाटर-जेट। (RRB-CBT2 Jul'26: ऑक्सी-फ्यूल की सीमा = स्टेनलेस स्टील कुशलता से नहीं काट सकता।)"}},
+
+/* 22 */ {ans:0, lv:"h", tag:{en:"Flame cutting",hi:"फ्लेम कटिंग"},
+en:{q:"Grey cast iron is difficult to cut by the oxy-fuel process because:",
+o:["it melts before reaching its ignition temperature","its oxide is too fluid and runs into the kerf","it has too little carbon to sustain oxidation","its thermal conductivity is extremely low"],
+e:"Grey cast iron (2–4 % carbon, as graphite flakes) melts at about 1150–1200 °C, which is <b>below</b> its ignition temperature – so it melts and runs before it can burn. The graphite and silicon also form oxides and gases that disturb the oxygen jet. This breaks the first condition: 'ignition temperature must be below the melting point'.<br><b>Why not the others:</b> (b) the problem is melting of the base metal, not a fluid oxide; (c) it has <b>more</b> carbon, not less; (d) low conductivity would actually help cutting.<br><b>Cuttable:</b> mild and low-carbon steel, low-alloy steel, cast steel, wrought iron, titanium. <b>Not cuttable:</b> stainless steel, cast iron, aluminium, copper, brass – use powder cutting or plasma."},
+hi:{q:"ग्रे कास्ट आयरन को ऑक्सी-फ्यूल प्रक्रिया से काटना कठिन है, क्योंकि:",
+o:["यह इग्निशन तापमान तक पहुँचने से पहले पिघल जाता है","इसका ऑक्साइड बहुत तरल होकर कर्फ़ में बह जाता है","इसमें ऑक्सीकरण बनाए रखने के लिए कार्बन बहुत कम है","इसकी ऊष्मा चालकता अत्यंत कम है"],
+e:"ग्रे कास्ट आयरन (2–4 % कार्बन, ग्रेफ़ाइट फ़्लेक के रूप में) लगभग 1150–1200 °C पर पिघलता है, जो इसके इग्निशन तापमान से <b>कम</b> है – इसलिए यह जलने से पहले ही पिघलकर बह जाता है। ग्रेफ़ाइट और सिलिकॉन ऐसे ऑक्साइड व गैसें भी बनाते हैं जो ऑक्सीजन जेट को बाधित करते हैं। पहली शर्त टूटती है: 'इग्निशन तापमान गलनांक से कम होना चाहिए'।<br><b>अन्य क्यों नहीं:</b> (b) समस्या बेस धातु के पिघलने की है, तरल ऑक्साइड की नहीं; (c) इसमें कार्बन <b>अधिक</b> है, कम नहीं; (d) कम चालकता तो कटिंग में सहायक होती।<br><b>कटने योग्य:</b> माइल्ड व लो-कार्बन स्टील, लो-एलॉय स्टील, कास्ट स्टील, रॉट आयरन, टाइटेनियम। <b>नहीं कटते:</b> स्टेनलेस स्टील, कास्ट आयरन, एल्युमिनियम, कॉपर, पीतल – पाउडर कटिंग या प्लाज़्मा प्रयोग करें।"}},
+
+/* 23 */ {ans:3, lv:"p", tag:{en:"Other cutting",hi:"अन्य कटिंग"},
+en:{q:"A fabrication shop must cut 25 mm stainless-steel plate at high speed with a clean edge. Which process is best suited?",
+o:["Oxy-acetylene cutting","Oxy-LPG (liquefied petroleum gas) cutting","Oxygen lance cutting","Plasma arc cutting"],
+e:"Plasma arc cutting melts metal with a constricted arc at about 20,000 °C and blows it out with a high-velocity gas jet. It does not depend on oxidation, so it cuts any electrically conductive metal – stainless steel, aluminium, copper – fast, with a narrow kerf and a small heat-affected zone.<br><b>Why not the others:</b> oxy-acetylene and oxy-LPG cutting fail on stainless steel because of chromium oxide; the oxygen lance is meant for very thick sections, scrap and concrete, and leaves rough edges.<br><b>Also remember:</b> powder (flux) cutting – iron powder fed into the oxygen stream – can cut stainless steel and cast iron, but the edge is rough. Arc-air gouging removes defective welds and cuts grooves."},
+hi:{q:"एक फ़ैब्रिकेशन शॉप को 25 mm स्टेनलेस-स्टील प्लेट तेज़ गति से साफ़ किनारे के साथ काटनी है। कौन-सी प्रक्रिया सबसे उपयुक्त है?",
+o:["ऑक्सी-एसिटिलीन कटिंग","ऑक्सी-LPG (द्रवीकृत पेट्रोलियम गैस) कटिंग","ऑक्सीजन लांस कटिंग","प्लाज़्मा आर्क कटिंग"],
+e:"प्लाज़्मा आर्क कटिंग लगभग 20,000 °C के संकुचित आर्क से धातु पिघलाती है और तेज़ गैस जेट से उसे उड़ा देती है। यह ऑक्सीकरण पर निर्भर नहीं, इसलिए हर विद्युत-चालक धातु – स्टेनलेस स्टील, एल्युमिनियम, कॉपर – को तेज़ी से, संकरे कर्फ़ और छोटे हीट-अफेक्टेड ज़ोन के साथ काटती है।<br><b>अन्य क्यों नहीं:</b> ऑक्सी-एसिटिलीन और ऑक्सी-LPG कटिंग क्रोमियम ऑक्साइड के कारण स्टेनलेस स्टील पर विफल; ऑक्सीजन लांस बहुत मोटे सेक्शन, स्क्रैप व कंक्रीट के लिए है और खुरदरे किनारे छोड़ता है।<br><b>यह भी याद रखें:</b> पाउडर (फ्लक्स) कटिंग – ऑक्सीजन धारा में आयरन पाउडर – स्टेनलेस स्टील व कास्ट आयरन काट सकती है, पर किनारा खुरदरा। आर्क-एयर गाउजिंग दोषपूर्ण वेल्ड हटाने व खाँचे काटने के लिए।"}},
+
+/* 24 */ {ans:1, lv:"h", num:true, tag:{en:"Numerical – oxygen",hi:"न्यूमेरिकल – ऑक्सीजन"},
+en:{q:"During gas welding of mild steel with a neutral flame, 10 litres of acetylene are consumed. The volume of oxygen taken from the surrounding atmosphere is:",
+o:["10 L","15 L","25 L","35 L"],
+e:"Complete combustion needs 2.5 volumes of oxygen per volume of acetylene: total = 2.5 × 10 = 25 L.<br>From the cylinder (neutral flame, 1 : 1) = 10 L.<br>From the atmosphere = 25 − 10 = <b>15 L</b>.<br><b>Distractor check:</b> (a) 10 L is the cylinder share – the answer to a Railway PYQ that asked 'oxygen consumption from the cylinder'; (c) 25 L is the total; (d) 35 L wrongly adds the acetylene to the total.<br><b>Read the question carefully:</b> 'from the cylinder' → 10 L · 'total' → 25 L · 'from air' → 15 L – same data, three different answers."},
+hi:{q:"न्यूट्रल फ्लेम से माइल्ड स्टील की गैस वेल्डिंग में 10 लीटर एसिटिलीन की खपत होती है। आसपास के वायुमंडल से ली गई ऑक्सीजन का आयतन है:",
+o:["10 L","15 L","25 L","35 L"],
+e:"पूर्ण दहन के लिए एक आयतन एसिटिलीन पर 2.5 आयतन ऑक्सीजन: कुल = 2.5 × 10 = 25 L।<br>सिलेंडर से (न्यूट्रल फ्लेम, 1 : 1) = 10 L।<br>वायुमंडल से = 25 − 10 = <b>15 L</b>।<br><b>गलत विकल्प कैसे बने:</b> (a) 10 L सिलेंडर का हिस्सा है – रेलवे PYQ में 'सिलेंडर से ऑक्सीजन की खपत' पूछी गई थी, उसका उत्तर; (c) 25 L कुल है; (d) 35 L में कुल में एसिटिलीन भी जोड़ दी।<br><b>प्रश्न ध्यान से पढ़ें:</b> 'सिलेंडर से' → 10 L · 'कुल' → 25 L · 'हवा से' → 15 L – एक ही डेटा, तीन अलग उत्तर।"}},
+
+/* 25 */ {ans:2, lv:"h", num:true, tag:{en:"Numerical – flame ratio",hi:"न्यूमेरिकल – फ्लेम अनुपात"},
+en:{q:"Flowmeters on an oxy-acetylene set show oxygen at 750 L/h and acetylene at 500 L/h. The flame type and the job it suits are:",
+o:["Neutral: mild steel and cast iron","Carburising: Monel and hard-facing","Oxidising: brass and bronze","Oxidising: stainless steel and aluminium"],
+e:"Ratio oxygen : acetylene = 750 : 500 = <b>1.5 : 1</b> → oxidising flame (≈ 3300–3500 °C), used for brass and bronze, where the oxide skin suppresses zinc fuming (Q3).<br><b>Distractor check:</b> (a) neutral needs about 1 : 1 (1–1.1 : 1); (b) carburising needs about 0.9 : 1; (d) is the trap – the flame type is right, but an oxidising flame <b>damages</b> stainless steel (chromium loss, Q1) and aluminium (oxide film).<br><b>Ratio ladder:</b> carburising ≈ 0.9 : 1 → neutral 1 : 1 → oxidising ≈ 1.5 : 1."},
+hi:{q:"ऑक्सी-एसिटिलीन सेट के फ्लोमीटर ऑक्सीजन 750 L/h और एसिटिलीन 500 L/h दिखाते हैं। फ्लेम का प्रकार और उपयुक्त कार्य है:",
+o:["न्यूट्रल: माइल्ड स्टील व कास्ट आयरन","कार्बुराइज़िंग: मोनेल व हार्ड-फेसिंग","ऑक्सीडाइज़िंग: पीतल व कांस्य","ऑक्सीडाइज़िंग: स्टेनलेस स्टील व एल्युमिनियम"],
+e:"अनुपात ऑक्सीजन : एसिटिलीन = 750 : 500 = <b>1.5 : 1</b> → ऑक्सीडाइज़िंग फ्लेम (≈ 3300–3500 °C), पीतल व कांस्य के लिए, जहाँ ऑक्साइड परत ज़िंक के धुएँ को रोकती है (Q3)।<br><b>गलत विकल्प कैसे बने:</b> (a) न्यूट्रल के लिए लगभग 1 : 1 (1–1.1 : 1); (b) कार्बुराइज़िंग के लिए लगभग 0.9 : 1; (d) ट्रैप है – फ्लेम का प्रकार सही है, पर ऑक्सीडाइज़िंग फ्लेम स्टेनलेस स्टील (क्रोमियम हानि, Q1) और एल्युमिनियम (ऑक्साइड परत) को <b>नुकसान</b> पहुँचाती है।<br><b>अनुपात सीढ़ी:</b> कार्बुराइज़िंग ≈ 0.9 : 1 → न्यूट्रल 1 : 1 → ऑक्सीडाइज़िंग ≈ 1.5 : 1।"}}
+];
+
+const LIMIT = 20*60;
+let lang = "en";
+let mode = "test";
+let picked = new Array(Q.length).fill(null);
+let showAll = false;
+let submitted = false;
+let autoSub = false;
+let left = LIMIT;
+let tick = null;
+const L = ["a","b","c","d"];
+const $ = id => document.getElementById(id);
+
+function fmt(t){ const m=Math.floor(t/60), s=t%60; return String(m).padStart(2,"0")+":"+String(s).padStart(2,"0"); }
+
+function startTimer(){
+  stopTimer();
+  if(mode!=="test" || submitted) return;
+  tick = setInterval(()=>{
+    left--;
+    if(left<=0){ left=0; autoSub=true; doSubmit(); return; }
+    paintTimer();
+  },1000);
+}
+function stopTimer(){ if(tick){clearInterval(tick); tick=null;} }
+function paintTimer(){
+  const t=$("timer"), u=UI[lang];
+  if(mode!=="test"){ t.classList.add("hidden"); return; }
+  t.classList.remove("hidden");
+  t.textContent = submitted ? u.taken+": "+fmt(LIMIT-left) : u.time+": "+fmt(left);
+  t.classList.toggle("low", !submitted && left<=120);
+}
+
+function isRevealed(i){ return mode==="practice" ? (picked[i]!==null || showAll) : submitted; }
+
+function render(){
+  const u = UI[lang];
+  document.documentElement.lang = lang;
+  $("title").textContent = u.title;
+  $("subtitle").textContent = u.sub;
+  $("rules").textContent = mode==="test" ? u.rules : u.rulesP;
+  $("foot").textContent = u.foot;
+  $("mTest").textContent = u.test; $("mPrac").textContent = u.prac;
+  $("mTest").setAttribute("aria-pressed", mode==="test");
+  $("mPrac").setAttribute("aria-pressed", mode==="practice");
+  $("bSubmit").textContent = u.submit;
+  $("bSubmit").classList.toggle("hidden", !(mode==="test" && !submitted));
+  $("bShow").textContent = showAll ? u.hide : u.show;
+  $("bShow").classList.toggle("hidden", mode!=="practice");
+  $("bReset").textContent = u.reset;
+  $("bEn").setAttribute("aria-pressed", lang==="en");
+  $("bHi").setAttribute("aria-pressed", lang==="hi");
+
+  let html = "";
+  Q.forEach((q,i)=>{
+    if(q.num && i>0 && !Q[i-1].num) html += `<div class="sec">${u.num}</div>`;
+    const d = q[lang], p = picked[i], rev = isRevealed(i);
+    const lvClass = q.lv==="t" ? "lv-t" : q.lv==="h" ? "lv-h" : "";
+    html += `<article class="q" id="q${i}">
+      <div class="qhead"><span class="qno">Q${i+1}.</span><span class="chip">${q.tag[lang]}</span><span class="chip ${lvClass}">${u.lv[q.lv]}</span></div>
+      <div class="qtext">${d.q}</div><div class="opts">`;
+    d.o.forEach((o,j)=>{
+      let cls = "opt";
+      if(rev && j===q.ans) cls += " right";
+      if(rev && p===j && p!==q.ans) cls += " wrong";
+      if(!rev && p===j) cls += " sel";
+      html += `<button class="${cls}" data-q="${i}" data-o="${j}" ${rev?"disabled":""} aria-pressed="${p===j}"><span class="l">(${L[j]})</span><span>${o}</span></button>`;
+    });
+    html += `</div>`;
+    if(rev){
+      let v = "";
+      if(p!==null) v = p===q.ans ? `<div>${u.right}</div>` : `<div class="verdict-bad">${u.yours}</div>`;
+      else if(mode==="test") v = `<div class="verdict-bad">${u.un}</div>`;
+      html += `<div class="ex">${v}<div class="ans">${u.ans}: (${L[q.ans]})</div>${d.e}</div>`;
+    }
+    html += `</article>`;
+  });
+  $("list").innerHTML = html;
+  stats(); paintTimer(); result();
+}
+
+function counts(){
+  let c=0,w=0,a=0;
+  picked.forEach((p,i)=>{ if(p!==null){a++; if(p===Q[i].ans)c++; else w++;} });
+  return {c,w,a,s:(c-w/3).toFixed(2)};
+}
+
+function stats(){
+  const u = UI[lang], k = counts();
+  const hide = mode==="test" && !submitted;
+  $("sAtt").textContent = `${u.att}: ${k.a}/${Q.length}`;
+  $("sC").textContent = `${u.c}: ${k.c}`;
+  $("sW").textContent = `${u.w}: ${k.w}`;
+  $("sS").textContent = `${u.s}: ${k.s}`;
+  ["sC","sW","sS"].forEach(id=>$(id).classList.toggle("hidden", hide));
+}
+
+function result(){
+  const box = $("result");
+  if(!(mode==="test" && submitted)){ box.innerHTML=""; return; }
+  const u = UI[lang], k = counts();
+  const acc = k.a ? Math.round(k.c*100/k.a) : 0;
+  box.innerHTML = `<section class="result" aria-live="polite">
+    <h2>${u.res}: ${k.s} / ${Q.length}</h2>
+    <div class="rgrid">
+      <div>${u.c}<b>${k.c}</b></div><div>${u.w}<b>${k.w}</b></div>
+      <div>${u.un}<b>${Q.length-k.a}</b></div><div>${u.acc}<b>${acc}%</b></div>
+      <div>${u.taken}<b>${fmt(LIMIT-left)}</b></div>
+    </div>
+    <p>${autoSub ? u.auto+" " : ""}${u.resNote}</p></section>`;
+}
+
+function doSubmit(){
+  submitted = true; stopTimer(); render();
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function resetAll(){
+  picked = new Array(Q.length).fill(null);
+  showAll=false; submitted=false; autoSub=false; left=LIMIT;
+  render(); startTimer(); window.scrollTo({top:0});
+}
+
+$("list").addEventListener("click", e=>{
+  const b = e.target.closest(".opt");
+  if(!b || b.disabled) return;
+  const i = +b.dataset.q, j = +b.dataset.o;
+  if(mode==="test"){ picked[i] = picked[i]===j ? null : j; }
+  else { if(picked[i]!==null) return; picked[i] = j; }
+  render();
+  const btn = document.querySelector(`#q${i} .opt[data-o="${j}"]`) || document.querySelector(`#q${i} .opt`);
+  if(btn) btn.focus({preventScroll:true});
+});
+$("bEn").onclick = ()=>{ lang="en"; render(); };
+$("bHi").onclick = ()=>{ lang="hi"; render(); };
+function setMode(m){
+  if(m===mode) return;
+  const dirty = picked.some(p=>p!==null) || submitted;
+  if(dirty && !confirm(UI[lang].cMode)) return;
+  mode = m; resetAll();
+}
+$("mTest").onclick = ()=>setMode("test");
+$("mPrac").onclick = ()=>setMode("practice");
+$("bSubmit").onclick = ()=>{ if(confirm(UI[lang].cSub)) doSubmit(); };
+$("bShow").onclick = ()=>{ showAll=!showAll; render(); };
+$("bReset").onclick = resetAll;
+render(); startTimer();
+</script>
+</body>
+</html>
