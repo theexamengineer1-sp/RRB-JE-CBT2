@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welding Smart MCQ Set 3 – Arc Principle, Equipment, Electrodes & Fluxes | THE EXAM ENGINEER</title>
+<style>
+:root{
+  --navy:#12306b; --navy-deep:#0c2350; --orange:#f07f1a;
+  --bg:#f3f6fb; --card:#ffffff; --text:#16213a; --muted:#5b6782;
+  --line:#d9e0ec; --opt:#f7f9fd; --opt-hover:#eaf0fa;
+  --ok:#17803d; --ok-bg:#e6f6ec; --bad:#c0272d; --bad-bg:#fdecec;
+  --ex-bg:#fff7ee; --ex-line:#f3c58f; --chip:#e9eef8;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --navy:#2b4f9a; --navy-deep:#16264a; --orange:#ff9a3d;
+    --bg:#0f1524; --card:#18213a; --text:#e8edf8; --muted:#a3aec6;
+    --line:#2c3857; --opt:#1e2944; --opt-hover:#26345a;
+    --ok:#4cd17e; --ok-bg:#163a26; --bad:#ff6b70; --bad-bg:#3d1a1e;
+    --ex-bg:#2a2216; --ex-line:#6b4b22; --chip:#25304d;
+    color-scheme: dark;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:"Segoe UI","Noto Sans","Nirmala UI","Mangal",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  line-height:1.6;font-size:16px}
+header{background:var(--navy-deep);color:#fff;padding:22px 16px 18px}
+.wrap{max-width:860px;margin:0 auto}
+.brand{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand a{color:var(--orange);font-weight:700;text-decoration:none}
+.brand a:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.channel{font-weight:800;letter-spacing:.5px}
+h1{margin:14px 0 4px;font-size:clamp(1.4rem,4.5vw,2rem);line-height:1.2}
+.sub{margin:0;color:#c9d5ee;font-size:.95rem}
+.rules{margin-top:10px;font-size:.88rem;color:#c9d5ee}
+.bar{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:3px solid var(--orange);
+  box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.bar .wrap{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding:10px 16px}
+.seg{display:inline-flex;border:2px solid var(--navy);border-radius:999px;overflow:hidden}
+.seg button{border:0;background:transparent;color:var(--text);padding:6px 14px;font:inherit;font-weight:700;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--navy);color:#fff}
+.stats{display:flex;gap:12px;flex-wrap:wrap;font-size:.9rem;font-weight:600}
+.stats .c{color:var(--ok)} .stats .w{color:var(--bad)} .stats .s{color:var(--orange)}
+.tools button{border:1px solid var(--line);background:var(--opt);color:var(--text);border-radius:8px;
+  padding:6px 10px;font:inherit;font-size:.85rem;cursor:pointer}
+.tools button:hover{background:var(--opt-hover)}
+button:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+main{padding:18px 16px 40px}
+.q{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--navy);
+  border-radius:10px;padding:16px 16px 14px;margin:0 0 16px}
+.qhead{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.qno{font-weight:800;color:var(--navy)}
+@media (prefers-color-scheme: dark){.qno{color:#8fb0f5}}
+.chip{background:var(--chip);color:var(--muted);font-size:.75rem;font-weight:700;padding:2px 9px;border-radius:999px}
+.chip.lv-t{background:var(--bad-bg);color:var(--bad)}
+.chip.lv-h{background:var(--ex-bg);color:var(--orange)}
+.qtext{font-weight:600;margin:4px 0 12px}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;text-align:left;width:100%;border:1.5px solid var(--line);
+  background:var(--opt);color:var(--text);border-radius:8px;padding:9px 12px;font:inherit;cursor:pointer}
+.opt:hover:not(:disabled){background:var(--opt-hover)}
+.opt:disabled{cursor:default}
+.opt .l{font-weight:800;min-width:1.8em;color:var(--muted)}
+.opt.right{border-color:var(--ok);background:var(--ok-bg)}
+.opt.right .l{color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.opt.wrong .l{color:var(--bad)}
+.opt.sel{border-color:var(--navy);background:var(--opt-hover);box-shadow:inset 0 0 0 1px var(--navy)}
+.opt.sel .l{color:var(--navy)}
+@media (prefers-color-scheme: dark){.opt.sel .l{color:#8fb0f5}.opt.sel{border-color:#8fb0f5;box-shadow:inset 0 0 0 1px #8fb0f5}}
+.timer{font-variant-numeric:tabular-nums;font-weight:800}
+.timer.low{color:var(--bad)}
+.tools{display:flex;gap:6px;flex-wrap:wrap}
+.tools button.primary{background:var(--orange);border-color:var(--orange);color:#fff;font-weight:700}
+.tools button.primary:hover{filter:brightness(1.05);background:var(--orange)}
+.hidden{display:none !important}
+.result{background:var(--card);border:2px solid var(--orange);border-radius:12px;padding:16px;margin-bottom:18px}
+.result h2{margin:0 0 10px;font-size:1.2rem;color:var(--orange)}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+.rgrid div{background:var(--opt);border-radius:8px;padding:8px 10px}
+.rgrid b{display:block;font-size:1.3rem}
+.result p{margin:10px 0 0;color:var(--muted);font-size:.9rem}
+.ex{margin-top:12px;background:var(--ex-bg);border:1px solid var(--ex-line);border-radius:8px;padding:12px 14px;font-size:.95rem}
+.ex .ans{font-weight:800;color:var(--ok);margin-bottom:4px}
+.ex .verdict-bad{color:var(--bad)}
+.sec{margin:24px 0 12px;font-weight:800;color:var(--orange);font-size:1.05rem;border-bottom:2px solid var(--line);padding-bottom:4px}
+footer{text-align:center;color:var(--muted);font-size:.82rem;padding:10px 16px 30px}
+footer a{color:var(--orange)}
+@media (prefers-reduced-motion: no-preference){.ex{animation:show .25s ease-out}
+  @keyframes show{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <span class="channel">THE EXAM ENGINEER</span>
+      <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a>
+    </div>
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+    <p class="rules" id="rules"></p>
+  </div>
+</header>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="seg" role="group" aria-label="Language">
+      <button id="bEn" aria-pressed="true">English</button>
+      <button id="bHi" aria-pressed="false">हिंदी</button>
+    </div>
+    <div class="seg" role="group" aria-label="Mode">
+      <button id="mTest" aria-pressed="true"></button>
+      <button id="mPrac" aria-pressed="false"></button>
+    </div>
+    <div class="stats" aria-live="polite">
+      <span class="timer" id="timer"></span>
+      <span id="sAtt"></span><span class="c" id="sC"></span><span class="w" id="sW"></span><span class="s" id="sS"></span>
+    </div>
+    <div class="tools">
+      <button id="bSubmit" class="primary"></button>
+      <button id="bShow"></button>
+      <button id="bReset"></button>
+    </div>
+  </div>
+</div>
+
+<main><div class="wrap"><div id="result"></div><div id="list"></div></div></main>
+
+<footer>
+  <div id="foot"></div>
+  <div>© 2026 THE EXAM ENGINEER · <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a> · theexamengineer1@gmail.com</div>
+  <div>SSC JE AIR 14 · RRB JE 2025 (DMS)</div>
+</footer>
+
+<script>
+const UI = {
+  en:{title:"Welding Smart MCQ – Set 3",
+      sub:"Arc Principle, Equipment, Electrodes & Fluxes · RRB JE CBT-2 (Mechanical & Allied) · RRB JE PYQ based",
+      rules:"25 questions · 20 minutes (RRB CBT-2 pace: 150 Qs in 120 min) · +1 correct, −1/3 wrong",
+      rulesP:"Practice mode · no timer · tap an option to see the answer with full explanation instantly",
+      test:"Test",prac:"Practice",submit:"Submit test",time:"Time left",
+      cSub:"Submit the test now? You cannot change answers after submitting.",
+      cMode:"Switching mode will reset your current attempt. Continue?",
+      res:"Your result",un:"Not attempted",taken:"Time taken",acc:"Accuracy",auto:"Time over – test submitted automatically.",
+      resNote:"Answers and full explanations are now shown below each question. Read the explanation of every wrong and unattempted question.",
+      att:"Attempted",c:"Correct",w:"Wrong",s:"Score",show:"Show all answers",hide:"Hide unattempted answers",reset:"Reset",
+      ans:"Correct answer",yours:"Your answer is wrong.",right:"Your answer is correct.",num:"Simple numericals",
+      lv:{e:"Easy",p:"PYQ level",h:"Higher",t:"Tough"},
+      foot:"Original work, free for personal study. Share as it is with the channel link – no re-branding."},
+  hi:{title:"वेल्डिंग स्मार्ट MCQ – सेट 3",
+      sub:"आर्क सिद्धांत, उपकरण, इलेक्ट्रोड एवं फ्लक्स (Arc Principle, Equipment, Electrodes & Fluxes) · RRB JE CBT-2 (मैकेनिकल एवं संबद्ध) · RRB JE PYQ आधारित",
+      rules:"25 प्रश्न · 20 मिनट (RRB CBT-2 गति: 120 मिनट में 150 प्रश्न) · सही +1, गलत −1/3",
+      rulesP:"प्रैक्टिस मोड · कोई टाइमर नहीं · विकल्प पर टैप करें, उत्तर और पूरी व्याख्या तुरंत दिखेगी",
+      test:"टेस्ट",prac:"प्रैक्टिस",submit:"टेस्ट सबमिट करें",time:"शेष समय",
+      cSub:"क्या अभी टेस्ट सबमिट करें? सबमिट के बाद उत्तर नहीं बदल सकेंगे।",
+      cMode:"मोड बदलने पर आपका वर्तमान प्रयास रीसेट हो जाएगा। जारी रखें?",
+      res:"आपका परिणाम",un:"बिना प्रयास",taken:"लिया गया समय",acc:"सटीकता",auto:"समय समाप्त – टेस्ट स्वतः सबमिट हो गया।",
+      resNote:"अब हर प्रश्न के नीचे उत्तर और पूरी व्याख्या दिख रही है। हर गलत और बिना प्रयास वाले प्रश्न की व्याख्या ज़रूर पढ़ें।",
+      att:"प्रयास",c:"सही",w:"गलत",s:"स्कोर",show:"सभी उत्तर दिखाएँ",hide:"बिना प्रयास वाले उत्तर छिपाएँ",reset:"रीसेट",
+      ans:"सही उत्तर",yours:"आपका उत्तर गलत है।",right:"आपका उत्तर सही है।",num:"सरल न्यूमेरिकल",
+      lv:{e:"आसान",p:"PYQ स्तर",h:"उच्च",t:"कठिन"},
+      foot:"मौलिक कार्य, व्यक्तिगत अध्ययन हेतु निःशुल्क। चैनल लिंक सहित जैसा है वैसा ही शेयर करें – री-ब्रांडिंग नहीं।"}
+};
+
+const Q = [
+/* 1 */ {ans:1, lv:"e", tag:{en:"Arc principle",hi:"आर्क सिद्धांत"},
+en:{q:"In manual arc welding, the arc is initially struck by:",
+o:["applying a very high voltage across the gap","touching the electrode to the work and withdrawing it","heating the electrode tip in a gas flame","passing current through a flux-filled gap"],
+e:"The arc is struck by <b>touching</b> the electrode to the job and quickly <b>drawing it apart</b> (scratch or tap method). At the moment of contact a large current flows through the small contact area; <b>contact resistance</b> heats the tip and ionises the air. When the electrode is lifted by about its own diameter, current keeps flowing across the ionised gap – the arc – and the voltage then sustains it.<br><b>Why not the others:</b> (a) a few thousand volts would be needed to jump a cold gap – unsafe, used only as high-frequency start in tungsten inert gas welding; (c) and (d) are not arc-striking methods.<br><b>Principle of arc welding (RRB-CBT2 Apr'25-I):</b> current flows across the air gap between electrode and work, and the intense heat (≈ 5000–6000 °C) melts both."},
+hi:{q:"मैनुअल आर्क वेल्डिंग में आर्क शुरू में कैसे बनाया (strike) जाता है?",
+o:["गैप पर बहुत अधिक वोल्टेज लगाकर","इलेक्ट्रोड को जॉब से छुआकर फिर हटाकर","इलेक्ट्रोड के सिरे को गैस फ्लेम में गर्म करके","फ्लक्स भरे गैप से करंट प्रवाहित करके"],
+e:"आर्क इलेक्ट्रोड को जॉब से <b>छुआकर</b> तुरंत <b>अलग खींचकर</b> बनाया जाता है (स्क्रैच या टैप विधि)। छूने के क्षण छोटे संपर्क क्षेत्र से बड़ा करंट बहता है; <b>संपर्क प्रतिरोध (contact resistance)</b> सिरे को गर्म करता है और हवा को आयनित करता है। इलेक्ट्रोड को लगभग अपने व्यास जितना उठाने पर आयनित गैप से करंट बहता रहता है – यही आर्क है – और फिर वोल्टेज इसे बनाए रखता है।<br><b>अन्य क्यों नहीं:</b> (a) ठंडे गैप को पार करने हेतु हज़ारों वोल्ट चाहिए – असुरक्षित; केवल टंगस्टन इनर्ट गैस वेल्डिंग में हाई-फ्रीक्वेंसी स्टार्ट के रूप में; (c) और (d) आर्क बनाने की विधियाँ नहीं हैं।<br><b>आर्क वेल्डिंग का सिद्धांत (RRB-CBT2 Apr'25-I):</b> इलेक्ट्रोड और जॉब के बीच वायु-गैप से करंट बहता है, और तीव्र ऊष्मा (≈ 5000–6000 °C) दोनों को पिघलाती है।"}},
+
+/* 2 */ {ans:3, lv:"p", tag:{en:"Arc length",hi:"आर्क लंबाई"},
+en:{q:"Arc length in manual metal arc welding is measured from the electrode tip to:",
+o:["the top surface of the base plate","the edge of the slag covering","the toe of the previous bead","the bottom of the molten crater"],
+e:"<b>Arc length</b> = distance from the tip of the electrode to the <b>bottom of the crater</b> (the depression the arc digs in the molten pool) – not to the plate surface. The correct arc length is roughly equal to the <b>electrode core diameter</b> (Railway SSE, SSC JE PYQ).<br><b>Arc voltage depends on it:</b> V = a + b·l (Ayrton's equation) – a longer arc means a higher arc voltage.<br><b>Why not the others:</b> (a) is the common mistake – the crater lies below the surface; (b) and (c) are unrelated to the arc.<br><b>Related term:</b> <b>crater</b> = the depression in the weld metal where the arc strikes; if left unfilled at the end of a bead it can crack (crater crack)."},
+hi:{q:"मैनुअल मेटल आर्क वेल्डिंग में आर्क लंबाई इलेक्ट्रोड के सिरे से किस तक मापी जाती है?",
+o:["बेस प्लेट की ऊपरी सतह तक","स्लैग आवरण के किनारे तक","पिछले बीड के टो (toe) तक","पिघले क्रेटर के तल तक"],
+e:"<b>आर्क लंबाई</b> = इलेक्ट्रोड के सिरे से <b>क्रेटर के तल</b> तक की दूरी (वह गड्ढा जो आर्क पिघले पूल में बनाता है) – प्लेट की सतह तक नहीं। सही आर्क लंबाई लगभग <b>इलेक्ट्रोड कोर के व्यास</b> के बराबर होती है (रेलवे SSE, SSC JE PYQ)।<br><b>आर्क वोल्टेज इसी पर निर्भर:</b> V = a + b·l (एर्टन समीकरण) – लंबा आर्क यानी अधिक आर्क वोल्टेज।<br><b>अन्य क्यों नहीं:</b> (a) आम गलती है – क्रेटर सतह से नीचे होता है; (b) और (c) आर्क से संबंधित नहीं।<br><b>संबंधित शब्द:</b> <b>क्रेटर</b> = वेल्ड धातु में वह गड्ढा जहाँ आर्क टकराता है; बीड के अंत में न भरा जाए तो उसमें दरार (क्रेटर क्रैक) आ सकती है।"}},
+
+/* 3 */ {ans:2, lv:"h", tag:{en:"Arc length · scenario",hi:"आर्क लंबाई · परिस्थिति"},
+en:{q:"A trainee holds a 3.15 mm electrode about 8 mm away from the job. The most likely combined result is:",
+o:["deep penetration with a narrow, high bead","the electrode freezing to the job repeatedly","spatter, porosity and poor penetration","an undercut-free bead with low heat input"],
+e:"The correct arc length is about the electrode diameter (≈ 3 mm). At 8 mm the arc is <b>too long</b>: it wanders, heat spreads over a wide area, droplets fly off as <b>spatter</b>, air enters the long arc column causing <b>porosity</b> and oxidation, and the heat is not concentrated – so <b>penetration is poor</b>. A long arc also tends to cause undercut.<br><b>Why not the others:</b> (a) deep, narrow penetration comes from a short, concentrated arc; (b) electrode sticking is the problem of a <b>too-short</b> arc; (d) undercut is more likely, not less.<br><b>Exam link (RRB-CBT2 Jul'26):</b> to reduce spatter – reduce the arc length slightly."},
+hi:{q:"एक प्रशिक्षु 3.15 mm इलेक्ट्रोड को जॉब से लगभग 8 mm दूर रखता है। सबसे संभावित संयुक्त परिणाम है:",
+o:["संकरे, ऊँचे बीड के साथ गहरी पेनिट्रेशन","इलेक्ट्रोड बार-बार जॉब से चिपक जाना","स्पैटर, पोरोसिटी और कम पेनिट्रेशन","कम ऊष्मा-निवेश के साथ अंडरकट-रहित बीड"],
+e:"सही आर्क लंबाई लगभग इलेक्ट्रोड व्यास (≈ 3 mm) है। 8 mm पर आर्क <b>बहुत लंबा</b> है: वह भटकता है, ऊष्मा चौड़े क्षेत्र में फैलती है, बूँदें <b>स्पैटर</b> बनकर उड़ती हैं, लंबे आर्क स्तंभ में हवा घुसकर <b>पोरोसिटी</b> व ऑक्सीकरण करती है, और ऊष्मा केंद्रित न होने से <b>पेनिट्रेशन कम</b> होती है। लंबा आर्क अंडरकट भी बढ़ाता है।<br><b>अन्य क्यों नहीं:</b> (a) गहरी, संकरी पेनिट्रेशन छोटे, केंद्रित आर्क से मिलती है; (b) इलेक्ट्रोड चिपकना <b>बहुत छोटे</b> आर्क की समस्या है; (d) अंडरकट की संभावना बढ़ती है, घटती नहीं।<br><b>परीक्षा लिंक (RRB-CBT2 Jul'26):</b> स्पैटर कम करने के लिए – आर्क लंबाई थोड़ी घटाएँ।"}},
+
+/* 4 */ {ans:0, lv:"p", tag:{en:"Metal transfer",hi:"मेटल ट्रांसफर"},
+en:{q:"Metal transfer against gravity in overhead arc welding is possible mainly because of:",
+o:["the pinch effect of electromagnetic force","the buoyancy of molten slag above the pool","the capillary pull of the joint gap","a vacuum created by the arc column"],
+e:"Current flowing through the molten tip of the electrode sets up a circular magnetic field around it. This produces an inward <b>electromagnetic (Lorentz) force</b> that squeezes – 'pinches' – the liquid neck, detaches the droplet and propels it along the arc towards the pool. This <b>pinch effect</b> works in every direction, so metal can be transferred even upward in overhead welding (with surface tension holding the small pool in place).<br><b>Why not the others:</b> slag is lighter and floats up – it doesn't push metal; capillary action belongs to brazing and soldering; the arc does not create a vacuum.<br><b>PYQ:</b> 'pinch effect in welding is the result of → electromagnetic forces' (RRB-CBT2 2019)."},
+hi:{q:"ओवरहेड आर्क वेल्डिंग में गुरुत्व के विरुद्ध धातु का स्थानांतरण मुख्यतः किस कारण संभव होता है?",
+o:["विद्युत-चुंबकीय बल का पिंच इफ़ेक्ट","पूल के ऊपर पिघले स्लैग की उत्प्लावकता","जोड़ के गैप का केशिका खिंचाव","आर्क स्तंभ द्वारा बना निर्वात"],
+e:"इलेक्ट्रोड के पिघले सिरे से बहता करंट उसके चारों ओर वृत्ताकार चुंबकीय क्षेत्र बनाता है। इससे भीतर की ओर <b>विद्युत-चुंबकीय (लॉरेंज़) बल</b> बनता है जो द्रव की गर्दन को दबाता – 'पिंच' करता – है, बूँद को अलग कर आर्क के साथ पूल की ओर धकेलता है। यह <b>पिंच इफ़ेक्ट</b> हर दिशा में काम करता है, इसलिए ओवरहेड वेल्डिंग में धातु ऊपर की ओर भी जाती है (छोटे पूल को पृष्ठ तनाव टिकाए रखता है)।<br><b>अन्य क्यों नहीं:</b> स्लैग हल्का है और ऊपर तैरता है – धातु को धकेलता नहीं; केशिका क्रिया ब्रेज़िंग व सोल्डरिंग की है; आर्क निर्वात नहीं बनाता।<br><b>PYQ:</b> 'वेल्डिंग में पिंच इफ़ेक्ट → विद्युत-चुंबकीय बलों का परिणाम' (RRB-CBT2 2019)।"}},
+
+/* 5 */ {ans:3, lv:"p", tag:{en:"Arc blow",hi:"आर्क ब्लो"},
+en:{q:"Arc blow is a problem mainly in:",
+o:["alternating-current welding with a transformer","gas welding with a carburising flame","resistance spot welding of thin sheets","direct-current welding near plate ends"],
+e:"<b>Arc blow</b> is the magnetic deflection of the arc away from the joint. Direct current flowing through the electrode, arc and job sets up magnetic fields; near plate ends, corners or the earth connection these fields become unbalanced and push the arc sideways, causing spatter, lack of fusion and an irregular bead. With <b>alternating current</b> the field reverses 100 times a second and the effect averages out – so arc blow is practically absent.<br><b>Other cures:</b> shorter arc, lower current, moving the earth clamp, tilting the electrode opposite to the blow, welding towards a heavy tack.<br><b>PYQs:</b> 'arc blow occurs in DC welding' (SSC JE, Railway JE); 'more common with DC and bare electrodes'; 'also called arc wander' (HPPSC)."},
+hi:{q:"आर्क ब्लो (arc blow) मुख्यतः किसमें समस्या है?",
+o:["ट्रांसफ़ॉर्मर से अल्टरनेटिंग-करंट वेल्डिंग में","कार्बुराइज़िंग फ्लेम वाली गैस वेल्डिंग में","पतली शीट की रेज़िस्टेंस स्पॉट वेल्डिंग में","प्लेट के सिरों के पास डायरेक्ट-करंट वेल्डिंग में"],
+e:"<b>आर्क ब्लो</b> आर्क का जोड़ से दूर चुंबकीय विक्षेपण है। इलेक्ट्रोड, आर्क और जॉब से बहता डायरेक्ट करंट चुंबकीय क्षेत्र बनाता है; प्लेट के सिरों, कोनों या अर्थ कनेक्शन के पास ये क्षेत्र असंतुलित होकर आर्क को किनारे धकेलते हैं, जिससे स्पैटर, लैक ऑफ़ फ़्यूज़न और असमान बीड बनता है। <b>अल्टरनेटिंग करंट</b> में क्षेत्र एक सेकंड में 100 बार उलटता है और प्रभाव औसत होकर समाप्त हो जाता है – इसलिए आर्क ब्लो लगभग नहीं होता।<br><b>अन्य उपाय:</b> छोटा आर्क, कम करंट, अर्थ क्लैंप की जगह बदलना, इलेक्ट्रोड को ब्लो की उल्टी दिशा में झुकाना।<br><b>PYQ:</b> 'आर्क ब्लो DC वेल्डिंग में होता है' (SSC JE, रेलवे JE); 'DC और नंगे इलेक्ट्रोड में अधिक'; 'इसे आर्क वॉन्डर भी कहते हैं' (HPPSC)।"}},
+
+/* 6 */ {ans:1, lv:"h", tag:{en:"AC vs DC sets",hi:"AC बनाम DC सेट"},
+en:{q:"Consider the following statements:<br>I. A welding transformer has no moving parts and is the cheapest welding set.<br>II. Alternating current gives a more stable arc than direct current on thin sheets.<br>III. A welding transformer works at a low power factor (about 0.3).<br>Which of the statements are correct?",
+o:["I and II only","I and III only","II and III only","I, II and III"],
+e:"<b>I ✔</b> – a welding transformer is a static step-down transformer (220/440 V → 40–95 V open-circuit): no rotating parts, quiet, cheapest, high efficiency, low maintenance.<br><b>III ✔</b> – being highly inductive, it works at a low power factor of about 0.3 (Railway SSE PYQ).<br><b>II ✘</b> – it is reversed: an alternating-current arc passes through zero 100 times a second and tends to go out, so it is <b>less stable</b>. Direct current gives the steadier arc – preferred for thin sheets, bare electrodes and non-ferrous metals.<br><b>AC vs DC summary:</b> AC – cheap, no arc blow, no polarity choice, heavy mild-steel work · DC – stable arc, polarity choice (straight/reverse), arc blow present, costlier."},
+hi:{q:"निम्न कथनों पर विचार करें:<br>I. वेल्डिंग ट्रांसफ़ॉर्मर में कोई गतिशील भाग नहीं होता और यह सबसे सस्ता वेल्डिंग सेट है।<br>II. पतली शीट पर अल्टरनेटिंग करंट, डायरेक्ट करंट से अधिक स्थिर आर्क देता है।<br>III. वेल्डिंग ट्रांसफ़ॉर्मर कम पावर फ़ैक्टर (लगभग 0.3) पर कार्य करता है।<br>कौन-से कथन सही हैं?",
+o:["केवल I और II","केवल I और III","केवल II और III","I, II और III"],
+e:"<b>I ✔</b> – वेल्डिंग ट्रांसफ़ॉर्मर एक स्थिर स्टेप-डाउन ट्रांसफ़ॉर्मर है (220/440 V → 40–95 V ओपन-सर्किट): कोई घूमने वाला भाग नहीं, शांत, सबसे सस्ता, उच्च दक्षता, कम रखरखाव।<br><b>III ✔</b> – अत्यधिक प्रेरकीय (inductive) होने से यह लगभग 0.3 के कम पावर फ़ैक्टर पर कार्य करता है (रेलवे SSE PYQ)।<br><b>II ✘</b> – उल्टा है: अल्टरनेटिंग-करंट आर्क एक सेकंड में 100 बार शून्य से गुज़रता है और बुझने की प्रवृत्ति रखता है, इसलिए <b>कम स्थिर</b> है। डायरेक्ट करंट अधिक स्थिर आर्क देता है – पतली शीट, नंगे इलेक्ट्रोड और अलौह धातुओं के लिए।<br><b>AC बनाम DC सार:</b> AC – सस्ता, आर्क ब्लो नहीं, पोलैरिटी का विकल्प नहीं, भारी माइल्ड-स्टील कार्य · DC – स्थिर आर्क, पोलैरिटी का विकल्प (स्ट्रेट/रिवर्स), आर्क ब्लो होता है, महँगा।"}},
+
+/* 7 */ {ans:0, lv:"h", tag:{en:"AC vs DC sets",hi:"AC बनाम DC सेट"},
+en:{q:"Direct current is preferred when welding with bare (uncoated) electrodes because:",
+o:["a bare electrode needs an arc that never passes through zero","bare electrodes cannot carry alternating current at all","direct current prevents arc blow with bare electrodes","direct-current sets cost less for bare-electrode work"],
+e:"A bare electrode has no coating, so there are no arc-stabilising compounds (potassium/sodium silicates) to keep the gap ionised. With alternating current the arc dies at every current zero and is hard to re-ignite. <b>Direct current</b> never passes through zero, so the arc stays alive and stable even without a coating.<br><b>Why not the others:</b> (b) bare wire conducts AC perfectly well – the problem is arc stability; (c) is a <b>trap</b> – arc blow is actually <b>more</b> common with direct current and bare electrodes (GWSSB/TSPSC PYQ); (d) direct-current sets are costlier than transformers.<br><b>Concept link:</b> coated electrodes made AC welding practical – the arc-stabiliser in the coating is what lets a cheap transformer be used."},
+hi:{q:"नंगे (बिना कोटिंग वाले) इलेक्ट्रोड से वेल्डिंग में डायरेक्ट करंट क्यों पसंद किया जाता है?",
+o:["नंगे इलेक्ट्रोड को ऐसा आर्क चाहिए जो कभी शून्य से न गुज़रे","नंगे इलेक्ट्रोड अल्टरनेटिंग करंट बिल्कुल नहीं ले सकते","डायरेक्ट करंट नंगे इलेक्ट्रोड में आर्क ब्लो रोकता है","नंगे इलेक्ट्रोड कार्य के लिए DC सेट सस्ते होते हैं"],
+e:"नंगे इलेक्ट्रोड पर कोटिंग नहीं होती, इसलिए गैप को आयनित रखने वाले आर्क-स्थिरक यौगिक (पोटैशियम/सोडियम सिलिकेट) नहीं होते। अल्टरनेटिंग करंट में हर करंट-शून्य पर आर्क बुझता है और फिर से जलाना कठिन होता है। <b>डायरेक्ट करंट</b> कभी शून्य से नहीं गुज़रता, इसलिए कोटिंग के बिना भी आर्क जीवित व स्थिर रहता है।<br><b>अन्य क्यों नहीं:</b> (b) नंगा तार AC अच्छी तरह चलाता है – समस्या आर्क स्थिरता की है; (c) <b>ट्रैप</b> है – आर्क ब्लो वास्तव में डायरेक्ट करंट और नंगे इलेक्ट्रोड में <b>अधिक</b> होता है (GWSSB/TSPSC PYQ); (d) DC सेट ट्रांसफ़ॉर्मर से महँगे हैं।<br><b>अवधारणा लिंक:</b> कोटेड इलेक्ट्रोड ने AC वेल्डिंग को व्यावहारिक बनाया – कोटिंग का आर्क-स्थिरक ही सस्ते ट्रांसफ़ॉर्मर का प्रयोग संभव करता है।"}},
+
+/* 8 */ {ans:2, lv:"e", tag:{en:"Power sources",hi:"पावर सोर्स"},
+en:{q:"A welding rectifier converts alternating current to direct current using:",
+o:["a motor-driven direct-current generator","a step-up transformer alone","silicon or selenium diodes","carbon brushes and a commutator"],
+e:"A welding <b>rectifier</b> first steps the mains voltage down with a transformer and then converts it to direct current using <b>silicon (or older selenium) diodes</b>. It is static – no moving parts – so it is quiet and needs little maintenance. AC/DC sets combine a transformer and a rectifier and can give both outputs (Railway SSE PYQ).<br><b>Why not the others:</b> (a) and (d) describe a rotating motor/engine generator set; (b) a step-up transformer would raise the voltage – welding needs a step-down.<br><b>Three power sources:</b> transformer → AC, cheapest · rectifier → DC, static · motor/engine generator → DC, rotating, noisy, costly, best for site work."},
+hi:{q:"वेल्डिंग रेक्टिफ़ायर अल्टरनेटिंग करंट को डायरेक्ट करंट में किसकी सहायता से बदलता है?",
+o:["मोटर-चालित डायरेक्ट-करंट जनरेटर","केवल एक स्टेप-अप ट्रांसफ़ॉर्मर","सिलिकॉन या सेलेनियम डायोड","कार्बन ब्रश और कम्यूटेटर"],
+e:"वेल्डिंग <b>रेक्टिफ़ायर</b> पहले ट्रांसफ़ॉर्मर से मेन वोल्टेज घटाता है, फिर <b>सिलिकॉन (या पुराने सेलेनियम) डायोड</b> से उसे डायरेक्ट करंट में बदलता है। यह स्थिर है – कोई गतिशील भाग नहीं – इसलिए शांत और कम रखरखाव वाला। AC/DC सेट में ट्रांसफ़ॉर्मर व रेक्टिफ़ायर दोनों होते हैं और दोनों आउटपुट मिलते हैं (रेलवे SSE PYQ)।<br><b>अन्य क्यों नहीं:</b> (a) और (d) घूमने वाले मोटर/इंजन जनरेटर सेट का वर्णन है; (b) स्टेप-अप ट्रांसफ़ॉर्मर वोल्टेज बढ़ाएगा – वेल्डिंग में स्टेप-डाउन चाहिए।<br><b>तीन पावर सोर्स:</b> ट्रांसफ़ॉर्मर → AC, सबसे सस्ता · रेक्टिफ़ायर → DC, स्थिर · मोटर/इंजन जनरेटर → DC, घूमने वाला, शोर, महँगा, साइट कार्य हेतु सर्वोत्तम।"}},
+
+/* 9 */ {ans:3, lv:"p", tag:{en:"Power sources",hi:"पावर सोर्स"},
+en:{q:"For welding a pipeline in a remote area with no power supply, the most suitable power source is:",
+o:["an alternating-current welding transformer","a silicon rectifier set","an inverter set running on mains supply","an engine-driven direct-current generator"],
+e:"A transformer, a rectifier and an inverter all need mains electricity. An <b>engine-driven generator</b> (diesel or petrol engine coupled to a direct-current generator) produces its own power, so it is the standard choice for pipelines, bridges and other site work far from the grid. It also gives a stable direct-current arc.<br><b>Limitations:</b> noisy, costly to buy and run, needs engine maintenance (Railway SSE PYQ: 'which welding set has higher initial cost → DC generator set').<br><b>Related PYQ:</b> 'which welding set gives a stable arc → DC generator set' (Railway JE)."},
+hi:{q:"बिना बिजली आपूर्ति वाले दूरस्थ क्षेत्र में पाइपलाइन वेल्डिंग के लिए सबसे उपयुक्त पावर सोर्स है:",
+o:["अल्टरनेटिंग-करंट वेल्डिंग ट्रांसफ़ॉर्मर","सिलिकॉन रेक्टिफ़ायर सेट","मेन सप्लाई पर चलने वाला इन्वर्टर सेट","इंजन-चालित डायरेक्ट-करंट जनरेटर"],
+e:"ट्रांसफ़ॉर्मर, रेक्टिफ़ायर और इन्वर्टर – तीनों को मेन बिजली चाहिए। <b>इंजन-चालित जनरेटर</b> (डीज़ल या पेट्रोल इंजन से जुड़ा डायरेक्ट-करंट जनरेटर) अपनी बिजली स्वयं बनाता है, इसलिए ग्रिड से दूर पाइपलाइन, पुल व अन्य साइट कार्य का मानक विकल्प है। यह स्थिर डायरेक्ट-करंट आर्क भी देता है।<br><b>सीमाएँ:</b> शोर, खरीदने व चलाने में महँगा, इंजन रखरखाव (रेलवे SSE PYQ: 'किस सेट की प्रारंभिक लागत अधिक → DC जनरेटर सेट')।<br><b>संबंधित PYQ:</b> 'स्थिर आर्क देने वाला सेट → DC जनरेटर सेट' (रेलवे JE)।"}},
+
+/* 10 */ {ans:0, lv:"p", tag:{en:"Arc voltages",hi:"आर्क वोल्टेज"},
+en:{q:"A welding set reads 80 V when not welding and about 25 V while welding. The 80 V is the:",
+o:["open-circuit voltage, needed to strike the arc","arc voltage, needed to maintain the arc","mains voltage after the step-down stage","short-circuit voltage at maximum current"],
+e:"<b>Open-circuit voltage</b> = the voltage across the terminals when no arc is burning – about 40–95 V (direct current ≈ 60–80 V). A higher voltage is needed to <b>strike</b> (initiate) the arc. Once the arc is established, the voltage drops to the <b>arc voltage</b>, about 18–40 V, which only <b>maintains</b> it.<br><b>Why not the others:</b> (b) 25 V is the arc voltage; (c) mains is 220/440 V; (d) at short circuit the voltage is nearly zero.<br><b>Safety note:</b> the open-circuit voltage is kept below about 100 V to avoid electric shock to the welder.<br><b>PYQ:</b> 'open-circuit voltage for arc welding is of the order of → 40–95 V' (Railway SSE, SSC JE)."},
+hi:{q:"एक वेल्डिंग सेट वेल्डिंग न होने पर 80 V और वेल्डिंग के दौरान लगभग 25 V दिखाता है। 80 V है:",
+o:["ओपन-सर्किट वोल्टेज, आर्क बनाने के लिए आवश्यक","आर्क वोल्टेज, आर्क बनाए रखने के लिए आवश्यक","स्टेप-डाउन के बाद का मेन वोल्टेज","अधिकतम करंट पर शॉर्ट-सर्किट वोल्टेज"],
+e:"<b>ओपन-सर्किट वोल्टेज (open-circuit voltage)</b> = आर्क न जलने पर टर्मिनलों के बीच वोल्टेज – लगभग 40–95 V (डायरेक्ट करंट ≈ 60–80 V)। आर्क <b>बनाने</b> के लिए अधिक वोल्टेज चाहिए। आर्क बन जाने पर वोल्टेज गिरकर <b>आर्क वोल्टेज</b>, लगभग 18–40 V, रह जाता है, जो केवल उसे <b>बनाए</b> रखता है।<br><b>अन्य क्यों नहीं:</b> (b) 25 V आर्क वोल्टेज है; (c) मेन 220/440 V है; (d) शॉर्ट सर्किट पर वोल्टेज लगभग शून्य होता है।<br><b>सुरक्षा नोट:</b> वेल्डर को झटके से बचाने के लिए ओपन-सर्किट वोल्टेज लगभग 100 V से कम रखा जाता है।<br><b>PYQ:</b> 'आर्क वेल्डिंग का ओपन-सर्किट वोल्टेज → 40–95 V' (रेलवे SSE, SSC JE)।"}},
+
+/* 11 */ {ans:2, lv:"p", tag:{en:"Arc welding kit",hi:"आर्क वेल्डिंग किट"},
+en:{q:"Match List-I (item) with List-II (function):<br>P. Welding cable<br>Q. Electrode holder<br>R. Earth (ground) clamp<br>S. Chipping hammer<br>1. Grips the electrode and feeds current to it<br>2. Removes slag by striking<br>3. Connects the job and completes the circuit<br>4. Carries current from the machine",
+o:["P-1, Q-4, R-3, S-2","P-4, Q-3, R-1, S-2","P-4, Q-1, R-3, S-2","P-4, Q-1, R-2, S-3"],
+e:"<b>Welding cable</b> – flexible copper or aluminium cable carrying current from the machine to the electrode holder (RRB-CBT2 Jun'25); its size depends on current and length.<br><b>Electrode holder</b> – insulated handle with copper-alloy jaws that grip the electrode at any angle and pass current to it (Railway SSE PYQ).<br><b>Earth clamp</b> – connects the job (or welding table) to the machine and completes the circuit; a loose earth causes arc instability and arc blow.<br><b>Chipping hammer</b> – pointed hammer that removes slag by striking (RRB-CBT2 Apr'25-II); followed by a wire brush.<br><b>Rest of the kit:</b> helmet/hand-shield with filter glass, chrome-leather gloves, apron, safety boots, tongs."},
+hi:{q:"सूची-I (वस्तु) को सूची-II (कार्य) से सुमेलित करें:<br>P. वेल्डिंग केबल<br>Q. इलेक्ट्रोड होल्डर<br>R. अर्थ (ग्राउंड) क्लैंप<br>S. चिपिंग हैमर<br>1. इलेक्ट्रोड को पकड़ता है और उसे करंट देता है<br>2. ठोककर स्लैग हटाता है<br>3. जॉब को जोड़कर परिपथ पूरा करता है<br>4. मशीन से करंट ले जाता है",
+o:["P-1, Q-4, R-3, S-2","P-4, Q-3, R-1, S-2","P-4, Q-1, R-3, S-2","P-4, Q-1, R-2, S-3"],
+e:"<b>वेल्डिंग केबल</b> – लचीली कॉपर या एल्युमिनियम केबल जो मशीन से इलेक्ट्रोड होल्डर तक करंट ले जाती है (RRB-CBT2 Jun'25); इसका आकार करंट व लंबाई पर निर्भर।<br><b>इलेक्ट्रोड होल्डर</b> – कॉपर-मिश्रधातु के जबड़ों वाला विद्युत-रोधी हैंडल, जो इलेक्ट्रोड को किसी भी कोण पर पकड़कर करंट देता है (रेलवे SSE PYQ)।<br><b>अर्थ क्लैंप</b> – जॉब (या वेल्डिंग टेबल) को मशीन से जोड़कर परिपथ पूरा करता है; ढीला अर्थ आर्क अस्थिरता व आर्क ब्लो का कारण।<br><b>चिपिंग हैमर</b> – नुकीला हथौड़ा जो ठोककर स्लैग हटाता है (RRB-CBT2 Apr'25-II); उसके बाद वायर ब्रश।<br><b>शेष किट:</b> फ़िल्टर ग्लास वाला हेलमेट/हैंड-शील्ड, क्रोम-लेदर दस्ताने, एप्रन, सेफ़्टी बूट, चिमटा (tongs)।"}},
+
+/* 12 */ {ans:3, lv:"p", tag:{en:"Safety",hi:"सुरक्षा"},
+en:{q:"The filter glass of a welding helmet mainly protects the eyes from:",
+o:["X-rays and gamma rays","microwaves and radio waves","visible glare only","ultraviolet and infrared rays"],
+e:"The welding arc emits intense <b>ultraviolet</b> radiation (causes 'arc eye' – painful inflammation of the cornea – and skin burns) and <b>infrared</b> radiation (heat, which can damage the retina and lens), along with very bright visible light. The dark filter glass (shade number chosen by current) cuts all three.<br><b>Trap:</b> option (a) appears as the answer in one old Railway key, but it is wrong – ordinary arc welding produces no X-rays, and gamma rays are absent in welding (RPSC PYQ). X-rays are produced only in <b>electron beam welding</b>, which needs lead shielding.<br><b>Compare:</b> gas-welding goggles are lighter, because the oxy-acetylene flame gives much less ultraviolet than an arc."},
+hi:{q:"वेल्डिंग हेलमेट का फ़िल्टर ग्लास मुख्यतः आँखों को किससे बचाता है?",
+o:["एक्स-किरणें और गामा किरणें","माइक्रोवेव और रेडियो तरंगें","केवल दृश्य चमक","पराबैंगनी और अवरक्त किरणें"],
+e:"वेल्डिंग आर्क तीव्र <b>पराबैंगनी (ultraviolet)</b> विकिरण (जिससे 'आर्क आई' – कॉर्निया की दर्दनाक सूजन – और त्वचा जलना) और <b>अवरक्त (infrared)</b> विकिरण (ऊष्मा, जो रेटिना व लेंस को क्षति पहुँचा सकती है) के साथ बहुत तेज़ दृश्य प्रकाश देता है। गहरा फ़िल्टर ग्लास (करंट के अनुसार शेड नंबर) तीनों को रोकता है।<br><b>ट्रैप:</b> विकल्प (a) एक पुरानी रेलवे उत्तर-कुंजी में दिखता है, पर गलत है – सामान्य आर्क वेल्डिंग में एक्स-किरणें नहीं बनतीं, और वेल्डिंग में गामा किरणें अनुपस्थित होती हैं (RPSC PYQ)। एक्स-किरणें केवल <b>इलेक्ट्रॉन बीम वेल्डिंग</b> में बनती हैं, जिसमें लेड शील्डिंग चाहिए।<br><b>तुलना:</b> गैस-वेल्डिंग गॉगल हल्के होते हैं, क्योंकि ऑक्सी-एसिटिलीन फ्लेम आर्क की तुलना में बहुत कम पराबैंगनी देती है।"}},
+
+/* 13 */ {ans:0, lv:"p", tag:{en:"Electrode types",hi:"इलेक्ट्रोड प्रकार"},
+en:{q:"Which pair correctly matches a process with a non-consumable electrode?",
+o:["Carbon arc welding – graphite rod","Submerged arc welding – bare wire","Metal inert gas welding – solid wire","Shielded metal arc welding – coated stick"],
+e:"A <b>non-consumable</b> electrode does not melt into the joint; it only carries the arc, and filler (if needed) is fed separately. Non-consumable electrodes: <b>carbon/graphite</b> (carbon arc welding) and <b>tungsten</b> (tungsten inert gas, plasma arc and atomic hydrogen welding).<br><b>Consumable electrodes</b> melt and become the filler: bare wire in submerged arc and metal inert gas welding, coated stick in shielded metal arc welding, tubular wire in flux-cored arc welding.<br><b>PYQ links:</b> 'in carbon arc welding, a pure graphite electrode creates the arc' (Railway JE 2025); 'bare electrodes are used in → submerged arc welding' (RRB-CBT2 2019)."},
+hi:{q:"कौन-सा युग्म प्रक्रिया को अनुपभोज्य (non-consumable) इलेक्ट्रोड से सही मिलाता है?",
+o:["कार्बन आर्क वेल्डिंग – ग्रेफ़ाइट रॉड","सबमर्ज्ड आर्क वेल्डिंग – नंगा तार","मेटल इनर्ट गैस वेल्डिंग – ठोस तार","शील्डेड मेटल आर्क वेल्डिंग – लेपित स्टिक"],
+e:"<b>अनुपभोज्य</b> इलेक्ट्रोड जोड़ में नहीं पिघलता; वह केवल आर्क बनाता है, और फिलर (यदि चाहिए) अलग से दिया जाता है। अनुपभोज्य इलेक्ट्रोड: <b>कार्बन/ग्रेफ़ाइट</b> (कार्बन आर्क वेल्डिंग) और <b>टंगस्टन</b> (टंगस्टन इनर्ट गैस, प्लाज़्मा आर्क व एटॉमिक हाइड्रोजन वेल्डिंग)।<br><b>उपभोज्य इलेक्ट्रोड</b> पिघलकर फिलर बनते हैं: सबमर्ज्ड आर्क व मेटल इनर्ट गैस वेल्डिंग में नंगा तार, शील्डेड मेटल आर्क वेल्डिंग में लेपित स्टिक, फ्लक्स-कोर्ड आर्क वेल्डिंग में ट्यूबलर तार।<br><b>PYQ लिंक:</b> 'कार्बन आर्क वेल्डिंग में शुद्ध ग्रेफ़ाइट इलेक्ट्रोड से आर्क' (रेलवे JE 2025); 'नंगे इलेक्ट्रोड → सबमर्ज्ड आर्क वेल्डिंग' (RRB-CBT2 2019)।"}},
+
+/* 14 */ {ans:2, lv:"e", tag:{en:"Electrode types",hi:"इलेक्ट्रोड प्रकार"},
+en:{q:"In tungsten inert gas welding, the tungsten electrode:",
+o:["melts and adds filler metal to the joint","needs a flux coating to protect the arc","does not melt; filler is added separately","is replaced after every welding pass"],
+e:"Tungsten melts at about 3410 °C – the highest of all metals – so it only carries the arc and does <b>not melt</b> (non-consumable, RRB-CBT2 Apr'25-II). Filler metal, if needed, is fed by hand as a separate rod; without filler the weld is autogenous. Argon/helium shields both the tungsten and the pool, so no flux coating is used.<br><b>Types of tungsten electrode:</b> pure tungsten and <b>zirconiated</b> tungsten – for alternating current (aluminium, magnesium); <b>thoriated</b> tungsten (yellow/red tip, about 1–2 % thorium) – for direct current, higher current capacity and easier arc starting (CIL, Karnataka PYQs).<br><b>Why not the others:</b> (a) is metal inert gas welding; (b) is shielded metal arc welding; (d) a tungsten electrode lasts long – it is only re-ground when contaminated."},
+hi:{q:"टंगस्टन इनर्ट गैस वेल्डिंग में टंगस्टन इलेक्ट्रोड:",
+o:["पिघलकर जोड़ में फिलर धातु जोड़ता है","आर्क की रक्षा के लिए फ्लक्स कोटिंग चाहता है","पिघलता नहीं; फिलर अलग से दिया जाता है","हर वेल्डिंग पास के बाद बदला जाता है"],
+e:"टंगस्टन लगभग 3410 °C पर पिघलता है – सभी धातुओं में सबसे अधिक – इसलिए वह केवल आर्क बनाता है और <b>पिघलता नहीं</b> (अनुपभोज्य, RRB-CBT2 Apr'25-II)। फिलर धातु, यदि चाहिए, हाथ से अलग रॉड के रूप में दी जाती है; बिना फिलर के वेल्ड ऑटोजीनस होता है। आर्गन/हीलियम टंगस्टन और पूल दोनों को बचाती है, इसलिए फ्लक्स कोटिंग नहीं होती।<br><b>टंगस्टन इलेक्ट्रोड के प्रकार:</b> शुद्ध टंगस्टन और <b>ज़िरकोनिएटेड</b> टंगस्टन – अल्टरनेटिंग करंट के लिए (एल्युमिनियम, मैग्नीशियम); <b>थोरिएटेड</b> टंगस्टन (पीला/लाल सिरा, लगभग 1–2 % थोरियम) – डायरेक्ट करंट के लिए, अधिक करंट क्षमता व आसान आर्क स्टार्ट (CIL, कर्नाटक PYQ)।<br><b>अन्य क्यों नहीं:</b> (a) मेटल इनर्ट गैस वेल्डिंग है; (b) शील्डेड मेटल आर्क वेल्डिंग है; (d) टंगस्टन इलेक्ट्रोड लंबे समय चलता है – दूषित होने पर केवल दोबारा ग्राइंड किया जाता है।"}},
+
+/* 15 */ {ans:2, lv:"p", tag:{en:"Flux coating",hi:"फ्लक्स कोटिंग"},
+en:{q:"Which of the following is NOT a function of the flux coating on a shielded metal arc electrode?",
+o:["stabilising the arc by easy ionisation","deoxidising the weld pool","increasing the cooling rate of the weld","forming slag that protects the bead"],
+e:"The coating does <b>not</b> increase the cooling rate – it does the opposite. The slag it forms covers the hot bead like a blanket and <b>slows</b> cooling, which reduces hardening and cracking.<br><b>What the coating does:</b> gas shield (cellulose burns to carbon dioxide/hydrogen) · arc stabiliser (potassium and sodium compounds ionise the gap) · deoxidiser (ferro-silicon, ferro-manganese remove oxygen) · slag former (protects and shapes the bead) · alloying (adds manganese, chromium, nickel) · binder (sodium silicate holds the coating) · more deposition (iron powder).<br><b>Related PYQs:</b> 'coating is NOT expected to → prevent the electrode from contamination' (Railway SSE); 'the material used for coating the electrode is called → flux' (Railway JE)."},
+hi:{q:"शील्डेड मेटल आर्क इलेक्ट्रोड की फ्लक्स कोटिंग का निम्न में से कौन-सा कार्य नहीं है?",
+o:["आसान आयनन द्वारा आर्क को स्थिर करना","वेल्ड पूल का डीऑक्सीकरण करना","वेल्ड की ठंडा होने की दर बढ़ाना","बीड की रक्षा करने वाला स्लैग बनाना"],
+e:"कोटिंग ठंडा होने की दर <b>नहीं</b> बढ़ाती – उल्टा करती है। इससे बना स्लैग गर्म बीड को कंबल की तरह ढककर ठंडा होना <b>धीमा</b> करता है, जिससे कठोरता व दरारें कम होती हैं।<br><b>कोटिंग क्या करती है:</b> गैस शील्ड (सेल्युलोज़ जलकर कार्बन डाइऑक्साइड/हाइड्रोजन) · आर्क स्थिरक (पोटैशियम व सोडियम यौगिक गैप को आयनित करते हैं) · डीऑक्सीडाइज़र (फ़ेरो-सिलिकॉन, फ़ेरो-मैंगनीज़ ऑक्सीजन हटाते हैं) · स्लैग बनाना (बीड की रक्षा व आकार) · मिश्रधातु तत्व (मैंगनीज़, क्रोमियम, निकल) · बाइंडर (सोडियम सिलिकेट कोटिंग को बाँधता है) · अधिक डिपॉज़िशन (आयरन पाउडर)।<br><b>संबंधित PYQ:</b> 'कोटिंग से अपेक्षित नहीं → इलेक्ट्रोड को संदूषण से बचाना' (रेलवे SSE); 'इलेक्ट्रोड पर लेप की सामग्री → फ्लक्स' (रेलवे JE)।"}},
+
+/* 16 */ {ans:1, lv:"h", tag:{en:"Flux coating",hi:"फ्लक्स कोटिंग"},
+en:{q:"Match each coating ingredient (List-I) with its function (List-II):<br>P. Cellulose<br>Q. Potassium silicate<br>R. Ferro-manganese<br>S. Iron powder<br>1. More deposition<br>2. Deoxidiser<br>3. Arc stabiliser<br>4. Gas shield",
+o:["P-3, Q-4, R-2, S-1","P-4, Q-3, R-2, S-1","P-4, Q-2, R-3, S-1","P-1, Q-3, R-2, S-4"],
+e:"<b>Cellulose</b> (organic, wood-pulp) burns in the arc to give carbon dioxide, carbon monoxide and hydrogen – a <b>gas shield</b>.<br><b>Potassium silicate</b> – potassium ionises easily, keeping the gap conductive – <b>arc stabiliser</b> (this is what lets coated electrodes run on alternating current).<br><b>Ferro-manganese</b> (and ferro-silicon) – manganese and silicon combine with oxygen in the pool – <b>deoxidiser</b>.<br><b>Iron powder</b> – melts and adds to the deposit – <b>higher deposition rate</b>.<br><b>Also:</b> sodium silicate = binder; rutile (titanium dioxide) = slag former and smooth arc; calcium carbonate + calcium fluoride = basic (low-hydrogen) coating."},
+hi:{q:"प्रत्येक कोटिंग घटक (सूची-I) को उसके कार्य (सूची-II) से सुमेलित करें:<br>P. सेल्युलोज़<br>Q. पोटैशियम सिलिकेट<br>R. फ़ेरो-मैंगनीज़<br>S. आयरन पाउडर<br>1. अधिक डिपॉज़िशन<br>2. डीऑक्सीडाइज़र<br>3. आर्क स्थिरक<br>4. गैस शील्ड",
+o:["P-3, Q-4, R-2, S-1","P-4, Q-3, R-2, S-1","P-4, Q-2, R-3, S-1","P-1, Q-3, R-2, S-4"],
+e:"<b>सेल्युलोज़</b> (कार्बनिक, लकड़ी की लुगदी) आर्क में जलकर कार्बन डाइऑक्साइड, कार्बन मोनोऑक्साइड व हाइड्रोजन देता है – <b>गैस शील्ड</b>।<br><b>पोटैशियम सिलिकेट</b> – पोटैशियम आसानी से आयनित होकर गैप को चालक रखता है – <b>आर्क स्थिरक</b> (इसी से लेपित इलेक्ट्रोड अल्टरनेटिंग करंट पर चलते हैं)।<br><b>फ़ेरो-मैंगनीज़</b> (और फ़ेरो-सिलिकॉन) – मैंगनीज़ व सिलिकॉन पूल की ऑक्सीजन से जुड़ते हैं – <b>डीऑक्सीडाइज़र</b>।<br><b>आयरन पाउडर</b> – पिघलकर जमा धातु बढ़ाता है – <b>अधिक डिपॉज़िशन दर</b>।<br><b>यह भी:</b> सोडियम सिलिकेट = बाइंडर; रूटाइल (टाइटेनियम डाइऑक्साइड) = स्लैग बनाने वाला व सुचारु आर्क; कैल्शियम कार्बोनेट + कैल्शियम फ़्लोराइड = बेसिक (लो-हाइड्रोजन) कोटिंग।"}},
+
+/* 17 */ {ans:3, lv:"p", tag:{en:"Coating types",hi:"कोटिंग प्रकार"},
+en:{q:"A thick, highly restrained high-strength steel joint must be free from hydrogen cracking. The electrode chosen is:",
+o:["cellulosic, E6010 type","rutile, E6013 type","iron-oxide, flat-position type","basic low-hydrogen, E7018 type"],
+e:"Hydrogen absorbed by the weld diffuses into the hard heat-affected zone and, together with residual stress, causes <b>cold (hydrogen-induced) cracking</b> – a major risk in thick, restrained, high-strength steel. <b>Basic (low-hydrogen)</b> electrodes have a coating of calcium carbonate + calcium fluoride and almost no moisture or cellulose, so they deposit very little hydrogen and give tough, crack-free welds, e.g. <b>E7018</b>.<br><b>Why not the others:</b> cellulosic coatings release a lot of hydrogen (worst choice here); rutile is general-purpose for mild steel; iron-oxide is for flat, high-deposition welds.<br><b>Also:</b> preheating slows cooling and lets hydrogen escape – 'preheating prevents cold cracks' (SSC JE, Railway JE PYQ)."},
+hi:{q:"मोटी, अत्यधिक जकड़ी (restrained) उच्च-सामर्थ्य स्टील की जोड़ को हाइड्रोजन क्रैकिंग से मुक्त रखना है। चुना जाने वाला इलेक्ट्रोड है:",
+o:["सेल्युलोसिक, E6010 प्रकार","रूटाइल, E6013 प्रकार","आयरन-ऑक्साइड, फ्लैट-पोजीशन प्रकार","बेसिक लो-हाइड्रोजन, E7018 प्रकार"],
+e:"वेल्ड में अवशोषित हाइड्रोजन कठोर हीट-अफेक्टेड ज़ोन में फैलकर अवशिष्ट प्रतिबल के साथ <b>कोल्ड (हाइड्रोजन-जनित) क्रैकिंग</b> करती है – मोटे, जकड़े, उच्च-सामर्थ्य स्टील में बड़ा खतरा। <b>बेसिक (लो-हाइड्रोजन)</b> इलेक्ट्रोड की कोटिंग कैल्शियम कार्बोनेट + कैल्शियम फ़्लोराइड की होती है और लगभग नमी व सेल्युलोज़ रहित होती है, इसलिए बहुत कम हाइड्रोजन जाती है और मज़बूत, दरार-रहित वेल्ड मिलते हैं, जैसे <b>E7018</b>।<br><b>अन्य क्यों नहीं:</b> सेल्युलोसिक कोटिंग बहुत हाइड्रोजन छोड़ती है (यहाँ सबसे बुरा विकल्प); रूटाइल माइल्ड स्टील के सामान्य कार्य हेतु; आयरन-ऑक्साइड फ्लैट, अधिक डिपॉज़िशन वेल्ड हेतु।<br><b>यह भी:</b> प्रीहीटिंग ठंडक धीमी कर हाइड्रोजन को निकलने देती है – 'प्रीहीटिंग कोल्ड क्रैक रोकती है' (SSC JE, रेलवे JE PYQ)।"}},
+
+/* 18 */ {ans:0, lv:"p", tag:{en:"Coating types",hi:"कोटिंग प्रकार"},
+en:{q:"Basic (low-hydrogen) electrodes are kept in a drying oven before use because:",
+o:["moisture in the coating gives hydrogen, causing cracks","heat makes the coating conduct current better","a warm coating gives a deeper-penetrating arc","drying removes the binder before welding"],
+e:"The basic coating readily absorbs moisture from air. In the arc, water (H₂O) breaks down into hydrogen and oxygen; the hydrogen dissolves in the molten metal and later causes <b>porosity</b> and <b>cold (hydrogen) cracking</b> – exactly what a low-hydrogen electrode is meant to prevent. So these electrodes are baked (typically around 250–350 °C) and then held in a holding oven/quiver until use.<br><b>Why not the others:</b> drying does not change conductivity or penetration, and the binder must stay – otherwise the coating would fall off.<br><b>Defect link:</b> 'porosity is created due to presence of hydrogen in the weld pool' (UPRVUNL PYQ) · remedy for porosity → dry electrodes, clean surfaces, good shielding."},
+hi:{q:"बेसिक (लो-हाइड्रोजन) इलेक्ट्रोड को प्रयोग से पहले ड्राइंग ओवन में क्यों रखा जाता है?",
+o:["कोटिंग की नमी हाइड्रोजन देकर दरारें उत्पन्न करती है","ऊष्मा से कोटिंग बेहतर करंट चालन करती है","गर्म कोटिंग अधिक गहरी पेनिट्रेशन वाला आर्क देती है","सुखाने से वेल्डिंग से पहले बाइंडर हट जाता है"],
+e:"बेसिक कोटिंग हवा से आसानी से नमी सोखती है। आर्क में पानी (H₂O) हाइड्रोजन और ऑक्सीजन में टूटता है; हाइड्रोजन पिघली धातु में घुलकर बाद में <b>पोरोसिटी</b> और <b>कोल्ड (हाइड्रोजन) क्रैकिंग</b> करती है – ठीक वही जिसे लो-हाइड्रोजन इलेक्ट्रोड रोकने के लिए बना है। इसलिए इन इलेक्ट्रोड को बेक किया जाता है (सामान्यतः लगभग 250–350 °C) और प्रयोग तक होल्डिंग ओवन/क्विवर में रखा जाता है।<br><b>अन्य क्यों नहीं:</b> सुखाने से चालकता या पेनिट्रेशन नहीं बदलती, और बाइंडर का रहना ज़रूरी है – वरना कोटिंग गिर जाएगी।<br><b>दोष लिंक:</b> 'पोरोसिटी वेल्ड पूल में हाइड्रोजन के कारण' (UPRVUNL PYQ) · पोरोसिटी का उपाय → सूखे इलेक्ट्रोड, साफ़ सतह, अच्छी शील्डिंग।"}},
+
+/* 19 */ {ans:1, lv:"e", tag:{en:"Coating types",hi:"कोटिंग प्रकार"},
+en:{q:"Which electrode coating gives deep penetration in all positions, but with more spatter?",
+o:["Rutile","Cellulosic","Iron-powder","Basic"],
+e:"<b>Cellulosic</b> coatings contain a lot of organic cellulose that burns to a large volume of gas, giving a forceful, 'digging' arc – <b>deep penetration</b>, a thin slag that freezes fast, and usability in <b>all positions</b> (even vertical-down pipeline root passes). The price is a harsh arc with <b>more spatter</b> and high hydrogen, e.g. E6010.<br><b>Compare the four coatings:</b> rutile (titanium dioxide) – smooth arc, easy slag removal, general-purpose, E6013 · basic / low-hydrogen – crack-free, high-strength and thick steel, must be kept dry, E7018 · iron-powder – very high deposition, mainly flat and horizontal fillet · cellulosic – deep penetration, all positions, spatter.<br><b>PYQ:</b> 'the type of covering indicated by RR → rutile, heavy coated' (RRB-CBT2 2019)."},
+hi:{q:"कौन-सी इलेक्ट्रोड कोटिंग सभी पोजीशन में गहरी पेनिट्रेशन देती है, पर अधिक स्पैटर के साथ?",
+o:["रूटाइल","सेल्युलोसिक","आयरन-पाउडर","बेसिक"],
+e:"<b>सेल्युलोसिक</b> कोटिंग में बहुत अधिक कार्बनिक सेल्युलोज़ होता है जो जलकर बड़ी मात्रा में गैस बनाता है, जिससे ज़ोरदार, 'खोदने वाला' आर्क – <b>गहरी पेनिट्रेशन</b>, जल्दी जमने वाला पतला स्लैग, और <b>सभी पोजीशन</b> में प्रयोग (वर्टिकल-डाउन पाइपलाइन रूट पास भी)। कीमत है कठोर आर्क, <b>अधिक स्पैटर</b> और अधिक हाइड्रोजन, जैसे E6010।<br><b>चारों कोटिंग की तुलना:</b> रूटाइल (टाइटेनियम डाइऑक्साइड) – सुचारु आर्क, आसानी से स्लैग हटता है, सामान्य प्रयोजन, E6013 · बेसिक / लो-हाइड्रोजन – दरार-रहित, उच्च-सामर्थ्य व मोटा स्टील, सूखा रखना अनिवार्य, E7018 · आयरन-पाउडर – बहुत अधिक डिपॉज़िशन, मुख्यतः फ्लैट व हॉरिज़ॉन्टल फिलेट · सेल्युलोसिक – गहरी पेनिट्रेशन, सभी पोजीशन, स्पैटर।<br><b>PYQ:</b> 'RR अक्षर से दर्शाया आवरण → रूटाइल, भारी लेपित' (RRB-CBT2 2019)।"}},
+
+/* 20 */ {ans:2, lv:"p", tag:{en:"Electrode code",hi:"इलेक्ट्रोड कोड"},
+en:{q:"In the electrode designation E6013, the digit '1' indicates that the electrode is:",
+o:["of minimum tensile strength 1 ksi","suited to a rutile coating and AC","usable in all welding positions","for flat and horizontal fillet only"],
+e:"American Welding Society code <b>E XX Y Z</b>:<br><b>E</b> = electrode (for arc welding) · <b>XX</b> = minimum tensile strength of weld metal in ksi (60 → 60,000 psi ≈ 414 MPa; 70 → ≈ 483 MPa) · <b>Y</b> = welding position: <b>1 = all positions</b>, 2 = flat and horizontal fillet only, 4 = flat, horizontal, overhead and vertical-down · <b>Z</b> (last digit, read with Y) = coating type and current/polarity – e.g. 13 = rutile coating, AC or DC.<br><b>Why not the others:</b> (a) strength is given by the first two digits; (b) describes the last digit; (d) would be the digit 2.<br><b>PYQ:</b> 'E6010 is a … tensile strength electrode → 60,000 psi' (RRB-CBT2 2019). The Indian (BIS) code uses letters and digits differently – e.g. its second digit relates to elongation and impact (Punjab PSC PYQ)."},
+hi:{q:"इलेक्ट्रोड पदनाम E6013 में अंक '1' दर्शाता है कि इलेक्ट्रोड:",
+o:["की न्यूनतम तन्य सामर्थ्य 1 ksi है","रूटाइल कोटिंग व AC के लिए उपयुक्त है","सभी वेल्डिंग पोजीशन में प्रयोग योग्य है","केवल फ्लैट व हॉरिज़ॉन्टल फिलेट के लिए है"],
+e:"अमेरिकन वेल्डिंग सोसाइटी कोड <b>E XX Y Z</b>:<br><b>E</b> = इलेक्ट्रोड (आर्क वेल्डिंग हेतु) · <b>XX</b> = वेल्ड धातु की न्यूनतम तन्य सामर्थ्य ksi में (60 → 60,000 psi ≈ 414 MPa; 70 → ≈ 483 MPa) · <b>Y</b> = वेल्डिंग पोजीशन: <b>1 = सभी पोजीशन</b>, 2 = केवल फ्लैट व हॉरिज़ॉन्टल फिलेट, 4 = फ्लैट, हॉरिज़ॉन्टल, ओवरहेड व वर्टिकल-डाउन · <b>Z</b> (अंतिम अंक, Y के साथ पढ़ें) = कोटिंग प्रकार व करंट/पोलैरिटी – जैसे 13 = रूटाइल कोटिंग, AC या DC।<br><b>अन्य क्यों नहीं:</b> (a) सामर्थ्य पहले दो अंक बताते हैं; (b) अंतिम अंक का वर्णन है; (d) अंक 2 होता।<br><b>PYQ:</b> 'E6010 … तन्य सामर्थ्य इलेक्ट्रोड → 60,000 psi' (RRB-CBT2 2019)। भारतीय (BIS) कोड में अक्षर व अंक अलग अर्थ रखते हैं – जैसे दूसरा अंक दीर्घीकरण व इम्पैक्ट से संबंधित (पंजाब PSC PYQ)।"}},
+
+/* 21 */ {ans:1, lv:"p", tag:{en:"Electrodes for metals",hi:"धातु हेतु इलेक्ट्रोड"},
+en:{q:"Arc repair of a cracked grey cast-iron pump body is best done with:",
+o:["a mild-steel electrode and rapid cooling","a nickel electrode with preheating","a stainless electrode without preheating","a tungsten electrode with argon only"],
+e:"Grey cast iron is brittle (2–4 % carbon) and cracks easily under welding stresses. A <b>nickel or nickel–iron electrode</b> gives a soft, ductile, machinable deposit that can absorb shrinkage stress and does not pick up carbon to form hard, brittle zones. <b>Preheating</b> (and slow cooling afterwards) reduces the thermal gradient and prevents cracking – cast iron welded without preheat cracks.<br><b>Why not the others:</b> (a) a mild-steel deposit picks up carbon from the cast iron, becomes hard and brittle, and rapid cooling causes cracks; (c) skipping preheat invites cracks; (d) tungsten inert gas with argon alone gives no suitable filler.<br><b>Gas welding of cast iron:</b> cast-iron filler rod + borax-soda flux + preheat ('grey cast iron is usually welded by gas welding' – Railway JE PYQ)."},
+hi:{q:"दरार वाले ग्रे कास्ट-आयरन पंप बॉडी की आर्क मरम्मत सर्वोत्तम रूप से किससे होती है?",
+o:["माइल्ड-स्टील इलेक्ट्रोड और तीव्र ठंडक से","प्रीहीटिंग के साथ निकल इलेक्ट्रोड से","बिना प्रीहीट के स्टेनलेस इलेक्ट्रोड से","केवल आर्गन के साथ टंगस्टन इलेक्ट्रोड से"],
+e:"ग्रे कास्ट आयरन भंगुर है (2–4 % कार्बन) और वेल्डिंग प्रतिबल से आसानी से दरकता है। <b>निकल या निकल–आयरन इलेक्ट्रोड</b> नरम, तन्य, मशीन योग्य जमा देता है जो सिकुड़न प्रतिबल सह लेता है और कार्बन लेकर कठोर, भंगुर क्षेत्र नहीं बनाता। <b>प्रीहीटिंग</b> (और बाद में धीमी ठंडक) तापीय अंतर घटाकर दरारें रोकती है – बिना प्रीहीट कास्ट आयरन दरक जाता है।<br><b>अन्य क्यों नहीं:</b> (a) माइल्ड-स्टील जमा कास्ट आयरन से कार्बन लेकर कठोर व भंगुर हो जाता है, और तीव्र ठंडक दरारें देती है; (c) प्रीहीट छोड़ना दरारों को न्योता है; (d) केवल आर्गन वाली टंगस्टन इनर्ट गैस में उपयुक्त फिलर नहीं।<br><b>कास्ट आयरन की गैस वेल्डिंग:</b> कास्ट-आयरन फिलर रॉड + बोरैक्स-सोडा फ्लक्स + प्रीहीट ('ग्रे कास्ट आयरन सामान्यतः गैस वेल्डिंग से' – रेलवे JE PYQ)।"}},
+
+/* 22 */ {ans:0, lv:"p", tag:{en:"Fluxes for metals",hi:"धातु हेतु फ्लक्स"},
+en:{q:"Consider the following statements:<br>I. A borax-based flux suits gas welding of copper and brass.<br>II. Gas welding of aluminium needs a fluoride or chloride flux.<br>III. Gas welding of mild steel always needs a heavy borax flux.<br>Which of the statements are correct?",
+o:["I and II only","I only","II and III only","I, II and III"],
+e:"<b>I ✔</b> – borax (sodium tetraborate) dissolves copper and zinc oxides; it is the standard flux for copper, brass, bronze and for brazing (Railway, SSC JE PYQ).<br><b>II ✔</b> – aluminium and magnesium form a tough, high-melting oxide film that borax cannot dissolve; they need an active <b>fluoride/chloride</b> flux (RRB-CBT2 Jul'26). The residue is corrosive and must be washed off.<br><b>III ✘</b> – mild steel needs <b>no flux</b> in gas welding: its iron oxide melts below the steel and floats out, and the neutral flame itself protects the pool.<br><b>Flux map:</b> mild steel → none · cast iron → borax + soda ash · copper/brass/bronze → borax · stainless steel → fluoride-based · aluminium/magnesium → fluoride/chloride."},
+hi:{q:"निम्न कथनों पर विचार करें:<br>I. बोरैक्स-आधारित फ्लक्स कॉपर व पीतल की गैस वेल्डिंग के लिए उपयुक्त है।<br>II. एल्युमिनियम की गैस वेल्डिंग में फ़्लोराइड या क्लोराइड फ्लक्स चाहिए।<br>III. माइल्ड स्टील की गैस वेल्डिंग में हमेशा भारी बोरैक्स फ्लक्स चाहिए।<br>कौन-से कथन सही हैं?",
+o:["केवल I और II","केवल I","केवल II और III","I, II और III"],
+e:"<b>I ✔</b> – बोरैक्स (सोडियम टेट्राबोरेट) कॉपर व ज़िंक के ऑक्साइड घोलता है; यह कॉपर, पीतल, कांस्य और ब्रेज़िंग का मानक फ्लक्स है (रेलवे, SSC JE PYQ)।<br><b>II ✔</b> – एल्युमिनियम व मैग्नीशियम कठोर, उच्च गलनांक वाली ऑक्साइड परत बनाते हैं जिसे बोरैक्स नहीं घोल सकता; उन्हें सक्रिय <b>फ़्लोराइड/क्लोराइड</b> फ्लक्स चाहिए (RRB-CBT2 Jul'26)। अवशेष संक्षारक होता है, धोकर हटाना पड़ता है।<br><b>III ✘</b> – माइल्ड स्टील की गैस वेल्डिंग में <b>फ्लक्स नहीं</b> चाहिए: इसका आयरन ऑक्साइड स्टील से कम तापमान पर पिघलकर ऊपर तैर जाता है, और न्यूट्रल फ्लेम स्वयं पूल की रक्षा करती है।<br><b>फ्लक्स मानचित्र:</b> माइल्ड स्टील → कोई नहीं · कास्ट आयरन → बोरैक्स + सोडा ऐश · कॉपर/पीतल/कांस्य → बोरैक्स · स्टेनलेस स्टील → फ़्लोराइड-आधारित · एल्युमिनियम/मैग्नीशियम → फ़्लोराइड/क्लोराइड।"}},
+
+/* 23 */ {ans:1, lv:"p", tag:{en:"Electrode selection",hi:"इलेक्ट्रोड चयन"},
+en:{q:"A welder moves from welding 3 mm plates to 10 mm plates. The main thing he must change is:",
+o:["the polarity of the supply","the electrode size and current","the shade of the filter glass","the open-circuit voltage"],
+e:"The chain is: <b>plate thickness → electrode diameter → welding current</b>. A thicker plate needs a larger electrode to deposit more metal per pass, and a larger electrode needs a higher current to melt it properly (roughly 35–45 A per mm of electrode diameter for mild steel). So the main change is the electrode size, with the current set to suit it.<br><b>PYQs on this chain:</b> 'current value is decided by → size of the electrode' (Railway SSE) · 'main criterion for selecting electrode diameter → thickness of material' (Metro) · 'two sheets of different thickness are butt welded by → changing the electrode size' (Railway JE, SSC JE).<br><b>Why not the others:</b> polarity depends on metal and process, not thickness; filter shade follows current but is not the key change; open-circuit voltage is fixed by the machine."},
+hi:{q:"एक वेल्डर 3 mm प्लेट से 10 mm प्लेट की वेल्डिंग पर जाता है। उसे मुख्यतः क्या बदलना होगा?",
+o:["सप्लाई की पोलैरिटी","इलेक्ट्रोड का आकार व करंट","फ़िल्टर ग्लास का शेड","ओपन-सर्किट वोल्टेज"],
+e:"श्रृंखला है: <b>प्लेट मोटाई → इलेक्ट्रोड व्यास → वेल्डिंग करंट</b>। मोटी प्लेट को प्रति पास अधिक धातु जमाने के लिए बड़ा इलेक्ट्रोड चाहिए, और बड़े इलेक्ट्रोड को ठीक से पिघलाने के लिए अधिक करंट (माइल्ड स्टील हेतु मोटे तौर पर 35–45 A प्रति mm इलेक्ट्रोड व्यास)। अतः मुख्य बदलाव इलेक्ट्रोड का आकार है, और करंट उसके अनुसार।<br><b>इस श्रृंखला पर PYQ:</b> 'करंट का मान → इलेक्ट्रोड के आकार से तय' (रेलवे SSE) · 'इलेक्ट्रोड व्यास चयन का मुख्य आधार → पदार्थ की मोटाई' (मेट्रो) · 'अलग मोटाई की दो शीट बट वेल्ड → इलेक्ट्रोड का आकार बदलकर' (रेलवे JE, SSC JE)।<br><b>अन्य क्यों नहीं:</b> पोलैरिटी धातु व प्रक्रिया पर निर्भर, मोटाई पर नहीं; फ़िल्टर शेड करंट के साथ बदलता है पर मुख्य बदलाव नहीं; ओपन-सर्किट वोल्टेज मशीन से तय होता है।"}},
+
+/* 24 */ {ans:3, lv:"p", num:true, tag:{en:"Numerical – electrode code",hi:"न्यूमेरिकल – इलेक्ट्रोड कोड"},
+en:{q:"The minimum tensile strength of weld metal deposited by an E7018 electrode is about (take 1 ksi ≈ 6.895 MPa):",
+o:["414 MPa","700 MPa","70 MPa","483 MPa"],
+e:"The first two digits give the minimum tensile strength in ksi: <b>70 ksi</b> = 70,000 psi.<br>70 × 6.895 ≈ <b>483 MPa</b>.<br><b>Distractor check:</b> (a) 414 MPa is the value for E60xx (60 × 6.895) – a trap for those who remember only the E6013 number; (b) 700 and (c) 70 simply misread the units.<br><b>Rest of the code:</b> 1 = all positions; 8 (read as '18') = basic low-hydrogen coating with iron powder, alternating current or direct current reverse polarity.<br><b>Quick conversions:</b> 1 ksi = 1000 psi ≈ 6.9 MPa · 60 ksi ≈ 414 MPa · 70 ksi ≈ 483 MPa."},
+hi:{q:"E7018 इलेक्ट्रोड से जमा वेल्ड धातु की न्यूनतम तन्य सामर्थ्य लगभग है (1 ksi ≈ 6.895 MPa लें):",
+o:["414 MPa","700 MPa","70 MPa","483 MPa"],
+e:"पहले दो अंक न्यूनतम तन्य सामर्थ्य ksi में बताते हैं: <b>70 ksi</b> = 70,000 psi।<br>70 × 6.895 ≈ <b>483 MPa</b>।<br><b>गलत विकल्प कैसे बने:</b> (a) 414 MPa, E60xx का मान है (60 × 6.895) – केवल E6013 वाली संख्या याद रखने वालों के लिए ट्रैप; (b) 700 और (c) 70 में इकाई गलत पढ़ी।<br><b>कोड का शेष भाग:</b> 1 = सभी पोजीशन; 8 ('18' के रूप में पढ़ें) = आयरन पाउडर सहित बेसिक लो-हाइड्रोजन कोटिंग, अल्टरनेटिंग करंट या डायरेक्ट करंट रिवर्स पोलैरिटी।<br><b>त्वरित रूपांतरण:</b> 1 ksi = 1000 psi ≈ 6.9 MPa · 60 ksi ≈ 414 MPa · 70 ksi ≈ 483 MPa।"}},
+
+/* 25 */ {ans:0, lv:"p", num:true, tag:{en:"Numerical – arc power",hi:"न्यूमेरिकल – आर्क शक्ति"},
+en:{q:"The arc characteristic is V = 20 + 2l (V in volts, l in mm). With a 4 mm electrode, the arc length is kept equal to the electrode diameter and the current is 150 A. The arc power is:",
+o:["4.2 kW","3.0 kW","3.6 kW","6.0 kW"],
+e:"Arc length = electrode diameter = 4 mm.<br>Arc voltage V = 20 + 2 × 4 = 28 V.<br>Arc power P = V × I = 28 × 150 = 4200 W = <b>4.2 kW</b>.<br><b>Distractor check:</b> (b) 3.0 kW uses only 20 V, ignoring the arc length; (c) 3.6 kW takes l = 2 mm (half the diameter); (d) 6.0 kW uses 40 V.<br><b>Concept:</b> Ayrton's equation V = a + b·l – 'a' is the voltage drop at the electrode ends (cathode + anode), 'b' the drop per mm of arc column. A longer arc means a higher voltage and more heat lost by radiation – so arc length must be held close to the electrode diameter."},
+hi:{q:"आर्क विशेषता V = 20 + 2l है (V वोल्ट में, l mm में)। 4 mm इलेक्ट्रोड के साथ आर्क लंबाई इलेक्ट्रोड व्यास के बराबर रखी जाती है और करंट 150 A है। आर्क शक्ति है:",
+o:["4.2 kW","3.0 kW","3.6 kW","6.0 kW"],
+e:"आर्क लंबाई = इलेक्ट्रोड व्यास = 4 mm।<br>आर्क वोल्टेज V = 20 + 2 × 4 = 28 V।<br>आर्क शक्ति P = V × I = 28 × 150 = 4200 W = <b>4.2 kW</b>।<br><b>गलत विकल्प कैसे बने:</b> (b) 3.0 kW में केवल 20 V लिया, आर्क लंबाई भूल गए; (c) 3.6 kW में l = 2 mm (व्यास का आधा) लिया; (d) 6.0 kW में 40 V लिया।<br><b>अवधारणा:</b> एर्टन समीकरण V = a + b·l – 'a' इलेक्ट्रोड सिरों (कैथोड + एनोड) पर वोल्टेज ड्रॉप, 'b' आर्क स्तंभ में प्रति mm ड्रॉप। लंबा आर्क यानी अधिक वोल्टेज और विकिरण से अधिक ऊष्मा हानि – इसलिए आर्क लंबाई इलेक्ट्रोड व्यास के पास रखनी चाहिए।"}}
+];
+
+const LIMIT = 20*60;
+let lang = "en";
+let mode = "test";
+let picked = new Array(Q.length).fill(null);
+let showAll = false;
+let submitted = false;
+let autoSub = false;
+let left = LIMIT;
+let tick = null;
+const L = ["a","b","c","d"];
+const $ = id => document.getElementById(id);
+
+function fmt(t){ const m=Math.floor(t/60), s=t%60; return String(m).padStart(2,"0")+":"+String(s).padStart(2,"0"); }
+
+function startTimer(){
+  stopTimer();
+  if(mode!=="test" || submitted) return;
+  tick = setInterval(()=>{
+    left--;
+    if(left<=0){ left=0; autoSub=true; doSubmit(); return; }
+    paintTimer();
+  },1000);
+}
+function stopTimer(){ if(tick){clearInterval(tick); tick=null;} }
+function paintTimer(){
+  const t=$("timer"), u=UI[lang];
+  if(mode!=="test"){ t.classList.add("hidden"); return; }
+  t.classList.remove("hidden");
+  t.textContent = submitted ? u.taken+": "+fmt(LIMIT-left) : u.time+": "+fmt(left);
+  t.classList.toggle("low", !submitted && left<=120);
+}
+
+function isRevealed(i){ return mode==="practice" ? (picked[i]!==null || showAll) : submitted; }
+
+function render(){
+  const u = UI[lang];
+  document.documentElement.lang = lang;
+  $("title").textContent = u.title;
+  $("subtitle").textContent = u.sub;
+  $("rules").textContent = mode==="test" ? u.rules : u.rulesP;
+  $("foot").textContent = u.foot;
+  $("mTest").textContent = u.test; $("mPrac").textContent = u.prac;
+  $("mTest").setAttribute("aria-pressed", mode==="test");
+  $("mPrac").setAttribute("aria-pressed", mode==="practice");
+  $("bSubmit").textContent = u.submit;
+  $("bSubmit").classList.toggle("hidden", !(mode==="test" && !submitted));
+  $("bShow").textContent = showAll ? u.hide : u.show;
+  $("bShow").classList.toggle("hidden", mode!=="practice");
+  $("bReset").textContent = u.reset;
+  $("bEn").setAttribute("aria-pressed", lang==="en");
+  $("bHi").setAttribute("aria-pressed", lang==="hi");
+
+  let html = "";
+  Q.forEach((q,i)=>{
+    if(q.num && i>0 && !Q[i-1].num) html += `<div class="sec">${u.num}</div>`;
+    const d = q[lang], p = picked[i], rev = isRevealed(i);
+    const lvClass = q.lv==="t" ? "lv-t" : q.lv==="h" ? "lv-h" : "";
+    html += `<article class="q" id="q${i}">
+      <div class="qhead"><span class="qno">Q${i+1}.</span><span class="chip">${q.tag[lang]}</span><span class="chip ${lvClass}">${u.lv[q.lv]}</span></div>
+      <div class="qtext">${d.q}</div><div class="opts">`;
+    d.o.forEach((o,j)=>{
+      let cls = "opt";
+      if(rev && j===q.ans) cls += " right";
+      if(rev && p===j && p!==q.ans) cls += " wrong";
+      if(!rev && p===j) cls += " sel";
+      html += `<button class="${cls}" data-q="${i}" data-o="${j}" ${rev?"disabled":""} aria-pressed="${p===j}"><span class="l">(${L[j]})</span><span>${o}</span></button>`;
+    });
+    html += `</div>`;
+    if(rev){
+      let v = "";
+      if(p!==null) v = p===q.ans ? `<div>${u.right}</div>` : `<div class="verdict-bad">${u.yours}</div>`;
+      else if(mode==="test") v = `<div class="verdict-bad">${u.un}</div>`;
+      html += `<div class="ex">${v}<div class="ans">${u.ans}: (${L[q.ans]})</div>${d.e}</div>`;
+    }
+    html += `</article>`;
+  });
+  $("list").innerHTML = html;
+  stats(); paintTimer(); result();
+}
+
+function counts(){
+  let c=0,w=0,a=0;
+  picked.forEach((p,i)=>{ if(p!==null){a++; if(p===Q[i].ans)c++; else w++;} });
+  return {c,w,a,s:(c-w/3).toFixed(2)};
+}
+
+function stats(){
+  const u = UI[lang], k = counts();
+  const hide = mode==="test" && !submitted;
+  $("sAtt").textContent = `${u.att}: ${k.a}/${Q.length}`;
+  $("sC").textContent = `${u.c}: ${k.c}`;
+  $("sW").textContent = `${u.w}: ${k.w}`;
+  $("sS").textContent = `${u.s}: ${k.s}`;
+  ["sC","sW","sS"].forEach(id=>$(id).classList.toggle("hidden", hide));
+}
+
+function result(){
+  const box = $("result");
+  if(!(mode==="test" && submitted)){ box.innerHTML=""; return; }
+  const u = UI[lang], k = counts();
+  const acc = k.a ? Math.round(k.c*100/k.a) : 0;
+  box.innerHTML = `<section class="result" aria-live="polite">
+    <h2>${u.res}: ${k.s} / ${Q.length}</h2>
+    <div class="rgrid">
+      <div>${u.c}<b>${k.c}</b></div><div>${u.w}<b>${k.w}</b></div>
+      <div>${u.un}<b>${Q.length-k.a}</b></div><div>${u.acc}<b>${acc}%</b></div>
+      <div>${u.taken}<b>${fmt(LIMIT-left)}</b></div>
+    </div>
+    <p>${autoSub ? u.auto+" " : ""}${u.resNote}</p></section>`;
+}
+
+function doSubmit(){
+  submitted = true; stopTimer(); render();
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function resetAll(){
+  picked = new Array(Q.length).fill(null);
+  showAll=false; submitted=false; autoSub=false; left=LIMIT;
+  render(); startTimer(); window.scrollTo({top:0});
+}
+
+$("list").addEventListener("click", e=>{
+  const b = e.target.closest(".opt");
+  if(!b || b.disabled) return;
+  const i = +b.dataset.q, j = +b.dataset.o;
+  if(mode==="test"){ picked[i] = picked[i]===j ? null : j; }
+  else { if(picked[i]!==null) return; picked[i] = j; }
+  render();
+  const btn = document.querySelector(`#q${i} .opt[data-o="${j}"]`) || document.querySelector(`#q${i} .opt`);
+  if(btn) btn.focus({preventScroll:true});
+});
+$("bEn").onclick = ()=>{ lang="en"; render(); };
+$("bHi").onclick = ()=>{ lang="hi"; render(); };
+function setMode(m){
+  if(m===mode) return;
+  const dirty = picked.some(p=>p!==null) || submitted;
+  if(dirty && !confirm(UI[lang].cMode)) return;
+  mode = m; resetAll();
+}
+$("mTest").onclick = ()=>setMode("test");
+$("mPrac").onclick = ()=>setMode("practice");
+$("bSubmit").onclick = ()=>{ if(confirm(UI[lang].cSub)) doSubmit(); };
+$("bShow").onclick = ()=>{ showAll=!showAll; render(); };
+$("bReset").onclick = resetAll;
+render(); startTimer();
+</script>
+</body>
+</html>
