@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welding Smart MCQ Set 4 – Welding Defects & Testing | THE EXAM ENGINEER</title>
+<style>
+:root{
+  --navy:#12306b; --navy-deep:#0c2350; --orange:#f07f1a;
+  --bg:#f3f6fb; --card:#ffffff; --text:#16213a; --muted:#5b6782;
+  --line:#d9e0ec; --opt:#f7f9fd; --opt-hover:#eaf0fa;
+  --ok:#17803d; --ok-bg:#e6f6ec; --bad:#c0272d; --bad-bg:#fdecec;
+  --ex-bg:#fff7ee; --ex-line:#f3c58f; --chip:#e9eef8;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --navy:#2b4f9a; --navy-deep:#16264a; --orange:#ff9a3d;
+    --bg:#0f1524; --card:#18213a; --text:#e8edf8; --muted:#a3aec6;
+    --line:#2c3857; --opt:#1e2944; --opt-hover:#26345a;
+    --ok:#4cd17e; --ok-bg:#163a26; --bad:#ff6b70; --bad-bg:#3d1a1e;
+    --ex-bg:#2a2216; --ex-line:#6b4b22; --chip:#25304d;
+    color-scheme: dark;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:"Segoe UI","Noto Sans","Nirmala UI","Mangal",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  line-height:1.6;font-size:16px}
+header{background:var(--navy-deep);color:#fff;padding:22px 16px 18px}
+.wrap{max-width:860px;margin:0 auto}
+.brand{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand a{color:var(--orange);font-weight:700;text-decoration:none}
+.brand a:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.channel{font-weight:800;letter-spacing:.5px}
+h1{margin:14px 0 4px;font-size:clamp(1.4rem,4.5vw,2rem);line-height:1.2}
+.sub{margin:0;color:#c9d5ee;font-size:.95rem}
+.rules{margin-top:10px;font-size:.88rem;color:#c9d5ee}
+.bar{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:3px solid var(--orange);
+  box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.bar .wrap{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding:10px 16px}
+.seg{display:inline-flex;border:2px solid var(--navy);border-radius:999px;overflow:hidden}
+.seg button{border:0;background:transparent;color:var(--text);padding:6px 14px;font:inherit;font-weight:700;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--navy);color:#fff}
+.stats{display:flex;gap:12px;flex-wrap:wrap;font-size:.9rem;font-weight:600}
+.stats .c{color:var(--ok)} .stats .w{color:var(--bad)} .stats .s{color:var(--orange)}
+.tools button{border:1px solid var(--line);background:var(--opt);color:var(--text);border-radius:8px;
+  padding:6px 10px;font:inherit;font-size:.85rem;cursor:pointer}
+.tools button:hover{background:var(--opt-hover)}
+button:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+main{padding:18px 16px 40px}
+.q{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--navy);
+  border-radius:10px;padding:16px 16px 14px;margin:0 0 16px}
+.qhead{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.qno{font-weight:800;color:var(--navy)}
+@media (prefers-color-scheme: dark){.qno{color:#8fb0f5}}
+.chip{background:var(--chip);color:var(--muted);font-size:.75rem;font-weight:700;padding:2px 9px;border-radius:999px}
+.chip.lv-t{background:var(--bad-bg);color:var(--bad)}
+.chip.lv-h{background:var(--ex-bg);color:var(--orange)}
+.qtext{font-weight:600;margin:4px 0 12px}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;text-align:left;width:100%;border:1.5px solid var(--line);
+  background:var(--opt);color:var(--text);border-radius:8px;padding:9px 12px;font:inherit;cursor:pointer}
+.opt:hover:not(:disabled){background:var(--opt-hover)}
+.opt:disabled{cursor:default}
+.opt .l{font-weight:800;min-width:1.8em;color:var(--muted)}
+.opt.right{border-color:var(--ok);background:var(--ok-bg)}
+.opt.right .l{color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.opt.wrong .l{color:var(--bad)}
+.opt.sel{border-color:var(--navy);background:var(--opt-hover);box-shadow:inset 0 0 0 1px var(--navy)}
+.opt.sel .l{color:var(--navy)}
+@media (prefers-color-scheme: dark){.opt.sel .l{color:#8fb0f5}.opt.sel{border-color:#8fb0f5;box-shadow:inset 0 0 0 1px #8fb0f5}}
+.timer{font-variant-numeric:tabular-nums;font-weight:800}
+.timer.low{color:var(--bad)}
+.tools{display:flex;gap:6px;flex-wrap:wrap}
+.tools button.primary{background:var(--orange);border-color:var(--orange);color:#fff;font-weight:700}
+.tools button.primary:hover{filter:brightness(1.05);background:var(--orange)}
+.hidden{display:none !important}
+.result{background:var(--card);border:2px solid var(--orange);border-radius:12px;padding:16px;margin-bottom:18px}
+.result h2{margin:0 0 10px;font-size:1.2rem;color:var(--orange)}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+.rgrid div{background:var(--opt);border-radius:8px;padding:8px 10px}
+.rgrid b{display:block;font-size:1.3rem}
+.result p{margin:10px 0 0;color:var(--muted);font-size:.9rem}
+.ex{margin-top:12px;background:var(--ex-bg);border:1px solid var(--ex-line);border-radius:8px;padding:12px 14px;font-size:.95rem}
+.ex .ans{font-weight:800;color:var(--ok);margin-bottom:4px}
+.ex .verdict-bad{color:var(--bad)}
+.sec{margin:24px 0 12px;font-weight:800;color:var(--orange);font-size:1.05rem;border-bottom:2px solid var(--line);padding-bottom:4px}
+footer{text-align:center;color:var(--muted);font-size:.82rem;padding:10px 16px 30px}
+footer a{color:var(--orange)}
+@media (prefers-reduced-motion: no-preference){.ex{animation:show .25s ease-out}
+  @keyframes show{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <span class="channel">THE EXAM ENGINEER</span>
+      <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a>
+    </div>
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+    <p class="rules" id="rules"></p>
+  </div>
+</header>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="seg" role="group" aria-label="Language">
+      <button id="bEn" aria-pressed="true">English</button>
+      <button id="bHi" aria-pressed="false">हिंदी</button>
+    </div>
+    <div class="seg" role="group" aria-label="Mode">
+      <button id="mTest" aria-pressed="true"></button>
+      <button id="mPrac" aria-pressed="false"></button>
+    </div>
+    <div class="stats" aria-live="polite">
+      <span class="timer" id="timer"></span>
+      <span id="sAtt"></span><span class="c" id="sC"></span><span class="w" id="sW"></span><span class="s" id="sS"></span>
+    </div>
+    <div class="tools">
+      <button id="bSubmit" class="primary"></button>
+      <button id="bShow"></button>
+      <button id="bReset"></button>
+    </div>
+  </div>
+</div>
+
+<main><div class="wrap"><div id="result"></div><div id="list"></div></div></main>
+
+<footer>
+  <div id="foot"></div>
+  <div>© 2026 THE EXAM ENGINEER · <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a> · theexamengineer1@gmail.com</div>
+  <div>SSC JE AIR 14 · RRB JE 2025 (DMS)</div>
+</footer>
+
+<script>
+const UI = {
+  en:{title:"Welding Smart MCQ – Set 4",
+      sub:"Welding Defects & Testing (Non-Destructive & Destructive) · RRB JE CBT-2 (Mechanical & Allied) · RRB JE PYQ based",
+      rules:"25 questions · 20 minutes (RRB CBT-2 pace: 150 Qs in 120 min) · +1 correct, −1/3 wrong",
+      rulesP:"Practice mode · no timer · tap an option to see the answer with full explanation instantly",
+      test:"Test",prac:"Practice",submit:"Submit test",time:"Time left",
+      cSub:"Submit the test now? You cannot change answers after submitting.",
+      cMode:"Switching mode will reset your current attempt. Continue?",
+      res:"Your result",un:"Not attempted",taken:"Time taken",acc:"Accuracy",auto:"Time over – test submitted automatically.",
+      resNote:"Answers and full explanations are now shown below each question. Read the explanation of every wrong and unattempted question.",
+      att:"Attempted",c:"Correct",w:"Wrong",s:"Score",show:"Show all answers",hide:"Hide unattempted answers",reset:"Reset",
+      ans:"Correct answer",yours:"Your answer is wrong.",right:"Your answer is correct.",num:"Simple numericals",
+      lv:{e:"Easy",p:"PYQ level",h:"Higher",t:"Tough"},
+      foot:"Original work, free for personal study. Share as it is with the channel link – no re-branding."},
+  hi:{title:"वेल्डिंग स्मार्ट MCQ – सेट 4",
+      sub:"वेल्डिंग दोष एवं परीक्षण (Welding Defects & Testing) · RRB JE CBT-2 (मैकेनिकल एवं संबद्ध) · RRB JE PYQ आधारित",
+      rules:"25 प्रश्न · 20 मिनट (RRB CBT-2 गति: 120 मिनट में 150 प्रश्न) · सही +1, गलत −1/3",
+      rulesP:"प्रैक्टिस मोड · कोई टाइमर नहीं · विकल्प पर टैप करें, उत्तर और पूरी व्याख्या तुरंत दिखेगी",
+      test:"टेस्ट",prac:"प्रैक्टिस",submit:"टेस्ट सबमिट करें",time:"शेष समय",
+      cSub:"क्या अभी टेस्ट सबमिट करें? सबमिट के बाद उत्तर नहीं बदल सकेंगे।",
+      cMode:"मोड बदलने पर आपका वर्तमान प्रयास रीसेट हो जाएगा। जारी रखें?",
+      res:"आपका परिणाम",un:"बिना प्रयास",taken:"लिया गया समय",acc:"सटीकता",auto:"समय समाप्त – टेस्ट स्वतः सबमिट हो गया।",
+      resNote:"अब हर प्रश्न के नीचे उत्तर और पूरी व्याख्या दिख रही है। हर गलत और बिना प्रयास वाले प्रश्न की व्याख्या ज़रूर पढ़ें।",
+      att:"प्रयास",c:"सही",w:"गलत",s:"स्कोर",show:"सभी उत्तर दिखाएँ",hide:"बिना प्रयास वाले उत्तर छिपाएँ",reset:"रीसेट",
+      ans:"सही उत्तर",yours:"आपका उत्तर गलत है।",right:"आपका उत्तर सही है।",num:"सरल न्यूमेरिकल",
+      lv:{e:"आसान",p:"PYQ स्तर",h:"उच्च",t:"कठिन"},
+      foot:"मौलिक कार्य, व्यक्तिगत अध्ययन हेतु निःशुल्क। चैनल लिंक सहित जैसा है वैसा ही शेयर करें – री-ब्रांडिंग नहीं।"}
+};
+
+const Q = [
+/* 1 */ {ans:0, lv:"e", tag:{en:"Porosity",hi:"पोरोसिटी"},
+en:{q:"Porosity (blowholes) in a weld is caused mainly by:",
+o:["gas trapped in the solidifying weld metal","slag left between successive passes","excessive current at the weld toe","uneven heating and cooling of the plate"],
+e:"<b>Porosity</b> = small cavities or holes in the weld metal formed when gas (hydrogen, nitrogen, oxygen, carbon monoxide) dissolved in the molten pool cannot escape before it solidifies. Large single cavities are called <b>blowholes</b>.<br><b>Sources of gas:</b> moisture in electrodes or flux, rust, oil, paint or dirt on the joint, poor shielding (wind, low gas flow), long arc that lets air in.<br><b>Remedy:</b> dry electrodes, clean joint, good shielding, correct arc length. <b>Best test:</b> radiography (dark round spots).<br><b>Why not the others:</b> (b) causes slag inclusion; (c) causes undercut; (d) causes distortion.<br><b>PYQs:</b> RRB-CBT2 Jul'26 (improper shielding → gas pockets → porosity), Jun'25 (blowholes → gas trapped, moisture), Apr'25-II (gas trapping → porosity)."},
+hi:{q:"वेल्ड में पोरोसिटी (ब्लोहोल) मुख्यतः किस कारण होती है?",
+o:["जमती वेल्ड धातु में फँसी गैस","लगातार पासों के बीच छूटा स्लैग","वेल्ड टो पर अत्यधिक करंट","प्लेट का असमान गर्म व ठंडा होना"],
+e:"<b>पोरोसिटी</b> = वेल्ड धातु में छोटे छिद्र, जो तब बनते हैं जब पिघले पूल में घुली गैस (हाइड्रोजन, नाइट्रोजन, ऑक्सीजन, कार्बन मोनोऑक्साइड) जमने से पहले निकल नहीं पाती। बड़े एकल छिद्र <b>ब्लोहोल</b> कहलाते हैं।<br><b>गैस के स्रोत:</b> इलेक्ट्रोड या फ्लक्स में नमी, जोड़ पर जंग, तेल, पेंट या गंदगी, खराब शील्डिंग (हवा, कम गैस प्रवाह), लंबा आर्क जिससे हवा घुसती है।<br><b>उपाय:</b> सूखे इलेक्ट्रोड, साफ़ जोड़, अच्छी शील्डिंग, सही आर्क लंबाई। <b>सर्वोत्तम परीक्षण:</b> रेडियोग्राफ़ी (गहरे गोल धब्बे)।<br><b>अन्य क्यों नहीं:</b> (b) से स्लैग इन्क्लूज़न; (c) से अंडरकट; (d) से विकृति (distortion)।<br><b>PYQ:</b> RRB-CBT2 Jul'26 (खराब शील्डिंग → गैस पॉकेट → पोरोसिटी), Jun'25 (ब्लोहोल → फँसी गैस, नमी), Apr'25-II (गैस फँसना → पोरोसिटी)।"}},
+
+/* 2 */ {ans:1, lv:"p", tag:{en:"Porosity · scenario",hi:"पोरोसिटी · परिस्थिति"},
+en:{q:"A welder uses electrodes that were left open overnight in a humid store. The radiograph of the weld shows rounded dark spots. Identify the defect and its remedy.",
+o:["Slag inclusion; chip between every pass","Porosity; bake or dry the electrodes","Undercut; reduce the welding current","Hot crack; increase the travel speed"],
+e:"The flux coating absorbs moisture from humid air. In the arc, water breaks down into hydrogen and oxygen; hydrogen dissolves in the pool and comes out as gas bubbles while the metal freezes → <b>porosity</b>. On a radiograph, gas holes show as <b>rounded dark spots</b> (less metal → more radiation reaches the film).<br><b>Remedy:</b> bake electrodes as per maker's instructions (especially low-hydrogen types) and store them in a drying oven.<br><b>How to tell defects apart on a radiograph:</b> porosity → round dark spots · slag inclusion → irregular or elongated dark marks · crack → fine dark line · tungsten inclusion → bright white spot (tungsten is denser than steel).<br><b>Why not the others:</b> slag needs poor inter-pass cleaning; undercut is a surface groove; travel speed has nothing to do with moisture."},
+hi:{q:"एक वेल्डर ऐसे इलेक्ट्रोड प्रयोग करता है जो रात भर नम स्टोर में खुले छोड़े गए थे। वेल्ड के रेडियोग्राफ़ में गोल गहरे धब्बे दिखते हैं। दोष और उसका उपाय पहचानें।",
+o:["स्लैग इन्क्लूज़न; हर पास के बीच चिपिंग करें","पोरोसिटी; इलेक्ट्रोड को बेक करें या सुखाएँ","अंडरकट; वेल्डिंग करंट घटाएँ","हॉट क्रैक; ट्रैवल स्पीड बढ़ाएँ"],
+e:"फ्लक्स कोटिंग नम हवा से नमी सोखती है। आर्क में पानी हाइड्रोजन व ऑक्सीजन में टूटता है; हाइड्रोजन पूल में घुलती है और धातु जमते समय गैस बुलबुले बनकर निकलती है → <b>पोरोसिटी</b>। रेडियोग्राफ़ पर गैस छिद्र <b>गोल गहरे धब्बे</b> दिखते हैं (कम धातु → फ़िल्म तक अधिक विकिरण)।<br><b>उपाय:</b> निर्माता के निर्देशानुसार इलेक्ट्रोड बेक करें (विशेषकर लो-हाइड्रोजन प्रकार) और ड्राइंग ओवन में रखें।<br><b>रेडियोग्राफ़ पर दोष पहचानना:</b> पोरोसिटी → गोल गहरे धब्बे · स्लैग इन्क्लूज़न → अनियमित या लंबे गहरे निशान · दरार → पतली गहरी रेखा · टंगस्टन इन्क्लूज़न → चमकीला सफ़ेद धब्बा (टंगस्टन स्टील से घना)।<br><b>अन्य क्यों नहीं:</b> स्लैग के लिए पासों के बीच खराब सफ़ाई चाहिए; अंडरकट सतही खाँचा है; ट्रैवल स्पीड का नमी से संबंध नहीं।"}},
+
+/* 3 */ {ans:2, lv:"p", tag:{en:"Slag inclusion",hi:"स्लैग इन्क्लूज़न"},
+en:{q:"Slag inclusion is most likely to occur in:",
+o:["single-pass tungsten inert gas welds on aluminium","metal inert gas welds made under pure argon","multi-pass shielded metal arc welds, poorly cleaned","resistance spot welds on thin steel sheet"],
+e:"<b>Slag inclusion</b> = non-metallic slag trapped inside the weld. It needs a process that <b>produces slag</b> – shielded metal arc, submerged arc, flux-cored arc or gas welding with flux – and it happens mostly in <b>multi-pass</b> welds when slag from one pass is not fully chipped and brushed off before the next pass. Low current, wrong electrode angle and undercut edges also trap slag.<br><b>Remedy:</b> chip and wire-brush after every pass, correct current and angle. <b>Tests:</b> radiography, ultrasonic testing.<br><b>Why not the others:</b> tungsten inert gas, metal inert gas and resistance welding use no flux, so there is no slag to trap.<br><b>PYQs:</b> slag inclusion is caused by insufficient cleaning and preparation (RRB-CBT2 Apr'25-II); improper cleaning of the work piece (DMRC)."},
+hi:{q:"स्लैग इन्क्लूज़न सबसे अधिक किसमें होने की संभावना है?",
+o:["एल्युमिनियम पर सिंगल-पास टंगस्टन इनर्ट गैस वेल्ड","शुद्ध आर्गन में बने मेटल इनर्ट गैस वेल्ड","खराब सफ़ाई वाले मल्टी-पास शील्डेड मेटल आर्क वेल्ड","पतली स्टील शीट के रेज़िस्टेंस स्पॉट वेल्ड"],
+e:"<b>स्लैग इन्क्लूज़न</b> = वेल्ड के अंदर फँसा अधात्विक स्लैग। इसके लिए ऐसी प्रक्रिया चाहिए जो <b>स्लैग बनाए</b> – शील्डेड मेटल आर्क, सबमर्ज्ड आर्क, फ्लक्स-कोर्ड आर्क या फ्लक्स सहित गैस वेल्डिंग – और यह अधिकतर <b>मल्टी-पास</b> वेल्ड में होता है जब एक पास का स्लैग अगले पास से पहले पूरी तरह चिप व ब्रश नहीं किया जाता। कम करंट, गलत इलेक्ट्रोड कोण और अंडरकट किनारे भी स्लैग फँसाते हैं।<br><b>उपाय:</b> हर पास के बाद चिपिंग व वायर-ब्रशिंग, सही करंट व कोण। <b>परीक्षण:</b> रेडियोग्राफ़ी, अल्ट्रासोनिक परीक्षण।<br><b>अन्य क्यों नहीं:</b> टंगस्टन इनर्ट गैस, मेटल इनर्ट गैस और रेज़िस्टेंस वेल्डिंग में फ्लक्स नहीं, इसलिए फँसने को स्लैग ही नहीं।<br><b>PYQ:</b> स्लैग इन्क्लूज़न → अपर्याप्त सफ़ाई व तैयारी (RRB-CBT2 Apr'25-II); जॉब की अनुचित सफ़ाई (DMRC)।"}},
+
+/* 4 */ {ans:3, lv:"p", tag:{en:"Undercut",hi:"अंडरकट"},
+en:{q:"Undercut in a weld is:",
+o:["weld metal spilling onto the plate without fusing","a depression at the end of the bead","a joint left incompletely filled","a groove melted into the plate at the weld toe"],
+e:"<b>Undercut</b> = a groove melted into the base metal along the <b>toe</b> of the weld and left unfilled by weld metal. It is a <b>surface</b> defect (RRB-CBT2 Jul'26) that reduces the plate thickness and acts as a notch where fatigue cracks start ('when the weld reduces the cross-section of the base metal → undercutting' – Haryana PYQ).<br><b>Look-alike defects (the other options):</b> (a) <b>overlap / cold lap</b> – weld metal flows over the plate surface without fusing · (b) <b>crater</b> – depression at the end of the bead where the arc is broken · (c) <b>underfill</b> – the groove is not completely filled (weld face below the plate surface).<br><b>Tests:</b> visual inspection, dye penetrant test."},
+hi:{q:"वेल्ड में अंडरकट (undercut) है:",
+o:["बिना फ़्यूज़ हुए प्लेट पर फैली वेल्ड धातु","बीड के अंत में बना गड्ढा","अधूरा भरा हुआ जोड़","वेल्ड टो पर प्लेट में पिघलकर बना खाँचा"],
+e:"<b>अंडरकट</b> = वेल्ड के <b>टो (toe)</b> के साथ बेस धातु में पिघलकर बना खाँचा, जो वेल्ड धातु से भरा नहीं जाता। यह <b>सतही</b> दोष है (RRB-CBT2 Jul'26) जो प्लेट की मोटाई घटाता है और नॉच की तरह काम करता है जहाँ से थकान दरारें शुरू होती हैं ('जब वेल्ड बेस धातु का अनुप्रस्थ काट घटाता है → अंडरकटिंग' – हरियाणा PYQ)।<br><b>मिलते-जुलते दोष (अन्य विकल्प):</b> (a) <b>ओवरलैप / कोल्ड लैप</b> – वेल्ड धातु बिना फ़्यूज़ हुए प्लेट सतह पर फैल जाती है · (b) <b>क्रेटर</b> – आर्क तोड़ने पर बीड के अंत में गड्ढा · (c) <b>अंडरफ़िल</b> – खाँचा पूरी तरह नहीं भरा (वेल्ड सतह प्लेट से नीचे)।<br><b>परीक्षण:</b> दृश्य निरीक्षण, डाई पेनिट्रेंट परीक्षण।"}},
+
+/* 5 */ {ans:1, lv:"p", tag:{en:"Overlap",hi:"ओवरलैप"},
+en:{q:"Overlap (cold lap) in a weld is caused by:",
+o:["high current and a long arc","low current and slow travel speed","moisture in the electrode coating","poor cleaning between passes"],
+e:"With <b>low current</b> the base metal at the edges is not melted enough, and with <b>slow travel</b> too much weld metal piles up in one place. The excess molten metal flows over the cold plate surface and lies on it <b>without fusing</b> – overlap or cold lap. It hides a lack-of-fusion notch at the toe.<br><b>Remedy:</b> correct (higher) current, proper travel speed and electrode angle. <b>Test:</b> visual inspection.<br><b>Why not the others:</b> (a) high current and long arc cause the opposite defect – undercut; (c) moisture causes porosity; (d) poor cleaning causes slag inclusion.<br><b>Memory pair:</b> too hot → undercut (metal removed) · too cold → overlap (metal sitting on top)."},
+hi:{q:"वेल्ड में ओवरलैप (कोल्ड लैप) किस कारण होता है?",
+o:["अधिक करंट और लंबा आर्क","कम करंट और धीमी ट्रैवल स्पीड","इलेक्ट्रोड कोटिंग में नमी","पासों के बीच खराब सफ़ाई"],
+e:"<b>कम करंट</b> में किनारों की बेस धातु पर्याप्त नहीं पिघलती, और <b>धीमी गति</b> में एक जगह बहुत अधिक वेल्ड धातु जमा होती है। अतिरिक्त पिघली धातु ठंडी प्लेट सतह पर बहकर <b>बिना फ़्यूज़ हुए</b> पड़ी रहती है – ओवरलैप या कोल्ड लैप। यह टो पर लैक-ऑफ़-फ़्यूज़न नॉच छिपा देता है।<br><b>उपाय:</b> सही (अधिक) करंट, उचित ट्रैवल स्पीड व इलेक्ट्रोड कोण। <b>परीक्षण:</b> दृश्य निरीक्षण।<br><b>अन्य क्यों नहीं:</b> (a) अधिक करंट व लंबा आर्क उल्टा दोष – अंडरकट – देते हैं; (c) नमी से पोरोसिटी; (d) खराब सफ़ाई से स्लैग इन्क्लूज़न।<br><b>याद रखने की जोड़ी:</b> बहुत गर्म → अंडरकट (धातु कटी) · बहुत ठंडा → ओवरलैप (धातु ऊपर पड़ी)।"}},
+
+/* 6 */ {ans:2, lv:"p", tag:{en:"Undercut remedy",hi:"अंडरकट उपाय"},
+en:{q:"The correct remedy for undercut is to:",
+o:["raise the current and travel faster","bake the electrodes before use","lower the current and keep a shorter arc","preheat the plate to about 300 °C"],
+e:"Undercut comes from <b>too much heat at the toe</b>: high current, a long arc (which spreads heat and melts the edges), too fast a travel speed, or a wrong electrode angle that directs the arc at one plate. So the cure is to <b>reduce the current</b>, <b>shorten the arc</b>, travel at the correct speed and hold the right angle (with a slight pause at each side when weaving, to fill the edges).<br><b>Why not the others:</b> (a) makes undercut worse; (b) cures porosity, not undercut; (d) preheating is for cracks in cast iron and hardenable steels.<br><b>Related PYQ:</b> 'undercuts in weldments are caused due to → excessive welding current'; 'too high current → spatter, undercutting along edges, irregular deposits' (Railway JE)."},
+hi:{q:"अंडरकट का सही उपाय है:",
+o:["करंट बढ़ाएँ और तेज़ चलें","प्रयोग से पहले इलेक्ट्रोड बेक करें","करंट घटाएँ और आर्क छोटा रखें","प्लेट को लगभग 300 °C तक प्रीहीट करें"],
+e:"अंडरकट <b>टो पर अधिक ऊष्मा</b> से होता है: अधिक करंट, लंबा आर्क (जो ऊष्मा फैलाकर किनारे पिघला देता है), बहुत तेज़ ट्रैवल, या गलत इलेक्ट्रोड कोण जो आर्क को एक प्लेट की ओर करता है। इसलिए उपाय है <b>करंट घटाना</b>, <b>आर्क छोटा रखना</b>, सही गति से चलना और सही कोण रखना (वीविंग में किनारों पर थोड़ा रुककर उन्हें भरना)।<br><b>अन्य क्यों नहीं:</b> (a) अंडरकट और बढ़ाता है; (b) पोरोसिटी का उपाय है; (d) प्रीहीटिंग कास्ट आयरन व कठोर होने वाले स्टील में दरारों के लिए है।<br><b>संबंधित PYQ:</b> 'वेल्डमेंट में अंडरकट → अत्यधिक वेल्डिंग करंट'; 'बहुत अधिक करंट → स्पैटर, किनारों पर अंडरकटिंग, अनियमित जमाव' (रेलवे JE)।"}},
+
+/* 7 */ {ans:0, lv:"p", tag:{en:"Crater crack",hi:"क्रेटर क्रैक"},
+en:{q:"A crack is found at the end of a weld bead, exactly where the arc was broken. It is best prevented by:",
+o:["filling the crater before breaking the arc","increasing the travel speed at the end","switching to a higher current at the end","holding a longer arc at the finish"],
+e:"When the arc is suddenly broken, a <b>crater</b> (depression) is left at the end of the bead. This thin, unfilled pool solidifies fast and shrinks, so it often develops a star-shaped <b>crater crack</b>. The cure is to <b>fill the crater</b> before breaking the arc – pause briefly or move back a little over the finished bead, then lift the electrode (modern sets have a 'crater-fill' current setting).<br><b>Why not the others:</b> faster travel, higher current or a longer arc at the end all leave a deeper, emptier crater.<br><b>PYQ:</b> 'the depression in the weld metal pool at the point where the arc strikes → crater' (HPPSC). <b>Tests for crater cracks:</b> visual inspection, dye penetrant test."},
+hi:{q:"वेल्ड बीड के अंत में, ठीक वहाँ जहाँ आर्क तोड़ा गया, एक दरार मिलती है। इसे सबसे अच्छी तरह कैसे रोका जाता है?",
+o:["आर्क तोड़ने से पहले क्रेटर भरकर","अंत में ट्रैवल स्पीड बढ़ाकर","अंत में अधिक करंट पर बदलकर","अंत में लंबा आर्क रखकर"],
+e:"जब आर्क अचानक तोड़ा जाता है, बीड के अंत में <b>क्रेटर</b> (गड्ढा) रह जाता है। यह पतला, न भरा पूल तेज़ी से जमता व सिकुड़ता है, इसलिए प्रायः तारे जैसी <b>क्रेटर क्रैक</b> बन जाती है। उपाय है आर्क तोड़ने से पहले <b>क्रेटर भरना</b> – थोड़ा रुकें या पूर्ण बीड पर थोड़ा पीछे आएँ, फिर इलेक्ट्रोड उठाएँ (आधुनिक सेट में 'क्रेटर-फ़िल' करंट सेटिंग होती है)।<br><b>अन्य क्यों नहीं:</b> अंत में तेज़ गति, अधिक करंट या लंबा आर्क – सब और गहरा, खाली क्रेटर छोड़ते हैं।<br><b>PYQ:</b> 'आर्क टकराने के स्थान पर वेल्ड पूल में गड्ढा → क्रेटर' (HPPSC)। <b>क्रेटर क्रैक के परीक्षण:</b> दृश्य निरीक्षण, डाई पेनिट्रेंट परीक्षण।"}},
+
+/* 8 */ {ans:1, lv:"h", tag:{en:"Lack of fusion vs penetration",hi:"लैक ऑफ़ फ़्यूज़न बनाम पेनिट्रेशन"},
+en:{q:"Consider the following statements:<br>I. Lack of fusion: the filler metal fails to fuse with the parent metal or side wall.<br>II. Incomplete penetration: the weld metal fails to reach the root of the joint.<br>III. Both defects are caused mainly by too much heat input.<br>Which of the statements are correct?",
+o:["I only","I and II only","II and III only","I, II and III"],
+e:"<b>I ✔</b> – <b>lack of fusion</b> = no metallurgical bond between weld metal and the parent metal (side wall) or a previous pass (RRB-CBT2 Jun'25). Causes: low current, fast travel, dirty or oxidised surfaces, wrong electrode angle. Best found by <b>ultrasonic testing</b>.<br><b>II ✔</b> – <b>incomplete (lack of) penetration</b> = weld metal does not reach the <b>root</b>; the root faces stay unfused (RRB-CBT2 Jun'25). Causes: small root gap, thick root face, too large an electrode, low current, high speed. Found by radiography and the bend test.<br><b>III ✘</b> – both come from <b>too little heat</b> (or poor joint preparation), not too much.<br><b>One-line difference:</b> lack of fusion → sideways (side wall) · incomplete penetration → downwards (root)."},
+hi:{q:"निम्न कथनों पर विचार करें:<br>I. लैक ऑफ़ फ़्यूज़न: फिलर धातु पैरेंट धातु या साइड वॉल से फ़्यूज़ नहीं होती।<br>II. अपूर्ण पेनिट्रेशन: वेल्ड धातु जोड़ की रूट तक नहीं पहुँचती।<br>III. दोनों दोष मुख्यतः अत्यधिक ऊष्मा-निवेश से होते हैं।<br>कौन-से कथन सही हैं?",
+o:["केवल I","केवल I और II","केवल II और III","I, II और III"],
+e:"<b>I ✔</b> – <b>लैक ऑफ़ फ़्यूज़न</b> = वेल्ड धातु और पैरेंट धातु (साइड वॉल) या पिछले पास के बीच धात्विक बंध नहीं (RRB-CBT2 Jun'25)। कारण: कम करंट, तेज़ गति, गंदी या ऑक्सीकृत सतह, गलत इलेक्ट्रोड कोण। सर्वोत्तम पहचान <b>अल्ट्रासोनिक परीक्षण</b> से।<br><b>II ✔</b> – <b>अपूर्ण पेनिट्रेशन</b> = वेल्ड धातु <b>रूट</b> तक नहीं पहुँचती; रूट सतहें बिना फ़्यूज़ रह जाती हैं (RRB-CBT2 Jun'25)। कारण: छोटा रूट गैप, मोटा रूट फ़ेस, बहुत बड़ा इलेक्ट्रोड, कम करंट, अधिक गति। रेडियोग्राफ़ी व बेंड टेस्ट से पहचान।<br><b>III ✘</b> – दोनों <b>कम ऊष्मा</b> (या खराब जोड़ तैयारी) से होते हैं, अधिक से नहीं।<br><b>एक-लाइन अंतर:</b> लैक ऑफ़ फ़्यूज़न → बगल में (साइड वॉल) · अपूर्ण पेनिट्रेशन → नीचे (रूट)।"}},
+
+/* 9 */ {ans:3, lv:"p", tag:{en:"Incomplete penetration",hi:"अपूर्ण पेनिट्रेशन"},
+en:{q:"A single-V butt joint is welded with too small a root gap and a high travel speed. The most likely defect is:",
+o:["overlap at the weld face","porosity in the weld metal","lamellar tearing in the plate","incomplete penetration at the root"],
+e:"A narrow root gap does not let the arc reach the bottom of the joint, and a high travel speed does not give the heat time to soak down. The weld metal bridges the top but the root faces remain unmelted → <b>incomplete (lack of) penetration</b>. It acts like a built-in crack at the root and can start failure.<br><b>Remedy:</b> correct root gap and root face, smaller electrode for the root run, adequate current, slower travel ('penetration is increased by increasing current and decreasing speed' – CGPSC PYQ).<br><b>Tests:</b> radiography (dark straight line along the centre), root bend test.<br><b>PYQ:</b> 'selection of incorrect parameters such as travel speed and arc voltage cause → incomplete penetration' (NPCIL)."},
+hi:{q:"एक सिंगल-V बट जोड़ बहुत छोटे रूट गैप और अधिक ट्रैवल स्पीड से वेल्ड किया जाता है। सबसे संभावित दोष है:",
+o:["वेल्ड सतह पर ओवरलैप","वेल्ड धातु में पोरोसिटी","प्लेट में लैमेलर टियरिंग","रूट पर अपूर्ण पेनिट्रेशन"],
+e:"संकरा रूट गैप आर्क को जोड़ के तल तक नहीं पहुँचने देता, और अधिक ट्रैवल स्पीड ऊष्मा को नीचे तक जाने का समय नहीं देती। वेल्ड धातु ऊपर पुल बना देती है पर रूट सतहें बिना पिघले रहती हैं → <b>अपूर्ण पेनिट्रेशन</b>। यह रूट पर अंतर्निहित दरार की तरह काम करता है और विफलता शुरू कर सकता है।<br><b>उपाय:</b> सही रूट गैप व रूट फ़ेस, रूट रन के लिए छोटा इलेक्ट्रोड, पर्याप्त करंट, धीमी गति ('करंट बढ़ाकर व गति घटाकर पेनिट्रेशन बढ़ती है' – CGPSC PYQ)।<br><b>परीक्षण:</b> रेडियोग्राफ़ी (बीच में सीधी गहरी रेखा), रूट बेंड टेस्ट।<br><b>PYQ:</b> 'ट्रैवल स्पीड व आर्क वोल्टेज जैसे गलत पैरामीटर → अपूर्ण पेनिट्रेशन' (NPCIL)।"}},
+
+/* 10 */ {ans:2, lv:"p", tag:{en:"Burn-through",hi:"बर्न-थ्रू"},
+en:{q:"Using too high a welding current on thin sheet most likely causes:",
+o:["lack of fusion","overlap","burn-through","slag inclusion"],
+e:"Thin sheet cannot absorb much heat. Too high a current melts right through it, leaving a hole or an excessively sagging root – <b>burn-through</b> (melt-through). High current also brings excessive spatter and undercut along the edges.<br><b>Remedy:</b> lower current, smaller electrode, faster travel, backing strip or copper backing bar, or a lower-heat process (short-circuit metal inert gas, tungsten inert gas, or gas welding for very thin sheet).<br><b>Why not the others:</b> lack of fusion and overlap come from <b>too little</b> heat; slag inclusion comes from poor cleaning.<br><b>Rule of thumb:</b> high heat → burn-through, undercut, spatter, wide heat-affected zone · low heat → lack of fusion, incomplete penetration, overlap."},
+hi:{q:"पतली शीट पर बहुत अधिक वेल्डिंग करंट प्रयोग करने से सबसे संभावित दोष है:",
+o:["लैक ऑफ़ फ़्यूज़न","ओवरलैप","बर्न-थ्रू","स्लैग इन्क्लूज़न"],
+e:"पतली शीट अधिक ऊष्मा नहीं सह सकती। बहुत अधिक करंट उसे आर-पार पिघला देता है, जिससे छेद या अत्यधिक लटकी रूट बनती है – <b>बर्न-थ्रू (burn-through)</b>। अधिक करंट से अत्यधिक स्पैटर और किनारों पर अंडरकट भी होता है।<br><b>उपाय:</b> कम करंट, छोटा इलेक्ट्रोड, तेज़ गति, बैकिंग स्ट्रिप या कॉपर बैकिंग बार, या कम ऊष्मा वाली प्रक्रिया (शॉर्ट-सर्किट मेटल इनर्ट गैस, टंगस्टन इनर्ट गैस, या बहुत पतली शीट हेतु गैस वेल्डिंग)।<br><b>अन्य क्यों नहीं:</b> लैक ऑफ़ फ़्यूज़न और ओवरलैप <b>कम</b> ऊष्मा से होते हैं; स्लैग इन्क्लूज़न खराब सफ़ाई से।<br><b>मोटा नियम:</b> अधिक ऊष्मा → बर्न-थ्रू, अंडरकट, स्पैटर, चौड़ा हीट-अफेक्टेड ज़ोन · कम ऊष्मा → लैक ऑफ़ फ़्यूज़न, अपूर्ण पेनिट्रेशन, ओवरलैप।"}},
+
+/* 11 */ {ans:3, lv:"h", tag:{en:"Cold cracking",hi:"कोल्ड क्रैकिंग"},
+en:{q:"Cold (hydrogen-induced) cracking in steel weldments depends on:<br>1. Carbon equivalent of the steel<br>2. Heat input<br>3. Effective plate thickness<br>4. Hydrogen content of the weld pool<br>Select the correct answer:",
+o:["1 and 4 only","1, 2 and 4 only","2 and 3 only","1, 2, 3 and 4"],
+e:"Cold cracking appears hours after welding, at or below about 200 °C, usually in the hard heat-affected zone. It needs three things together: a <b>hard, crack-sensitive structure</b>, <b>hydrogen</b> and <b>stress</b>. All four factors control these:<br>1. <b>Carbon equivalent</b> (CE = C + Mn/6 + …) – higher CE → harder heat-affected zone (CE &lt; 0.4 → good weldability).<br>2. <b>Heat input</b> – low heat input → fast cooling → harder structure.<br>3. <b>Thickness</b> – thick plate is a big heat sink → fast cooling, more restraint.<br>4. <b>Hydrogen</b> – from moist electrodes, rust, oil.<br><b>Prevention:</b> preheat, low-hydrogen dry electrodes, adequate heat input, post-heating.<br><b>PYQ:</b> exactly this question – answer 1, 2, 3 and 4 (KRCL)."},
+hi:{q:"स्टील वेल्डमेंट में कोल्ड (हाइड्रोजन-जनित) क्रैकिंग किस पर निर्भर करती है?<br>1. स्टील का कार्बन तुल्यांक (carbon equivalent)<br>2. ऊष्मा-निवेश<br>3. प्रभावी प्लेट मोटाई<br>4. वेल्ड पूल में हाइड्रोजन की मात्रा<br>सही उत्तर चुनें:",
+o:["केवल 1 और 4","केवल 1, 2 और 4","केवल 2 और 3","1, 2, 3 और 4"],
+e:"कोल्ड क्रैकिंग वेल्डिंग के घंटों बाद, लगभग 200 °C या उससे नीचे, प्रायः कठोर हीट-अफेक्टेड ज़ोन में दिखती है। इसके लिए तीन चीज़ें एक साथ चाहिए: <b>कठोर, दरार-संवेदी संरचना</b>, <b>हाइड्रोजन</b> और <b>प्रतिबल</b>। चारों कारक इन्हें नियंत्रित करते हैं:<br>1. <b>कार्बन तुल्यांक</b> (CE = C + Mn/6 + …) – अधिक CE → कठोर हीट-अफेक्टेड ज़ोन (CE &lt; 0.4 → अच्छी वेल्डेबिलिटी)।<br>2. <b>ऊष्मा-निवेश</b> – कम ऊष्मा-निवेश → तेज़ ठंडक → कठोर संरचना।<br>3. <b>मोटाई</b> – मोटी प्लेट बड़ा ऊष्मा-शोषक → तेज़ ठंडक, अधिक जकड़न।<br>4. <b>हाइड्रोजन</b> – नम इलेक्ट्रोड, जंग, तेल से।<br><b>रोकथाम:</b> प्रीहीट, सूखे लो-हाइड्रोजन इलेक्ट्रोड, पर्याप्त ऊष्मा-निवेश, पोस्ट-हीटिंग।<br><b>PYQ:</b> यही प्रश्न – उत्तर 1, 2, 3 और 4 (KRCL)।"}},
+
+/* 12 */ {ans:0, lv:"p", tag:{en:"Preheating",hi:"प्रीहीटिंग"},
+en:{q:"Cast iron and high-carbon steel are preheated before welding mainly to:",
+o:["slow the cooling and prevent cold cracks","raise the cooling rate for higher hardness","remove the need for any filler metal","burn off rust and so stop porosity"],
+e:"<b>Preheating</b> (typically 150–350 °C, depending on material and thickness) reduces the temperature difference between the weld and the surrounding metal. The joint therefore <b>cools slowly</b>: less hard martensite forms in the heat-affected zone, hydrogen gets time to escape, and thermal stresses are lower – so <b>cold cracks</b> are prevented. Cast iron welded without preheat usually cracks.<br><b>Why not the others:</b> (b) is the opposite – fast cooling makes hard, brittle zones; (c) filler is still needed; (d) cleaning, not preheating, removes rust.<br><b>PYQs:</b> 'preheating before welding is done to → prevent cold cracks' (SSC JE, Railway JE); 'preheating is essential in welding → cast iron' (Railway JE); 'high alloy steel components are preheated for reducing → welding stresses' (KRCL)."},
+hi:{q:"कास्ट आयरन और हाई-कार्बन स्टील को वेल्डिंग से पहले मुख्यतः क्यों प्रीहीट किया जाता है?",
+o:["ठंडक धीमी कर कोल्ड क्रैक रोकने हेतु","अधिक कठोरता हेतु ठंडा होने की दर बढ़ाने हेतु","फिलर धातु की आवश्यकता समाप्त करने हेतु","जंग जलाकर पोरोसिटी रोकने हेतु"],
+e:"<b>प्रीहीटिंग</b> (पदार्थ व मोटाई के अनुसार सामान्यतः 150–350 °C) वेल्ड और आसपास की धातु के बीच तापमान अंतर घटाती है। इसलिए जोड़ <b>धीरे ठंडा</b> होता है: हीट-अफेक्टेड ज़ोन में कम कठोर मार्टेंसाइट बनता है, हाइड्रोजन को निकलने का समय मिलता है, और तापीय प्रतिबल कम होते हैं – अतः <b>कोल्ड क्रैक</b> रुकते हैं। बिना प्रीहीट कास्ट आयरन प्रायः दरक जाता है।<br><b>अन्य क्यों नहीं:</b> (b) उल्टा है – तेज़ ठंडक कठोर, भंगुर क्षेत्र बनाती है; (c) फिलर फिर भी चाहिए; (d) जंग सफ़ाई से हटती है, प्रीहीटिंग से नहीं।<br><b>PYQ:</b> 'वेल्डिंग से पहले प्रीहीटिंग → कोल्ड क्रैक रोकने हेतु' (SSC JE, रेलवे JE); 'प्रीहीटिंग अनिवार्य → कास्ट आयरन' (रेलवे JE); 'हाई एलॉय स्टील प्रीहीट → वेल्डिंग प्रतिबल घटाने हेतु' (KRCL)।"}},
+
+/* 13 */ {ans:1, lv:"p", tag:{en:"Weld decay",hi:"वेल्ड डिके"},
+en:{q:"The phenomenon of weld decay occurs in:",
+o:["grey cast-iron castings","austenitic stainless steel","aluminium–magnesium alloys","low-carbon mild steel"],
+e:"<b>Weld decay</b> is <b>intergranular corrosion</b> in the heat-affected zone of <b>austenitic stainless steel</b> (e.g. 18-8, grade 304). The part of the heat-affected zone that stays at about <b>500–800 °C</b> during welding lets carbon combine with chromium to form <b>chromium carbides</b> along grain boundaries ('sensitisation'). The metal next to these boundaries loses chromium below about 12 %, so it is no longer stainless and corrodes in service – a band of attack a few millimetres away from the weld.<br><b>Why not the others:</b> cast iron, aluminium and mild steel have no chromium-based passive film to lose.<br><b>PYQs:</b> RRB-CBT2 2019; Railway JE 2015; UPRVUNL 2015; SSC JE 2010 – all 'weld decay → stainless steel'."},
+hi:{q:"वेल्ड डिके (weld decay) की घटना किसमें होती है?",
+o:["ग्रे कास्ट-आयरन कास्टिंग में","ऑस्टेनिटिक स्टेनलेस स्टील में","एल्युमिनियम–मैग्नीशियम मिश्रधातु में","लो-कार्बन माइल्ड स्टील में"],
+e:"<b>वेल्ड डिके</b> <b>ऑस्टेनिटिक स्टेनलेस स्टील</b> (जैसे 18-8, ग्रेड 304) के हीट-अफेक्टेड ज़ोन में <b>इंटरग्रेन्युलर संक्षारण</b> है। हीट-अफेक्टेड ज़ोन का जो भाग वेल्डिंग के दौरान लगभग <b>500–800 °C</b> पर रहता है, वहाँ कार्बन क्रोमियम से मिलकर ग्रेन बाउंड्री पर <b>क्रोमियम कार्बाइड</b> बनाता है ('सेंसिटाइज़ेशन')। इन बाउंड्री के पास की धातु में क्रोमियम लगभग 12 % से कम हो जाता है, इसलिए वह स्टेनलेस नहीं रहती और सेवा में संक्षारित होती है – वेल्ड से कुछ मिलीमीटर दूर एक पट्टी में।<br><b>अन्य क्यों नहीं:</b> कास्ट आयरन, एल्युमिनियम और माइल्ड स्टील में खोने को क्रोमियम-आधारित सुरक्षा परत ही नहीं।<br><b>PYQ:</b> RRB-CBT2 2019; रेलवे JE 2015; UPRVUNL 2015; SSC JE 2010 – सभी 'वेल्ड डिके → स्टेनलेस स्टील'।"}},
+
+/* 14 */ {ans:2, lv:"h", tag:{en:"Weld decay remedy",hi:"वेल्ड डिके उपाय"},
+en:{q:"Weld decay in stainless steel is best prevented by:",
+o:["using a higher-carbon filler metal","cooling slowly through 500–800 °C","using a low-carbon grade such as 304L","welding with an oxidising flame"],
+e:"Weld decay needs <b>carbon</b> to form chromium carbide. So the main cure is to remove the carbon: use <b>extra-low-carbon 'L' grades</b> (304L, 316L, carbon ≤ 0.03 %) with matching low-carbon filler (308L). Other cures: <b>stabilised steels</b> with titanium or niobium (grade 321, 347), which grab carbon before chromium can; <b>solution annealing</b> (heat to about 1050 °C and quench) to re-dissolve carbides; low heat input to shorten the time in the danger range.<br><b>Why not the others:</b> (a) more carbon → more carbides; (b) slow cooling keeps the metal longer in the 500–800 °C range – <b>worse</b>; (d) an oxidising flame burns away chromium.<br><b>Weldability link:</b> 'weldability of ferritic stainless steel is improved by an electrode having low content of → carbon' (Railway SSE)."},
+hi:{q:"स्टेनलेस स्टील में वेल्ड डिके को सबसे अच्छी तरह कैसे रोका जाता है?",
+o:["अधिक कार्बन वाली फिलर धातु प्रयोग करके","500–800 °C में से धीरे-धीरे ठंडा करके","304L जैसे लो-कार्बन ग्रेड का प्रयोग करके","ऑक्सीडाइज़िंग फ्लेम से वेल्डिंग करके"],
+e:"वेल्ड डिके के लिए क्रोमियम कार्बाइड बनाने हेतु <b>कार्बन</b> चाहिए। इसलिए मुख्य उपाय है कार्बन हटाना: <b>अति-निम्न कार्बन 'L' ग्रेड</b> (304L, 316L, कार्बन ≤ 0.03 %) और मेल खाता लो-कार्बन फिलर (308L)। अन्य उपाय: टाइटेनियम या नायोबियम वाले <b>स्टेबिलाइज़्ड स्टील</b> (ग्रेड 321, 347), जो क्रोमियम से पहले कार्बन पकड़ लेते हैं; <b>सॉल्यूशन एनीलिंग</b> (लगभग 1050 °C तक गर्म कर क्वेंच) जिससे कार्बाइड फिर घुल जाते हैं; कम ऊष्मा-निवेश जिससे खतरनाक दायरे में समय घटे।<br><b>अन्य क्यों नहीं:</b> (a) अधिक कार्बन → अधिक कार्बाइड; (b) धीमी ठंडक धातु को 500–800 °C में अधिक देर रखती है – <b>और बुरा</b>; (d) ऑक्सीडाइज़िंग फ्लेम क्रोमियम जला देती है।<br><b>वेल्डेबिलिटी लिंक:</b> 'फ़ेरिटिक स्टेनलेस स्टील की वेल्डेबिलिटी कम ___ वाले इलेक्ट्रोड से सुधरती है → कार्बन' (रेलवे SSE)।"}},
+
+/* 15 */ {ans:3, lv:"p", tag:{en:"Distortion",hi:"विकृति"},
+en:{q:"Which of the following does NOT help reduce welding distortion?",
+o:["tack welding and clamping","a back-step welding sequence","balanced welding on both sides","one large, high-heat-input pass"],
+e:"<b>Distortion</b> happens because the weld and nearby metal expand when hot and then <b>shrink</b> unevenly on cooling ('distortion is caused due to → shrinkage' – HPPSC PYQ). The more heat and weld metal put in at once, the more shrinkage – so <b>one large, high-heat-input pass increases distortion</b>.<br><b>Methods that reduce it:</b> tack welds, clamps, jigs and fixtures · back-step and skip welding sequences · balanced welding on both sides of the neutral axis (double-V instead of single-V) · smaller multi-pass beads, minimum weld size · pre-setting parts opposite to the expected movement · peening and stress-relief.<br><b>Related PYQ:</b> 'distortion in welding occurs due to → improper clamping methods' (Railway SSE)."},
+hi:{q:"निम्न में से कौन-सा वेल्डिंग विकृति (distortion) घटाने में सहायक नहीं है?",
+o:["टैक वेल्डिंग और क्लैंपिंग","बैक-स्टेप वेल्डिंग क्रम","दोनों ओर संतुलित वेल्डिंग","एक बड़ा, अधिक ऊष्मा-निवेश वाला पास"],
+e:"<b>विकृति</b> इसलिए होती है क्योंकि वेल्ड व पास की धातु गर्म होने पर फैलती है और ठंडी होने पर असमान रूप से <b>सिकुड़ती</b> है ('विकृति → सिकुड़न के कारण' – HPPSC PYQ)। एक साथ जितनी अधिक ऊष्मा और वेल्ड धातु, उतनी अधिक सिकुड़न – इसलिए <b>एक बड़ा, अधिक ऊष्मा वाला पास विकृति बढ़ाता है</b>।<br><b>घटाने की विधियाँ:</b> टैक वेल्ड, क्लैंप, जिग व फ़िक्स्चर · बैक-स्टेप व स्किप वेल्डिंग क्रम · न्यूट्रल अक्ष के दोनों ओर संतुलित वेल्डिंग (सिंगल-V के स्थान पर डबल-V) · छोटे मल्टी-पास बीड, न्यूनतम वेल्ड आकार · भागों को अपेक्षित गति के विपरीत पहले से सेट करना · पीनिंग व स्ट्रेस-रिलीफ़।<br><b>संबंधित PYQ:</b> 'वेल्डिंग में विकृति → अनुचित क्लैंपिंग विधि' (रेलवे SSE)।"}},
+
+/* 16 */ {ans:0, lv:"h", tag:{en:"Lamellar tearing",hi:"लैमेलर टियरिंग"},
+en:{q:"Lamellar tearing is a defect found in:",
+o:["rolled plates loaded through thickness","castings near their feeding risers","thin sheets joined in lap joints","forged round bars under torsion"],
+e:"Rolled steel plate contains flattened, elongated non-metallic inclusions (sulphides, silicates) lying parallel to the plate surface. When a T-joint or corner joint pulls the plate in its <b>through-thickness (short-transverse) direction</b>, weld shrinkage stress opens these inclusion layers, producing a step-like, terrace-shaped crack parallel to the surface – <b>lamellar tearing</b>, usually just outside the heat-affected zone.<br><b>Prevention:</b> use 'Z-grade' low-sulphur steel with good through-thickness ductility, change the joint design so the plate is not loaded through its thickness, use buttering layers and lower restraint.<br><b>Test:</b> ultrasonic testing.<br><b>PYQ:</b> 'long continuous separation line between the base metal and heat-affected zone → lamellar tearing' (HPPSC)."},
+hi:{q:"लैमेलर टियरिंग (lamellar tearing) दोष किसमें पाया जाता है?",
+o:["मोटाई-दिशा में भारित रोल्ड प्लेटों में","फ़ीडिंग राइज़र के पास की कास्टिंग में","लैप जोड़ों में जुड़ी पतली शीटों में","मरोड़ में फ़ोर्ज्ड गोल छड़ों में"],
+e:"रोल्ड स्टील प्लेट में चपटे, लंबे अधात्विक समावेश (सल्फ़ाइड, सिलिकेट) प्लेट सतह के समानांतर पड़े होते हैं। जब T-जोड़ या कॉर्नर जोड़ प्लेट को उसकी <b>मोटाई की दिशा (short-transverse)</b> में खींचता है, वेल्ड सिकुड़न प्रतिबल इन परतों को खोल देता है, जिससे सतह के समानांतर सीढ़ीनुमा दरार बनती है – <b>लैमेलर टियरिंग</b>, प्रायः हीट-अफेक्टेड ज़ोन के ठीक बाहर।<br><b>रोकथाम:</b> मोटाई दिशा में अच्छी तन्यता वाला लो-सल्फ़र 'Z-ग्रेड' स्टील, जोड़ डिज़ाइन बदलना ताकि प्लेट मोटाई की दिशा में भारित न हो, बटरिंग परत और कम जकड़न।<br><b>परीक्षण:</b> अल्ट्रासोनिक परीक्षण।<br><b>PYQ:</b> 'बेस धातु और हीट-अफेक्टेड ज़ोन के बीच लंबी सतत पृथक्करण रेखा → लैमेलर टियरिंग' (HPPSC)।"}},
+
+/* 17 */ {ans:1, lv:"e", tag:{en:"Dye penetrant test",hi:"डाई पेनिट्रेंट परीक्षण"},
+en:{q:"The dye penetrant test works on the principle of:",
+o:["magnetic leakage flux","capillary action","reflection of sound waves","absorption of X-rays"],
+e:"In the <b>dye penetrant test</b>, a coloured (red) or fluorescent liquid of low surface tension is applied to a clean surface. It is drawn into fine surface-open cracks and pores by <b>capillary action</b>. After a dwell time, excess penetrant is wiped off and a white <b>developer</b> is applied; it draws the trapped dye back out, showing the defect as a red line on a white background (or glowing under ultraviolet light).<br><b>Steps:</b> clean → apply penetrant → dwell → remove excess → apply developer → inspect.<br><b>Strengths:</b> cheap, simple, needs no electricity or skilled labour (Railway SSE PYQ), works on any non-porous metal including aluminium. <b>Limitation:</b> detects only defects open to the surface.<br><b>Other options:</b> (a) magnetic particle test · (c) ultrasonic test · (d) radiography."},
+hi:{q:"डाई पेनिट्रेंट परीक्षण (dye penetrant test) किस सिद्धांत पर कार्य करता है?",
+o:["चुंबकीय रिसाव फ़्लक्स","केशिका क्रिया (capillary action)","ध्वनि तरंगों का परावर्तन","एक्स-किरणों का अवशोषण"],
+e:"<b>डाई पेनिट्रेंट परीक्षण</b> में कम पृष्ठ तनाव वाला रंगीन (लाल) या प्रतिदीप्त द्रव साफ़ सतह पर लगाया जाता है। यह <b>केशिका क्रिया</b> से सतह पर खुली बारीक दरारों व छिद्रों में खिंच जाता है। कुछ समय बाद अतिरिक्त पेनिट्रेंट पोंछकर सफ़ेद <b>डेवलपर</b> लगाया जाता है; यह फँसे रंग को बाहर खींचता है, जिससे दोष सफ़ेद पृष्ठभूमि पर लाल रेखा (या पराबैंगनी प्रकाश में चमकता) दिखता है।<br><b>चरण:</b> सफ़ाई → पेनिट्रेंट लगाना → प्रतीक्षा → अतिरिक्त हटाना → डेवलपर लगाना → निरीक्षण।<br><b>लाभ:</b> सस्ता, सरल, बिजली या कुशल श्रमिक की ज़रूरत नहीं (रेलवे SSE PYQ), एल्युमिनियम सहित हर अछिद्रिल धातु पर। <b>सीमा:</b> केवल सतह पर खुले दोष।<br><b>अन्य विकल्प:</b> (a) मैग्नेटिक पार्टिकल परीक्षण · (c) अल्ट्रासोनिक परीक्षण · (d) रेडियोग्राफ़ी।"}},
+
+/* 18 */ {ans:2, lv:"p", tag:{en:"Magnetic particle test",hi:"मैग्नेटिक पार्टिकल परीक्षण"},
+en:{q:"The magnetic particle test cannot be used to inspect welds in:",
+o:["mild-steel structural plates","low-alloy steel crankshaft forgings","aluminium and austenitic stainless","carbon-steel boiler tubes and pipes"],
+e:"In the <b>magnetic particle test</b>, the part is magnetised; a surface or near-surface crack disturbs the magnetic field and creates <b>leakage flux</b>, which attracts fine iron particles (dry powder or wet, often fluorescent), outlining the crack. It works <b>only on ferromagnetic materials</b> – carbon steel, low-alloy steel, cast iron, ferritic stainless steel.<br><b>Aluminium, copper and austenitic stainless steel</b> (18-8, grade 304) are <b>non-magnetic</b>, so no leakage field forms – use the dye penetrant test instead (RRB-CBT2 Jul'26: aluminium structure → dye penetrant + ultrasonic).<br><b>Detects:</b> surface and slightly sub-surface cracks – more sensitive than dye penetrant for tight cracks in steel.<br><b>PYQ:</b> 'last step in the magnetic particle test → demagnetisation' (Railway JE)."},
+hi:{q:"मैग्नेटिक पार्टिकल परीक्षण का प्रयोग किसके वेल्ड जाँचने में नहीं किया जा सकता?",
+o:["माइल्ड-स्टील स्ट्रक्चरल प्लेट","लो-एलॉय स्टील क्रैंकशाफ़्ट फ़ोर्जिंग","एल्युमिनियम व ऑस्टेनिटिक स्टेनलेस","कार्बन-स्टील बॉयलर ट्यूब व पाइप"],
+e:"<b>मैग्नेटिक पार्टिकल परीक्षण</b> में भाग को चुंबकित किया जाता है; सतही या सतह के पास की दरार चुंबकीय क्षेत्र को बाधित कर <b>रिसाव फ़्लक्स (leakage flux)</b> बनाती है, जो बारीक लोहे के कणों (सूखा पाउडर या गीला, प्रायः प्रतिदीप्त) को आकर्षित कर दरार की रूपरेखा दिखाता है। यह <b>केवल लौहचुंबकीय पदार्थों</b> पर काम करता है – कार्बन स्टील, लो-एलॉय स्टील, कास्ट आयरन, फ़ेरिटिक स्टेनलेस स्टील।<br><b>एल्युमिनियम, कॉपर और ऑस्टेनिटिक स्टेनलेस स्टील</b> (18-8, ग्रेड 304) <b>अचुंबकीय</b> हैं, इसलिए रिसाव क्षेत्र नहीं बनता – इनके लिए डाई पेनिट्रेंट परीक्षण (RRB-CBT2 Jul'26: एल्युमिनियम संरचना → डाई पेनिट्रेंट + अल्ट्रासोनिक)।<br><b>पहचान:</b> सतही और सतह से थोड़ी नीचे की दरारें – स्टील में बारीक दरारों के लिए डाई पेनिट्रेंट से अधिक संवेदनशील।<br><b>PYQ:</b> 'मैग्नेटिक पार्टिकल परीक्षण का अंतिम चरण → डीमैग्नेटाइज़ेशन' (रेलवे JE)।"}},
+
+/* 19 */ {ans:0, lv:"h", tag:{en:"Magnetic particle test",hi:"मैग्नेटिक पार्टिकल परीक्षण"},
+en:{q:"In a magnetic particle test, a surface crack is detected most clearly when it lies:",
+o:["at right angles to the flux lines","running parallel to the flux lines","deep at the centre of a thick plate","hidden below a thick coat of paint"],
+e:"A crack is detected because it <b>interrupts</b> the flux lines, forcing them to leak out of the surface and gather the iron particles. A crack lying <b>perpendicular</b> to the flux blocks the most lines and gives the strongest indication; a crack <b>parallel</b> to the flux hardly disturbs it and may be missed. That is why a part is magnetised in <b>two directions at right angles</b> (longitudinal and circular) to catch cracks of any orientation.<br><b>Why not the others:</b> (c) deep internal flaws give too weak a leakage – use ultrasonic testing or radiography; (d) thick coatings reduce sensitivity.<br><b>PYQ:</b> 'a surface-breaking crack will be detected during magnetic particle inspection if it is → at right angles to the lines of flux' (Railway SSE 2009)."},
+hi:{q:"मैग्नेटिक पार्टिकल परीक्षण में सतही दरार सबसे स्पष्ट तब पकड़ी जाती है जब वह:",
+o:["चुंबकीय फ़्लक्स रेखाओं के लंबवत हो","चुंबकीय फ़्लक्स रेखाओं के समानांतर हो","मोटी प्लेट के बीच गहराई में हो","पेंट की मोटी परत के नीचे हो"],
+e:"दरार इसलिए पकड़ी जाती है क्योंकि वह फ़्लक्स रेखाओं को <b>बाधित</b> करती है, उन्हें सतह से बाहर रिसने और लोहे के कण इकट्ठा करने पर मजबूर करती है। फ़्लक्स के <b>लंबवत</b> दरार सबसे अधिक रेखाएँ रोकती है और सबसे स्पष्ट संकेत देती है; फ़्लक्स के <b>समानांतर</b> दरार उसे मुश्किल से बाधित करती है और छूट सकती है। इसीलिए भाग को <b>दो लंबवत दिशाओं</b> (अनुदैर्ध्य व वृत्ताकार) में चुंबकित किया जाता है, ताकि हर दिशा की दरार पकड़ी जाए।<br><b>अन्य क्यों नहीं:</b> (c) गहरे आंतरिक दोष बहुत कमज़ोर रिसाव देते हैं – अल्ट्रासोनिक या रेडियोग्राफ़ी प्रयोग करें; (d) मोटी परत संवेदनशीलता घटाती है।<br><b>PYQ:</b> 'मैग्नेटिक पार्टिकल निरीक्षण में सतह तोड़ती दरार पकड़ी जाएगी यदि वह → फ़्लक्स रेखाओं के समकोण पर हो' (रेलवे SSE 2009)।"}},
+
+/* 20 */ {ans:3, lv:"p", tag:{en:"Ultrasonic test",hi:"अल्ट्रासोनिक परीक्षण"},
+en:{q:"Consider the following statements about ultrasonic testing of welds:<br>I. The equipment is portable.<br>II. It can find internal flaws with access from one side only.<br>III. It gives a permanent film record of the weld.<br>Which of the statements are correct?",
+o:["I only","II and III only","I and III only","I and II only"],
+e:"In <b>ultrasonic testing</b>, a probe sends high-frequency sound (usually 1–10 MHz) into the metal through a couplant (oil/gel). Sound reflects from the back wall and from any flaw; the echo position on the screen shows the flaw's depth.<br><b>I ✔</b> – the flaw detector is small and portable (Railway SSE PYQ).<br><b>II ✔</b> – the probe needs only one surface; it finds internal cracks, lack of fusion, inclusions and lamellar tearing, and also measures thickness. It is safe – no radiation.<br><b>III ✘</b> – a permanent <b>film</b> record is the advantage of <b>radiography</b>. Ultrasonic results depend on the operator's skill in reading the screen (digital records exist, but not a film).<br><b>Best at:</b> planar defects like cracks and lack of fusion (radiography is better for volumetric defects like porosity)."},
+hi:{q:"वेल्ड के अल्ट्रासोनिक परीक्षण के बारे में निम्न कथनों पर विचार करें:<br>I. उपकरण पोर्टेबल है।<br>II. यह केवल एक ओर से पहुँच के साथ आंतरिक दोष ढूँढ सकता है।<br>III. यह वेल्ड का स्थायी फ़िल्म रिकॉर्ड देता है।<br>कौन-से कथन सही हैं?",
+o:["केवल I","केवल II और III","केवल I और III","केवल I और II"],
+e:"<b>अल्ट्रासोनिक परीक्षण</b> में प्रोब कपलेंट (तेल/जेल) के माध्यम से धातु में उच्च-आवृत्ति ध्वनि (सामान्यतः 1–10 MHz) भेजता है। ध्वनि पिछली दीवार और किसी दोष से परावर्तित होती है; स्क्रीन पर गूँज की स्थिति दोष की गहराई बताती है।<br><b>I ✔</b> – फ़्लॉ डिटेक्टर छोटा और पोर्टेबल है (रेलवे SSE PYQ)।<br><b>II ✔</b> – प्रोब को केवल एक सतह चाहिए; यह आंतरिक दरार, लैक ऑफ़ फ़्यूज़न, समावेश और लैमेलर टियरिंग ढूँढता है, और मोटाई भी मापता है। सुरक्षित – कोई विकिरण नहीं।<br><b>III ✘</b> – स्थायी <b>फ़िल्म</b> रिकॉर्ड <b>रेडियोग्राफ़ी</b> का लाभ है। अल्ट्रासोनिक परिणाम स्क्रीन पढ़ने वाले ऑपरेटर के कौशल पर निर्भर (डिजिटल रिकॉर्ड होते हैं, पर फ़िल्म नहीं)।<br><b>सबसे अच्छा:</b> दरार व लैक ऑफ़ फ़्यूज़न जैसे समतलीय दोषों के लिए (पोरोसिटी जैसे आयतनी दोषों हेतु रेडियोग्राफ़ी बेहतर)।"}},
+
+/* 21 */ {ans:1, lv:"h", tag:{en:"Radiography",hi:"रेडियोग्राफ़ी"},
+en:{q:"On a weld radiograph, a gas pore appears darker than the surrounding weld because:",
+o:["pores absorb more radiation than metal","less metal, so more radiation passes","trapped gas reflects the X-rays away","the film reacts with the trapped gas"],
+e:"In <b>radiography</b>, X-rays or gamma rays pass through the weld onto a film. Metal absorbs radiation; where there is <b>less metal</b> – a pore, slag pocket, crack or lack of penetration – <b>more radiation passes through</b> and the film becomes <b>darker</b>. Denser material (e.g. a tungsten inclusion) absorbs more and shows <b>lighter</b>.<br><b>Strengths:</b> permanent film record, shows porosity, slag and incomplete penetration clearly, works on all metals. <b>Limitations:</b> radiation hazard, costly, needs access from both sides, poor at detecting fine cracks parallel to the beam.<br><b>PYQs:</b> 'during a radiography test, which region absorbs less radiation and transmits more → low-density region' (Railway SSE); 'a measure of the accuracy of a radiograph → sensitivity' (Railway JE)."},
+hi:{q:"वेल्ड रेडियोग्राफ़ पर गैस छिद्र आसपास के वेल्ड से गहरा क्यों दिखता है?",
+o:["छिद्र धातु से अधिक विकिरण सोखते हैं","कम धातु, इसलिए अधिक विकिरण पार होता है","फँसी गैस एक्स-किरणें दूर परावर्तित करती है","फ़िल्म फँसी गैस से क्रिया करती है"],
+e:"<b>रेडियोग्राफ़ी</b> में एक्स-किरणें या गामा किरणें वेल्ड से गुज़रकर फ़िल्म पर पड़ती हैं। धातु विकिरण सोखती है; जहाँ <b>कम धातु</b> है – छिद्र, स्लैग पॉकेट, दरार या अपूर्ण पेनिट्रेशन – वहाँ <b>अधिक विकिरण पार</b> होता है और फ़िल्म <b>गहरी</b> हो जाती है। अधिक घना पदार्थ (जैसे टंगस्टन इन्क्लूज़न) अधिक सोखता है और <b>हल्का</b> दिखता है।<br><b>लाभ:</b> स्थायी फ़िल्म रिकॉर्ड, पोरोसिटी, स्लैग व अपूर्ण पेनिट्रेशन स्पष्ट दिखते हैं, सभी धातुओं पर। <b>सीमाएँ:</b> विकिरण खतरा, महँगा, दोनों ओर से पहुँच चाहिए, बीम के समानांतर बारीक दरारें पकड़ने में कमज़ोर।<br><b>PYQ:</b> 'रेडियोग्राफ़ी में कौन-सा क्षेत्र कम विकिरण सोखकर अधिक पार करता है → कम घनत्व क्षेत्र' (रेलवे SSE); 'रेडियोग्राफ़ की सटीकता का माप → संवेदनशीलता' (रेलवे JE)।"}},
+
+/* 22 */ {ans:2, lv:"p", tag:{en:"Visual inspection",hi:"दृश्य निरीक्षण"},
+en:{q:"Which of the following defects would you NOT expect to find by visual inspection?",
+o:["undercut at the weld toe","spatter on the plate surface","internal slag inclusion","overlap at the weld face"],
+e:"<b>Visual inspection</b> – with the naked eye, a magnifying glass and weld gauges – is always the <b>first</b> and cheapest check. It finds only <b>surface</b> features: undercut, overlap, spatter, surface porosity, crater cracks, bead shape, reinforcement, misalignment and distortion.<br>An <b>internal</b> slag inclusion lies hidden inside the weld, so it needs a volumetric method – <b>radiography</b> or <b>ultrasonic testing</b>.<br><b>Which test sees what:</b> visual and dye penetrant → surface only · magnetic particle → surface and near-surface (steel only) · ultrasonic and radiography → internal.<br><b>PYQ:</b> 'which defect would you not expect to find by visual inspection → linear slag inclusions' (Railway SSE 2012)."},
+hi:{q:"निम्न में से कौन-सा दोष आप दृश्य निरीक्षण से मिलने की अपेक्षा नहीं करेंगे?",
+o:["वेल्ड टो पर अंडरकट","प्लेट सतह पर स्पैटर","आंतरिक स्लैग इन्क्लूज़न","वेल्ड सतह पर ओवरलैप"],
+e:"<b>दृश्य निरीक्षण</b> – नंगी आँख, आवर्धक लेंस और वेल्ड गेज से – हमेशा <b>पहली</b> और सबसे सस्ती जाँच है। यह केवल <b>सतही</b> दोष ढूँढता है: अंडरकट, ओवरलैप, स्पैटर, सतही पोरोसिटी, क्रेटर क्रैक, बीड का आकार, रीइन्फ़ोर्समेंट, गलत संरेखण और विकृति।<br><b>आंतरिक</b> स्लैग इन्क्लूज़न वेल्ड के अंदर छिपा रहता है, इसलिए आयतनी विधि चाहिए – <b>रेडियोग्राफ़ी</b> या <b>अल्ट्रासोनिक परीक्षण</b>।<br><b>कौन-सा परीक्षण क्या देखता है:</b> दृश्य व डाई पेनिट्रेंट → केवल सतह · मैग्नेटिक पार्टिकल → सतह व सतह के पास (केवल स्टील) · अल्ट्रासोनिक व रेडियोग्राफ़ी → आंतरिक।<br><b>PYQ:</b> 'दृश्य निरीक्षण से कौन-सा दोष मिलने की अपेक्षा नहीं → रैखिक स्लैग इन्क्लूज़न' (रेलवे SSE 2012)।"}},
+
+/* 23 */ {ans:0, lv:"p", tag:{en:"Destructive tests",hi:"विनाशी परीक्षण"},
+en:{q:"Match List-I (destructive test) with List-II (what it checks):<br>P. Tensile test<br>Q. Bend test<br>R. Charpy impact test<br>S. Hardness test<br>1. Toughness of the weld<br>2. Hardness of the heat-affected zone<br>3. Ductility and soundness<br>4. Strength of the joint",
+o:["P-4, Q-3, R-1, S-2","P-3, Q-4, R-1, S-2","P-4, Q-1, R-3, S-2","P-2, Q-3, R-1, S-4"],
+e:"<b>Tensile test</b> – pulls a specimen to fracture → ultimate and yield <b>strength</b>, and shows whether the joint is weaker than the base metal.<br><b>Bend test</b> (face, root or side bend) – bends the specimen round a mandrel; a sound, ductile weld bends without cracking, while lack of fusion, porosity or brittleness opens up → <b>ductility and soundness</b> (RRB-CBT2 Jul'26).<br><b>Charpy / Izod impact test</b> – a swinging pendulum breaks a notched specimen → energy absorbed = <b>toughness</b>, especially at low temperature.<br><b>Hardness test</b> (Vickers, Brinell, Rockwell) – checks hard, brittle zones in the <b>heat-affected zone</b>.<br><b>Others:</b> nick-break and fillet-break tests (internal soundness), macro/micro etch (penetration, structure). These tests destroy the specimen, so they are done on sample welds, unlike non-destructive tests."},
+hi:{q:"सूची-I (विनाशी परीक्षण) को सूची-II (क्या जाँचता है) से सुमेलित करें:<br>P. तनन परीक्षण (tensile)<br>Q. बेंड परीक्षण<br>R. चार्पी इम्पैक्ट परीक्षण<br>S. कठोरता परीक्षण<br>1. वेल्ड की टफ़नेस<br>2. हीट-अफेक्टेड ज़ोन की कठोरता<br>3. तन्यता व दोषरहितता<br>4. जोड़ की सामर्थ्य",
+o:["P-4, Q-3, R-1, S-2","P-3, Q-4, R-1, S-2","P-4, Q-1, R-3, S-2","P-2, Q-3, R-1, S-4"],
+e:"<b>तनन परीक्षण</b> – नमूने को टूटने तक खींचता है → अंतिम व यील्ड <b>सामर्थ्य</b>, और जोड़ बेस धातु से कमज़ोर है या नहीं।<br><b>बेंड परीक्षण</b> (फ़ेस, रूट या साइड बेंड) – नमूने को मैंड्रेल पर मोड़ता है; दोषरहित, तन्य वेल्ड बिना दरार मुड़ता है, जबकि लैक ऑफ़ फ़्यूज़न, पोरोसिटी या भंगुरता खुल जाती है → <b>तन्यता व दोषरहितता</b> (RRB-CBT2 Jul'26)।<br><b>चार्पी / इज़ोड इम्पैक्ट परीक्षण</b> – झूलता पेंडुलम नॉच वाले नमूने को तोड़ता है → अवशोषित ऊर्जा = <b>टफ़नेस</b>, विशेषकर कम तापमान पर।<br><b>कठोरता परीक्षण</b> (विकर्स, ब्रिनेल, रॉकवेल) – <b>हीट-अफेक्टेड ज़ोन</b> में कठोर, भंगुर क्षेत्र जाँचता है।<br><b>अन्य:</b> निक-ब्रेक व फिलेट-ब्रेक परीक्षण (आंतरिक दोषरहितता), मैक्रो/माइक्रो एच (पेनिट्रेशन, संरचना)। ये नमूने को नष्ट करते हैं, इसलिए अविनाशी परीक्षणों के विपरीत नमूना वेल्ड पर किए जाते हैं।"}},
+
+/* 24 */ {ans:3, lv:"e", tag:{en:"Best test · scenario",hi:"सर्वोत्तम परीक्षण · परिस्थिति"},
+en:{q:"The welds of a steel pressure vessel must be checked for internal porosity and slag, and the inspector wants a permanent record. The best test is:",
+o:["visual inspection","dye penetrant test","magnetic particle test","radiographic test"],
+e:"Internal <b>volumetric</b> defects – porosity, slag inclusion, incomplete penetration – show up clearly on a <b>radiograph</b>, and the film is a <b>permanent record</b> that can be filed and audited. That is why pressure vessels, boilers and pipelines are radiographed as per code.<br><b>Why not the others:</b> visual and dye penetrant tests see only the surface; the magnetic particle test sees surface and near-surface cracks only.<br><b>Precaution:</b> radiation hazard – the area is cordoned off and operators wear dosimeters.<br><b>Choice guide:</b> surface crack, any metal → dye penetrant · surface crack, steel → magnetic particle · internal porosity/slag + record → radiography · internal crack/lack of fusion, one-side access, no radiation → ultrasonic."},
+hi:{q:"स्टील प्रेशर वेसल के वेल्ड में आंतरिक पोरोसिटी और स्लैग की जाँच करनी है, और निरीक्षक को स्थायी रिकॉर्ड चाहिए। सर्वोत्तम परीक्षण है:",
+o:["दृश्य निरीक्षण","डाई पेनिट्रेंट परीक्षण","मैग्नेटिक पार्टिकल परीक्षण","रेडियोग्राफ़िक परीक्षण"],
+e:"आंतरिक <b>आयतनी</b> दोष – पोरोसिटी, स्लैग इन्क्लूज़न, अपूर्ण पेनिट्रेशन – <b>रेडियोग्राफ़</b> पर स्पष्ट दिखते हैं, और फ़िल्म एक <b>स्थायी रिकॉर्ड</b> है जिसे रखा व ऑडिट किया जा सकता है। इसीलिए प्रेशर वेसल, बॉयलर और पाइपलाइन की कोड के अनुसार रेडियोग्राफ़ी होती है।<br><b>अन्य क्यों नहीं:</b> दृश्य व डाई पेनिट्रेंट परीक्षण केवल सतह देखते हैं; मैग्नेटिक पार्टिकल परीक्षण केवल सतह व सतह के पास की दरारें।<br><b>सावधानी:</b> विकिरण खतरा – क्षेत्र घेरा जाता है और ऑपरेटर डोज़ीमीटर पहनते हैं।<br><b>चयन मार्गदर्शिका:</b> सतही दरार, कोई भी धातु → डाई पेनिट्रेंट · सतही दरार, स्टील → मैग्नेटिक पार्टिकल · आंतरिक पोरोसिटी/स्लैग + रिकॉर्ड → रेडियोग्राफ़ी · आंतरिक दरार/लैक ऑफ़ फ़्यूज़न, एक ओर से पहुँच, बिना विकिरण → अल्ट्रासोनिक।"}},
+
+/* 25 */ {ans:2, lv:"p", tag:{en:"Best test · scenario",hi:"सर्वोत्तम परीक्षण · परिस्थिति"},
+en:{q:"A quick, cheap check for fine surface cracks on a welded aluminium bracket at site, without any power supply, is best done by the:",
+o:["magnetic particle test","radiographic test","dye penetrant test","ultrasonic test"],
+e:"The <b>dye penetrant test</b> needs only aerosol cans (cleaner, penetrant, developer) – no electricity, cheap, quick and easy to read. It works on any non-porous material, including <b>aluminium</b>, and finds fine <b>surface-open</b> cracks.<br><b>Why not the others:</b> the magnetic particle test fails on aluminium (non-magnetic); radiography is costly, slow and a radiation hazard; ultrasonic testing needs a powered instrument and a skilled operator, and is meant mainly for internal flaws.<br><b>Exam link:</b> RRB-CBT2 Jul'26 asked for an aluminium structure with surface <b>and</b> internal defects, low health risk → <b>dye penetrant + ultrasonic</b>. Here only surface cracks are needed, so dye penetrant alone is enough."},
+hi:{q:"साइट पर बिना किसी बिजली आपूर्ति के, वेल्डेड एल्युमिनियम ब्रैकेट पर बारीक सतही दरारों की त्वरित, सस्ती जाँच सर्वोत्तम रूप से किससे होती है?",
+o:["मैग्नेटिक पार्टिकल परीक्षण","रेडियोग्राफ़िक परीक्षण","डाई पेनिट्रेंट परीक्षण","अल्ट्रासोनिक परीक्षण"],
+e:"<b>डाई पेनिट्रेंट परीक्षण</b> में केवल एरोसोल कैन (क्लीनर, पेनिट्रेंट, डेवलपर) चाहिए – बिजली नहीं, सस्ता, तेज़ और पढ़ने में आसान। यह <b>एल्युमिनियम</b> सहित हर अछिद्रिल पदार्थ पर काम करता है और बारीक <b>सतह पर खुली</b> दरारें ढूँढता है।<br><b>अन्य क्यों नहीं:</b> मैग्नेटिक पार्टिकल परीक्षण एल्युमिनियम (अचुंबकीय) पर विफल; रेडियोग्राफ़ी महँगी, धीमी और विकिरण खतरा; अल्ट्रासोनिक परीक्षण को बिजली वाला उपकरण और कुशल ऑपरेटर चाहिए, और यह मुख्यतः आंतरिक दोषों के लिए है।<br><b>परीक्षा लिंक:</b> RRB-CBT2 Jul'26 में एल्युमिनियम संरचना, सतही <b>और</b> आंतरिक दोष, कम स्वास्थ्य जोखिम → <b>डाई पेनिट्रेंट + अल्ट्रासोनिक</b> पूछा गया। यहाँ केवल सतही दरारें हैं, इसलिए अकेला डाई पेनिट्रेंट पर्याप्त है।"}}
+];
+
+const LIMIT = 20*60;
+let lang = "en";
+let mode = "test";
+let picked = new Array(Q.length).fill(null);
+let showAll = false;
+let submitted = false;
+let autoSub = false;
+let left = LIMIT;
+let tick = null;
+const L = ["a","b","c","d"];
+const $ = id => document.getElementById(id);
+
+function fmt(t){ const m=Math.floor(t/60), s=t%60; return String(m).padStart(2,"0")+":"+String(s).padStart(2,"0"); }
+
+function startTimer(){
+  stopTimer();
+  if(mode!=="test" || submitted) return;
+  tick = setInterval(()=>{
+    left--;
+    if(left<=0){ left=0; autoSub=true; doSubmit(); return; }
+    paintTimer();
+  },1000);
+}
+function stopTimer(){ if(tick){clearInterval(tick); tick=null;} }
+function paintTimer(){
+  const t=$("timer"), u=UI[lang];
+  if(mode!=="test"){ t.classList.add("hidden"); return; }
+  t.classList.remove("hidden");
+  t.textContent = submitted ? u.taken+": "+fmt(LIMIT-left) : u.time+": "+fmt(left);
+  t.classList.toggle("low", !submitted && left<=120);
+}
+
+function isRevealed(i){ return mode==="practice" ? (picked[i]!==null || showAll) : submitted; }
+
+function render(){
+  const u = UI[lang];
+  document.documentElement.lang = lang;
+  $("title").textContent = u.title;
+  $("subtitle").textContent = u.sub;
+  $("rules").textContent = mode==="test" ? u.rules : u.rulesP;
+  $("foot").textContent = u.foot;
+  $("mTest").textContent = u.test; $("mPrac").textContent = u.prac;
+  $("mTest").setAttribute("aria-pressed", mode==="test");
+  $("mPrac").setAttribute("aria-pressed", mode==="practice");
+  $("bSubmit").textContent = u.submit;
+  $("bSubmit").classList.toggle("hidden", !(mode==="test" && !submitted));
+  $("bShow").textContent = showAll ? u.hide : u.show;
+  $("bShow").classList.toggle("hidden", mode!=="practice");
+  $("bReset").textContent = u.reset;
+  $("bEn").setAttribute("aria-pressed", lang==="en");
+  $("bHi").setAttribute("aria-pressed", lang==="hi");
+
+  let html = "";
+  Q.forEach((q,i)=>{
+    if(q.num && i>0 && !Q[i-1].num) html += `<div class="sec">${u.num}</div>`;
+    const d = q[lang], p = picked[i], rev = isRevealed(i);
+    const lvClass = q.lv==="t" ? "lv-t" : q.lv==="h" ? "lv-h" : "";
+    html += `<article class="q" id="q${i}">
+      <div class="qhead"><span class="qno">Q${i+1}.</span><span class="chip">${q.tag[lang]}</span><span class="chip ${lvClass}">${u.lv[q.lv]}</span></div>
+      <div class="qtext">${d.q}</div><div class="opts">`;
+    d.o.forEach((o,j)=>{
+      let cls = "opt";
+      if(rev && j===q.ans) cls += " right";
+      if(rev && p===j && p!==q.ans) cls += " wrong";
+      if(!rev && p===j) cls += " sel";
+      html += `<button class="${cls}" data-q="${i}" data-o="${j}" ${rev?"disabled":""} aria-pressed="${p===j}"><span class="l">(${L[j]})</span><span>${o}</span></button>`;
+    });
+    html += `</div>`;
+    if(rev){
+      let v = "";
+      if(p!==null) v = p===q.ans ? `<div>${u.right}</div>` : `<div class="verdict-bad">${u.yours}</div>`;
+      else if(mode==="test") v = `<div class="verdict-bad">${u.un}</div>`;
+      html += `<div class="ex">${v}<div class="ans">${u.ans}: (${L[q.ans]})</div>${d.e}</div>`;
+    }
+    html += `</article>`;
+  });
+  $("list").innerHTML = html;
+  stats(); paintTimer(); result();
+}
+
+function counts(){
+  let c=0,w=0,a=0;
+  picked.forEach((p,i)=>{ if(p!==null){a++; if(p===Q[i].ans)c++; else w++;} });
+  return {c,w,a,s:(c-w/3).toFixed(2)};
+}
+
+function stats(){
+  const u = UI[lang], k = counts();
+  const hide = mode==="test" && !submitted;
+  $("sAtt").textContent = `${u.att}: ${k.a}/${Q.length}`;
+  $("sC").textContent = `${u.c}: ${k.c}`;
+  $("sW").textContent = `${u.w}: ${k.w}`;
+  $("sS").textContent = `${u.s}: ${k.s}`;
+  ["sC","sW","sS"].forEach(id=>$(id).classList.toggle("hidden", hide));
+}
+
+function result(){
+  const box = $("result");
+  if(!(mode==="test" && submitted)){ box.innerHTML=""; return; }
+  const u = UI[lang], k = counts();
+  const acc = k.a ? Math.round(k.c*100/k.a) : 0;
+  box.innerHTML = `<section class="result" aria-live="polite">
+    <h2>${u.res}: ${k.s} / ${Q.length}</h2>
+    <div class="rgrid">
+      <div>${u.c}<b>${k.c}</b></div><div>${u.w}<b>${k.w}</b></div>
+      <div>${u.un}<b>${Q.length-k.a}</b></div><div>${u.acc}<b>${acc}%</b></div>
+      <div>${u.taken}<b>${fmt(LIMIT-left)}</b></div>
+    </div>
+    <p>${autoSub ? u.auto+" " : ""}${u.resNote}</p></section>`;
+}
+
+function doSubmit(){
+  submitted = true; stopTimer(); render();
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function resetAll(){
+  picked = new Array(Q.length).fill(null);
+  showAll=false; submitted=false; autoSub=false; left=LIMIT;
+  render(); startTimer(); window.scrollTo({top:0});
+}
+
+$("list").addEventListener("click", e=>{
+  const b = e.target.closest(".opt");
+  if(!b || b.disabled) return;
+  const i = +b.dataset.q, j = +b.dataset.o;
+  if(mode==="test"){ picked[i] = picked[i]===j ? null : j; }
+  else { if(picked[i]!==null) return; picked[i] = j; }
+  render();
+  const btn = document.querySelector(`#q${i} .opt[data-o="${j}"]`) || document.querySelector(`#q${i} .opt`);
+  if(btn) btn.focus({preventScroll:true});
+});
+$("bEn").onclick = ()=>{ lang="en"; render(); };
+$("bHi").onclick = ()=>{ lang="hi"; render(); };
+function setMode(m){
+  if(m===mode) return;
+  const dirty = picked.some(p=>p!==null) || submitted;
+  if(dirty && !confirm(UI[lang].cMode)) return;
+  mode = m; resetAll();
+}
+$("mTest").onclick = ()=>setMode("test");
+$("mPrac").onclick = ()=>setMode("practice");
+$("bSubmit").onclick = ()=>{ if(confirm(UI[lang].cSub)) doSubmit(); };
+$("bShow").onclick = ()=>{ showAll=!showAll; render(); };
+$("bReset").onclick = resetAll;
+render(); startTimer();
+</script>
+</body>
+</html>
