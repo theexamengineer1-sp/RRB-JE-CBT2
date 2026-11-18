@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welding Smart MCQ Set 5 – Resistance, Solid-state, Beam Welding, Soldering & Brazing | THE EXAM ENGINEER</title>
+<style>
+:root{
+  --navy:#12306b; --navy-deep:#0c2350; --orange:#f07f1a;
+  --bg:#f3f6fb; --card:#ffffff; --text:#16213a; --muted:#5b6782;
+  --line:#d9e0ec; --opt:#f7f9fd; --opt-hover:#eaf0fa;
+  --ok:#17803d; --ok-bg:#e6f6ec; --bad:#c0272d; --bad-bg:#fdecec;
+  --ex-bg:#fff7ee; --ex-line:#f3c58f; --chip:#e9eef8;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --navy:#2b4f9a; --navy-deep:#16264a; --orange:#ff9a3d;
+    --bg:#0f1524; --card:#18213a; --text:#e8edf8; --muted:#a3aec6;
+    --line:#2c3857; --opt:#1e2944; --opt-hover:#26345a;
+    --ok:#4cd17e; --ok-bg:#163a26; --bad:#ff6b70; --bad-bg:#3d1a1e;
+    --ex-bg:#2a2216; --ex-line:#6b4b22; --chip:#25304d;
+    color-scheme: dark;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:"Segoe UI","Noto Sans","Nirmala UI","Mangal",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  line-height:1.6;font-size:16px}
+header{background:var(--navy-deep);color:#fff;padding:22px 16px 18px}
+.wrap{max-width:860px;margin:0 auto}
+.brand{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand a{color:var(--orange);font-weight:700;text-decoration:none}
+.brand a:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.channel{font-weight:800;letter-spacing:.5px}
+h1{margin:14px 0 4px;font-size:clamp(1.4rem,4.5vw,2rem);line-height:1.2}
+.sub{margin:0;color:#c9d5ee;font-size:.95rem}
+.rules{margin-top:10px;font-size:.88rem;color:#c9d5ee}
+.bar{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:3px solid var(--orange);
+  box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.bar .wrap{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding:10px 16px}
+.seg{display:inline-flex;border:2px solid var(--navy);border-radius:999px;overflow:hidden}
+.seg button{border:0;background:transparent;color:var(--text);padding:6px 14px;font:inherit;font-weight:700;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--navy);color:#fff}
+.stats{display:flex;gap:12px;flex-wrap:wrap;font-size:.9rem;font-weight:600}
+.stats .c{color:var(--ok)} .stats .w{color:var(--bad)} .stats .s{color:var(--orange)}
+.tools button{border:1px solid var(--line);background:var(--opt);color:var(--text);border-radius:8px;
+  padding:6px 10px;font:inherit;font-size:.85rem;cursor:pointer}
+.tools button:hover{background:var(--opt-hover)}
+button:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+main{padding:18px 16px 40px}
+.q{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--navy);
+  border-radius:10px;padding:16px 16px 14px;margin:0 0 16px}
+.qhead{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.qno{font-weight:800;color:var(--navy)}
+@media (prefers-color-scheme: dark){.qno{color:#8fb0f5}}
+.chip{background:var(--chip);color:var(--muted);font-size:.75rem;font-weight:700;padding:2px 9px;border-radius:999px}
+.chip.lv-t{background:var(--bad-bg);color:var(--bad)}
+.chip.lv-h{background:var(--ex-bg);color:var(--orange)}
+.qtext{font-weight:600;margin:4px 0 12px}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;text-align:left;width:100%;border:1.5px solid var(--line);
+  background:var(--opt);color:var(--text);border-radius:8px;padding:9px 12px;font:inherit;cursor:pointer}
+.opt:hover:not(:disabled){background:var(--opt-hover)}
+.opt:disabled{cursor:default}
+.opt .l{font-weight:800;min-width:1.8em;color:var(--muted)}
+.opt.right{border-color:var(--ok);background:var(--ok-bg)}
+.opt.right .l{color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.opt.wrong .l{color:var(--bad)}
+.opt.sel{border-color:var(--navy);background:var(--opt-hover);box-shadow:inset 0 0 0 1px var(--navy)}
+.opt.sel .l{color:var(--navy)}
+@media (prefers-color-scheme: dark){.opt.sel .l{color:#8fb0f5}.opt.sel{border-color:#8fb0f5;box-shadow:inset 0 0 0 1px #8fb0f5}}
+.timer{font-variant-numeric:tabular-nums;font-weight:800}
+.timer.low{color:var(--bad)}
+.tools{display:flex;gap:6px;flex-wrap:wrap}
+.tools button.primary{background:var(--orange);border-color:var(--orange);color:#fff;font-weight:700}
+.tools button.primary:hover{filter:brightness(1.05);background:var(--orange)}
+.hidden{display:none !important}
+.result{background:var(--card);border:2px solid var(--orange);border-radius:12px;padding:16px;margin-bottom:18px}
+.result h2{margin:0 0 10px;font-size:1.2rem;color:var(--orange)}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+.rgrid div{background:var(--opt);border-radius:8px;padding:8px 10px}
+.rgrid b{display:block;font-size:1.3rem}
+.result p{margin:10px 0 0;color:var(--muted);font-size:.9rem}
+.ex{margin-top:12px;background:var(--ex-bg);border:1px solid var(--ex-line);border-radius:8px;padding:12px 14px;font-size:.95rem}
+.ex .ans{font-weight:800;color:var(--ok);margin-bottom:4px}
+.ex .verdict-bad{color:var(--bad)}
+.sec{margin:24px 0 12px;font-weight:800;color:var(--orange);font-size:1.05rem;border-bottom:2px solid var(--line);padding-bottom:4px}
+footer{text-align:center;color:var(--muted);font-size:.82rem;padding:10px 16px 30px}
+footer a{color:var(--orange)}
+@media (prefers-reduced-motion: no-preference){.ex{animation:show .25s ease-out}
+  @keyframes show{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <span class="channel">THE EXAM ENGINEER</span>
+      <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a>
+    </div>
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+    <p class="rules" id="rules"></p>
+  </div>
+</header>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="seg" role="group" aria-label="Language">
+      <button id="bEn" aria-pressed="true">English</button>
+      <button id="bHi" aria-pressed="false">हिंदी</button>
+    </div>
+    <div class="seg" role="group" aria-label="Mode">
+      <button id="mTest" aria-pressed="true"></button>
+      <button id="mPrac" aria-pressed="false"></button>
+    </div>
+    <div class="stats" aria-live="polite">
+      <span class="timer" id="timer"></span>
+      <span id="sAtt"></span><span class="c" id="sC"></span><span class="w" id="sW"></span><span class="s" id="sS"></span>
+    </div>
+    <div class="tools">
+      <button id="bSubmit" class="primary"></button>
+      <button id="bShow"></button>
+      <button id="bReset"></button>
+    </div>
+  </div>
+</div>
+
+<main><div class="wrap"><div id="result"></div><div id="list"></div></div></main>
+
+<footer>
+  <div id="foot"></div>
+  <div>© 2026 THE EXAM ENGINEER · <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a> · theexamengineer1@gmail.com</div>
+  <div>SSC JE AIR 14 · RRB JE 2025 (DMS)</div>
+</footer>
+
+<script>
+const UI = {
+  en:{title:"Welding Smart MCQ – Set 5",
+      sub:"Resistance, Thermit, Solid-state, Beam Welding, Soldering & Brazing · RRB JE CBT-2 (Mechanical & Allied) · RRB JE PYQ based",
+      rules:"25 questions · 20 minutes (RRB CBT-2 pace: 150 Qs in 120 min) · +1 correct, −1/3 wrong",
+      rulesP:"Practice mode · no timer · tap an option to see the answer with full explanation instantly",
+      test:"Test",prac:"Practice",submit:"Submit test",time:"Time left",
+      cSub:"Submit the test now? You cannot change answers after submitting.",
+      cMode:"Switching mode will reset your current attempt. Continue?",
+      res:"Your result",un:"Not attempted",taken:"Time taken",acc:"Accuracy",auto:"Time over – test submitted automatically.",
+      resNote:"Answers and full explanations are now shown below each question. Read the explanation of every wrong and unattempted question.",
+      att:"Attempted",c:"Correct",w:"Wrong",s:"Score",show:"Show all answers",hide:"Hide unattempted answers",reset:"Reset",
+      ans:"Correct answer",yours:"Your answer is wrong.",right:"Your answer is correct.",num:"Simple numericals",
+      lv:{e:"Easy",p:"PYQ level",h:"Higher",t:"Tough"},
+      foot:"Original work, free for personal study. Share as it is with the channel link – no re-branding."},
+  hi:{title:"वेल्डिंग स्मार्ट MCQ – सेट 5",
+      sub:"रेज़िस्टेंस, थर्मिट, ठोस-अवस्था, बीम वेल्डिंग, सोल्डरिंग एवं ब्रेज़िंग · RRB JE CBT-2 (मैकेनिकल एवं संबद्ध) · RRB JE PYQ आधारित",
+      rules:"25 प्रश्न · 20 मिनट (RRB CBT-2 गति: 120 मिनट में 150 प्रश्न) · सही +1, गलत −1/3",
+      rulesP:"प्रैक्टिस मोड · कोई टाइमर नहीं · विकल्प पर टैप करें, उत्तर और पूरी व्याख्या तुरंत दिखेगी",
+      test:"टेस्ट",prac:"प्रैक्टिस",submit:"टेस्ट सबमिट करें",time:"शेष समय",
+      cSub:"क्या अभी टेस्ट सबमिट करें? सबमिट के बाद उत्तर नहीं बदल सकेंगे।",
+      cMode:"मोड बदलने पर आपका वर्तमान प्रयास रीसेट हो जाएगा। जारी रखें?",
+      res:"आपका परिणाम",un:"बिना प्रयास",taken:"लिया गया समय",acc:"सटीकता",auto:"समय समाप्त – टेस्ट स्वतः सबमिट हो गया।",
+      resNote:"अब हर प्रश्न के नीचे उत्तर और पूरी व्याख्या दिख रही है। हर गलत और बिना प्रयास वाले प्रश्न की व्याख्या ज़रूर पढ़ें।",
+      att:"प्रयास",c:"सही",w:"गलत",s:"स्कोर",show:"सभी उत्तर दिखाएँ",hide:"बिना प्रयास वाले उत्तर छिपाएँ",reset:"रीसेट",
+      ans:"सही उत्तर",yours:"आपका उत्तर गलत है।",right:"आपका उत्तर सही है।",num:"सरल न्यूमेरिकल",
+      lv:{e:"आसान",p:"PYQ स्तर",h:"उच्च",t:"कठिन"},
+      foot:"मौलिक कार्य, व्यक्तिगत अध्ययन हेतु निःशुल्क। चैनल लिंक सहित जैसा है वैसा ही शेयर करें – री-ब्रांडिंग नहीं।"}
+};
+
+const Q = [
+/* 1 */ {ans:0, lv:"e", tag:{en:"Resistance welding",hi:"रेज़िस्टेंस वेल्डिंग"},
+en:{q:"In resistance spot welding, where the heat generated is H = I²Rt, the maximum heat is produced at:",
+o:["the interface between the two sheets","the tip of each copper electrode","the outer surface of the top sheet","the electrode holder clamps"],
+e:"Current flows from one copper electrode, through both sheets, to the other electrode. The total resistance is the sum of several parts: electrode–sheet contacts, the bulk of each sheet, and the <b>sheet–sheet interface</b>. The interface has the <b>highest contact resistance</b> (surface roughness, oxide films), so most I²Rt heat is released there and a molten <b>nugget</b> forms exactly between the sheets.<br><b>Why not the others:</b> the electrode tips are copper – very low resistance and water-cooled – so they stay cool; the outer sheet surface touches the cool electrode.<br><b>PYQs:</b> 'maximum heat in resistance welding is at → the interface between the two plates being joined' (RRB-CBT2 2019); 'heat generated in resistance welding → I²Rt' (RRB-CBT2 2019); 'heat is generated due to resistance between → asperities between touching plates' (NPCIL)."},
+hi:{q:"रेज़िस्टेंस स्पॉट वेल्डिंग में, जहाँ उत्पन्न ऊष्मा H = I²Rt है, अधिकतम ऊष्मा कहाँ उत्पन्न होती है?",
+o:["दोनों शीटों के बीच के इंटरफ़ेस पर","प्रत्येक कॉपर इलेक्ट्रोड के सिरे पर","ऊपरी शीट की बाहरी सतह पर","इलेक्ट्रोड होल्डर के क्लैंप पर"],
+e:"करंट एक कॉपर इलेक्ट्रोड से दोनों शीटों से होकर दूसरे इलेक्ट्रोड तक बहता है। कुल प्रतिरोध कई भागों का योग है: इलेक्ट्रोड–शीट संपर्क, प्रत्येक शीट का आयतन, और <b>शीट–शीट इंटरफ़ेस</b>। इंटरफ़ेस पर <b>संपर्क प्रतिरोध सबसे अधिक</b> होता है (सतह खुरदरापन, ऑक्साइड परत), इसलिए अधिकांश I²Rt ऊष्मा वहीं निकलती है और ठीक शीटों के बीच पिघला <b>नगेट (nugget)</b> बनता है।<br><b>अन्य क्यों नहीं:</b> इलेक्ट्रोड सिरे कॉपर के हैं – बहुत कम प्रतिरोध और पानी से ठंडे – इसलिए ठंडे रहते हैं; बाहरी शीट सतह ठंडे इलेक्ट्रोड को छूती है।<br><b>PYQ:</b> 'रेज़िस्टेंस वेल्डिंग में अधिकतम ऊष्मा → जोड़ी जा रही दो प्लेटों के इंटरफ़ेस पर' (RRB-CBT2 2019); 'रेज़िस्टेंस वेल्डिंग में ऊष्मा → I²Rt' (RRB-CBT2 2019); 'ऊष्मा प्रतिरोध से → छूती प्लेटों की सूक्ष्म उभारों (asperities) के बीच' (NPCIL)।"}},
+
+/* 2 */ {ans:1, lv:"p", tag:{en:"Resistance welding",hi:"रेज़िस्टेंस वेल्डिंग"},
+en:{q:"Electrodes for resistance spot welding are made of copper alloy because:",
+o:["copper melts and acts as the filler metal","high conductivity keeps heat at the sheet interface","copper releases a shielding gas when hot","copper is hard enough to pierce the sheets"],
+e:"Copper has very high electrical and thermal conductivity. Low electrical resistance means little I²Rt heat is produced inside the electrode, and high thermal conductivity (plus internal water cooling) carries away the heat at the contact – so the electrode stays cool, does not stick, and the heat is <b>concentrated at the sheet interface</b> where the weld is wanted. Copper–chromium or copper–zirconium alloys are used because they keep their hardness at temperature and resist mushrooming.<br><b>Why not the others:</b> resistance welding uses <b>no filler and no flux</b>; copper gives off no gas; electrodes press the sheets, they do not pierce them.<br><b>PYQs:</b> 'electrodes used in spot welding have a tip of → copper' (Mizoram, Sikkim PSC); 'in electrode holder, holding jaw made of → copper alloy' (Railway SSE)."},
+hi:{q:"रेज़िस्टेंस स्पॉट वेल्डिंग के इलेक्ट्रोड कॉपर मिश्रधातु के क्यों बनाए जाते हैं?",
+o:["कॉपर पिघलकर फिलर धातु का कार्य करता है","उच्च चालकता ऊष्मा को शीट इंटरफ़ेस पर रखती है","गर्म होने पर कॉपर शील्डिंग गैस छोड़ता है","कॉपर इतना कठोर है कि शीटों को भेद दे"],
+e:"कॉपर की विद्युत व ऊष्मा चालकता बहुत अधिक है। कम विद्युत प्रतिरोध से इलेक्ट्रोड के अंदर बहुत कम I²Rt ऊष्मा बनती है, और उच्च ऊष्मा चालकता (साथ में अंदर पानी की ठंडक) संपर्क की ऊष्मा हटा देती है – इसलिए इलेक्ट्रोड ठंडा रहता है, चिपकता नहीं, और ऊष्मा <b>शीट इंटरफ़ेस पर केंद्रित</b> रहती है जहाँ वेल्ड चाहिए। कॉपर–क्रोमियम या कॉपर–ज़िरकोनियम मिश्रधातु प्रयोग होती है क्योंकि वे गर्मी में भी कठोरता बनाए रखती हैं।<br><b>अन्य क्यों नहीं:</b> रेज़िस्टेंस वेल्डिंग में <b>न फिलर, न फ्लक्स</b>; कॉपर गैस नहीं छोड़ता; इलेक्ट्रोड शीटों को दबाते हैं, भेदते नहीं।<br><b>PYQ:</b> 'स्पॉट वेल्डिंग इलेक्ट्रोड का सिरा → कॉपर' (मिज़ोरम, सिक्किम PSC); 'इलेक्ट्रोड होल्डर के जबड़े → कॉपर मिश्रधातु' (रेलवे SSE)।"}},
+
+/* 3 */ {ans:1, lv:"p", tag:{en:"Resistance welding",hi:"रेज़िस्टेंस वेल्डिंग"},
+en:{q:"Consider the following statements about resistance welding:<br>I. A very high current flows at a low voltage.<br>II. Filler metal and flux are essential.<br>III. Pressure is held until the weld cools.<br>Which of the statements are correct?",
+o:["I only","I and III only","II and III only","I, II and III"],
+e:"<b>I ✔</b> – currents of the order of 10,000 A (for 1–3 mm steel sheet) at only a few volts (about 1–12 V) are supplied by a step-down transformer with a single-turn secondary ('voltage low and current high' – SSC JE, UPRVUNL PYQ).<br><b>III ✔</b> – pressure squeezes the sheets into contact before current flows, forges the softened metal during welding, and is <b>held</b> while the nugget solidifies, so it freezes sound.<br><b>II ✘</b> – resistance welding is <b>autogenous</b>: the parts' own metal forms the joint, with <b>no filler and no flux</b>. That is why it is fast, clean and ideal for mass production (car bodies, appliances).<br><b>Current control:</b> by changing the transformer's primary turns (tap changer) – PYQ."},
+hi:{q:"रेज़िस्टेंस वेल्डिंग के बारे में निम्न कथनों पर विचार करें:<br>I. कम वोल्टेज पर बहुत अधिक करंट बहता है।<br>II. फिलर धातु और फ्लक्स अनिवार्य हैं।<br>III. वेल्ड ठंडा होने तक दाब बनाए रखा जाता है।<br>कौन-से कथन सही हैं?",
+o:["केवल I","केवल I और III","केवल II और III","I, II और III"],
+e:"<b>I ✔</b> – एकल-टर्न सेकेंडरी वाला स्टेप-डाउन ट्रांसफ़ॉर्मर केवल कुछ वोल्ट (लगभग 1–12 V) पर लगभग 10,000 A (1–3 mm स्टील शीट हेतु) करंट देता है ('वोल्टेज कम, करंट अधिक' – SSC JE, UPRVUNL PYQ)।<br><b>III ✔</b> – दाब करंट से पहले शीटों को संपर्क में लाता है, वेल्डिंग के दौरान नरम धातु को फ़ोर्ज करता है, और नगेट जमने तक <b>बनाए</b> रखा जाता है ताकि वह दोषरहित जमे।<br><b>II ✘</b> – रेज़िस्टेंस वेल्डिंग <b>ऑटोजीनस</b> है: भागों की अपनी धातु जोड़ बनाती है, <b>न फिलर, न फ्लक्स</b>। इसीलिए यह तेज़, साफ़ और बड़े पैमाने के उत्पादन (कार बॉडी, उपकरण) हेतु आदर्श है।<br><b>करंट नियंत्रण:</b> ट्रांसफ़ॉर्मर के प्राइमरी टर्न बदलकर (टैप चेंजर) – PYQ।"}},
+
+/* 4 */ {ans:2, lv:"p", tag:{en:"Match the following",hi:"सुमेलित करें"},
+en:{q:"Match List-I (resistance process) with List-II (typical application):<br>P. Spot welding<br>Q. Seam welding<br>R. Projection welding<br>S. Flash butt welding<br>1. Leak-tight fuel tanks<br>2. Car-body panels<br>3. Nuts fixed on sheet metal<br>4. Rail ends and chain links",
+o:["P-1, Q-2, R-3, S-4","P-2, Q-3, R-1, S-4","P-2, Q-1, R-3, S-4","P-2, Q-1, R-4, S-3"],
+e:"<b>Spot</b> – two pointed electrodes make separate nuggets in lap joints of sheet (up to about 3 mm) → car bodies, cabinets.<br><b>Seam</b> – roller electrodes make continuous overlapping spots → leak-tight joints: fuel tanks, drums, radiators ('continuous spot welding → seam welding' – APSC, SSC JE PYQ).<br><b>Projection</b> – small embossed projections on one part localise current, many spots at once → weld nuts, studs, brackets ('projection welding is a → multi-spot welding process').<br><b>Flash butt</b> – parts brought together under current; arcing (flashing) at the faces heats them, then a heavy upset forges them → rails, chain links, high-speed-steel drills to mild-steel shanks (APPSC, MPSC PYQ).<br><b>Also:</b> upset butt – rods and pipes end to end (Mizoram, ISRO PYQ); percussion – wires, fast capacitor discharge."},
+hi:{q:"सूची-I (रेज़िस्टेंस प्रक्रिया) को सूची-II (सामान्य उपयोग) से सुमेलित करें:<br>P. स्पॉट वेल्डिंग<br>Q. सीम वेल्डिंग<br>R. प्रोजेक्शन वेल्डिंग<br>S. फ़्लैश बट वेल्डिंग<br>1. रिसाव-रोधी ईंधन टैंक<br>2. कार-बॉडी पैनल<br>3. शीट धातु पर लगे नट<br>4. रेल के सिरे और चेन की कड़ियाँ",
+o:["P-1, Q-2, R-3, S-4","P-2, Q-3, R-1, S-4","P-2, Q-1, R-3, S-4","P-2, Q-1, R-4, S-3"],
+e:"<b>स्पॉट</b> – दो नुकीले इलेक्ट्रोड शीट (लगभग 3 mm तक) के लैप जोड़ में अलग-अलग नगेट बनाते हैं → कार बॉडी, कैबिनेट।<br><b>सीम</b> – रोलर इलेक्ट्रोड लगातार ओवरलैप होते स्पॉट बनाते हैं → रिसाव-रोधी जोड़: ईंधन टैंक, ड्रम, रेडिएटर ('लगातार स्पॉट वेल्डिंग → सीम वेल्डिंग' – APSC, SSC JE PYQ)।<br><b>प्रोजेक्शन</b> – एक भाग पर छोटे उभार करंट को केंद्रित करते हैं, एक साथ कई स्पॉट → वेल्ड नट, स्टड, ब्रैकेट ('प्रोजेक्शन वेल्डिंग → मल्टी-स्पॉट प्रक्रिया')।<br><b>फ़्लैश बट</b> – करंट के साथ भाग पास लाए जाते हैं; सिरों पर आर्किंग (फ़्लैशिंग) उन्हें गर्म करती है, फिर भारी अपसेट से फ़ोर्ज → रेल, चेन कड़ियाँ, हाई-स्पीड-स्टील ड्रिल को माइल्ड-स्टील शैंक से (APPSC, MPSC PYQ)।<br><b>यह भी:</b> अपसेट बट – छड़ व पाइप सिरे से सिरा (मिज़ोरम, ISRO PYQ); परकशन – तार, तेज़ कैपेसिटर डिस्चार्ज।"}},
+
+/* 5 */ {ans:3, lv:"e", tag:{en:"Seam welding",hi:"सीम वेल्डिंग"},
+en:{q:"In resistance seam welding, the electrodes are:",
+o:["pointed copper-alloy rods","non-consumable tungsten rods","graphite blocks under pressure","rotating copper-alloy roller discs"],
+e:"Seam welding uses two <b>copper-alloy wheels (roller discs)</b> that press the overlapping sheets and rotate, carrying the sheets forward. Current is pulsed as they roll, producing a row of <b>overlapping spot nuggets</b> – a continuous, gas- and liquid-tight seam. Uses: fuel tanks, mufflers, cans, drums, radiators.<br><b>Why not the others:</b> pointed rods are spot-welding electrodes; tungsten belongs to tungsten inert gas welding; graphite to carbon arc welding.<br><b>PYQs:</b> 'in resistance seam welding, the electrode is in the form of a → circular disc' (RPSC); 'which resistance welding is used for making leak-proof joints → seam welding' (Haryana, BPSC)."},
+hi:{q:"रेज़िस्टेंस सीम वेल्डिंग में इलेक्ट्रोड होते हैं:",
+o:["नुकीली कॉपर-मिश्रधातु छड़ें","अनुपभोज्य टंगस्टन छड़ें","दाब के नीचे ग्रेफ़ाइट ब्लॉक","घूमती कॉपर-मिश्रधातु रोलर डिस्क"],
+e:"सीम वेल्डिंग में दो <b>कॉपर-मिश्रधातु पहिए (रोलर डिस्क)</b> होते हैं जो ओवरलैप शीटों को दबाते और घूमकर उन्हें आगे बढ़ाते हैं। घूमते समय करंट पल्स में दिया जाता है, जिससे <b>ओवरलैप होते स्पॉट नगेट</b> की पंक्ति बनती है – लगातार, गैस व द्रव-रोधी सीम। उपयोग: ईंधन टैंक, मफ़लर, डिब्बे, ड्रम, रेडिएटर।<br><b>अन्य क्यों नहीं:</b> नुकीली छड़ें स्पॉट वेल्डिंग के इलेक्ट्रोड हैं; टंगस्टन टंगस्टन इनर्ट गैस वेल्डिंग का; ग्रेफ़ाइट कार्बन आर्क वेल्डिंग का।<br><b>PYQ:</b> 'रेज़िस्टेंस सीम वेल्डिंग में इलेक्ट्रोड → वृत्ताकार डिस्क' (RPSC); 'रिसाव-रोधी जोड़ हेतु रेज़िस्टेंस वेल्डिंग → सीम वेल्डिंग' (हरियाणा, BPSC)।"}},
+
+/* 6 */ {ans:0, lv:"p", tag:{en:"Spot welding cycle",hi:"स्पॉट वेल्डिंग चक्र"},
+en:{q:"The correct sequence of a resistance spot-welding cycle is:",
+o:["squeeze → weld → hold → off","weld → squeeze → hold → off","squeeze → hold → weld → off","hold → squeeze → weld → off"],
+e:"<b>1. Squeeze time</b> – electrodes close and apply force to bring the sheets into firm contact before any current flows (current on loose sheets would cause sparks and burning).<br><b>2. Weld time</b> – current flows for a few cycles; I²Rt heat forms the molten nugget at the interface.<br><b>3. Hold time</b> – current off, force kept on while the nugget cools and solidifies under pressure.<br><b>4. Off time</b> – electrodes open; the work is moved to the next spot.<br><b>PYQs:</b> 'the complete resistance spot-weld cycle has been divided into → four parts' (RRB-CBT2 2019); 'cycle time of resistance welding consists of → squeeze time, weld time, hold time and off time'."},
+hi:{q:"रेज़िस्टेंस स्पॉट वेल्डिंग चक्र का सही क्रम है:",
+o:["स्क्वीज़ → वेल्ड → होल्ड → ऑफ़","वेल्ड → स्क्वीज़ → होल्ड → ऑफ़","स्क्वीज़ → होल्ड → वेल्ड → ऑफ़","होल्ड → स्क्वीज़ → वेल्ड → ऑफ़"],
+e:"<b>1. स्क्वीज़ टाइम</b> – इलेक्ट्रोड बंद होकर बल लगाते हैं ताकि करंट से पहले शीटें मज़बूत संपर्क में आएँ (ढीली शीटों पर करंट से चिंगारी व जलना)।<br><b>2. वेल्ड टाइम</b> – कुछ साइकिल करंट बहता है; I²Rt ऊष्मा इंटरफ़ेस पर पिघला नगेट बनाती है।<br><b>3. होल्ड टाइम</b> – करंट बंद, बल बना रहता है जब तक नगेट दाब में ठंडा होकर जमता है।<br><b>4. ऑफ़ टाइम</b> – इलेक्ट्रोड खुलते हैं; जॉब अगले स्पॉट पर जाता है।<br><b>PYQ:</b> 'पूर्ण रेज़िस्टेंस स्पॉट वेल्ड चक्र → चार भागों में' (RRB-CBT2 2019); 'चक्र समय → स्क्वीज़, वेल्ड, होल्ड व ऑफ़ टाइम'।"}},
+
+/* 7 */ {ans:2, lv:"p", tag:{en:"Spot welding cycle",hi:"स्पॉट वेल्डिंग चक्र"},
+en:{q:"In spot welding, pressure is kept on for a short 'hold time' after the current is switched off:",
+o:["to cool the copper electrodes only","to raise the current for the next spot","to let the nugget solidify under pressure","to remove flux from the joint area"],
+e:"When the current stops, the nugget is still molten. If the electrodes opened at once, the liquid would shrink freely and could form <b>shrinkage cavities, porosity or cracks</b>, and the sheets might spring apart. Keeping the force on during <b>hold time</b> lets the nugget <b>solidify under pressure</b> – it is forged sound and dense, and the water-cooled electrodes also draw heat away to speed solidification.<br><b>Why not the others:</b> cooling the electrodes is a side benefit, not the purpose; current is not raised in hold time; there is no flux in resistance welding.<br><b>Concept link:</b> pressure + heat is the essence of all resistance processes – they belong to 'pressure welding', not fusion welding with filler."},
+hi:{q:"स्पॉट वेल्डिंग में करंट बंद करने के बाद थोड़े 'होल्ड टाइम' तक दाब क्यों बनाए रखा जाता है?",
+o:["केवल कॉपर इलेक्ट्रोड ठंडे करने के लिए","अगले स्पॉट के लिए करंट बढ़ाने के लिए","नगेट को दाब में जमने देने के लिए","जोड़ क्षेत्र से फ्लक्स हटाने के लिए"],
+e:"करंट रुकने पर नगेट अभी पिघला होता है। यदि इलेक्ट्रोड तुरंत खुलें तो द्रव स्वतंत्र रूप से सिकुड़ेगा और <b>सिकुड़न गुहा, पोरोसिटी या दरारें</b> बन सकती हैं, और शीटें अलग उछल सकती हैं। <b>होल्ड टाइम</b> में बल बनाए रखने से नगेट <b>दाब में जमता</b> है – दोषरहित व घना फ़ोर्ज होता है, और पानी से ठंडे इलेक्ट्रोड ऊष्मा खींचकर जमना तेज़ करते हैं।<br><b>अन्य क्यों नहीं:</b> इलेक्ट्रोड ठंडा होना साइड लाभ है, उद्देश्य नहीं; होल्ड टाइम में करंट नहीं बढ़ता; रेज़िस्टेंस वेल्डिंग में फ्लक्स नहीं।<br><b>अवधारणा लिंक:</b> दाब + ऊष्मा सभी रेज़िस्टेंस प्रक्रियाओं का सार है – ये 'प्रेशर वेल्डिंग' में आती हैं, फिलर वाली फ़्यूज़न वेल्डिंग में नहीं।"}},
+
+/* 8 */ {ans:1, lv:"p", tag:{en:"Thermit welding",hi:"थर्मिट वेल्डिंग"},
+en:{q:"A thermit welding mixture consists of:",
+o:["magnesium powder and iron oxide, about 1 : 1","aluminium powder and iron oxide, about 1 : 3","aluminium powder and copper oxide, about 3 : 1","iron powder and aluminium oxide, about 1 : 3"],
+e:"<b>Thermit</b> = fine <b>aluminium powder</b> + <b>iron oxide</b> (usually magnetite, Fe₃O₄) in a ratio of about <b>1 : 3 by weight</b>. Once ignited (with a magnesium ribbon or special powder), aluminium – which has a much stronger affinity for oxygen than iron – reduces the iron oxide:<br>8Al + 3Fe₃O₄ → 9Fe + 4Al₂O₃ + heat (about 2500–3000 °C).<br>The superheated molten steel sinks to the bottom of the crucible and the aluminium oxide slag floats on top.<br><b>Why not the others:</b> magnesium is only the igniter; copper oxide or aluminium oxide is not the standard mixture; (d) reverses the reactants.<br><b>PYQs:</b> 'thermit is a mixture of fine aluminium powder and iron oxide in the ratio of about → 1 : 3' (RRB-CBT2 2019, SSC JE, GPSC); 'metal powder used in thermit welding of steel → aluminium' (UPPSC)."},
+hi:{q:"थर्मिट वेल्डिंग मिश्रण में होते हैं:",
+o:["मैग्नीशियम पाउडर और आयरन ऑक्साइड, लगभग 1 : 1","एल्युमिनियम पाउडर और आयरन ऑक्साइड, लगभग 1 : 3","एल्युमिनियम पाउडर और कॉपर ऑक्साइड, लगभग 3 : 1","आयरन पाउडर और एल्युमिनियम ऑक्साइड, लगभग 1 : 3"],
+e:"<b>थर्मिट</b> = बारीक <b>एल्युमिनियम पाउडर</b> + <b>आयरन ऑक्साइड</b> (सामान्यतः मैग्नेटाइट, Fe₃O₄), भार से लगभग <b>1 : 3</b>। प्रज्वलित (मैग्नीशियम रिबन या विशेष पाउडर से) करने पर एल्युमिनियम – जिसकी ऑक्सीजन से आसक्ति आयरन से बहुत अधिक है – आयरन ऑक्साइड को अपचयित करता है:<br>8Al + 3Fe₃O₄ → 9Fe + 4Al₂O₃ + ऊष्मा (लगभग 2500–3000 °C)।<br>अतितप्त पिघला स्टील क्रूसिबल के तल में बैठता है और एल्युमिनियम ऑक्साइड स्लैग ऊपर तैरता है।<br><b>अन्य क्यों नहीं:</b> मैग्नीशियम केवल प्रज्वलक है; कॉपर ऑक्साइड या एल्युमिनियम ऑक्साइड मानक मिश्रण नहीं; (d) अभिकारक उलट देता है।<br><b>PYQ:</b> 'थर्मिट → एल्युमिनियम पाउडर व आयरन ऑक्साइड लगभग 1 : 3' (RRB-CBT2 2019, SSC JE, GPSC); 'स्टील की थर्मिट वेल्डिंग में धातु पाउडर → एल्युमिनियम' (UPPSC)।"}},
+
+/* 9 */ {ans:3, lv:"p", tag:{en:"Thermit welding",hi:"थर्मिट वेल्डिंग"},
+en:{q:"Thermit (alumino-thermic) welding of rail joints on Indian Railways is:",
+o:["a solid-state process using pressure","a resistance process using current","an arc process using a carbon rod","a fusion process using chemical heat"],
+e:"The heat comes from an <b>exothermic chemical reaction</b> (aluminium + iron oxide), not from electricity. The superheated liquid steel produced is poured from a crucible into a refractory mould built around the gap between the rail ends; it melts the rail ends and fuses with them, then solidifies – so it is a <b>fusion</b> process. Excess metal is trimmed and ground to the rail profile.<br><b>Why it suits railways:</b> portable, no power supply needed on the track, joins heavy sections in one pour – used for continuous welded rail and repair of heavy castings, shafts and frames.<br><b>PYQs:</b> 'thermit welding is a form of → fusion welding' (JPSC, GWSSB); 'a fusion process in which superheated liquid is poured around the parts → thermit welding' (NLC, WBPSC); 'heat in thermit welding → chemical reaction of aluminium and iron oxide' (GPSC)."},
+hi:{q:"भारतीय रेलवे में रेल जोड़ों की थर्मिट (एल्युमिनो-थर्मिक) वेल्डिंग है:",
+o:["दाब का प्रयोग करने वाली ठोस-अवस्था प्रक्रिया","करंट का प्रयोग करने वाली रेज़िस्टेंस प्रक्रिया","कार्बन रॉड वाली आर्क प्रक्रिया","रासायनिक ऊष्मा वाली फ़्यूज़न प्रक्रिया"],
+e:"ऊष्मा <b>ऊष्माक्षेपी रासायनिक अभिक्रिया</b> (एल्युमिनियम + आयरन ऑक्साइड) से आती है, बिजली से नहीं। बना अतितप्त द्रव स्टील क्रूसिबल से रेल सिरों के बीच के गैप के चारों ओर बने दुर्गलनीय साँचे में डाला जाता है; यह रेल सिरों को पिघलाकर उनसे मिल जाता है, फिर जमता है – इसलिए यह <b>फ़्यूज़न</b> प्रक्रिया है। अतिरिक्त धातु काटकर रेल प्रोफ़ाइल में ग्राइंड की जाती है।<br><b>रेलवे के लिए उपयुक्त क्यों:</b> पोर्टेबल, ट्रैक पर बिजली नहीं चाहिए, भारी सेक्शन एक बार में जुड़ता है – लगातार वेल्डेड रेल और भारी कास्टिंग, शाफ़्ट व फ्रेम की मरम्मत में।<br><b>PYQ:</b> 'थर्मिट वेल्डिंग → फ़्यूज़न वेल्डिंग का रूप' (JPSC, GWSSB); 'भागों के चारों ओर अतितप्त द्रव डालने वाली फ़्यूज़न प्रक्रिया → थर्मिट वेल्डिंग' (NLC, WBPSC); 'थर्मिट में ऊष्मा → एल्युमिनियम व आयरन ऑक्साइड की अभिक्रिया' (GPSC)।"}},
+
+/* 10 */ {ans:0, lv:"p", tag:{en:"Friction welding",hi:"फ़्रिक्शन वेल्डिंग"},
+en:{q:"The main limitation of friction welding is that:",
+o:["one part must be round so it can rotate","it can join only aluminium alloys together","it must be done inside a vacuum chamber","it always needs a filler metal and flux"],
+e:"In <b>friction welding</b> one part is rotated at high speed (about 4000–6000 rpm) and pressed against the stationary part. Rubbing heats the interface to forging temperature (below melting), cleans away oxides, then rotation stops and a forging force completes the bond. Because one part must <b>spin about its axis</b>, at least one component must be <b>round</b> (bar, tube, disc) – flat plates or odd shapes cannot be friction welded this way. It can be done on a lathe-type machine.<br><b>Strengths:</b> solid-state (no melting), no filler, flux or shielding gas, very fast, joins dissimilar metals (steel to aluminium, copper to aluminium).<br><b>Uses:</b> drill bits to shanks, axle to hub, valves, hollow pipes. <b>Variant:</b> friction-stir welding – a rotating pin stirs aluminium plates, so flat plates can be joined.<br><b>PYQ:</b> 'which is a solid-state joining process → friction welding' (RPSC, ISRO)."},
+hi:{q:"फ़्रिक्शन वेल्डिंग की मुख्य सीमा यह है कि:",
+o:["कम से कम एक भाग घूमने हेतु गोल होना चाहिए","यह केवल एल्युमिनियम मिश्रधातुएँ ही जोड़ सकती है","यह निर्वात कक्ष के अंदर ही करनी पड़ती है","इसमें हमेशा फिलर धातु और फ्लक्स चाहिए"],
+e:"<b>फ़्रिक्शन वेल्डिंग</b> में एक भाग तेज़ गति (लगभग 4000–6000 rpm) से घुमाकर स्थिर भाग पर दबाया जाता है। रगड़ से इंटरफ़ेस फ़ोर्जिंग तापमान (गलनांक से नीचे) तक गर्म होता है, ऑक्साइड हटते हैं, फिर घूमना रुकता है और फ़ोर्जिंग बल जोड़ पूरा करता है। चूँकि एक भाग को <b>अपने अक्ष पर घूमना</b> है, कम से कम एक घटक <b>गोल</b> (छड़, ट्यूब, डिस्क) होना चाहिए – सपाट प्लेट या बेढंगे आकार ऐसे नहीं जुड़ते। यह लेथ जैसी मशीन पर हो सकती है।<br><b>लाभ:</b> ठोस-अवस्था (पिघलना नहीं), न फिलर, न फ्लक्स, न शील्डिंग गैस, बहुत तेज़, असमान धातुएँ जोड़ती है (स्टील–एल्युमिनियम, कॉपर–एल्युमिनियम)।<br><b>उपयोग:</b> ड्रिल बिट से शैंक, एक्सल से हब, वाल्व, खोखले पाइप। <b>प्रकार:</b> फ़्रिक्शन-स्टर वेल्डिंग – घूमती पिन एल्युमिनियम प्लेटों को मिलाती है, इसलिए सपाट प्लेटें जुड़ सकती हैं।<br><b>PYQ:</b> 'ठोस-अवस्था जोड़ प्रक्रिया → फ़्रिक्शन वेल्डिंग' (RPSC, ISRO)।"}},
+
+/* 11 */ {ans:2, lv:"p", tag:{en:"Explosive welding",hi:"एक्सप्लोसिव वेल्डिंग"},
+en:{q:"A thick steel plate is to be cladded with a titanium layer for corrosion resistance. The best process is:",
+o:["resistance spot welding","thermit welding","explosive welding","soldering"],
+e:"In <b>explosive welding</b>, a layer of low-velocity explosive is spread on the cladding plate (the <b>flyer plate</b>), set at a small stand-off gap above the base plate. The detonation drives the flyer onto the base at high speed, progressively from one end. The impact jets away surface oxides and the two metals bond by intense <b>plastic deformation</b>, giving a characteristic <b>wavy interface</b> with no melting and no heat-affected zone.<br><b>Why it fits:</b> it bonds large areas face-to-face and joins metals that cannot be fusion welded together (titanium–steel, aluminium–steel), making clad plates for chemical vessels and heat exchangers.<br><b>Why not the others:</b> spot welding bonds only points; thermit is for heavy butt joints; solder joints are weak and low-temperature.<br><b>PYQ:</b> 'the flyer plate is used in → explosive welding' (HPPSC)."},
+hi:{q:"संक्षारण-प्रतिरोध हेतु मोटी स्टील प्लेट पर टाइटेनियम की परत चढ़ानी (cladding) है। सर्वोत्तम प्रक्रिया है:",
+o:["रेज़िस्टेंस स्पॉट वेल्डिंग","थर्मिट वेल्डिंग","एक्सप्लोसिव वेल्डिंग","सोल्डरिंग"],
+e:"<b>एक्सप्लोसिव वेल्डिंग</b> में कम-वेग विस्फोटक की परत क्लैडिंग प्लेट (<b>फ़्लायर प्लेट</b>) पर फैलाई जाती है, जो बेस प्लेट से थोड़े स्टैंड-ऑफ़ गैप पर रखी होती है। विस्फोट फ़्लायर को तेज़ गति से बेस पर, एक सिरे से क्रमशः, टकराता है। टक्कर सतही ऑक्साइड उड़ा देती है और दोनों धातुएँ तीव्र <b>प्लास्टिक विरूपण</b> से जुड़ती हैं, जिससे विशिष्ट <b>लहरदार इंटरफ़ेस</b> बनता है – न पिघलना, न हीट-अफेक्टेड ज़ोन।<br><b>उपयुक्त क्यों:</b> बड़े क्षेत्र आमने-सामने जोड़ती है और ऐसी धातुएँ जोड़ती है जो फ़्यूज़न से साथ नहीं जुड़तीं (टाइटेनियम–स्टील, एल्युमिनियम–स्टील) – रासायनिक पात्रों व हीट एक्सचेंजर के क्लैड प्लेट।<br><b>अन्य क्यों नहीं:</b> स्पॉट वेल्डिंग केवल बिंदु जोड़ती है; थर्मिट भारी बट जोड़ों हेतु; सोल्डर जोड़ कमज़ोर व कम तापमान वाले।<br><b>PYQ:</b> 'फ़्लायर प्लेट → एक्सप्लोसिव वेल्डिंग' (HPPSC)।"}},
+
+/* 12 */ {ans:1, lv:"p", tag:{en:"Ultrasonic welding",hi:"अल्ट्रासोनिक वेल्डिंग"},
+en:{q:"Fine aluminium wires are to be joined to a semiconductor chip without melting either part. The best process is:",
+o:["flash butt welding","ultrasonic welding","thermit welding","submerged arc welding"],
+e:"<b>Ultrasonic welding</b> clamps the parts under a light static force while a sonotrode (horn) vibrates them sideways at high frequency – about <b>20–40 kHz</b> (some books up to 60 kHz). The rubbing breaks up surface oxides and coatings, and the interface reaches only about 30–50 % of the melting point; clean metal surfaces then bond in the <b>solid state</b>.<br><b>Strengths:</b> no melting, no filler or flux, very little heat – safe for heat-sensitive electronics; joins dissimilar metals and thermoplastics.<br><b>Limits:</b> only thin sections – foils, wires, sheets about 1–3 mm ('thickness of metal is usually restricted to → 3 mm' – NPSC PYQ).<br><b>Uses:</b> wire bonding in integrated circuits, diodes and transistors, battery tabs, foil packaging.<br><b>PYQ:</b> 'high-frequency vibratory energy is used to weld the part → ultrasonic welding' (APPSC)."},
+hi:{q:"बारीक एल्युमिनियम तारों को सेमीकंडक्टर चिप से, किसी भाग को पिघलाए बिना, जोड़ना है। सर्वोत्तम प्रक्रिया है:",
+o:["फ़्लैश बट वेल्डिंग","अल्ट्रासोनिक वेल्डिंग","थर्मिट वेल्डिंग","सबमर्ज्ड आर्क वेल्डिंग"],
+e:"<b>अल्ट्रासोनिक वेल्डिंग</b> में भागों को हल्के स्थिर बल से दबाया जाता है जबकि सोनोट्रोड (हॉर्न) उन्हें उच्च आवृत्ति – लगभग <b>20–40 kHz</b> (कुछ पुस्तकों में 60 kHz तक) – पर बगल में कंपित करता है। रगड़ सतही ऑक्साइड व परत तोड़ती है, और इंटरफ़ेस केवल गलनांक के लगभग 30–50 % तक पहुँचता है; साफ़ धातु सतहें फिर <b>ठोस अवस्था</b> में जुड़ती हैं।<br><b>लाभ:</b> पिघलना नहीं, न फिलर न फ्लक्स, बहुत कम ऊष्मा – ऊष्मा-संवेदी इलेक्ट्रॉनिक्स हेतु सुरक्षित; असमान धातुएँ व थर्मोप्लास्टिक जोड़ती है।<br><b>सीमा:</b> केवल पतले सेक्शन – फॉइल, तार, लगभग 1–3 mm शीट ('धातु मोटाई सामान्यतः → 3 mm तक' – NPSC PYQ)।<br><b>उपयोग:</b> इंटीग्रेटेड सर्किट, डायोड व ट्रांज़िस्टर में वायर बॉन्डिंग, बैटरी टैब, फॉइल पैकेजिंग।<br><b>PYQ:</b> 'उच्च-आवृत्ति कंपन ऊर्जा से वेल्ड → अल्ट्रासोनिक वेल्डिंग' (APPSC)।"}},
+
+/* 13 */ {ans:3, lv:"p", tag:{en:"Solid-state welding",hi:"ठोस-अवस्था वेल्डिंग"},
+en:{q:"Which of the following is NOT a solid-state welding process?",
+o:["friction welding","diffusion welding","forge welding","electroslag welding"],
+e:"<b>Solid-state welding</b> joins metals <b>without melting</b> the base metal and without filler – by pressure, often with heat below the melting point. Members: <b>forge</b> (oldest – heated red hot and hammered, borax flux), <b>friction</b> and friction-stir, <b>ultrasonic</b>, <b>explosive</b>, <b>diffusion</b>, cold (pressure) welding, roll bonding.<br><b>Electroslag welding</b> melts the plate edges and a consumable wire in a pool of molten slag heated by I²R – it is a <b>fusion</b> process, used for very thick plates in the vertical position.<br><b>PYQs:</b> 'example of welding in plastic state → forge welding' (GPSC); 'solid-state welding → forge / friction welding' (SSC JE); 'which is a solid-state process → diffusion welding' (Haryana); 'which is not a fusion process → friction stir welding' (Metro); 'autogenous processes → diffusion and friction welding' (APSC, CGPSC)."},
+hi:{q:"निम्न में से कौन-सी ठोस-अवस्था (solid-state) वेल्डिंग प्रक्रिया नहीं है?",
+o:["फ़्रिक्शन वेल्डिंग","डिफ़्यूज़न वेल्डिंग","फ़ोर्ज वेल्डिंग","इलेक्ट्रोस्लैग वेल्डिंग"],
+e:"<b>ठोस-अवस्था वेल्डिंग</b> बेस धातु को <b>पिघलाए बिना</b> और बिना फिलर के धातुएँ जोड़ती है – दाब से, प्रायः गलनांक से कम ऊष्मा के साथ। सदस्य: <b>फ़ोर्ज</b> (सबसे पुरानी – लाल गर्म कर हथौड़े से, बोरैक्स फ्लक्स), <b>फ़्रिक्शन</b> व फ़्रिक्शन-स्टर, <b>अल्ट्रासोनिक</b>, <b>एक्सप्लोसिव</b>, <b>डिफ़्यूज़न</b>, कोल्ड (प्रेशर) वेल्डिंग, रोल बॉन्डिंग।<br><b>इलेक्ट्रोस्लैग वेल्डिंग</b> I²R से गर्म पिघले स्लैग के पूल में प्लेट किनारे और उपभोज्य तार पिघलाती है – यह <b>फ़्यूज़न</b> प्रक्रिया है, वर्टिकल पोजीशन में बहुत मोटी प्लेटों हेतु।<br><b>PYQ:</b> 'प्लास्टिक अवस्था में वेल्डिंग का उदाहरण → फ़ोर्ज वेल्डिंग' (GPSC); 'ठोस-अवस्था वेल्डिंग → फ़ोर्ज / फ़्रिक्शन' (SSC JE); 'ठोस-अवस्था प्रक्रिया → डिफ़्यूज़न वेल्डिंग' (हरियाणा); 'फ़्यूज़न प्रक्रिया नहीं → फ़्रिक्शन स्टर वेल्डिंग' (मेट्रो); 'ऑटोजीनस प्रक्रियाएँ → डिफ़्यूज़न व फ़्रिक्शन' (APSC, CGPSC)।"}},
+
+/* 14 */ {ans:2, lv:"p", tag:{en:"Diffusion welding",hi:"डिफ़्यूज़न वेल्डिंग"},
+en:{q:"A ceramic part is to be joined to a metal part in vacuum, with no melting and almost no distortion. The process used is:",
+o:["gas welding","seam welding","diffusion welding","stud arc welding"],
+e:"In <b>diffusion welding</b> (diffusion bonding), very flat, clean surfaces are pressed together at a moderate, steady pressure and heated to roughly 50–80 % of the melting point, usually in <b>vacuum</b> or inert gas to prevent oxidation, and held for a long time. <b>Atoms diffuse across the interface</b>, so the joint line gradually disappears.<br><b>Strengths:</b> very accurate, almost no distortion or heat-affected zone, joins dissimilar materials – <b>metal to ceramic</b>, titanium alloys, composite laminates, aerospace honeycomb parts.<br><b>Limits:</b> slow (hours), costly equipment, needs excellent surface preparation.<br><b>Why not the others:</b> gas, seam and stud welding melt the parts and cannot bond a ceramic.<br><b>Key words to remember:</b> vacuum + long time + diffusion → diffusion welding."},
+hi:{q:"एक सिरेमिक भाग को धातु भाग से निर्वात में, बिना पिघलाए और लगभग बिना विकृति के जोड़ना है। प्रयुक्त प्रक्रिया है:",
+o:["गैस वेल्डिंग","सीम वेल्डिंग","डिफ़्यूज़न वेल्डिंग","स्टड आर्क वेल्डिंग"],
+e:"<b>डिफ़्यूज़न वेल्डिंग</b> (डिफ़्यूज़न बॉन्डिंग) में बहुत समतल, साफ़ सतहों को मध्यम, स्थिर दाब से दबाकर गलनांक के लगभग 50–80 % तक गर्म किया जाता है, सामान्यतः ऑक्सीकरण रोकने हेतु <b>निर्वात</b> या अक्रिय गैस में, और लंबे समय तक रखा जाता है। <b>परमाणु इंटरफ़ेस के पार विसरित</b> होते हैं, इसलिए जोड़ रेखा धीरे-धीरे गायब हो जाती है।<br><b>लाभ:</b> बहुत सटीक, लगभग न विकृति न हीट-अफेक्टेड ज़ोन, असमान पदार्थ जोड़ती है – <b>धातु से सिरेमिक</b>, टाइटेनियम मिश्रधातु, कंपोज़िट लैमिनेट, एयरोस्पेस हनीकॉम्ब भाग।<br><b>सीमा:</b> धीमी (घंटों), महँगे उपकरण, उत्कृष्ट सतह तैयारी चाहिए।<br><b>अन्य क्यों नहीं:</b> गैस, सीम व स्टड वेल्डिंग भागों को पिघलाती हैं और सिरेमिक नहीं जोड़ सकतीं।<br><b>याद रखने के शब्द:</b> निर्वात + लंबा समय + विसरण → डिफ़्यूज़न वेल्डिंग।"}},
+
+/* 15 */ {ans:0, lv:"p", tag:{en:"Electron beam welding",hi:"इलेक्ट्रॉन बीम वेल्डिंग"},
+en:{q:"Electron beam welding is carried out in vacuum mainly because:",
+o:["air molecules would scatter the electron beam","vacuum cools the job between passes","vacuum supplies oxygen for extra heat","vacuum makes the work metal magnetic"],
+e:"In <b>electron beam welding</b>, electrons are emitted from a hot <b>tungsten filament</b> (cathode), accelerated by a high voltage (about 40–120 kV, or more) and focused by <b>magnetic lenses</b> into a fine beam. Their kinetic energy turns into heat on striking the job. Electrons are tiny and easily deflected; in air they would collide with gas molecules and <b>scatter</b>, losing energy and focus. A high vacuum (about 10⁻⁴–10⁻⁵ torr) keeps the beam sharp; it also protects the hot filament from oxidation and the weld from contamination.<br><b>Result:</b> very deep, narrow welds – depth : width about 10 : 1 to 30 : 1 – with a very small heat-affected zone; ideal for reactive and refractory metals (titanium, zirconium, tungsten, niobium) in aerospace and nuclear work.<br><b>PYQs:</b> 'electron beam welding can be carried out in → vacuum' (GPSC); 'beam is focused using → magnetic lens' (KPSC, GATE)."},
+hi:{q:"इलेक्ट्रॉन बीम वेल्डिंग निर्वात में मुख्यतः क्यों की जाती है?",
+o:["हवा के अणु इलेक्ट्रॉन बीम को बिखेर देंगे","निर्वात पासों के बीच जॉब ठंडा करता है","निर्वात अतिरिक्त ऊष्मा हेतु ऑक्सीजन देता है","निर्वात जॉब धातु को चुंबकीय बना देता है"],
+e:"<b>इलेक्ट्रॉन बीम वेल्डिंग</b> में इलेक्ट्रॉन गर्म <b>टंगस्टन फ़िलामेंट</b> (कैथोड) से निकलते हैं, उच्च वोल्टेज (लगभग 40–120 kV या अधिक) से त्वरित होते हैं और <b>चुंबकीय लेंस</b> से बारीक बीम में केंद्रित होते हैं। जॉब से टकराने पर उनकी गतिज ऊर्जा ऊष्मा बनती है। इलेक्ट्रॉन बहुत छोटे और आसानी से विक्षेपित होते हैं; हवा में वे गैस अणुओं से टकराकर <b>बिखर</b> जाएँगे, ऊर्जा व फ़ोकस खो देंगे। उच्च निर्वात (लगभग 10⁻⁴–10⁻⁵ torr) बीम को तीक्ष्ण रखता है; यह गर्म फ़िलामेंट को ऑक्सीकरण से और वेल्ड को संदूषण से भी बचाता है।<br><b>परिणाम:</b> बहुत गहरे, संकरे वेल्ड – गहराई : चौड़ाई लगभग 10 : 1 से 30 : 1 – बहुत छोटा हीट-अफेक्टेड ज़ोन; एयरोस्पेस व परमाणु कार्य में सक्रिय व दुर्गलनीय धातुओं (टाइटेनियम, ज़िरकोनियम, टंगस्टन, नायोबियम) हेतु आदर्श।<br><b>PYQ:</b> 'इलेक्ट्रॉन बीम वेल्डिंग → निर्वात में' (GPSC); 'बीम केंद्रित → चुंबकीय लेंस से' (KPSC, GATE)।"}},
+
+/* 16 */ {ans:1, lv:"h", tag:{en:"Electron beam welding",hi:"इलेक्ट्रॉन बीम वेल्डिंग"},
+en:{q:"An electron beam welding chamber needs lead shielding because of:",
+o:["ultraviolet rays from a very bright arc","X-rays produced when electrons strike the job","gamma rays from the tungsten filament","infrared heat from the vacuum pump"],
+e:"When high-energy electrons (accelerated through tens of kilovolts) are suddenly stopped by the metal workpiece, part of their energy is emitted as <b>X-rays</b> – the same principle as an X-ray tube. These are harmful to operators, so the vacuum chamber walls are lined with <b>lead</b> and viewing windows use lead glass.<br><b>Why not the others:</b> there is no electric arc in electron beam welding; a hot filament emits electrons, not gamma rays; a vacuum pump gives no dangerous radiation.<br><b>Compare hazards:</b> arc welding → ultraviolet and infrared (filter glass) · electron beam → X-rays (lead shielding) · laser beam → intense light that can blind (laser safety goggles) · radiography testing → X-rays or gamma rays.<br><b>Other limits of electron beam welding:</b> costly; the vacuum chamber limits job size."},
+hi:{q:"इलेक्ट्रॉन बीम वेल्डिंग कक्ष में लेड शील्डिंग किस कारण चाहिए?",
+o:["बहुत चमकीले विद्युत आर्क से निकली पराबैंगनी किरणें","जॉब से इलेक्ट्रॉन टकराने पर बनी एक्स-किरणें","गर्म टंगस्टन फ़िलामेंट से निकली गामा किरणें","निर्वात पंप की मोटर से निकली अवरक्त ऊष्मा"],
+e:"जब उच्च-ऊर्जा इलेक्ट्रॉन (दसियों किलोवोल्ट से त्वरित) धातु जॉब से अचानक रुकते हैं, उनकी ऊर्जा का एक भाग <b>एक्स-किरणों</b> के रूप में निकलता है – एक्स-रे ट्यूब जैसा ही सिद्धांत। ये ऑपरेटरों के लिए हानिकारक हैं, इसलिए निर्वात कक्ष की दीवारों पर <b>लेड</b> की परत और देखने की खिड़कियों में लेड ग्लास होता है।<br><b>अन्य क्यों नहीं:</b> इलेक्ट्रॉन बीम वेल्डिंग में विद्युत आर्क नहीं होता; गर्म फ़िलामेंट इलेक्ट्रॉन देता है, गामा किरणें नहीं; निर्वात पंप से खतरनाक विकिरण नहीं।<br><b>खतरों की तुलना:</b> आर्क वेल्डिंग → पराबैंगनी व अवरक्त (फ़िल्टर ग्लास) · इलेक्ट्रॉन बीम → एक्स-किरणें (लेड शील्डिंग) · लेज़र बीम → तीव्र प्रकाश जो अंधा कर सकता है (लेज़र सुरक्षा चश्मा) · रेडियोग्राफ़ी परीक्षण → एक्स या गामा किरणें।<br><b>इलेक्ट्रॉन बीम वेल्डिंग की अन्य सीमाएँ:</b> महँगी; निर्वात कक्ष जॉब का आकार सीमित करता है।"}},
+
+/* 17 */ {ans:3, lv:"h", tag:{en:"Electron vs laser beam",hi:"इलेक्ट्रॉन बनाम लेज़र बीम"},
+en:{q:"Consider the following statements:<br>I. Laser beam welding needs no vacuum.<br>II. Electron beam welding gives deeper and narrower welds than laser beam welding.<br>III. Laser beam welding easily welds highly reflective metals such as copper.<br>Which of the statements are correct?",
+o:["I only","II and III only","I and III only","I and II only"],
+e:"<b>I ✔</b> – a laser beam is light; it travels through air without scattering, so laser welding is done in open air (with an inert shielding gas) – it can even be delivered by mirrors or fibre to a robot.<br><b>II ✔</b> – electron beam welding gives the deepest, narrowest welds (depth : width about 10 : 1 to 30 : 1) compared with laser (about 4 : 1 to 10 : 1).<br><b>III ✘</b> – highly <b>reflective</b> metals (copper, aluminium, gold) reflect much of the laser energy, making them <b>difficult</b> to laser weld.<br><b>Laser facts:</b> coherent, monochromatic light from a carbon-dioxide gas laser or a neodymium-doped yttrium aluminium garnet (Nd:YAG) solid-state laser (ruby in old texts – OPSC PYQ); highest heat flux and <b>smallest heat-affected zone</b>; used in automobiles, electronics and medical devices."},
+hi:{q:"निम्न कथनों पर विचार करें:<br>I. लेज़र बीम वेल्डिंग में निर्वात नहीं चाहिए।<br>II. इलेक्ट्रॉन बीम वेल्डिंग, लेज़र बीम वेल्डिंग से अधिक गहरे व संकरे वेल्ड देती है।<br>III. लेज़र बीम वेल्डिंग कॉपर जैसी अत्यधिक परावर्तक धातुओं को आसानी से वेल्ड करती है।<br>कौन-से कथन सही हैं?",
+o:["केवल I","केवल II और III","केवल I और III","केवल I और II"],
+e:"<b>I ✔</b> – लेज़र बीम प्रकाश है; यह हवा में बिना बिखरे चलता है, इसलिए लेज़र वेल्डिंग खुली हवा में (अक्रिय शील्डिंग गैस के साथ) होती है – इसे दर्पण या फ़ाइबर से रोबोट तक भी पहुँचाया जा सकता है।<br><b>II ✔</b> – इलेक्ट्रॉन बीम वेल्डिंग सबसे गहरे, संकरे वेल्ड देती है (गहराई : चौड़ाई लगभग 10 : 1 से 30 : 1), लेज़र में लगभग 4 : 1 से 10 : 1।<br><b>III ✘</b> – अत्यधिक <b>परावर्तक</b> धातुएँ (कॉपर, एल्युमिनियम, सोना) लेज़र ऊर्जा का बड़ा भाग परावर्तित कर देती हैं, इसलिए इनकी लेज़र वेल्डिंग <b>कठिन</b> है।<br><b>लेज़र तथ्य:</b> कार्बन-डाइऑक्साइड गैस लेज़र या नियोडिमियम-युक्त यिट्रियम एल्युमिनियम गार्नेट (Nd:YAG) ठोस-अवस्था लेज़र से सुसंगत, एकवर्णी प्रकाश (पुरानी पुस्तकों में रूबी – OPSC PYQ); सबसे अधिक ऊष्मा फ़्लक्स और <b>सबसे छोटा हीट-अफेक्टेड ज़ोन</b>; ऑटोमोबाइल, इलेक्ट्रॉनिक्स व चिकित्सा उपकरणों में।"}},
+
+/* 18 */ {ans:2, lv:"e", tag:{en:"Heat-affected zone",hi:"हीट-अफेक्टेड ज़ोन"},
+en:{q:"Which of the following welding processes gives the smallest heat-affected zone?",
+o:["oxy-acetylene welding","shielded metal arc welding","laser beam welding","thermit welding"],
+e:"The <b>heat-affected zone</b> is the base metal next to the weld whose structure and properties are changed by heat without melting. Its width depends on how <b>concentrated</b> the heat source is and how long the heat stays. A laser focuses an enormous power density onto a spot a fraction of a millimetre wide and moves fast, so very little heat spreads sideways – <b>laser beam welding</b> (and electron beam welding) give the <b>smallest</b> heat-affected zone.<br><b>Ladder (wide → narrow):</b> thermit and oxy-acetylene (slow, spread-out heat) → shielded metal arc → tungsten inert gas / plasma → electron beam / laser beam.<br><b>PYQs:</b> 'which welding process results in the smallest heat-affected zone → laser beam welding' (GPSC 2018, GATE 2006); 'highest heat flux (W/mm²) → laser beam welding' (PPSC)."},
+hi:{q:"निम्न में से कौन-सी वेल्डिंग प्रक्रिया सबसे छोटा हीट-अफेक्टेड ज़ोन देती है?",
+o:["ऑक्सी-एसिटिलीन वेल्डिंग","शील्डेड मेटल आर्क वेल्डिंग","लेज़र बीम वेल्डिंग","थर्मिट वेल्डिंग"],
+e:"<b>हीट-अफेक्टेड ज़ोन</b> वेल्ड के पास की वह बेस धातु है जिसकी संरचना व गुण ऊष्मा से बदलते हैं पर वह पिघलती नहीं। इसकी चौड़ाई इस पर निर्भर है कि ऊष्मा स्रोत कितना <b>केंद्रित</b> है और ऊष्मा कितनी देर रहती है। लेज़र मिलीमीटर के अंश जितने बिंदु पर अत्यधिक शक्ति घनत्व केंद्रित करता है और तेज़ी से चलता है, इसलिए बहुत कम ऊष्मा किनारों तक फैलती है – <b>लेज़र बीम वेल्डिंग</b> (और इलेक्ट्रॉन बीम वेल्डिंग) <b>सबसे छोटा</b> हीट-अफेक्टेड ज़ोन देती हैं।<br><b>सीढ़ी (चौड़ा → संकरा):</b> थर्मिट व ऑक्सी-एसिटिलीन (धीमी, फैली ऊष्मा) → शील्डेड मेटल आर्क → टंगस्टन इनर्ट गैस / प्लाज़्मा → इलेक्ट्रॉन बीम / लेज़र बीम।<br><b>PYQ:</b> 'सबसे छोटा हीट-अफेक्टेड ज़ोन → लेज़र बीम वेल्डिंग' (GPSC 2018, GATE 2006); 'सबसे अधिक ऊष्मा फ़्लक्स (W/mm²) → लेज़र बीम वेल्डिंग' (PPSC)।"}},
+
+/* 19 */ {ans:0, lv:"p", tag:{en:"Soldering vs brazing",hi:"सोल्डरिंग बनाम ब्रेज़िंग"},
+en:{q:"Which statement correctly distinguishes brazing from soldering?",
+o:["brazing filler melts above 450 °C, solder below","brazing melts the base metal, soldering does not","brazing uses capillary action, soldering does not","brazing needs no flux, soldering always does"],
+e:"The dividing line is the <b>filler's melting temperature</b>: <b>soldering</b> – filler melts <b>below 450 °C</b> (typically 180–250 °C); <b>brazing</b> – filler melts <b>above 450 °C</b> but below the melting point of the base metal (old texts say 420 °C – RRB-CBT2 2019 PYQ).<br><b>What they share:</b> in both, the <b>base metal does not melt</b> (RRB-CBT2 Apr'25-I), the molten filler is drawn into a close-fitting joint by <b>capillary action</b> (RRB-CBT2 Apr'25-II), both can join <b>similar or dissimilar</b> metals (Apr'25-I), and both normally use a flux to remove oxides (Jun'25).<br><b>Why not the others:</b> (b), (c) and (d) wrongly make the two processes differ on points they actually share.<br><b>Strength ladder:</b> soldered joint (weakest) &lt; brazed joint &lt; welded joint (base metal fused)."},
+hi:{q:"कौन-सा कथन ब्रेज़िंग को सोल्डरिंग से सही रूप में अलग करता है?",
+o:["ब्रेज़िंग फिलर 450 °C से ऊपर, सोल्डर नीचे पिघलता है","ब्रेज़िंग बेस धातु पिघलाती है, सोल्डरिंग नहीं","ब्रेज़िंग केशिका क्रिया प्रयोग करती है, सोल्डरिंग नहीं","ब्रेज़िंग में फ्लक्स नहीं, सोल्डरिंग में हमेशा"],
+e:"विभाजन रेखा है <b>फिलर का गलन तापमान</b>: <b>सोल्डरिंग</b> – फिलर <b>450 °C से नीचे</b> पिघलता है (सामान्यतः 180–250 °C); <b>ब्रेज़िंग</b> – फिलर <b>450 °C से ऊपर</b> पर बेस धातु के गलनांक से नीचे पिघलता है (पुरानी पुस्तकों में 420 °C – RRB-CBT2 2019 PYQ)।<br><b>दोनों में समान:</b> दोनों में <b>बेस धातु नहीं पिघलती</b> (RRB-CBT2 Apr'25-I), पिघला फिलर <b>केशिका क्रिया</b> से सटे जोड़ में खिंचता है (RRB-CBT2 Apr'25-II), दोनों <b>समान या असमान</b> धातुएँ जोड़ते हैं (Apr'25-I), और दोनों में सामान्यतः ऑक्साइड हटाने हेतु फ्लक्स (Jun'25)।<br><b>अन्य क्यों नहीं:</b> (b), (c) और (d) उन बिंदुओं पर अंतर बताते हैं जो वास्तव में दोनों में समान हैं।<br><b>सामर्थ्य सीढ़ी:</b> सोल्डर जोड़ (सबसे कमज़ोर) &lt; ब्रेज़्ड जोड़ &lt; वेल्डेड जोड़ (बेस धातु फ़्यूज़)।"}},
+
+/* 20 */ {ans:1, lv:"h", tag:{en:"Braze welding",hi:"ब्रेज़ वेल्डिंग"},
+en:{q:"In braze welding, unlike in brazing:",
+o:["the base metal is fully melted as well","filler is laid in a groove, not drawn in","the filler metal melts below 450 °C","no flux is ever used on the joint"],
+e:"<b>Brazing</b> needs a tight, close-fitting joint (about 0.05–0.2 mm gap) so that molten filler is pulled in by <b>capillary action</b>. <b>Braze welding</b> uses a brazing-type filler (melting above 450 °C, e.g. bronze/brass rod) but prepares the joint like a weld – a V-groove or fillet – and <b>deposits</b> the filler into it with a torch, building up a bead. There is <b>no capillary flow</b>, and the base metal is still <b>not melted</b>.<br><b>Uses:</b> repairing cracked cast iron (less risk of cracking than fusion welding), joining dissimilar metals, galvanised steel.<br><b>Why not the others:</b> (a) melting the base metal would make it fusion welding; (c) a filler below 450 °C is solder; (d) a flux (usually borax-based) is used.<br><b>Ladder:</b> soldering (&lt; 450 °C, capillary) · brazing (&gt; 450 °C, capillary) · braze welding (&gt; 450 °C, no capillary) · welding (base metal melts)."},
+hi:{q:"ब्रेज़ वेल्डिंग में, ब्रेज़िंग के विपरीत:",
+o:["बेस धातु भी पूरी तरह पिघलाई जाती है","फिलर खाँचे में जमाया जाता है, खिंचता नहीं","फिलर धातु 450 °C से नीचे पिघलती है","जोड़ पर फ्लक्स कभी प्रयोग नहीं होता"],
+e:"<b>ब्रेज़िंग</b> में सटा हुआ जोड़ (लगभग 0.05–0.2 mm गैप) चाहिए ताकि पिघला फिलर <b>केशिका क्रिया</b> से अंदर खिंचे। <b>ब्रेज़ वेल्डिंग</b> में ब्रेज़िंग-प्रकार का फिलर (450 °C से ऊपर पिघलने वाला, जैसे ब्रॉन्ज़/पीतल रॉड) होता है, पर जोड़ वेल्ड जैसा तैयार होता है – V-खाँचा या फिलेट – और फिलर टॉर्च से उसमें <b>जमाया</b> जाता है, बीड बनाते हुए। <b>केशिका प्रवाह नहीं</b>, और बेस धातु फिर भी <b>नहीं पिघलती</b>।<br><b>उपयोग:</b> दरार वाले कास्ट आयरन की मरम्मत (फ़्यूज़न वेल्डिंग से कम दरार जोखिम), असमान धातुएँ जोड़ना, गैल्वनाइज़्ड स्टील।<br><b>अन्य क्यों नहीं:</b> (a) बेस धातु पिघलाना फ़्यूज़न वेल्डिंग होगा; (c) 450 °C से नीचे का फिलर सोल्डर है; (d) फ्लक्स (सामान्यतः बोरैक्स-आधारित) प्रयोग होता है।<br><b>सीढ़ी:</b> सोल्डरिंग (&lt; 450 °C, केशिका) · ब्रेज़िंग (&gt; 450 °C, केशिका) · ब्रेज़ वेल्डिंग (&gt; 450 °C, केशिका नहीं) · वेल्डिंग (बेस धातु पिघलती)।"}},
+
+/* 21 */ {ans:3, lv:"p", tag:{en:"Solders",hi:"सोल्डर"},
+en:{q:"The tin–lead solder that melts at a single, lowest temperature (the eutectic) has the composition and melting point:",
+o:["50 % tin – 50 % lead, 250 °C","30 % tin – 70 % lead, 183 °C","37 % tin – 63 % lead, 232 °C","63 % tin – 37 % lead, 183 °C"],
+e:"The tin–lead <b>eutectic</b> is <b>63 % tin – 37 % lead</b>, melting sharply at <b>183 °C</b> – the lowest melting point of any tin–lead mix. With no 'pasty' range it freezes instantly, which is ideal for electronics (the common 60/40 solder is very close to it).<br><b>Other solders:</b> soft solder 50/50 – general purpose · tinman's solder 60 Sn / 40 Pb – fine work, electronics · plumber's solder 30 Sn / 70 Pb – wide pasty range, used for wiping pipe joints · lead-free (tin–silver–copper) – modern electronics under restriction-of-hazardous-substances rules.<br><b>Trap:</b> 232 °C is the melting point of <b>pure tin</b>, and lead melts at 327 °C – an alloy melts lower than both.<br><b>PYQs:</b> 'soft solder consists of → lead and tin' (RRB-CBT2 2019); 'most commonly used soldering alloy → tin 60 % and lead 40 %' (TSGENCO); 'soldering temperature range → 180–250 °C' (Railway SSE, NPSC)."},
+hi:{q:"एकल, न्यूनतम तापमान (यूटेक्टिक) पर पिघलने वाले टिन–लेड सोल्डर का संघटन और गलनांक है:",
+o:["50 % टिन – 50 % लेड, 250 °C","30 % टिन – 70 % लेड, 183 °C","37 % टिन – 63 % लेड, 232 °C","63 % टिन – 37 % लेड, 183 °C"],
+e:"टिन–लेड <b>यूटेक्टिक</b> है <b>63 % टिन – 37 % लेड</b>, जो ठीक <b>183 °C</b> पर पिघलता है – किसी भी टिन–लेड मिश्रण का न्यूनतम गलनांक। 'पेस्टी' दायरा न होने से यह तुरंत जमता है, जो इलेक्ट्रॉनिक्स हेतु आदर्श है (सामान्य 60/40 सोल्डर इसके बहुत पास है)।<br><b>अन्य सोल्डर:</b> सॉफ़्ट सोल्डर 50/50 – सामान्य प्रयोजन · टिनमैन सोल्डर 60 Sn / 40 Pb – बारीक कार्य, इलेक्ट्रॉनिक्स · प्लंबर सोल्डर 30 Sn / 70 Pb – चौड़ा पेस्टी दायरा, पाइप जोड़ों की वाइपिंग · लेड-मुक्त (टिन–सिल्वर–कॉपर) – खतरनाक पदार्थ प्रतिबंध नियमों के अंतर्गत आधुनिक इलेक्ट्रॉनिक्स।<br><b>ट्रैप:</b> 232 °C <b>शुद्ध टिन</b> का गलनांक है, और लेड 327 °C पर पिघलता है – मिश्रधातु दोनों से कम पर पिघलती है।<br><b>PYQ:</b> 'सॉफ़्ट सोल्डर → लेड और टिन' (RRB-CBT2 2019); 'सबसे सामान्य सोल्डरिंग मिश्रधातु → टिन 60 % व लेड 40 %' (TSGENCO); 'सोल्डरिंग तापमान → 180–250 °C' (रेलवे SSE, NPSC)।"}},
+
+/* 22 */ {ans:2, lv:"p", tag:{en:"Soldering fluxes",hi:"सोल्डरिंग फ्लक्स"},
+en:{q:"For soldering electronic circuit boards, the preferred flux is:",
+o:["zinc chloride, as it is the most active","borax, as it works at high temperature","rosin, as its residue is non-corrosive","fluoride paste, as it dissolves oxides"],
+e:"A soldering flux removes oxides and surface films and stops re-oxidation during heating, helping the solder wet the surface (RRB-CBT2 Jun'25). For electronics the residue left on the board must not corrode fine copper tracks or conduct electricity, so <b>rosin</b> (a natural resin from pine trees, often in the core of the solder wire) is used – it is active when hot but <b>non-corrosive and insulating</b> when cold.<br><b>Other fluxes:</b> <b>zinc chloride</b> ('killed spirit') and ammonium chloride – highly active, used on sheet metal, copper and brass, but corrosive and must be washed off (GPSC, HPPSC PYQ) · <b>borax</b> – the brazing flux (works at high temperature) · fluorides – for aluminium.<br><b>Why not the others:</b> zinc chloride would corrode the circuit; borax is for brazing temperatures; fluoride paste is for aluminium."},
+hi:{q:"इलेक्ट्रॉनिक सर्किट बोर्ड की सोल्डरिंग हेतु पसंदीदा फ्लक्स है:",
+o:["ज़िंक क्लोराइड, क्योंकि सबसे सक्रिय है","बोरैक्स, क्योंकि उच्च तापमान पर काम करता है","रोज़िन, क्योंकि इसका अवशेष असंक्षारक है","फ़्लोराइड पेस्ट, क्योंकि ऑक्साइड घोलता है"],
+e:"सोल्डरिंग फ्लक्स ऑक्साइड व सतही परतें हटाता है और गर्म करते समय दोबारा ऑक्सीकरण रोकता है, जिससे सोल्डर सतह को गीला करता है (RRB-CBT2 Jun'25)। इलेक्ट्रॉनिक्स में बोर्ड पर बचा अवशेष बारीक कॉपर ट्रैक को संक्षारित या बिजली चालित नहीं करना चाहिए, इसलिए <b>रोज़िन</b> (चीड़ के पेड़ों से प्राकृतिक राल, प्रायः सोल्डर तार के कोर में) प्रयोग होता है – गर्म होने पर सक्रिय पर ठंडा होने पर <b>असंक्षारक व विद्युत-रोधी</b>।<br><b>अन्य फ्लक्स:</b> <b>ज़िंक क्लोराइड</b> ('किल्ड स्पिरिट') व अमोनियम क्लोराइड – अत्यधिक सक्रिय, शीट धातु, कॉपर व पीतल पर, पर संक्षारक, धोकर हटाना पड़ता है (GPSC, HPPSC PYQ) · <b>बोरैक्स</b> – ब्रेज़िंग फ्लक्स (उच्च तापमान पर) · फ़्लोराइड – एल्युमिनियम हेतु।<br><b>अन्य क्यों नहीं:</b> ज़िंक क्लोराइड सर्किट को संक्षारित करेगा; बोरैक्स ब्रेज़िंग तापमान हेतु; फ़्लोराइड पेस्ट एल्युमिनियम हेतु।"}},
+
+/* 23 */ {ans:0, lv:"p", tag:{en:"Brazing applications",hi:"ब्रेज़िंग उपयोग"},
+en:{q:"Cemented-carbide tool tips are fixed to steel shanks of single-point cutting tools by:",
+o:["brazing with a silver or copper alloy","soldering with tin–lead solder","thermit welding with a mould","explosive welding with a flyer plate"],
+e:"Carbide cannot be fusion welded to steel – it would crack and its properties would be lost. <b>Brazing</b> with a copper or <b>silver alloy</b> (silver brazing alloys melt at about 600–850 °C – NLC PYQ) bonds the tip to the shank without melting either part; the joint is strong enough to carry cutting forces and stays sound at the moderate temperatures of cutting. Borax or a fluoride-based flux is used.<br><b>Brazing methods:</b> torch brazing – oxy-acetylene flame (RRB-CBT2 Apr'25-I) · furnace brazing (copper brazing of steel parts in a controlled atmosphere) · induction brazing (used for tool tips) · resistance and dip brazing.<br><b>Why not the others:</b> tin–lead solder would soften from cutting heat; thermit and explosive welding are for heavy sections and cladding.<br><b>Brazing fillers:</b> brass ('spelter'), copper, silver alloys ('hard solder'), aluminium–silicon for aluminium."},
+hi:{q:"सिंगल-पॉइंट कटिंग टूल के स्टील शैंक पर सीमेंटेड-कार्बाइड टूल टिप किससे लगाए जाते हैं?",
+o:["सिल्वर या कॉपर मिश्रधातु से ब्रेज़िंग","टिन–लेड सोल्डर से सोल्डरिंग","साँचे के साथ थर्मिट वेल्डिंग","फ़्लायर प्लेट के साथ एक्सप्लोसिव वेल्डिंग"],
+e:"कार्बाइड को स्टील से फ़्यूज़न वेल्ड नहीं किया जा सकता – वह दरक जाएगा और गुण खो देगा। कॉपर या <b>सिल्वर मिश्रधातु</b> से <b>ब्रेज़िंग</b> (सिल्वर ब्रेज़िंग मिश्रधातु लगभग 600–850 °C पर पिघलती है – NLC PYQ) टिप को शैंक से, किसी भाग को पिघलाए बिना, जोड़ती है; जोड़ कटिंग बल सहने योग्य मज़बूत और कटिंग के मध्यम तापमान पर भी दोषरहित रहता है। बोरैक्स या फ़्लोराइड-आधारित फ्लक्स प्रयोग होता है।<br><b>ब्रेज़िंग विधियाँ:</b> टॉर्च ब्रेज़िंग – ऑक्सी-एसिटिलीन फ्लेम (RRB-CBT2 Apr'25-I) · फ़र्नेस ब्रेज़िंग (नियंत्रित वातावरण में स्टील भागों की कॉपर ब्रेज़िंग) · इंडक्शन ब्रेज़िंग (टूल टिप हेतु) · रेज़िस्टेंस व डिप ब्रेज़िंग।<br><b>अन्य क्यों नहीं:</b> टिन–लेड सोल्डर कटिंग ऊष्मा से नरम हो जाएगा; थर्मिट व एक्सप्लोसिव वेल्डिंग भारी सेक्शन व क्लैडिंग हेतु।<br><b>ब्रेज़िंग फिलर:</b> पीतल ('स्पेल्टर'), कॉपर, सिल्वर मिश्रधातु ('हार्ड सोल्डर'), एल्युमिनियम हेतु एल्युमिनियम–सिलिकॉन।"}},
+
+/* 24 */ {ans:1, lv:"p", num:true, tag:{en:"Numerical – resistance heat",hi:"न्यूमेरिकल – प्रतिरोध ऊष्मा"},
+en:{q:"Two steel sheets are spot welded at a current of 4000 A. The effective resistance is 150 µΩ and the current flows for 0.25 s. The heat generated is:",
+o:["150 J","600 J","2400 J","60 J"],
+e:"H = I² R t = (4000)² × 150 × 10⁻⁶ × 0.25<br>= 16 × 10⁶ × 150 × 10⁻⁶ × 0.25 = 2400 × 0.25 = <b>600 J</b>.<br><b>Distractor check:</b> (c) 2400 J forgets to multiply by time (that is the power in watts); (a) 150 J applies the 0.25 s factor twice; (d) 60 J drops a factor of 10.<br><b>Watch the units:</b> 1 µΩ = 10⁻⁶ Ω; the time is often given in cycles – at 50 Hz, 1 cycle = 0.02 s.<br><b>Concept:</b> because H ∝ I², doubling the current gives four times the heat – that is why current is the most powerful control in resistance welding.<br><b>Same pattern PYQ:</b> 5000 A, 200 µΩ, 0.2 s → H = 1000 J (GPSC 2018, RPSC 2016)."},
+hi:{q:"दो स्टील शीटों की 4000 A करंट पर स्पॉट वेल्डिंग होती है। प्रभावी प्रतिरोध 150 µΩ है और करंट 0.25 s बहता है। उत्पन्न ऊष्मा है:",
+o:["150 J","600 J","2400 J","60 J"],
+e:"H = I² R t = (4000)² × 150 × 10⁻⁶ × 0.25<br>= 16 × 10⁶ × 150 × 10⁻⁶ × 0.25 = 2400 × 0.25 = <b>600 J</b>।<br><b>गलत विकल्प कैसे बने:</b> (c) 2400 J में समय से गुणा भूल गए (यह वाट में शक्ति है); (a) 150 J में 0.25 s का गुणक दो बार लगा दिया; (d) 60 J में 10 का गुणक छूट गया।<br><b>इकाई ध्यान दें:</b> 1 µΩ = 10⁻⁶ Ω; समय प्रायः साइकिल में दिया जाता है – 50 Hz पर 1 साइकिल = 0.02 s।<br><b>अवधारणा:</b> चूँकि H ∝ I², करंट दोगुना करने पर ऊष्मा चार गुना – इसीलिए करंट रेज़िस्टेंस वेल्डिंग का सबसे प्रभावी नियंत्रण है।<br><b>इसी पैटर्न का PYQ:</b> 5000 A, 200 µΩ, 0.2 s → H = 1000 J (GPSC 2018, RPSC 2016)।"}},
+
+/* 25 */ {ans:3, lv:"h", num:true, tag:{en:"Numerical – current",hi:"न्यूमेरिकल – करंट"},
+en:{q:"A spot weld needs 1000 J of heat in 0.2 s. The effective resistance is 200 µΩ. The welding current required is:",
+o:["500 A","2500 A","25,000 A","5000 A"],
+e:"From H = I² R t:<br>I² = H ÷ (R × t) = 1000 ÷ (200 × 10⁻⁶ × 0.2) = 1000 ÷ (4 × 10⁻⁵) = 2.5 × 10⁷<br>I = √(2.5 × 10⁷) = <b>5000 A</b>.<br><b>Distractor check:</b> (b) 2500 A halves the answer; (c) 25,000 A forgets to take the square root properly (√(2.5×10⁸)); (a) 500 A misplaces a power of ten.<br><b>Square-root shortcut:</b> 2.5 × 10⁷ = 25 × 10⁶ → √ = 5 × 10³ = 5000.<br><b>Reality check:</b> spot welding of 1–1.5 mm steel sheet needs currents of the order of 5000–10,000 A ('current required for spot welding 1.5 mm steel sheets is of the order of → 10,000 A' – TNPSC, HPPSC PYQ), so 5000 A is a sensible answer.<br><b>PYQ:</b> this is the GPSC 2018 question asked in reverse."},
+hi:{q:"एक स्पॉट वेल्ड को 0.2 s में 1000 J ऊष्मा चाहिए। प्रभावी प्रतिरोध 200 µΩ है। आवश्यक वेल्डिंग करंट है:",
+o:["500 A","2500 A","25,000 A","5000 A"],
+e:"H = I² R t से:<br>I² = H ÷ (R × t) = 1000 ÷ (200 × 10⁻⁶ × 0.2) = 1000 ÷ (4 × 10⁻⁵) = 2.5 × 10⁷<br>I = √(2.5 × 10⁷) = <b>5000 A</b>।<br><b>गलत विकल्प कैसे बने:</b> (b) 2500 A में उत्तर आधा; (c) 25,000 A में वर्गमूल ठीक से नहीं लिया (√(2.5×10⁸)); (a) 500 A में दस की घात गलत।<br><b>वर्गमूल शॉर्टकट:</b> 2.5 × 10⁷ = 25 × 10⁶ → √ = 5 × 10³ = 5000।<br><b>व्यावहारिक जाँच:</b> 1–1.5 mm स्टील शीट की स्पॉट वेल्डिंग में लगभग 5000–10,000 A करंट लगता है ('1.5 mm स्टील शीट की स्पॉट वेल्डिंग हेतु करंट → लगभग 10,000 A' – TNPSC, HPPSC PYQ), इसलिए 5000 A उचित उत्तर है।<br><b>PYQ:</b> यह GPSC 2018 का प्रश्न उल्टा पूछा गया है।"}}
+];
+
+const LIMIT = 20*60;
+let lang = "en";
+let mode = "test";
+let picked = new Array(Q.length).fill(null);
+let showAll = false;
+let submitted = false;
+let autoSub = false;
+let left = LIMIT;
+let tick = null;
+const L = ["a","b","c","d"];
+const $ = id => document.getElementById(id);
+
+function fmt(t){ const m=Math.floor(t/60), s=t%60; return String(m).padStart(2,"0")+":"+String(s).padStart(2,"0"); }
+
+function startTimer(){
+  stopTimer();
+  if(mode!=="test" || submitted) return;
+  tick = setInterval(()=>{
+    left--;
+    if(left<=0){ left=0; autoSub=true; doSubmit(); return; }
+    paintTimer();
+  },1000);
+}
+function stopTimer(){ if(tick){clearInterval(tick); tick=null;} }
+function paintTimer(){
+  const t=$("timer"), u=UI[lang];
+  if(mode!=="test"){ t.classList.add("hidden"); return; }
+  t.classList.remove("hidden");
+  t.textContent = submitted ? u.taken+": "+fmt(LIMIT-left) : u.time+": "+fmt(left);
+  t.classList.toggle("low", !submitted && left<=120);
+}
+
+function isRevealed(i){ return mode==="practice" ? (picked[i]!==null || showAll) : submitted; }
+
+function render(){
+  const u = UI[lang];
+  document.documentElement.lang = lang;
+  $("title").textContent = u.title;
+  $("subtitle").textContent = u.sub;
+  $("rules").textContent = mode==="test" ? u.rules : u.rulesP;
+  $("foot").textContent = u.foot;
+  $("mTest").textContent = u.test; $("mPrac").textContent = u.prac;
+  $("mTest").setAttribute("aria-pressed", mode==="test");
+  $("mPrac").setAttribute("aria-pressed", mode==="practice");
+  $("bSubmit").textContent = u.submit;
+  $("bSubmit").classList.toggle("hidden", !(mode==="test" && !submitted));
+  $("bShow").textContent = showAll ? u.hide : u.show;
+  $("bShow").classList.toggle("hidden", mode!=="practice");
+  $("bReset").textContent = u.reset;
+  $("bEn").setAttribute("aria-pressed", lang==="en");
+  $("bHi").setAttribute("aria-pressed", lang==="hi");
+
+  let html = "";
+  Q.forEach((q,i)=>{
+    if(q.num && i>0 && !Q[i-1].num) html += `<div class="sec">${u.num}</div>`;
+    const d = q[lang], p = picked[i], rev = isRevealed(i);
+    const lvClass = q.lv==="t" ? "lv-t" : q.lv==="h" ? "lv-h" : "";
+    html += `<article class="q" id="q${i}">
+      <div class="qhead"><span class="qno">Q${i+1}.</span><span class="chip">${q.tag[lang]}</span><span class="chip ${lvClass}">${u.lv[q.lv]}</span></div>
+      <div class="qtext">${d.q}</div><div class="opts">`;
+    d.o.forEach((o,j)=>{
+      let cls = "opt";
+      if(rev && j===q.ans) cls += " right";
+      if(rev && p===j && p!==q.ans) cls += " wrong";
+      if(!rev && p===j) cls += " sel";
+      html += `<button class="${cls}" data-q="${i}" data-o="${j}" ${rev?"disabled":""} aria-pressed="${p===j}"><span class="l">(${L[j]})</span><span>${o}</span></button>`;
+    });
+    html += `</div>`;
+    if(rev){
+      let v = "";
+      if(p!==null) v = p===q.ans ? `<div>${u.right}</div>` : `<div class="verdict-bad">${u.yours}</div>`;
+      else if(mode==="test") v = `<div class="verdict-bad">${u.un}</div>`;
+      html += `<div class="ex">${v}<div class="ans">${u.ans}: (${L[q.ans]})</div>${d.e}</div>`;
+    }
+    html += `</article>`;
+  });
+  $("list").innerHTML = html;
+  stats(); paintTimer(); result();
+}
+
+function counts(){
+  let c=0,w=0,a=0;
+  picked.forEach((p,i)=>{ if(p!==null){a++; if(p===Q[i].ans)c++; else w++;} });
+  return {c,w,a,s:(c-w/3).toFixed(2)};
+}
+
+function stats(){
+  const u = UI[lang], k = counts();
+  const hide = mode==="test" && !submitted;
+  $("sAtt").textContent = `${u.att}: ${k.a}/${Q.length}`;
+  $("sC").textContent = `${u.c}: ${k.c}`;
+  $("sW").textContent = `${u.w}: ${k.w}`;
+  $("sS").textContent = `${u.s}: ${k.s}`;
+  ["sC","sW","sS"].forEach(id=>$(id).classList.toggle("hidden", hide));
+}
+
+function result(){
+  const box = $("result");
+  if(!(mode==="test" && submitted)){ box.innerHTML=""; return; }
+  const u = UI[lang], k = counts();
+  const acc = k.a ? Math.round(k.c*100/k.a) : 0;
+  box.innerHTML = `<section class="result" aria-live="polite">
+    <h2>${u.res}: ${k.s} / ${Q.length}</h2>
+    <div class="rgrid">
+      <div>${u.c}<b>${k.c}</b></div><div>${u.w}<b>${k.w}</b></div>
+      <div>${u.un}<b>${Q.length-k.a}</b></div><div>${u.acc}<b>${acc}%</b></div>
+      <div>${u.taken}<b>${fmt(LIMIT-left)}</b></div>
+    </div>
+    <p>${autoSub ? u.auto+" " : ""}${u.resNote}</p></section>`;
+}
+
+function doSubmit(){
+  submitted = true; stopTimer(); render();
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function resetAll(){
+  picked = new Array(Q.length).fill(null);
+  showAll=false; submitted=false; autoSub=false; left=LIMIT;
+  render(); startTimer(); window.scrollTo({top:0});
+}
+
+$("list").addEventListener("click", e=>{
+  const b = e.target.closest(".opt");
+  if(!b || b.disabled) return;
+  const i = +b.dataset.q, j = +b.dataset.o;
+  if(mode==="test"){ picked[i] = picked[i]===j ? null : j; }
+  else { if(picked[i]!==null) return; picked[i] = j; }
+  render();
+  const btn = document.querySelector(`#q${i} .opt[data-o="${j}"]`) || document.querySelector(`#q${i} .opt`);
+  if(btn) btn.focus({preventScroll:true});
+});
+$("bEn").onclick = ()=>{ lang="en"; render(); };
+$("bHi").onclick = ()=>{ lang="hi"; render(); };
+function setMode(m){
+  if(m===mode) return;
+  const dirty = picked.some(p=>p!==null) || submitted;
+  if(dirty && !confirm(UI[lang].cMode)) return;
+  mode = m; resetAll();
+}
+$("mTest").onclick = ()=>setMode("test");
+$("mPrac").onclick = ()=>setMode("practice");
+$("bSubmit").onclick = ()=>{ if(confirm(UI[lang].cSub)) doSubmit(); };
+$("bShow").onclick = ()=>{ showAll=!showAll; render(); };
+$("bReset").onclick = resetAll;
+render(); startTimer();
+</script>
+</body>
+</html>
