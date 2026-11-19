@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welding Smart MCQ Set 6 – Full Mixed Mock | THE EXAM ENGINEER</title>
+<style>
+:root{
+  --navy:#12306b; --navy-deep:#0c2350; --orange:#f07f1a;
+  --bg:#f3f6fb; --card:#ffffff; --text:#16213a; --muted:#5b6782;
+  --line:#d9e0ec; --opt:#f7f9fd; --opt-hover:#eaf0fa;
+  --ok:#17803d; --ok-bg:#e6f6ec; --bad:#c0272d; --bad-bg:#fdecec;
+  --ex-bg:#fff7ee; --ex-line:#f3c58f; --chip:#e9eef8;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --navy:#2b4f9a; --navy-deep:#16264a; --orange:#ff9a3d;
+    --bg:#0f1524; --card:#18213a; --text:#e8edf8; --muted:#a3aec6;
+    --line:#2c3857; --opt:#1e2944; --opt-hover:#26345a;
+    --ok:#4cd17e; --ok-bg:#163a26; --bad:#ff6b70; --bad-bg:#3d1a1e;
+    --ex-bg:#2a2216; --ex-line:#6b4b22; --chip:#25304d;
+    color-scheme: dark;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:"Segoe UI","Noto Sans","Nirmala UI","Mangal",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  line-height:1.6;font-size:16px}
+header{background:var(--navy-deep);color:#fff;padding:22px 16px 18px}
+.wrap{max-width:860px;margin:0 auto}
+.brand{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand a{color:var(--orange);font-weight:700;text-decoration:none}
+.brand a:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.channel{font-weight:800;letter-spacing:.5px}
+h1{margin:14px 0 4px;font-size:clamp(1.4rem,4.5vw,2rem);line-height:1.2}
+.sub{margin:0;color:#c9d5ee;font-size:.95rem}
+.rules{margin-top:10px;font-size:.88rem;color:#c9d5ee}
+.bar{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:3px solid var(--orange);
+  box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.bar .wrap{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding:10px 16px}
+.seg{display:inline-flex;border:2px solid var(--navy);border-radius:999px;overflow:hidden}
+.seg button{border:0;background:transparent;color:var(--text);padding:6px 14px;font:inherit;font-weight:700;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--navy);color:#fff}
+.stats{display:flex;gap:12px;flex-wrap:wrap;font-size:.9rem;font-weight:600}
+.stats .c{color:var(--ok)} .stats .w{color:var(--bad)} .stats .s{color:var(--orange)}
+.tools button{border:1px solid var(--line);background:var(--opt);color:var(--text);border-radius:8px;
+  padding:6px 10px;font:inherit;font-size:.85rem;cursor:pointer}
+.tools button:hover{background:var(--opt-hover)}
+button:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+main{padding:18px 16px 40px}
+.q{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--navy);
+  border-radius:10px;padding:16px 16px 14px;margin:0 0 16px}
+.qhead{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.qno{font-weight:800;color:var(--navy)}
+@media (prefers-color-scheme: dark){.qno{color:#8fb0f5}}
+.chip{background:var(--chip);color:var(--muted);font-size:.75rem;font-weight:700;padding:2px 9px;border-radius:999px}
+.chip.lv-t{background:var(--bad-bg);color:var(--bad)}
+.chip.lv-h{background:var(--ex-bg);color:var(--orange)}
+.qtext{font-weight:600;margin:4px 0 12px}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;text-align:left;width:100%;border:1.5px solid var(--line);
+  background:var(--opt);color:var(--text);border-radius:8px;padding:9px 12px;font:inherit;cursor:pointer}
+.opt:hover:not(:disabled){background:var(--opt-hover)}
+.opt:disabled{cursor:default}
+.opt .l{font-weight:800;min-width:1.8em;color:var(--muted)}
+.opt.right{border-color:var(--ok);background:var(--ok-bg)}
+.opt.right .l{color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.opt.wrong .l{color:var(--bad)}
+.opt.sel{border-color:var(--navy);background:var(--opt-hover);box-shadow:inset 0 0 0 1px var(--navy)}
+.opt.sel .l{color:var(--navy)}
+@media (prefers-color-scheme: dark){.opt.sel .l{color:#8fb0f5}.opt.sel{border-color:#8fb0f5;box-shadow:inset 0 0 0 1px #8fb0f5}}
+.timer{font-variant-numeric:tabular-nums;font-weight:800}
+.timer.low{color:var(--bad)}
+.tools{display:flex;gap:6px;flex-wrap:wrap}
+.tools button.primary{background:var(--orange);border-color:var(--orange);color:#fff;font-weight:700}
+.tools button.primary:hover{filter:brightness(1.05);background:var(--orange)}
+.hidden{display:none !important}
+.result{background:var(--card);border:2px solid var(--orange);border-radius:12px;padding:16px;margin-bottom:18px}
+.result h2{margin:0 0 10px;font-size:1.2rem;color:var(--orange)}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+.rgrid div{background:var(--opt);border-radius:8px;padding:8px 10px}
+.rgrid b{display:block;font-size:1.3rem}
+.result p{margin:10px 0 0;color:var(--muted);font-size:.9rem}
+.start{position:fixed;inset:0;z-index:20;background:rgba(8,18,40,.78);display:flex;align-items:center;justify-content:center;padding:16px}
+.start .card{background:var(--card);color:var(--text);border-top:6px solid var(--orange);border-radius:14px;max-width:440px;width:100%;padding:22px 20px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.start h2{margin:0 0 6px;font-size:1.3rem;color:var(--navy)}
+@media (prefers-color-scheme: dark){.start h2{color:#8fb0f5}}
+.start p{margin:0 0 16px;color:var(--muted);font-size:.92rem}
+.start .big{display:block;width:100%;margin:10px 0;padding:14px;border-radius:10px;font:inherit;font-size:1.05rem;font-weight:800;cursor:pointer;border:2px solid var(--navy);background:var(--opt);color:var(--text)}
+.start .big.primary{background:var(--orange);border-color:var(--orange);color:#fff}
+.start .big small{display:block;font-weight:500;font-size:.82rem;opacity:.9;margin-top:2px}
+.start .seg{margin-top:10px}
+.ex{margin-top:12px;background:var(--ex-bg);border:1px solid var(--ex-line);border-radius:8px;padding:12px 14px;font-size:.95rem}
+.ex .ans{font-weight:800;color:var(--ok);margin-bottom:4px}
+.ex .verdict-bad{color:var(--bad)}
+.sec{margin:24px 0 12px;font-weight:800;color:var(--orange);font-size:1.05rem;border-bottom:2px solid var(--line);padding-bottom:4px}
+footer{text-align:center;color:var(--muted);font-size:.82rem;padding:10px 16px 30px}
+footer a{color:var(--orange)}
+@media (prefers-reduced-motion: no-preference){.ex{animation:show .25s ease-out}
+  @keyframes show{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}}
+</style>
+</head>
+<body>
+<div class="start" id="start" role="dialog" aria-modal="true" aria-labelledby="stTitle">
+  <div class="card">
+    <h2 id="stTitle"></h2>
+    <p id="stSub"></p>
+    <button class="big primary" id="stTest"></button>
+    <button class="big" id="stPrac"></button>
+    <div class="seg" role="group" aria-label="Language">
+      <button id="stEn" aria-pressed="true">English</button>
+      <button id="stHi" aria-pressed="false">हिंदी</button>
+    </div>
+  </div>
+</div>
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <span class="channel">THE EXAM ENGINEER</span>
+      <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a>
+    </div>
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+    <p class="rules" id="rules"></p>
+  </div>
+</header>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="seg" role="group" aria-label="Language">
+      <button id="bEn" aria-pressed="true">English</button>
+      <button id="bHi" aria-pressed="false">हिंदी</button>
+    </div>
+    <div class="seg" role="group" aria-label="Mode">
+      <button id="mTest" aria-pressed="true"></button>
+      <button id="mPrac" aria-pressed="false"></button>
+    </div>
+    <div class="stats" aria-live="polite">
+      <span class="timer" id="timer"></span>
+      <span id="sAtt"></span><span class="c" id="sC"></span><span class="w" id="sW"></span><span class="s" id="sS"></span>
+    </div>
+    <div class="tools">
+      <button id="bSubmit" class="primary"></button>
+      <button id="bShow"></button>
+      <button id="bReset"></button>
+    </div>
+  </div>
+</div>
+
+<main><div class="wrap"><div id="result"></div><div id="list"></div></div></main>
+
+<footer>
+  <div id="foot"></div>
+  <div>© 2026 THE EXAM ENGINEER · <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a> · theexamengineer1@gmail.com</div>
+  <div>SSC JE AIR 14 · RRB JE 2025 (DMS)</div>
+</footer>
+
+<script>
+const UI = {
+  en:{title:"Welding Smart MCQ – Set 6",
+      sub:"Full Mixed Mock (all welding topics) · RRB JE CBT-2 (Mechanical & Allied) · RRB JE PYQ based",
+      rules:"25 questions · 20 minutes (RRB CBT-2 pace: 150 Qs in 120 min) · +1 correct, −1/3 wrong",
+      stT:"Start Test",stTs:"20 minutes · timer · submit · full result",stP:"Practice Mode",stPs:"no timer · answer and explanation instantly",stSub:"Choose how you want to attempt this set",
+      rulesP:"Practice mode · no timer · tap an option to see the answer with full explanation instantly",
+      test:"Test",prac:"Practice",submit:"Submit test",time:"Time left",
+      cSub:"Submit the test now? You cannot change answers after submitting.",
+      cMode:"Switching mode will reset your current attempt. Continue?",
+      res:"Your result",un:"Not attempted",taken:"Time taken",acc:"Accuracy",auto:"Time over – test submitted automatically.",
+      resNote:"Answers and full explanations are now shown below each question. Read the explanation of every wrong and unattempted question.",
+      att:"Attempted",c:"Correct",w:"Wrong",s:"Score",show:"Show all answers",hide:"Hide unattempted answers",reset:"Reset",
+      ans:"Correct answer",yours:"Your answer is wrong.",right:"Your answer is correct.",num:"Simple numericals",
+      lv:{e:"Easy",p:"PYQ level",h:"Higher",t:"Tough"},
+      foot:"Original work, free for personal study. Share as it is with the channel link – no re-branding."},
+  hi:{title:"वेल्डिंग स्मार्ट MCQ – सेट 6",
+      sub:"फुल मिक्स्ड मॉक (वेल्डिंग के सभी टॉपिक) · RRB JE CBT-2 (मैकेनिकल एवं संबद्ध) · RRB JE PYQ आधारित",
+      rules:"25 प्रश्न · 20 मिनट (RRB CBT-2 गति: 120 मिनट में 150 प्रश्न) · सही +1, गलत −1/3",
+      stT:"टेस्ट शुरू करें",stTs:"20 मिनट · टाइमर · सबमिट · पूरा परिणाम",stP:"प्रैक्टिस मोड",stPs:"कोई टाइमर नहीं · उत्तर व व्याख्या तुरंत",stSub:"यह सेट कैसे हल करना है, चुनें",
+      rulesP:"प्रैक्टिस मोड · कोई टाइमर नहीं · विकल्प पर टैप करें, उत्तर और पूरी व्याख्या तुरंत दिखेगी",
+      test:"टेस्ट",prac:"प्रैक्टिस",submit:"टेस्ट सबमिट करें",time:"शेष समय",
+      cSub:"क्या अभी टेस्ट सबमिट करें? सबमिट के बाद उत्तर नहीं बदल सकेंगे।",
+      cMode:"मोड बदलने पर आपका वर्तमान प्रयास रीसेट हो जाएगा। जारी रखें?",
+      res:"आपका परिणाम",un:"बिना प्रयास",taken:"लिया गया समय",acc:"सटीकता",auto:"समय समाप्त – टेस्ट स्वतः सबमिट हो गया।",
+      resNote:"अब हर प्रश्न के नीचे उत्तर और पूरी व्याख्या दिख रही है। हर गलत और बिना प्रयास वाले प्रश्न की व्याख्या ज़रूर पढ़ें।",
+      att:"प्रयास",c:"सही",w:"गलत",s:"स्कोर",show:"सभी उत्तर दिखाएँ",hide:"बिना प्रयास वाले उत्तर छिपाएँ",reset:"रीसेट",
+      ans:"सही उत्तर",yours:"आपका उत्तर गलत है।",right:"आपका उत्तर सही है।",num:"सरल न्यूमेरिकल",
+      lv:{e:"आसान",p:"PYQ स्तर",h:"उच्च",t:"कठिन"},
+      foot:"मौलिक कार्य, व्यक्तिगत अध्ययन हेतु निःशुल्क। चैनल लिंक सहित जैसा है वैसा ही शेयर करें – री-ब्रांडिंग नहीं।"}
+};
+
+const Q = [
+/* 1 */ {ans:1, lv:"e", tag:{en:"Fluxes",hi:"फ्लक्स"},
+en:{q:"Which of the following is an organic flux?",
+o:["borax","tallow","zinc chloride","ammonium chloride"],
+e:"<b>Tallow</b> (animal fat) is an <b>organic</b> flux – a carbon-based substance from a living source. Other organic fluxes are rosin (pine resin, used in electronics), stearin, olive oil and petroleum-jelly based pastes. They are mild, mostly non-corrosive, and used for soldering lead pipes and clean, easy-to-wet metals.<br><b>Inorganic fluxes</b> (the other options) are mineral salts: <b>borax</b> – the standard brazing and copper/brass flux; <b>zinc chloride</b> ('killed spirit') and <b>ammonium chloride</b> (sal ammoniac) – highly active soldering fluxes for sheet metal, copper and brass, but corrosive, so the residue must be washed off.<br><b>Rule:</b> the more active the flux, the more corrosive its residue – rosin for electrical work, zinc chloride for sheet-metal work.<br><b>PYQ:</b> 'which of the following is an organic flux → tallow' (RRB-CBT2 2019)."},
+hi:{q:"निम्न में से कौन-सा कार्बनिक (organic) फ्लक्स है?",
+o:["बोरैक्स","टैलो (tallow)","ज़िंक क्लोराइड","अमोनियम क्लोराइड"],
+e:"<b>टैलो</b> (पशु वसा) एक <b>कार्बनिक</b> फ्लक्स है – सजीव स्रोत से प्राप्त कार्बन-आधारित पदार्थ। अन्य कार्बनिक फ्लक्स: रोज़िन (चीड़ की राल, इलेक्ट्रॉनिक्स में), स्टीयरिन, जैतून तेल और पेट्रोलियम-जेली आधारित पेस्ट। ये हल्के, प्रायः असंक्षारक होते हैं और लेड पाइप तथा साफ़, आसानी से गीली होने वाली धातुओं की सोल्डरिंग में प्रयोग होते हैं।<br><b>अकार्बनिक फ्लक्स</b> (अन्य विकल्प) खनिज लवण हैं: <b>बोरैक्स</b> – मानक ब्रेज़िंग व कॉपर/पीतल फ्लक्स; <b>ज़िंक क्लोराइड</b> ('किल्ड स्पिरिट') और <b>अमोनियम क्लोराइड</b> (नौसादर) – शीट धातु, कॉपर व पीतल हेतु अत्यधिक सक्रिय सोल्डरिंग फ्लक्स, पर संक्षारक, अवशेष धोना पड़ता है।<br><b>नियम:</b> फ्लक्स जितना सक्रिय, अवशेष उतना संक्षारक – विद्युत कार्य हेतु रोज़िन, शीट-धातु हेतु ज़िंक क्लोराइड।<br><b>PYQ:</b> 'कार्बनिक फ्लक्स → टैलो' (RRB-CBT2 2019)।"}},
+
+/* 2 */ {ans:3, lv:"h", tag:{en:"Arc principle",hi:"आर्क सिद्धांत"},
+en:{q:"In shielded metal arc welding, the electrode is touched to the job and then withdrawn to a gap roughly equal to its core diameter. Current keeps flowing across this air gap and melts both the electrode and the job. What keeps the current flowing across the gap?",
+o:["the flux coating melting into a bridge","a chemical reaction between the rod and the job","a thin film of molten metal joining them","ionised gas (plasma) in the gap conducting it"],
+e:"Air is normally an insulator. At the moment of contact, the high current and contact resistance heat the electrode tip; as it is drawn away, electrons are emitted from the hot cathode and collide with gas atoms and metal vapour in the gap, knocking out more electrons. The gap fills with <b>ionised gas – a plasma</b> of electrons and positive ions – which conducts current. This conducting column is the <b>arc</b>, at about 5000–6000 °C, and its heat melts both the electrode tip and the job.<br><b>Why not the others:</b> the coating melts but does not bridge the gap; no chemical reaction supplies the heat (that is thermit or gas welding); a molten-metal bridge would be a short circuit, not an arc.<br><b>PYQ:</b> 'principle of arc welding → creating flow of electric current in the air gap between electrode and workpiece to melt the metal' (RRB-CBT2 Apr'25-I). Arc stabilisers in the coating (potassium, sodium) make this ionisation easier."},
+hi:{q:"शील्डेड मेटल आर्क वेल्डिंग में इलेक्ट्रोड को जॉब से छुआकर लगभग अपने कोर व्यास जितने गैप तक हटाया जाता है। इस वायु-गैप से करंट बहता रहता है और इलेक्ट्रोड व जॉब दोनों को पिघलाता है। गैप में करंट को बहता कौन रखता है?",
+o:["फ्लक्स कोटिंग पिघलकर पुल बनाती है","रॉड और जॉब के बीच रासायनिक अभिक्रिया","दोनों को जोड़ने वाली पिघली धातु की पतली परत","गैप में आयनित गैस (प्लाज़्मा) जो चालन करती है"],
+e:"हवा सामान्यतः कुचालक है। संपर्क के क्षण उच्च करंट और संपर्क प्रतिरोध इलेक्ट्रोड सिरे को गर्म करते हैं; हटाने पर गर्म कैथोड से इलेक्ट्रॉन निकलते हैं और गैप में गैस परमाणुओं व धातु वाष्प से टकराकर और इलेक्ट्रॉन निकालते हैं। गैप <b>आयनित गैस – प्लाज़्मा</b> (इलेक्ट्रॉन व धनात्मक आयन) से भर जाता है, जो करंट चलाता है। यही चालक स्तंभ <b>आर्क</b> है, लगभग 5000–6000 °C पर, और इसकी ऊष्मा इलेक्ट्रोड सिरे व जॉब दोनों को पिघलाती है।<br><b>अन्य क्यों नहीं:</b> कोटिंग पिघलती है पर गैप में पुल नहीं बनाती; रासायनिक अभिक्रिया ऊष्मा नहीं देती (वह थर्मिट या गैस वेल्डिंग है); पिघली धातु का पुल शॉर्ट सर्किट होगा, आर्क नहीं।<br><b>PYQ:</b> 'आर्क वेल्डिंग का सिद्धांत → इलेक्ट्रोड व जॉब के बीच वायु-गैप में करंट प्रवाह से धातु पिघलाना' (RRB-CBT2 Apr'25-I)। कोटिंग के आर्क स्थिरक (पोटैशियम, सोडियम) यह आयनन आसान बनाते हैं।"}},
+
+/* 3 */ {ans:1, lv:"p", tag:{en:"Weld terms",hi:"वेल्ड शब्दावली"},
+en:{q:"In a fillet weld, the distance from the root of the joint to the toe of the weld is called the:",
+o:["throat","leg","face","reinforcement"],
+e:"<b>Fillet weld terms:</b><br><b>Leg</b> – distance from the <b>root</b> of the joint to the <b>toe</b> of the weld (along each plate). Fillet size is usually stated by leg length.<br><b>Throat</b> – shortest distance from the root to the face; for an equal-leg fillet, throat = 0.707 × leg. Strength is calculated on the throat area.<br><b>Face</b> – exposed surface of the weld. <b>Toe</b> – junction of the weld face and base metal. <b>Root</b> – deepest point where the plates meet.<br><b>Reinforcement</b> – weld metal above the surface of the plates in a butt weld (extra metal, not counted for strength).<br><b>PYQ:</b> 'the distance from the joint root to the toe of the weld is called → leg' (RRB-CBT2 2019)."},
+hi:{q:"फिलेट वेल्ड में जोड़ की रूट से वेल्ड के टो तक की दूरी कहलाती है:",
+o:["थ्रोट","लेग","फ़ेस","रीइन्फ़ोर्समेंट"],
+e:"<b>फिलेट वेल्ड शब्द:</b><br><b>लेग</b> – जोड़ की <b>रूट</b> से वेल्ड के <b>टो</b> तक की दूरी (प्रत्येक प्लेट के साथ)। फिलेट का आकार सामान्यतः लेग लंबाई से बताया जाता है।<br><b>थ्रोट</b> – रूट से फ़ेस तक की न्यूनतम दूरी; समान-लेग फिलेट में थ्रोट = 0.707 × लेग। सामर्थ्य थ्रोट क्षेत्रफल पर गणना होती है।<br><b>फ़ेस</b> – वेल्ड की खुली सतह। <b>टो</b> – वेल्ड फ़ेस व बेस धातु का मिलन बिंदु। <b>रूट</b> – सबसे गहरा बिंदु जहाँ प्लेटें मिलती हैं।<br><b>रीइन्फ़ोर्समेंट</b> – बट वेल्ड में प्लेट सतह से ऊपर की वेल्ड धातु (अतिरिक्त धातु, सामर्थ्य में नहीं गिनी जाती)।<br><b>PYQ:</b> 'जोड़ की रूट से वेल्ड के टो तक की दूरी → लेग' (RRB-CBT2 2019)।"}},
+
+/* 4 */ {ans:3, lv:"h", tag:{en:"Equipment · scenario",hi:"उपकरण · परिस्थिति"},
+en:{q:"On a site job, the arc keeps becoming unstable. The cable near the job gets noticeably hot, while the electrode-holder end stays cool. The current setting and the electrodes are correct. The most likely cause is:",
+o:["a wrong type of electrode coating","skipping the chipping hammer","a filter glass shade that is too dark","a loose or corroded earth-clamp contact"],
+e:"The <b>earth (ground) clamp</b> completes the welding circuit between the job and the machine. If it is loose, painted over, rusty or corroded, the small contact area has high resistance; the full welding current passing through it generates I²R heat – so the clamp and the cable near it get <b>hot</b>. The poor contact also makes the current fluctuate, so the <b>arc becomes unstable</b>, and a badly placed earth can worsen arc blow.<br><b>Remedy:</b> clamp on clean, bright metal close to the joint; tighten it; check cable lugs.<br><b>Why not the others:</b> coating type affects arc character but would not heat the cable at the job end; the chipping hammer only removes slag; filter shade affects vision, not the circuit.<br><b>PYQ link:</b> welding cables carry current from the machine to the electrode holder (RRB-CBT2 Jun'25); the earth return cable completes the circuit."},
+hi:{q:"साइट कार्य पर आर्क बार-बार अस्थिर हो रहा है। जॉब के पास की केबल काफ़ी गर्म हो जाती है, जबकि इलेक्ट्रोड-होल्डर वाला सिरा ठंडा रहता है। करंट सेटिंग और इलेक्ट्रोड सही हैं। सबसे संभावित कारण है:",
+o:["इलेक्ट्रोड कोटिंग का गलत प्रकार","चिपिंग हैमर का प्रयोग न करना","बहुत गहरे शेड का फ़िल्टर ग्लास","ढीला या संक्षारित अर्थ-क्लैंप संपर्क"],
+e:"<b>अर्थ (ग्राउंड) क्लैंप</b> जॉब और मशीन के बीच वेल्डिंग परिपथ पूरा करता है। यदि यह ढीला, पेंट लगी सतह पर, जंग लगा या संक्षारित हो, तो छोटे संपर्क क्षेत्र का प्रतिरोध अधिक होता है; उससे गुज़रता पूरा वेल्डिंग करंट I²R ऊष्मा बनाता है – इसलिए क्लैंप और पास की केबल <b>गर्म</b> हो जाती है। खराब संपर्क से करंट उतार-चढ़ाव करता है, इसलिए <b>आर्क अस्थिर</b> होता है, और गलत जगह लगा अर्थ आर्क ब्लो भी बढ़ा सकता है।<br><b>उपाय:</b> जोड़ के पास साफ़, चमकीली धातु पर क्लैंप लगाएँ; कसें; केबल लग जाँचें।<br><b>अन्य क्यों नहीं:</b> कोटिंग का प्रकार आर्क को प्रभावित करता है पर जॉब वाले सिरे की केबल गर्म नहीं करता; चिपिंग हैमर केवल स्लैग हटाता है; फ़िल्टर शेड दृष्टि को प्रभावित करता है, परिपथ को नहीं।<br><b>PYQ लिंक:</b> वेल्डिंग केबल मशीन से इलेक्ट्रोड होल्डर तक करंट ले जाती हैं (RRB-CBT2 Jun'25); अर्थ रिटर्न केबल परिपथ पूरा करती है।"}},
+
+/* 5 */ {ans:2, lv:"p", tag:{en:"Electrodes",hi:"इलेक्ट्रोड"},
+en:{q:"The coating factor of a covered electrode is defined as:",
+o:["coating weight ÷ total weight","core length ÷ coating length","overall diameter ÷ core wire diameter","coating thickness ÷ core diameter"],
+e:"<b>Coating factor</b> = <b>overall diameter of the covered electrode ÷ diameter of the core wire</b>. It indicates how heavy the coating is:<br>light (dipped/washed) coating ≈ 1.2–1.35 · medium ≈ 1.4–1.5 · <b>heavy coating ≈ 1.6</b> and above (RRB-CBT2 2019 PYQ).<br>Heavier coatings give better gas shielding, more slag protection, more deoxidisers and alloying, and (with iron powder) higher deposition – which is why heavy-coated electrodes are used for quality structural work.<br><b>Example:</b> a 3.15 mm core with a 5 mm overall diameter → coating factor ≈ 1.6 (heavy coated).<br><b>Related PYQ:</b> 'the type of covering indicated by the letters RR → rutile, heavy coated' (RRB-CBT2 2019)."},
+hi:{q:"लेपित (covered) इलेक्ट्रोड का कोटिंग फ़ैक्टर परिभाषित है:",
+o:["कोटिंग भार ÷ कुल भार","कोर लंबाई ÷ कोटिंग लंबाई","कुल व्यास ÷ कोर तार का व्यास","कोटिंग मोटाई ÷ कोर व्यास"],
+e:"<b>कोटिंग फ़ैक्टर</b> = <b>लेपित इलेक्ट्रोड का कुल व्यास ÷ कोर तार का व्यास</b>। यह बताता है कि कोटिंग कितनी भारी है:<br>हल्की (डिप्ड/वॉश्ड) कोटिंग ≈ 1.2–1.35 · मध्यम ≈ 1.4–1.5 · <b>भारी कोटिंग ≈ 1.6</b> और अधिक (RRB-CBT2 2019 PYQ)।<br>भारी कोटिंग बेहतर गैस शील्डिंग, अधिक स्लैग सुरक्षा, अधिक डीऑक्सीडाइज़र व मिश्रधातु तत्व, और (आयरन पाउडर के साथ) अधिक डिपॉज़िशन देती है – इसलिए गुणवत्ता वाले स्ट्रक्चरल कार्य में भारी-लेपित इलेक्ट्रोड।<br><b>उदाहरण:</b> 3.15 mm कोर और 5 mm कुल व्यास → कोटिंग फ़ैक्टर ≈ 1.6 (भारी लेपित)।<br><b>संबंधित PYQ:</b> 'RR अक्षरों से दर्शाया आवरण → रूटाइल, भारी लेपित' (RRB-CBT2 2019)।"}},
+
+/* 6 */ {ans:0, lv:"p", tag:{en:"Gas welding safety",hi:"गैस वेल्डिंग सुरक्षा"},
+en:{q:"Acetylene leaks into a closed, poorly ventilated store room and mixes with the air. The main hazard is that:",
+o:["the mixture can explode over a wide range","the acetylene turns into acetone vapour","the air in the room becomes rich in oxygen","the acetylene settles as a liquid pool"],
+e:"Acetylene mixed with air is explosive over a very <b>wide range</b> – roughly 2.5 % to over 80 % acetylene by volume, one of the widest of all fuel gases. A small spark (light switch, static, grinding) can ignite the whole room. That is why acetylene cylinders are stored in well-ventilated places, leaks are tested with soapy water (never a flame), and copper-rich fittings are avoided (explosive copper acetylide).<br><b>Why not the others:</b> acetylene does not turn into acetone – acetone is only the solvent inside the cylinder; a leak lowers, not raises, the oxygen share of the air; acetylene is a gas slightly lighter than air and does not form a liquid pool.<br><b>PYQ:</b> 'what makes acetylene gas when mixed with air → explosive mixture' (DMRC 2013)."},
+hi:{q:"एसिटिलीन एक बंद, कम हवादार स्टोर रूम में रिसकर हवा में मिल जाती है। मुख्य खतरा यह है कि:",
+o:["मिश्रण एक विस्तृत दायरे में विस्फोट कर सकता है","एसिटिलीन एसीटोन वाष्प में बदल जाती है","कमरे की हवा में ऑक्सीजन बढ़ जाती है","एसिटिलीन द्रव के रूप में नीचे जमा हो जाती है"],
+e:"हवा में मिली एसिटिलीन बहुत <b>विस्तृत दायरे</b> में विस्फोटक है – आयतन से लगभग 2.5 % से 80 % से अधिक तक, सभी फ्यूल गैसों में सबसे चौड़े दायरों में से एक। एक छोटी चिंगारी (स्विच, स्थैतिक बिजली, ग्राइंडिंग) पूरे कमरे को प्रज्वलित कर सकती है। इसीलिए एसिटिलीन सिलेंडर हवादार स्थान पर रखे जाते हैं, रिसाव साबुन के पानी से जाँचा जाता है (फ्लेम से कभी नहीं), और कॉपर-युक्त फिटिंग से बचा जाता है (विस्फोटक कॉपर एसिटाइलाइड)।<br><b>अन्य क्यों नहीं:</b> एसिटिलीन एसीटोन नहीं बनती – एसीटोन तो सिलेंडर के अंदर केवल विलायक है; रिसाव हवा में ऑक्सीजन का हिस्सा घटाता है, बढ़ाता नहीं; एसिटिलीन हवा से थोड़ी हल्की गैस है, द्रव नहीं बनती।<br><b>PYQ:</b> 'हवा में मिलने पर एसिटिलीन → विस्फोटक मिश्रण' (DMRC 2013)।"}},
+
+/* 7 */ {ans:1, lv:"t", tag:{en:"Numerical – maximum power",hi:"न्यूमेरिकल – अधिकतम शक्ति"},
+en:{q:"A direct-current welding source has a linear characteristic with an open-circuit voltage of 70 V and a short-circuit current of 700 A. The arc characteristic is V = 18 + 4l, where V is in volts and l is the arc length in mm. At what arc length will the arc power be maximum?",
+o:["13 mm","4.25 mm","8.5 mm","2.25 mm"],
+e:"For a linear source, arc power P = V × I is maximum when the operating voltage is half the open-circuit voltage (and current is half the short-circuit current):<br>V = 70 ÷ 2 = 35 V, I = 700 ÷ 2 = 350 A, P<sub>max</sub> = 35 × 350 = 12.25 kW.<br>The arc length must give this voltage: 18 + 4l = 35 → l = 17 ÷ 4 = <b>4.25 mm</b>.<br><b>Distractor check:</b> (a) 13 mm sets the arc voltage equal to the full 70 V (no current would flow); (c) 8.5 mm doubles the answer; (d) 2.25 mm uses 27 V instead of 35 V.<br><b>Concept:</b> the operating point is where the arc line meets the source line. A longer arc raises voltage and lowers current; a shorter arc does the opposite – power peaks in between, at OCV ÷ 2.<br><b>Source line check:</b> V = 70 − 0.1I → at I = 350 A, V = 35 V ✔."},
+hi:{q:"एक डायरेक्ट-करंट वेल्डिंग सोर्स की विशेषता रैखिक है, ओपन-सर्किट वोल्टेज 70 V और शॉर्ट-सर्किट करंट 700 A। आर्क विशेषता V = 18 + 4l है, जहाँ V वोल्ट में और l आर्क लंबाई mm में है। किस आर्क लंबाई पर आर्क शक्ति अधिकतम होगी?",
+o:["13 mm","4.25 mm","8.5 mm","2.25 mm"],
+e:"रैखिक सोर्स में आर्क शक्ति P = V × I तब अधिकतम होती है जब कार्य वोल्टेज ओपन-सर्किट वोल्टेज का आधा हो (और करंट शॉर्ट-सर्किट करंट का आधा):<br>V = 70 ÷ 2 = 35 V, I = 700 ÷ 2 = 350 A, P<sub>max</sub> = 35 × 350 = 12.25 kW।<br>आर्क लंबाई ऐसी हो कि यही वोल्टेज मिले: 18 + 4l = 35 → l = 17 ÷ 4 = <b>4.25 mm</b>।<br><b>गलत विकल्प कैसे बने:</b> (a) 13 mm में आर्क वोल्टेज पूरे 70 V के बराबर ले लिया (करंट ही नहीं बहेगा); (c) 8.5 mm उत्तर का दोगुना; (d) 2.25 mm में 35 V के स्थान पर 27 V लिया।<br><b>अवधारणा:</b> ऑपरेटिंग पॉइंट वह है जहाँ आर्क रेखा सोर्स रेखा से मिलती है। लंबा आर्क वोल्टेज बढ़ाता व करंट घटाता है; छोटा आर्क उल्टा – शक्ति बीच में, OCV ÷ 2 पर, अधिकतम।<br><b>सोर्स रेखा जाँच:</b> V = 70 − 0.1I → I = 350 A पर V = 35 V ✔।"}},
+
+/* 8 */ {ans:0, lv:"p", tag:{en:"Process names",hi:"प्रक्रिया नाम"},
+en:{q:"Match List-I (process) with List-II (other name):<br>P. Shielded metal arc welding<br>Q. Gas metal arc welding<br>R. Gas tungsten arc welding<br>S. Submerged arc welding<br>1. Tungsten inert gas welding<br>2. Manual metal arc welding<br>3. Sub-arc welding<br>4. Metal inert gas / metal active gas welding",
+o:["P-2, Q-4, R-1, S-3","P-4, Q-2, R-1, S-3","P-2, Q-1, R-4, S-3","P-3, Q-4, R-1, S-2"],
+e:"<b>Shielded metal arc welding (SMAW)</b> = <b>manual metal arc (MMA)</b> = stick welding – coated consumable stick, manual (RRB-CBT2 Apr'25-I).<br><b>Gas metal arc welding (GMAW)</b> = <b>metal inert gas (MIG)</b> with argon/helium, or <b>metal active gas (MAG)</b> with carbon dioxide – continuous bare wire (RRB-CBT2 Apr'25-II asked the full form of GMAW).<br><b>Gas tungsten arc welding (GTAW)</b> = <b>tungsten inert gas (TIG)</b> – non-consumable tungsten, argon/helium (RRB-CBT2 Apr'25-II).<br><b>Submerged arc welding (SAW)</b> = sub-arc – bare wire under granular flux.<br><b>Memory trick:</b> American names describe the <b>shield</b> (shielded metal, gas metal, gas tungsten, submerged); common shop names describe the <b>electrode and gas</b> (manual metal, metal inert gas, tungsten inert gas)."},
+hi:{q:"सूची-I (प्रक्रिया) को सूची-II (दूसरा नाम) से सुमेलित करें:<br>P. शील्डेड मेटल आर्क वेल्डिंग<br>Q. गैस मेटल आर्क वेल्डिंग<br>R. गैस टंगस्टन आर्क वेल्डिंग<br>S. सबमर्ज्ड आर्क वेल्डिंग<br>1. टंगस्टन इनर्ट गैस वेल्डिंग<br>2. मैनुअल मेटल आर्क वेल्डिंग<br>3. सब-आर्क वेल्डिंग<br>4. मेटल इनर्ट गैस / मेटल एक्टिव गैस वेल्डिंग",
+o:["P-2, Q-4, R-1, S-3","P-4, Q-2, R-1, S-3","P-2, Q-1, R-4, S-3","P-3, Q-4, R-1, S-2"],
+e:"<b>शील्डेड मेटल आर्क वेल्डिंग (SMAW)</b> = <b>मैनुअल मेटल आर्क (MMA)</b> = स्टिक वेल्डिंग – लेपित उपभोज्य स्टिक, मैनुअल (RRB-CBT2 Apr'25-I)।<br><b>गैस मेटल आर्क वेल्डिंग (GMAW)</b> = आर्गन/हीलियम से <b>मेटल इनर्ट गैस (MIG)</b>, या कार्बन डाइऑक्साइड से <b>मेटल एक्टिव गैस (MAG)</b> – लगातार नंगा तार (RRB-CBT2 Apr'25-II में GMAW का पूर्ण रूप पूछा गया)।<br><b>गैस टंगस्टन आर्क वेल्डिंग (GTAW)</b> = <b>टंगस्टन इनर्ट गैस (TIG)</b> – अनुपभोज्य टंगस्टन, आर्गन/हीलियम (RRB-CBT2 Apr'25-II)।<br><b>सबमर्ज्ड आर्क वेल्डिंग (SAW)</b> = सब-आर्क – दानेदार फ्लक्स के नीचे नंगा तार।<br><b>याद रखने की ट्रिक:</b> अमेरिकी नाम <b>शील्ड</b> बताते हैं (शील्डेड मेटल, गैस मेटल, गैस टंगस्टन, सबमर्ज्ड); वर्कशॉप के नाम <b>इलेक्ट्रोड व गैस</b> बताते हैं (मैनुअल मेटल, मेटल इनर्ट गैस, टंगस्टन इनर्ट गैस)।"}},
+
+/* 9 */ {ans:1, lv:"h", tag:{en:"Tungsten inert gas · scenario",hi:"टंगस्टन इनर्ट गैस · परिस्थिति"},
+en:{q:"During tungsten inert gas welding of titanium tubing, the shielding-gas flow accidentally drops to a trickle. The tungsten tip turns blue-black and wears away quickly, and the weld bead becomes discoloured and brittle. This shows that the shielding gas protects:",
+o:["only the filler rod from oxidation","both the tungsten and the molten pool","only the operator from ultraviolet rays","only the copper gas nozzle from heat"],
+e:"In tungsten inert gas welding the argon/helium shield has a <b>double job</b>: it protects the <b>white-hot tungsten electrode</b> (which oxidises rapidly in air and erodes) and the <b>molten weld pool</b> and hot metal from oxygen and nitrogen (RRB-CBT2 Apr'25-I). Titanium is extremely reactive – it absorbs oxygen and nitrogen when hot, turning the weld blue/grey and <b>brittle</b> – so it even needs a trailing shield and back-purging inside the tube.<br><b>Colour guide for titanium welds:</b> bright silver → good shielding · straw/gold → slight contamination · blue/purple → poor · grey/white powder → rejected, brittle.<br><b>Why not the others:</b> the filler rod is also shielded, but not 'only'; the gas does not block ultraviolet (the helmet does); the nozzle is cooled by gas/water but that is not the main purpose.<br><b>PYQ:</b> RRB-CBT2 Jun'25 – gas used in TIG: argon–helium mixtures."},
+hi:{q:"टाइटेनियम ट्यूबिंग की टंगस्टन इनर्ट गैस वेल्डिंग के दौरान शील्डिंग गैस का प्रवाह गलती से बहुत कम हो जाता है। टंगस्टन सिरा नीला-काला होकर जल्दी घिसता है, और वेल्ड बीड बदरंग व भंगुर हो जाता है। इससे पता चलता है कि शील्डिंग गैस रक्षा करती है:",
+o:["केवल फिलर रॉड की ऑक्सीकरण से","टंगस्टन और पिघले पूल दोनों की","केवल ऑपरेटर की पराबैंगनी किरणों से","केवल कॉपर गैस नोज़ल की ऊष्मा से"],
+e:"टंगस्टन इनर्ट गैस वेल्डिंग में आर्गन/हीलियम शील्ड का <b>दोहरा कार्य</b> है: यह <b>सफ़ेद-गर्म टंगस्टन इलेक्ट्रोड</b> (जो हवा में तेज़ी से ऑक्सीकृत होकर घिसता है) और <b>पिघले वेल्ड पूल</b> व गर्म धातु की ऑक्सीजन व नाइट्रोजन से रक्षा करती है (RRB-CBT2 Apr'25-I)। टाइटेनियम अत्यधिक सक्रिय है – गर्म होने पर ऑक्सीजन व नाइट्रोजन सोखकर वेल्ड नीला/ग्रे और <b>भंगुर</b> हो जाता है – इसलिए इसे ट्रेलिंग शील्ड और ट्यूब के अंदर बैक-पर्जिंग भी चाहिए।<br><b>टाइटेनियम वेल्ड रंग मार्गदर्शिका:</b> चमकीला चाँदी → अच्छी शील्डिंग · हल्का पीला/सुनहरा → थोड़ा संदूषण · नीला/बैंगनी → खराब · ग्रे/सफ़ेद पाउडर → अस्वीकृत, भंगुर।<br><b>अन्य क्यों नहीं:</b> फिलर रॉड भी शील्ड होती है, पर 'केवल' नहीं; गैस पराबैंगनी नहीं रोकती (हेलमेट रोकता है); नोज़ल गैस/पानी से ठंडा होता है पर यह मुख्य उद्देश्य नहीं।<br><b>PYQ:</b> RRB-CBT2 Jun'25 – TIG में गैस: आर्गन–हीलियम मिश्रण।"}},
+
+/* 10 */ {ans:0, lv:"p", tag:{en:"Gas flames",hi:"गैस फ्लेम"},
+en:{q:"Which oxy-acetylene flame tends to decarburise (remove carbon from) steel?",
+o:["oxidising","neutral","carburising","reducing"],
+e:"An <b>oxidising flame</b> (oxygen : acetylene ≈ 1.5 : 1) carries excess oxygen, which reacts with carbon in the hot steel (C + O → CO) and also oxidises iron. The surface loses carbon – <b>decarburisation</b> – and the weld becomes porous, brittle and full of oxides. That is why an oxidising flame is never used on steel, only on brass and bronze.<br><b>Other flames:</b> <b>neutral</b> (1 : 1) – neither adds nor removes carbon; used for most steels, cast iron, copper. <b>Carburising</b> = <b>reducing</b> (excess acetylene) – adds carbon to the surface, used for high-carbon steel, Monel, nickel and hard-facing ('carburising flame tends to make the weld more brittle' – RPSC PYQ).<br><b>Trap:</b> options (c) and (d) are two names for the same flame – and it does the opposite (adds carbon).<br><b>PYQ:</b> 'which gas welding flame decarburises the steel → oxidising flame' (Metro 2019)."},
+hi:{q:"कौन-सी ऑक्सी-एसिटिलीन फ्लेम स्टील को डीकार्बुराइज़ (कार्बन हटाना) करती है?",
+o:["ऑक्सीडाइज़िंग","न्यूट्रल","कार्बुराइज़िंग","रिड्यूसिंग"],
+e:"<b>ऑक्सीडाइज़िंग फ्लेम</b> (ऑक्सीजन : एसिटिलीन ≈ 1.5 : 1) में अतिरिक्त ऑक्सीजन होती है, जो गर्म स्टील के कार्बन से क्रिया (C + O → CO) करती है और आयरन का भी ऑक्सीकरण करती है। सतह से कार्बन घटता है – <b>डीकार्बुराइज़ेशन</b> – और वेल्ड छिद्रयुक्त, भंगुर व ऑक्साइड से भरा हो जाता है। इसीलिए ऑक्सीडाइज़िंग फ्लेम स्टील पर कभी नहीं, केवल पीतल व कांस्य पर।<br><b>अन्य फ्लेम:</b> <b>न्यूट्रल</b> (1 : 1) – न कार्बन जोड़ती न हटाती; अधिकांश स्टील, कास्ट आयरन, कॉपर हेतु। <b>कार्बुराइज़िंग</b> = <b>रिड्यूसिंग</b> (अतिरिक्त एसिटिलीन) – सतह में कार्बन जोड़ती है, हाई-कार्बन स्टील, मोनेल, निकल व हार्ड-फेसिंग हेतु ('कार्बुराइज़िंग फ्लेम वेल्ड को अधिक भंगुर बनाती है' – RPSC PYQ)।<br><b>ट्रैप:</b> विकल्प (c) और (d) एक ही फ्लेम के दो नाम हैं – और यह उल्टा करती है (कार्बन जोड़ती है)।<br><b>PYQ:</b> 'कौन-सी गैस वेल्डिंग फ्लेम स्टील को डीकार्बुराइज़ करती है → ऑक्सीडाइज़िंग फ्लेम' (मेट्रो 2019)।"}},
+
+/* 11 */ {ans:2, lv:"p", tag:{en:"Soldering flux · scenario",hi:"सोल्डरिंग फ्लक्स · परिस्थिति"},
+en:{q:"Before soldering a copper pipe joint, a plumber cleans it with emery paper, applies a paste and then heats the joint. When the paste is left out, the solder forms beads and does not spread, even though the surface looked clean. The main role of the paste is to:",
+o:["lower the melting point of the solder","widen the gap for capillary flow","remove oxides and prevent re-oxidation","add extra tin to the joint metal"],
+e:"Even freshly cleaned copper grows an invisible oxide film within seconds, and heating thickens it fast. Molten solder cannot <b>wet</b> an oxide – it balls up like water on a greasy plate. The paste is a <b>flux</b>: it dissolves the thin oxide film, covers the joint to stop <b>re-oxidation</b> while heating, and lowers surface tension so the solder spreads and is drawn into the joint by capillary action (RRB-CBT2 Jun'25: function of flux in soldering → remove oxides and other surface compounds).<br><b>Why not the others:</b> flux does not change the solder's melting point; it does not widen the joint gap (a wide gap actually spoils capillary flow); it adds no tin.<br><b>Common soldering fluxes:</b> zinc chloride paste (plumbing, sheet metal – wash off afterwards), rosin (electrical, non-corrosive), ammonium chloride (tinning soldering-iron bits)."},
+hi:{q:"कॉपर पाइप जोड़ की सोल्डरिंग से पहले प्लंबर उसे एमरी पेपर से साफ़ करता है, एक पेस्ट लगाता है और फिर जोड़ गर्म करता है। पेस्ट न लगाने पर सोल्डर गोलियाँ बनाता है और फैलता नहीं, जबकि सतह साफ़ दिख रही थी। पेस्ट का मुख्य कार्य है:",
+o:["सोल्डर का गलनांक कुछ कम करना","केशिका प्रवाह हेतु जोड़ का गैप चौड़ा करना","ऑक्साइड हटाना व पुनः ऑक्सीकरण रोकना","जोड़ में अतिरिक्त टिन धातु जोड़ना"],
+e:"ताज़ा साफ़ किए कॉपर पर भी कुछ ही सेकंड में अदृश्य ऑक्साइड परत बन जाती है, और गर्म करने पर तेज़ी से मोटी होती है। पिघला सोल्डर ऑक्साइड को <b>गीला</b> नहीं कर सकता – चिकनी प्लेट पर पानी की तरह गोलियाँ बनाता है। पेस्ट एक <b>फ्लक्स</b> है: यह पतली ऑक्साइड परत घोलता है, गर्म करते समय जोड़ को ढककर <b>दोबारा ऑक्सीकरण</b> रोकता है, और पृष्ठ तनाव घटाता है ताकि सोल्डर फैले और केशिका क्रिया से जोड़ में खिंचे (RRB-CBT2 Jun'25: सोल्डरिंग में फ्लक्स का कार्य → ऑक्साइड व अन्य सतही यौगिक हटाना)।<br><b>अन्य क्यों नहीं:</b> फ्लक्स सोल्डर का गलनांक नहीं बदलता; गैप चौड़ा नहीं करता (चौड़ा गैप तो केशिका प्रवाह बिगाड़ता है); टिन नहीं जोड़ता।<br><b>सामान्य सोल्डरिंग फ्लक्स:</b> ज़िंक क्लोराइड पेस्ट (प्लंबिंग, शीट धातु – बाद में धोएँ), रोज़िन (विद्युत, असंक्षारक), अमोनियम क्लोराइड (सोल्डरिंग आयरन बिट की टिनिंग)।"}},
+
+/* 12 */ {ans:3, lv:"e", tag:{en:"Shielding gases",hi:"शील्डिंग गैस"},
+en:{q:"Which of the following gases is NOT used as a shielding gas in arc welding?",
+o:["argon","helium","carbon dioxide","carbon monoxide"],
+e:"Shielding gases protect the arc and molten pool from oxygen and nitrogen in the air:<br><b>Argon</b> and <b>helium</b> – inert; used in tungsten inert gas and metal inert gas welding (argon heavier, cheaper, smoother arc; helium hotter arc, deeper penetration).<br><b>Carbon dioxide</b> – active but cheap; used in metal active gas (CO₂) welding of carbon steel.<br>Small additions of oxygen, hydrogen or nitrogen are used in special mixtures.<br><b>Carbon monoxide</b> is <b>never</b> supplied as a shielding gas – it is highly <b>toxic</b>, flammable, and would add carbon to the weld. (It does form briefly inside the arc when carbon dioxide breaks down, which is one reason good ventilation is needed in CO₂ welding.)<br><b>PYQ:</b> 'which gas is NOT used as a shielding gas in arc welding → carbon monoxide' (RRB-CBT2 2019)."},
+hi:{q:"निम्न में से कौन-सी गैस आर्क वेल्डिंग में शील्डिंग गैस के रूप में प्रयोग नहीं होती?",
+o:["आर्गन","हीलियम","कार्बन डाइऑक्साइड","कार्बन मोनोऑक्साइड"],
+e:"शील्डिंग गैसें आर्क और पिघले पूल को हवा की ऑक्सीजन व नाइट्रोजन से बचाती हैं:<br><b>आर्गन</b> और <b>हीलियम</b> – अक्रिय; टंगस्टन इनर्ट गैस व मेटल इनर्ट गैस वेल्डिंग में (आर्गन भारी, सस्ती, सुचारु आर्क; हीलियम गर्म आर्क, गहरी पेनिट्रेशन)।<br><b>कार्बन डाइऑक्साइड</b> – सक्रिय पर सस्ती; कार्बन स्टील की मेटल एक्टिव गैस (CO₂) वेल्डिंग में।<br>विशेष मिश्रणों में ऑक्सीजन, हाइड्रोजन या नाइट्रोजन की थोड़ी मात्रा।<br><b>कार्बन मोनोऑक्साइड</b> शील्डिंग गैस के रूप में <b>कभी</b> नहीं दी जाती – यह अत्यधिक <b>विषैली</b>, ज्वलनशील है और वेल्ड में कार्बन जोड़ेगी। (कार्बन डाइऑक्साइड टूटने पर आर्क के अंदर यह थोड़ी देर बनती है – CO₂ वेल्डिंग में अच्छे वेंटिलेशन का एक कारण।)<br><b>PYQ:</b> 'आर्क वेल्डिंग में शील्डिंग गैस के रूप में प्रयोग नहीं → कार्बन मोनोऑक्साइड' (RRB-CBT2 2019)।"}},
+
+/* 13 */ {ans:0, lv:"t", tag:{en:"Residual stress · scenario",hi:"अवशिष्ट प्रतिबल · परिस्थिति"},
+en:{q:"Two 12 mm plates are butt welded without clamps and left to cool. A later survey shows that the weld zone tried to shrink on cooling, while the cooler plate around it resisted that shrinkage. The residual stresses in the joint are:",
+o:["tensile at the weld, compressive away from it","compressive at the weld, tensile away from it","tensile everywhere across the plate","zero once the joint has fully cooled"],
+e:"The weld metal and the hot zone next to it expand while hot and then try to <b>shrink</b> a lot on cooling. The surrounding cooler plate does not shrink as much and <b>holds the weld back</b>. So the weld is left <b>stretched – in tension</b> (often up to the yield strength), while the plate away from the weld is pushed – in <b>compression</b> – to keep the forces in balance.<br><b>Why not the others:</b> (b) is the reverse; (c) and (d) would break the force balance – residual stresses always balance across a section.<br><b>Effects:</b> tensile residual stress at the weld helps fatigue cracks, stress-corrosion cracking and distortion.<br><b>Relief:</b> post-weld stress-relief annealing (about 600–650 °C for steel), peening, vibratory stress relief, balanced welding sequences.<br><b>PYQ:</b> 'residual stresses in butt-welded plates → tensile at the butt joint and compressive away from the joint' (DRDO 2008)."},
+hi:{q:"दो 12 mm प्लेटें बिना क्लैंप के बट वेल्ड करके ठंडी होने दी गईं। बाद के सर्वे से पता चला कि ठंडा होते समय वेल्ड ज़ोन सिकुड़ना चाहता था, जबकि आसपास की ठंडी प्लेट ने इस सिकुड़न का विरोध किया। जोड़ में अवशिष्ट प्रतिबल (residual stress) हैं:",
+o:["वेल्ड पर तनन, वेल्ड से दूर संपीडन","वेल्ड पर संपीडन, वेल्ड से दूर तनन","पूरी प्लेट में सब जगह तनन","पूरी तरह ठंडा होने पर शून्य"],
+e:"वेल्ड धातु और पास का गर्म क्षेत्र गर्म होने पर फैलते हैं और ठंडा होने पर बहुत <b>सिकुड़ना</b> चाहते हैं। आसपास की ठंडी प्लेट उतना नहीं सिकुड़ती और <b>वेल्ड को रोके रखती</b> है। इसलिए वेल्ड <b>खिंचा – तनन में</b> रह जाता है (प्रायः यील्ड सामर्थ्य तक), जबकि वेल्ड से दूर की प्लेट बलों का संतुलन रखने हेतु <b>संपीडन</b> में रहती है।<br><b>अन्य क्यों नहीं:</b> (b) उल्टा है; (c) और (d) बल संतुलन तोड़ेंगे – अवशिष्ट प्रतिबल हमेशा किसी सेक्शन में संतुलित रहते हैं।<br><b>प्रभाव:</b> वेल्ड पर तनन अवशिष्ट प्रतिबल थकान दरार, स्ट्रेस-कोरोज़न क्रैकिंग और विकृति को बढ़ावा देता है।<br><b>निवारण:</b> वेल्डिंग के बाद स्ट्रेस-रिलीफ़ एनीलिंग (स्टील हेतु लगभग 600–650 °C), पीनिंग, कंपन द्वारा स्ट्रेस रिलीफ़, संतुलित वेल्डिंग क्रम।<br><b>PYQ:</b> 'बट-वेल्डेड प्लेटों में अवशिष्ट प्रतिबल → बट जोड़ पर तनन, जोड़ से दूर संपीडन' (DRDO 2008)।"}},
+
+/* 14 */ {ans:1, lv:"e", tag:{en:"Soldering methods",hi:"सोल्डरिंग विधियाँ"},
+en:{q:"In ______, a large quantity of solder is melted in a tank and the fluxed parts are dipped into it.",
+o:["the soldering-iron method","dip soldering","torch soldering","infrared soldering"],
+e:"In <b>dip soldering</b>, a bath (tank) of molten solder is kept at a controlled temperature; cleaned and fluxed parts are dipped in, and all joints that touch the solder are made at once – fast and uniform for mass production (RRB-CBT2 Jun'25). <b>Wave soldering</b> is its modern version for printed circuit boards: the board passes over a standing wave of molten solder.<br><b>Other methods:</b> <b>soldering iron</b> – copper bit heated electrically or in a flame, one joint at a time (the bit is not heated red-hot) · <b>torch / flame soldering</b> – gas flame, for pipes · <b>infrared</b> and <b>oven / reflow soldering</b> – solder paste melted by radiant heat, for surface-mount electronics · <b>induction</b> and <b>resistance</b> soldering.<br><b>Remember:</b> dip = tank of molten solder; wave = flowing wave of solder; reflow = paste melted in an oven."},
+hi:{q:"______ में बड़ी मात्रा में सोल्डर एक टैंक में पिघलाया जाता है और फ्लक्स लगे भाग उसमें डुबोए जाते हैं।",
+o:["सोल्डरिंग-आयरन विधि","डिप सोल्डरिंग","टॉर्च सोल्डरिंग","इन्फ़्रारेड सोल्डरिंग"],
+e:"<b>डिप सोल्डरिंग</b> में पिघले सोल्डर का बाथ (टैंक) नियंत्रित तापमान पर रखा जाता है; साफ़ व फ्लक्स लगे भाग डुबोए जाते हैं, और सोल्डर को छूने वाले सभी जोड़ एक साथ बन जाते हैं – बड़े उत्पादन हेतु तेज़ व एकसमान (RRB-CBT2 Jun'25)। <b>वेव सोल्डरिंग</b> प्रिंटेड सर्किट बोर्ड हेतु इसका आधुनिक रूप है: बोर्ड पिघले सोल्डर की स्थिर लहर पर से गुज़रता है।<br><b>अन्य विधियाँ:</b> <b>सोल्डरिंग आयरन</b> – बिजली या फ्लेम से गर्म कॉपर बिट, एक बार में एक जोड़ (बिट लाल-गर्म नहीं किया जाता) · <b>टॉर्च / फ्लेम सोल्डरिंग</b> – गैस फ्लेम, पाइप हेतु · <b>इन्फ़्रारेड</b> और <b>ओवन / रीफ़्लो सोल्डरिंग</b> – विकिरण ऊष्मा से सोल्डर पेस्ट पिघलाना, सरफ़ेस-माउंट इलेक्ट्रॉनिक्स हेतु · <b>इंडक्शन</b> व <b>रेज़िस्टेंस</b> सोल्डरिंग।<br><b>याद रखें:</b> डिप = पिघले सोल्डर का टैंक; वेव = सोल्डर की बहती लहर; रीफ़्लो = ओवन में पिघला पेस्ट।"}},
+
+/* 15 */ {ans:2, lv:"t", tag:{en:"Coated electrodes",hi:"लेपित इलेक्ट्रोड"},
+en:{q:"In a coated electrode, the core wire melts slightly ahead of the coating, so the coating projects as a small cup at the tip. This cup:",
+o:["acts as a second filler for the joint","makes the weld pool cool much faster","directs the arc and shields the droplets","lowers the current the arc needs to run"],
+e:"The flux coating melts at a higher temperature (and is a poor conductor), so the steel <b>core wire burns back first</b> and the coating is left sticking out as a short <b>cup or crater</b> at the tip. This cup acts like a nozzle: it <b>directs and concentrates the arc</b>, keeps it steady, guides the molten droplets towards the pool, and surrounds them with the gas and slag produced by the burning coating – so they are <b>shielded</b> from air during transfer. In tight joints it also helps stop side-arcing to the joint walls.<br><b>Why not the others:</b> the coating forms gas and slag, not a filler (except iron-powder coatings that add some metal); slag slows rather than speeds cooling; the cup does not lower the current needed.<br><b>PYQ:</b> 'which statement is correct in the coated electrode arc welding process → the rod melts first, then the coating material'."},
+hi:{q:"लेपित इलेक्ट्रोड में कोर तार कोटिंग से थोड़ा पहले पिघलता है, इसलिए कोटिंग सिरे पर एक छोटे कप की तरह आगे निकली रहती है। यह कप:",
+o:["जोड़ के लिए दूसरे फिलर का कार्य करता है","वेल्ड पूल को तेज़ी से ठंडा करता है","आर्क को दिशा देता है और बूँदों को ढकता है","आर्क के लिए आवश्यक करंट घटाता है"],
+e:"फ्लक्स कोटिंग अधिक तापमान पर पिघलती है (और कुचालक है), इसलिए स्टील <b>कोर तार पहले जलकर पीछे</b> जाता है और कोटिंग सिरे पर छोटे <b>कप या क्रेटर</b> के रूप में बाहर निकली रहती है। यह कप नोज़ल की तरह काम करता है: <b>आर्क को दिशा देता और केंद्रित करता</b> है, उसे स्थिर रखता है, पिघली बूँदों को पूल की ओर ले जाता है, और उन्हें जलती कोटिंग की गैस व स्लैग से घेरता है – ताकि ट्रांसफर के दौरान वे हवा से <b>सुरक्षित</b> रहें। संकरे जोड़ों में यह जोड़ की दीवारों पर साइड-आर्किंग भी रोकता है।<br><b>अन्य क्यों नहीं:</b> कोटिंग गैस व स्लैग बनाती है, फिलर नहीं (आयरन-पाउडर कोटिंग कुछ धातु जोड़ती है, उसे छोड़कर); स्लैग ठंडक धीमी करता है, तेज़ नहीं; कप आवश्यक करंट नहीं घटाता।<br><b>PYQ:</b> 'लेपित इलेक्ट्रोड आर्क वेल्डिंग में सही कथन → पहले रॉड पिघलती है, फिर कोटिंग सामग्री'।"}},
+
+/* 16 */ {ans:3, lv:"p", tag:{en:"Technique",hi:"तकनीक"},
+en:{q:"Weaving in manual arc welding means:",
+o:["striking the arc repeatedly","changing polarity during the run","welding in short, skipped lengths","side-to-side motion across the joint"],
+e:"<b>Weaving</b> = moving the electrode <b>from side to side</b>, at right angles to the direction of welding, while advancing along the joint – in zig-zag, crescent, triangular or figure-of-eight patterns. It produces a <b>wider bead</b> in one pass, fuses both side walls of a wide groove, lets slag and gas float out, and allows a brief pause at each edge to avoid undercut. It is common in vertical-up welding and capping passes. A bead made without weaving is a <b>stringer bead</b> (narrow, straight).<br><b>Why not the others:</b> (a) describes arc striking or stitch technique; (b) polarity is never changed mid-run; (c) describes skip / back-step welding, used to reduce distortion.<br><b>Rule of thumb:</b> weave width is usually limited to about 2½–3 times the electrode diameter.<br><b>PYQ:</b> 'weaving in arc welding refers to → side-to-side motion of the electrode at right angles to the direction of welding' (Railway SSE 2015)."},
+hi:{q:"मैनुअल आर्क वेल्डिंग में वीविंग (weaving) का अर्थ है:",
+o:["बार-बार आर्क बनाना","रन के दौरान पोलैरिटी बदलना","छोटी, छोड़-छोड़कर लंबाइयों में वेल्डिंग","जोड़ के आर-पार अगल-बगल गति"],
+e:"<b>वीविंग</b> = जोड़ के साथ आगे बढ़ते हुए इलेक्ट्रोड को वेल्डिंग दिशा के समकोण पर <b>अगल-बगल</b> चलाना – ज़िग-ज़ैग, अर्धचंद्र, त्रिकोण या आठ के आकार में। इससे एक पास में <b>चौड़ा बीड</b> बनता है, चौड़े खाँचे की दोनों दीवारें फ़्यूज़ होती हैं, स्लैग व गैस ऊपर आ जाते हैं, और अंडरकट से बचने हेतु हर किनारे पर थोड़ा रुका जा सकता है। वर्टिकल-अप वेल्डिंग और कैपिंग पास में आम। बिना वीविंग का बीड <b>स्ट्रिंगर बीड</b> कहलाता है (संकरा, सीधा)।<br><b>अन्य क्यों नहीं:</b> (a) आर्क स्ट्राइकिंग या स्टिच तकनीक है; (b) रन के बीच पोलैरिटी कभी नहीं बदली जाती; (c) स्किप / बैक-स्टेप वेल्डिंग है, विकृति घटाने हेतु।<br><b>मोटा नियम:</b> वीव की चौड़ाई सामान्यतः इलेक्ट्रोड व्यास के लगभग 2½–3 गुना तक।<br><b>PYQ:</b> 'आर्क वेल्डिंग में वीविंग → वेल्डिंग दिशा के समकोण पर इलेक्ट्रोड की अगल-बगल गति' (रेलवे SSE 2015)।"}},
+
+/* 17 */ {ans:1, lv:"p", tag:{en:"Gas welding equipment",hi:"गैस वेल्डिंग उपकरण"},
+en:{q:"In an oxy-acetylene welding set, match each part (List-I) with its function (List-II):<br>P. Pressure regulator<br>Q. Hose pipe<br>R. Blowpipe (torch)<br>S. Flashback arrestor<br>1. Mixes the gases and controls the flame<br>2. Stops the flame travelling back<br>3. Reduces cylinder pressure to a steady working pressure<br>4. Carries gas from the regulator to the torch",
+o:["P-4, Q-3, R-1, S-2","P-3, Q-4, R-1, S-2","P-3, Q-4, R-2, S-1","P-1, Q-4, R-3, S-2"],
+e:"<b>Pressure regulator</b> – reduces the high cylinder pressure (oxygen ≈ 120–150 bar) to a low, <b>steady working pressure</b> and keeps it constant; has a cylinder-pressure gauge and a working-pressure gauge (RRB-CBT2 Apr'25-I).<br><b>Hose pipe</b> – flexible rubber hose that <b>carries the gas from the regulator to the torch</b>; oxygen hose black, acetylene hose red/maroon (RRB-CBT2 Apr'25-I).<br><b>Blowpipe (welding torch)</b> – <b>mixes oxygen and acetylene</b> in the correct proportion and controls the flame through its valves and tip (RRB-CBT2 Jun'25).<br><b>Flashback arrestor</b> – a flame barrier with a non-return valve that <b>stops a flame travelling back</b> into the hose and cylinder.<br><b>Gas path in order:</b> cylinder → regulator → flashback arrestor → hose → torch → tip."},
+hi:{q:"ऑक्सी-एसिटिलीन वेल्डिंग सेट में प्रत्येक भाग (सूची-I) को उसके कार्य (सूची-II) से सुमेलित करें:<br>P. प्रेशर रेगुलेटर<br>Q. होज़ पाइप<br>R. ब्लोपाइप (टॉर्च)<br>S. फ्लैशबैक अरेस्टर<br>1. गैसों को मिलाता है और फ्लेम नियंत्रित करता है<br>2. फ्लेम को वापस जाने से रोकता है<br>3. सिलेंडर दाब को स्थिर कार्य-दाब तक घटाता है<br>4. रेगुलेटर से टॉर्च तक गैस ले जाता है",
+o:["P-4, Q-3, R-1, S-2","P-3, Q-4, R-1, S-2","P-3, Q-4, R-2, S-1","P-1, Q-4, R-3, S-2"],
+e:"<b>प्रेशर रेगुलेटर</b> – सिलेंडर के उच्च दाब (ऑक्सीजन ≈ 120–150 bar) को कम, <b>स्थिर कार्य-दाब</b> तक घटाता और स्थिर रखता है; इसमें सिलेंडर-दाब गेज और कार्य-दाब गेज होते हैं (RRB-CBT2 Apr'25-I)।<br><b>होज़ पाइप</b> – लचीला रबर होज़ जो <b>रेगुलेटर से टॉर्च तक गैस ले जाता</b> है; ऑक्सीजन होज़ काला, एसिटिलीन होज़ लाल/मरून (RRB-CBT2 Apr'25-I)।<br><b>ब्लोपाइप (वेल्डिंग टॉर्च)</b> – <b>ऑक्सीजन व एसिटिलीन</b> को सही अनुपात में <b>मिलाता</b> है और वाल्व व टिप से फ्लेम नियंत्रित करता है (RRB-CBT2 Jun'25)।<br><b>फ्लैशबैक अरेस्टर</b> – नॉन-रिटर्न वाल्व वाला फ्लेम अवरोधक जो होज़ व सिलेंडर में <b>फ्लेम को वापस जाने से रोकता</b> है।<br><b>गैस मार्ग क्रम से:</b> सिलेंडर → रेगुलेटर → फ्लैशबैक अरेस्टर → होज़ → टॉर्च → टिप।"}},
+
+/* 18 */ {ans:3, lv:"h", tag:{en:"Numerical – melting efficiency",hi:"न्यूमेरिकल – मेल्टिंग दक्षता"},
+en:{q:"An arc welding operation is carried out at 25 V and 200 A with a welding speed of 6 mm/s. The cross-sectional area of the weld joint is 25 mm², the heat required to melt the metal is 10 J/mm³, and the heat-transfer efficiency is 0.8. The melting efficiency is:",
+o:["30 %","46.9 %","75 %","37.5 %"],
+e:"<b>Step 1 – heat actually used for melting</b> = unit melt energy × area × speed = 10 × 25 × 6 = 1500 J/s (1500 W).<br><b>Step 2 – heat reaching the work</b> = heat-transfer efficiency × V × I = 0.8 × 25 × 200 = 4000 W.<br><b>Step 3 – melting efficiency</b> η<sub>m</sub> = heat used for melting ÷ heat reaching the work = 1500 ÷ 4000 = <b>0.375 = 37.5 %</b>.<br><b>Distractor check:</b> (a) 30 % divides by the full arc power 5000 W, forgetting heat-transfer efficiency; (b) 46.9 % applies the 0.8 twice (1500 ÷ 3200); (c) 75 % doubles the melting heat.<br><b>Concept:</b> arc power → (× heat-transfer efficiency) → heat into the work → (× melting efficiency) → heat that actually melts metal; the rest spreads into the plate by conduction and forms the heat-affected zone. Overall: melt power = η<sub>h</sub> × η<sub>m</sub> × V × I."},
+hi:{q:"एक आर्क वेल्डिंग कार्य 25 V और 200 A पर 6 mm/s वेल्डिंग गति से किया जाता है। वेल्ड जोड़ का अनुप्रस्थ काट क्षेत्रफल 25 mm² है, धातु पिघलाने हेतु आवश्यक ऊष्मा 10 J/mm³ है, और ऊष्मा-स्थानांतरण दक्षता 0.8 है। मेल्टिंग दक्षता (melting efficiency) है:",
+o:["30 %","46.9 %","75 %","37.5 %"],
+e:"<b>चरण 1 – पिघलाने में वास्तव में प्रयुक्त ऊष्मा</b> = इकाई मेल्ट ऊर्जा × क्षेत्रफल × गति = 10 × 25 × 6 = 1500 J/s (1500 W)।<br><b>चरण 2 – जॉब तक पहुँची ऊष्मा</b> = ऊष्मा-स्थानांतरण दक्षता × V × I = 0.8 × 25 × 200 = 4000 W।<br><b>चरण 3 – मेल्टिंग दक्षता</b> η<sub>m</sub> = पिघलाने में प्रयुक्त ऊष्मा ÷ जॉब तक पहुँची ऊष्मा = 1500 ÷ 4000 = <b>0.375 = 37.5 %</b>।<br><b>गलत विकल्प कैसे बने:</b> (a) 30 % में पूरी आर्क शक्ति 5000 W से भाग दिया, ऊष्मा-स्थानांतरण दक्षता भूल गए; (b) 46.9 % में 0.8 दो बार लगाया (1500 ÷ 3200); (c) 75 % में मेल्टिंग ऊष्मा दोगुनी कर दी।<br><b>अवधारणा:</b> आर्क शक्ति → (× ऊष्मा-स्थानांतरण दक्षता) → जॉब में ऊष्मा → (× मेल्टिंग दक्षता) → वास्तव में धातु पिघलाने वाली ऊष्मा; शेष चालन से प्लेट में फैलकर हीट-अफेक्टेड ज़ोन बनाती है। कुल मिलाकर: मेल्ट शक्ति = η<sub>h</sub> × η<sub>m</sub> × V × I।"}},
+
+/* 19 */ {ans:2, lv:"e", tag:{en:"Brazing",hi:"ब्रेज़िंग"},
+en:{q:"In torch brazing, the heat is produced by burning a mixture of:",
+o:["oxy-nitrogen gas","oxy-neon gas","oxy-acetylene gas","argon–helium gas"],
+e:"<b>Torch brazing</b> uses a gas flame – most commonly <b>oxy-acetylene</b>, or oxy-propane/natural gas/butane for larger, slower heating – to heat the joint to above the filler's melting point (above 450 °C, but below the base metal's). The filler rod (brass/'spelter', copper, silver alloy) melts on contact with the hot joint and is drawn in by capillary action. Borax-based flux is used (RRB-CBT2 Apr'25-I).<br><b>Why not the others:</b> nitrogen and neon do not burn – they are inert; argon–helium is a shielding-gas mixture for tungsten inert gas welding, not a fuel.<br><b>Other brazing methods:</b> furnace (copper brazing of steel in a controlled atmosphere), induction (carbide tool tips), resistance, dip and infrared brazing.<br><b>PYQ:</b> 'a joining process that may employ acetylene, natural gas or butane with oxygen to melt the filler rod and diffuse it into the base metal → torch brazing' (ESE 2021)."},
+hi:{q:"टॉर्च ब्रेज़िंग में ऊष्मा किसके मिश्रण को जलाकर उत्पन्न की जाती है?",
+o:["ऑक्सी-नाइट्रोजन गैस","ऑक्सी-नियॉन गैस","ऑक्सी-एसिटिलीन गैस","आर्गन–हीलियम गैस"],
+e:"<b>टॉर्च ब्रेज़िंग</b> में गैस फ्लेम – सामान्यतः <b>ऑक्सी-एसिटिलीन</b>, या बड़े व धीमे गर्म करने हेतु ऑक्सी-प्रोपेन/प्राकृतिक गैस/ब्यूटेन – से जोड़ को फिलर के गलनांक से ऊपर (450 °C से ऊपर, पर बेस धातु से नीचे) गर्म किया जाता है। फिलर रॉड (पीतल/'स्पेल्टर', कॉपर, सिल्वर मिश्रधातु) गर्म जोड़ को छूते ही पिघलती है और केशिका क्रिया से अंदर खिंचती है। बोरैक्स-आधारित फ्लक्स प्रयोग होता है (RRB-CBT2 Apr'25-I)।<br><b>अन्य क्यों नहीं:</b> नाइट्रोजन और नियॉन नहीं जलतीं – ये अक्रिय हैं; आर्गन–हीलियम टंगस्टन इनर्ट गैस वेल्डिंग का शील्डिंग मिश्रण है, ईंधन नहीं।<br><b>अन्य ब्रेज़िंग विधियाँ:</b> फ़र्नेस (नियंत्रित वातावरण में स्टील की कॉपर ब्रेज़िंग), इंडक्शन (कार्बाइड टूल टिप), रेज़िस्टेंस, डिप व इन्फ़्रारेड ब्रेज़िंग।<br><b>PYQ:</b> 'एसिटिलीन, प्राकृतिक गैस या ब्यूटेन को ऑक्सीजन के साथ प्रयोग कर फिलर रॉड पिघलाने वाली प्रक्रिया → टॉर्च ब्रेज़िंग' (ESE 2021)।"}},
+
+/* 20 */ {ans:0, lv:"h", tag:{en:"Polarity",hi:"पोलैरिटी"},
+en:{q:"Compared with straight polarity, direct current reverse polarity (electrode positive) in shielded metal arc welding gives:",
+o:["a higher metal deposition rate","deeper penetration into the job","complete freedom from arc blow","a cooler electrode tip"],
+e:"In a direct-current arc about two-thirds of the heat is released at the <b>positive</b> pole. With <b>reverse polarity</b> the electrode is positive, so the electrode tip gets the larger share of heat – it <b>melts faster</b>, giving a <b>higher deposition rate</b> (more metal per minute), while the job gets less heat → <b>shallower penetration</b>.<br><b>Uses of reverse polarity:</b> thin sheet (less burn-through), overhead welding (Railway JE PYQ), most coated electrodes such as low-hydrogen types, metal inert gas welding, and cathodic cleaning of aluminium.<br><b>Why not the others:</b> (b) deep penetration comes with straight polarity; (c) arc blow occurs with any direct current; (d) the electrode is hotter, not cooler.<br><b>PYQs:</b> 'what happens to metal deposition with reverse polarity → increases' (OPSC 2019); 'straight polarity results in → lower deposition rate' (DMRC, Railway SSE); 'penetration is minimum for → DCRP' (ISRO)."},
+hi:{q:"स्ट्रेट पोलैरिटी की तुलना में, शील्डेड मेटल आर्क वेल्डिंग में डायरेक्ट करंट रिवर्स पोलैरिटी (इलेक्ट्रोड धनात्मक) देती है:",
+o:["अधिक धातु डिपॉज़िशन दर","जॉब में अधिक गहरी पेनिट्रेशन","आर्क ब्लो से पूर्ण मुक्ति","ठंडा इलेक्ट्रोड सिरा"],
+e:"डायरेक्ट-करंट आर्क में लगभग दो-तिहाई ऊष्मा <b>धनात्मक</b> पोल पर निकलती है। <b>रिवर्स पोलैरिटी</b> में इलेक्ट्रोड धनात्मक है, इसलिए इलेक्ट्रोड सिरे को ऊष्मा का बड़ा भाग मिलता है – वह <b>तेज़ी से पिघलता</b> है, जिससे <b>अधिक डिपॉज़िशन दर</b> (प्रति मिनट अधिक धातु) मिलती है, जबकि जॉब को कम ऊष्मा → <b>उथली पेनिट्रेशन</b>।<br><b>रिवर्स पोलैरिटी के उपयोग:</b> पतली शीट (कम बर्न-थ्रू), ओवरहेड वेल्डिंग (रेलवे JE PYQ), लो-हाइड्रोजन जैसे अधिकांश लेपित इलेक्ट्रोड, मेटल इनर्ट गैस वेल्डिंग, और एल्युमिनियम की कैथोडिक क्लीनिंग।<br><b>अन्य क्यों नहीं:</b> (b) गहरी पेनिट्रेशन स्ट्रेट पोलैरिटी से; (c) आर्क ब्लो किसी भी डायरेक्ट करंट में होता है; (d) इलेक्ट्रोड अधिक गर्म होता है, ठंडा नहीं।<br><b>PYQ:</b> 'रिवर्स पोलैरिटी में धातु डिपॉज़िशन → बढ़ता है' (OPSC 2019); 'स्ट्रेट पोलैरिटी → कम डिपॉज़िशन दर' (DMRC, रेलवे SSE); 'पेनिट्रेशन न्यूनतम → DCRP' (ISRO)।"}},
+
+/* 21 */ {ans:2, lv:"t", tag:{en:"Testing · scenario",hi:"परीक्षण · परिस्थिति"},
+en:{q:"A power plant must check hundreds of brass condenser tubes for cracks and wall thinning during a short shutdown. The method must be fast, must not involve radiation, and should need no couplant or dye. The most suitable test is:",
+o:["magnetic particle test","dye penetrant test","eddy current test","Charpy impact test"],
+e:"In <b>eddy current testing</b>, a probe coil carrying alternating current is passed through (or over) a conductive tube. It induces circulating <b>eddy currents</b> in the wall; a crack, pit or thinning disturbs these currents and changes the coil's impedance, which the instrument shows instantly. It needs <b>no contact medium, no dye and no radiation</b>, works on any electrically <b>conductive</b> metal (magnetic or not), is very fast, and also measures wall thickness and coating thickness – ideal for heat-exchanger and condenser tubes.<br><b>Why not the others:</b> magnetic particle fails on non-magnetic brass; dye penetrant is slow, finds only surface-open cracks and needs dye; the Charpy impact test is destructive.<br><b>PYQ:</b> 'which test is used to determine the dimensions of an object → eddy current test' (Railway SSE 2012)."},
+hi:{q:"एक पावर प्लांट को छोटे शटडाउन में सैकड़ों पीतल (brass) कंडेंसर ट्यूबों में दरार और दीवार पतली होने की जाँच करनी है। विधि तेज़ हो, विकिरण न हो, और कपलेंट या डाई की ज़रूरत न पड़े। सबसे उपयुक्त परीक्षण है:",
+o:["मैग्नेटिक पार्टिकल परीक्षण","डाई पेनिट्रेंट परीक्षण","एडी करंट परीक्षण","चार्पी इम्पैक्ट परीक्षण"],
+e:"<b>एडी करंट परीक्षण</b> में अल्टरनेटिंग करंट वाली प्रोब कॉइल चालक ट्यूब के अंदर (या ऊपर) चलाई जाती है। यह दीवार में घूमती <b>एडी धाराएँ</b> उत्पन्न करती है; दरार, गड्ढा या पतलापन इन धाराओं को बाधित कर कॉइल की प्रतिबाधा (impedance) बदलता है, जो उपकरण तुरंत दिखाता है। इसमें <b>न कपलेंट, न डाई, न विकिरण</b>; किसी भी विद्युत-<b>चालक</b> धातु (चुंबकीय हो या न हो) पर, बहुत तेज़, और दीवार व कोटिंग मोटाई भी मापता है – हीट-एक्सचेंजर व कंडेंसर ट्यूब हेतु आदर्श।<br><b>अन्य क्यों नहीं:</b> मैग्नेटिक पार्टिकल अचुंबकीय पीतल पर विफल; डाई पेनिट्रेंट धीमा, केवल सतह पर खुली दरारें और डाई चाहिए; चार्पी इम्पैक्ट परीक्षण विनाशी है।<br><b>PYQ:</b> 'किसी वस्तु की माप निर्धारित करने हेतु परीक्षण → एडी करंट परीक्षण' (रेलवे SSE 2012)।"}},
+
+/* 22 */ {ans:3, lv:"p", tag:{en:"Brazing flux",hi:"ब्रेज़िंग फ्लक्स"},
+en:{q:"Which of the following is NOT a function of flux in brazing?",
+o:["dissolving oxides on the surfaces","preventing re-oxidation while heating","helping the molten filler wet and flow","adding weight to strengthen the joint"],
+e:"A brazing flux (usually <b>borax</b> or boric-acid based; fluoride-based for aluminium and stainless steel) melts below the filler and: <b>dissolves and removes oxides</b> already on the surfaces, <b>covers the joint to prevent re-oxidation</b> while heating, and lowers surface tension so the molten filler <b>wets</b> the base metal and <b>flows</b> into the gap by capillary action. It also shows the right temperature – borax turns clear and fluid just before the filler should be added.<br><b>Adding weight</b> is not a function – flux does not stay in the joint; its glassy residue is removed after brazing, and strength comes from the filler's bond with the base metal.<br><b>PYQs:</b> 'which is NOT the purpose of flux in brazing → increasing the weight of the brazed joint' (UPRVUNL 2021); 'commonly used flux for brazing → borax' (DMRC, SSC JE); 'flux in brazing → prevent oxidation and remove rust' (UPRVUNL, MPSC)."},
+hi:{q:"निम्न में से कौन-सा ब्रेज़िंग में फ्लक्स का कार्य नहीं है?",
+o:["सतहों पर बने ऑक्साइड घोलना","गर्म करते समय दोबारा ऑक्सीकरण रोकना","पिघले फिलर को गीला करने व बहने में मदद","जोड़ को मज़बूत करने हेतु भार जोड़ना"],
+e:"ब्रेज़िंग फ्लक्स (सामान्यतः <b>बोरैक्स</b> या बोरिक-अम्ल आधारित; एल्युमिनियम व स्टेनलेस स्टील हेतु फ़्लोराइड-आधारित) फिलर से पहले पिघलकर: सतह पर पहले से मौजूद <b>ऑक्साइड घोलता व हटाता</b> है, गर्म करते समय जोड़ को ढककर <b>दोबारा ऑक्सीकरण रोकता</b> है, और पृष्ठ तनाव घटाता है ताकि पिघला फिलर बेस धातु को <b>गीला</b> करे और केशिका क्रिया से गैप में <b>बहे</b>। यह सही तापमान भी बताता है – फिलर डालने से ठीक पहले बोरैक्स साफ़ व तरल हो जाता है।<br><b>भार जोड़ना</b> कार्य नहीं है – फ्लक्स जोड़ में नहीं रहता; उसका काँच जैसा अवशेष ब्रेज़िंग के बाद हटाया जाता है, और सामर्थ्य फिलर के बेस धातु से बंध से आती है।<br><b>PYQ:</b> 'ब्रेज़िंग में फ्लक्स का उद्देश्य नहीं → ब्रेज़्ड जोड़ का भार बढ़ाना' (UPRVUNL 2021); 'ब्रेज़िंग का सामान्य फ्लक्स → बोरैक्स' (DMRC, SSC JE); 'ब्रेज़िंग में फ्लक्स → ऑक्सीकरण रोकना व जंग हटाना' (UPRVUNL, MPSC)।"}},
+
+/* 23 */ {ans:2, lv:"p", tag:{en:"Weld terms",hi:"वेल्ड शब्दावली"},
+en:{q:"The distance that fusion extends into the base metal (or a previous pass) from the surface melted during welding is called the:",
+o:["throat thickness","reinforcement height","depth of fusion","leg length"],
+e:"<b>Depth of fusion</b> = how far melting reaches <b>into the base metal</b> or a previous pass, measured from the surface that was melted during welding (RRB-CBT2 2019). It shows how well the weld has bonded – too little means risk of lack of fusion.<br><b>Related terms:</b> <b>penetration</b> – how deep the weld metal reaches into the joint (root); <b>throat</b> – root to face, the strength-carrying section; <b>reinforcement</b> – extra weld metal above the plate surface in a butt weld; <b>leg</b> – root to toe in a fillet weld; <b>fusion line / zone</b> – boundary between melted and unmelted metal; <b>heat-affected zone</b> – unmelted base metal whose structure changed with heat.<br><b>Depth of fusion increases with:</b> higher current, straight polarity (electrode negative), slower travel and a shorter arc."},
+hi:{q:"वेल्डिंग के दौरान पिघली सतह से बेस धातु (या पिछले पास) में फ़्यूज़न जितनी दूरी तक पहुँचता है, वह कहलाती है:",
+o:["थ्रोट मोटाई (throat thickness)","रीइन्फ़ोर्समेंट ऊँचाई (reinforcement)","फ़्यूज़न गहराई (depth of fusion)","लेग लंबाई (leg length)"],
+e:"<b>फ़्यूज़न की गहराई</b> = पिघलना <b>बेस धातु</b> या पिछले पास में कितनी दूर तक पहुँचा, वेल्डिंग के दौरान पिघली सतह से मापा गया (RRB-CBT2 2019)। यह बताती है कि वेल्ड कितनी अच्छी तरह जुड़ा – कम होने पर लैक ऑफ़ फ़्यूज़न का खतरा।<br><b>संबंधित शब्द:</b> <b>पेनिट्रेशन</b> – वेल्ड धातु जोड़ (रूट) में कितनी गहराई तक पहुँची; <b>थ्रोट</b> – रूट से फ़ेस, भार वहन करने वाला सेक्शन; <b>रीइन्फ़ोर्समेंट</b> – बट वेल्ड में प्लेट सतह से ऊपर अतिरिक्त धातु; <b>लेग</b> – फिलेट वेल्ड में रूट से टो; <b>फ़्यूज़न लाइन / ज़ोन</b> – पिघली व बिना पिघली धातु की सीमा; <b>हीट-अफेक्टेड ज़ोन</b> – बिना पिघली बेस धातु जिसकी संरचना ऊष्मा से बदली।<br><b>फ़्यूज़न की गहराई बढ़ती है:</b> अधिक करंट, स्ट्रेट पोलैरिटी (इलेक्ट्रोड ऋणात्मक), धीमी गति और छोटे आर्क से।"}},
+
+/* 24 */ {ans:0, lv:"h", tag:{en:"Assertion–Reason",hi:"अभिकथन–कारण"},
+en:{q:"<b>Assertion (A):</b> Soldering can join dissimilar metals, such as a copper wire to a brass terminal.<br><b>Reason (R):</b> In soldering the base metals are not melted; only the filler melts and wets them.",
+o:["Both A and R are true, and R explains A","Both A and R are true, but R does not explain A","A is true, but R is false","A is false, but R is true"],
+e:"Both are true, and R is the reason for A. In fusion welding, two different metals must melt and mix in one pool – metals with very different melting points or poor mutual solubility form brittle compounds or do not mix at all. In <b>soldering</b> (and brazing), the base metals <b>stay solid</b>; only the low-melting filler melts, <b>wets</b> each surface and bonds to it by a thin layer of alloying/diffusion. Each base metal only has to be wettable by the solder – so copper, brass, steel, tin-plate and many other combinations can be joined (RRB-CBT2 Apr'25-I: soldering is a method of joining similar or dissimilar metals).<br><b>Limitations:</b> low strength, low service temperature (below about 150–200 °C), and some metals (aluminium, stainless steel) need special fluxes.<br><b>Also:</b> brazing likewise joins dissimilar metals without melting the base metal (RRB-CBT2 Apr'25-I)."},
+hi:{q:"<b>अभिकथन (A):</b> सोल्डरिंग असमान धातुओं को जोड़ सकती है, जैसे कॉपर तार को पीतल टर्मिनल से।<br><b>कारण (R):</b> सोल्डरिंग में बेस धातुएँ नहीं पिघलतीं; केवल फिलर पिघलकर उन्हें गीला करता है।",
+o:["A और R दोनों सत्य हैं, और R, A की सही व्याख्या है","A और R दोनों सत्य हैं, पर R, A की व्याख्या नहीं है","A सत्य है, पर R असत्य है","A असत्य है, पर R सत्य है"],
+e:"दोनों सत्य हैं, और R, A का कारण है। फ़्यूज़न वेल्डिंग में दो अलग धातुओं को एक पूल में पिघलकर मिलना पड़ता है – बहुत अलग गलनांक या कम पारस्परिक घुलनशीलता वाली धातुएँ भंगुर यौगिक बनाती हैं या मिलती ही नहीं। <b>सोल्डरिंग</b> (और ब्रेज़िंग) में बेस धातुएँ <b>ठोस रहती</b> हैं; केवल कम गलनांक वाला फिलर पिघलकर प्रत्येक सतह को <b>गीला</b> करता है और मिश्रधातु/विसरण की पतली परत से जुड़ता है। प्रत्येक बेस धातु का केवल सोल्डर से गीला होना ज़रूरी है – इसलिए कॉपर, पीतल, स्टील, टिन-प्लेट व अनेक संयोजन जुड़ सकते हैं (RRB-CBT2 Apr'25-I: सोल्डरिंग समान या असमान धातुओं को जोड़ने की विधि है)।<br><b>सीमाएँ:</b> कम सामर्थ्य, कम सेवा तापमान (लगभग 150–200 °C से नीचे), और कुछ धातुओं (एल्युमिनियम, स्टेनलेस स्टील) को विशेष फ्लक्स चाहिए।<br><b>यह भी:</b> ब्रेज़िंग भी बेस धातु पिघलाए बिना असमान धातुएँ जोड़ती है (RRB-CBT2 Apr'25-I)।"}},
+
+/* 25 */ {ans:3, lv:"p", tag:{en:"Equipment",hi:"उपकरण"},
+en:{q:"The size (cross-section) of a welding cable is selected mainly on the basis of:",
+o:["the colour of the insulation","the plate thickness alone","the shade of the filter glass","the welding current and cable length"],
+e:"A welding cable must carry high current without overheating and without too much <b>voltage drop</b>. Two things decide its cross-section:<br>1. <b>Welding current</b> (and duty cycle) – more current needs a thicker conductor to stay cool.<br>2. <b>Cable length</b> (machine to job and back) – a longer cable has more resistance, so a bigger section is needed to keep the voltage drop small; otherwise the arc becomes weak and unstable.<br>Cables are made of many fine strands of <b>copper</b> (or aluminium) for flexibility, with tough rubber or PVC insulation.<br><b>Why not the others:</b> insulation colour is only identification; plate thickness affects electrode size and current, not cable size directly; filter shade is for eye protection.<br><b>PYQs:</b> 'selection of welding cable depends on → current and length' (KRCL 2017); 'welding cables are used for → conduction of current from the welding machine to the electrode holder' (RRB-CBT2 Jun'25)."},
+hi:{q:"वेल्डिंग केबल का आकार (अनुप्रस्थ काट) मुख्यतः किस आधार पर चुना जाता है?",
+o:["केबल के इन्सुलेशन का रंग","केवल जॉब प्लेट की मोटाई","हेलमेट के फ़िल्टर ग्लास का शेड","करंट और केबल की लंबाई"],
+e:"वेल्डिंग केबल को अधिक गर्म हुए बिना और अधिक <b>वोल्टेज ड्रॉप</b> के बिना उच्च करंट ले जाना है। इसका अनुप्रस्थ काट दो बातें तय करती हैं:<br>1. <b>वेल्डिंग करंट</b> (और ड्यूटी साइकिल) – अधिक करंट को ठंडा रहने हेतु मोटा चालक चाहिए।<br>2. <b>केबल लंबाई</b> (मशीन से जॉब तक और वापस) – लंबी केबल का प्रतिरोध अधिक, इसलिए वोल्टेज ड्रॉप कम रखने हेतु बड़ा सेक्शन चाहिए; वरना आर्क कमज़ोर व अस्थिर।<br>केबल लचीलेपन हेतु <b>कॉपर</b> (या एल्युमिनियम) के अनेक बारीक तारों से बनती है, मज़बूत रबर या PVC इन्सुलेशन के साथ।<br><b>अन्य क्यों नहीं:</b> इन्सुलेशन का रंग केवल पहचान हेतु; प्लेट मोटाई इलेक्ट्रोड आकार व करंट को प्रभावित करती है, केबल आकार को सीधे नहीं; फ़िल्टर शेड आँखों की सुरक्षा हेतु।<br><b>PYQ:</b> 'वेल्डिंग केबल का चयन → करंट व लंबाई पर' (KRCL 2017); 'वेल्डिंग केबल → वेल्डिंग मशीन से इलेक्ट्रोड होल्डर तक करंट चालन' (RRB-CBT2 Jun'25)।"}}
+];
+
+const LIMIT = 20*60;
+let lang = "en";
+let mode = "test";
+let picked = new Array(Q.length).fill(null);
+let showAll = false;
+let submitted = false;
+let autoSub = false;
+let left = LIMIT;
+let tick = null;
+const L = ["a","b","c","d"];
+const $ = id => document.getElementById(id);
+
+function fmt(t){ const m=Math.floor(t/60), s=t%60; return String(m).padStart(2,"0")+":"+String(s).padStart(2,"0"); }
+
+function startTimer(){
+  stopTimer();
+  if(mode!=="test" || submitted) return;
+  tick = setInterval(()=>{
+    left--;
+    if(left<=0){ left=0; autoSub=true; doSubmit(); return; }
+    paintTimer();
+  },1000);
+}
+function stopTimer(){ if(tick){clearInterval(tick); tick=null;} }
+function paintTimer(){
+  const t=$("timer"), u=UI[lang];
+  if(mode!=="test"){ t.classList.add("hidden"); return; }
+  t.classList.remove("hidden");
+  t.textContent = submitted ? u.taken+": "+fmt(LIMIT-left) : u.time+": "+fmt(left);
+  t.classList.toggle("low", !submitted && left<=120);
+}
+
+function isRevealed(i){ return mode==="practice" ? (picked[i]!==null || showAll) : submitted; }
+
+function render(){
+  const u = UI[lang];
+  document.documentElement.lang = lang;
+  $("title").textContent = u.title;
+  $("subtitle").textContent = u.sub;
+  $("rules").textContent = mode==="test" ? u.rules : u.rulesP;
+  $("foot").textContent = u.foot;
+  $("mTest").textContent = u.test; $("mPrac").textContent = u.prac;
+  $("mTest").setAttribute("aria-pressed", mode==="test");
+  $("mPrac").setAttribute("aria-pressed", mode==="practice");
+  $("bSubmit").textContent = u.submit;
+  $("bSubmit").classList.toggle("hidden", !(mode==="test" && !submitted));
+  $("bShow").textContent = showAll ? u.hide : u.show;
+  $("bShow").classList.toggle("hidden", mode!=="practice");
+  $("bReset").textContent = u.reset;
+  $("bEn").setAttribute("aria-pressed", lang==="en");
+  $("bHi").setAttribute("aria-pressed", lang==="hi");
+
+  let html = "";
+  Q.forEach((q,i)=>{
+    if(q.num && i>0 && !Q[i-1].num) html += `<div class="sec">${u.num}</div>`;
+    const d = q[lang], p = picked[i], rev = isRevealed(i);
+    const lvClass = q.lv==="t" ? "lv-t" : q.lv==="h" ? "lv-h" : "";
+    html += `<article class="q" id="q${i}">
+      <div class="qhead"><span class="qno">Q${i+1}.</span><span class="chip">${q.tag[lang]}</span><span class="chip ${lvClass}">${u.lv[q.lv]}</span></div>
+      <div class="qtext">${d.q}</div><div class="opts">`;
+    d.o.forEach((o,j)=>{
+      let cls = "opt";
+      if(rev && j===q.ans) cls += " right";
+      if(rev && p===j && p!==q.ans) cls += " wrong";
+      if(!rev && p===j) cls += " sel";
+      html += `<button class="${cls}" data-q="${i}" data-o="${j}" ${rev?"disabled":""} aria-pressed="${p===j}"><span class="l">(${L[j]})</span><span>${o}</span></button>`;
+    });
+    html += `</div>`;
+    if(rev){
+      let v = "";
+      if(p!==null) v = p===q.ans ? `<div>${u.right}</div>` : `<div class="verdict-bad">${u.yours}</div>`;
+      else if(mode==="test") v = `<div class="verdict-bad">${u.un}</div>`;
+      html += `<div class="ex">${v}<div class="ans">${u.ans}: (${L[q.ans]})</div>${d.e}</div>`;
+    }
+    html += `</article>`;
+  });
+  $("list").innerHTML = html;
+  stats(); paintTimer(); result();
+}
+
+function counts(){
+  let c=0,w=0,a=0;
+  picked.forEach((p,i)=>{ if(p!==null){a++; if(p===Q[i].ans)c++; else w++;} });
+  return {c,w,a,s:(c-w/3).toFixed(2)};
+}
+
+function stats(){
+  const u = UI[lang], k = counts();
+  const hide = mode==="test" && !submitted;
+  $("sAtt").textContent = `${u.att}: ${k.a}/${Q.length}`;
+  $("sC").textContent = `${u.c}: ${k.c}`;
+  $("sW").textContent = `${u.w}: ${k.w}`;
+  $("sS").textContent = `${u.s}: ${k.s}`;
+  ["sC","sW","sS"].forEach(id=>$(id).classList.toggle("hidden", hide));
+}
+
+function result(){
+  const box = $("result");
+  if(!(mode==="test" && submitted)){ box.innerHTML=""; return; }
+  const u = UI[lang], k = counts();
+  const acc = k.a ? Math.round(k.c*100/k.a) : 0;
+  box.innerHTML = `<section class="result" aria-live="polite">
+    <h2>${u.res}: ${k.s} / ${Q.length}</h2>
+    <div class="rgrid">
+      <div>${u.c}<b>${k.c}</b></div><div>${u.w}<b>${k.w}</b></div>
+      <div>${u.un}<b>${Q.length-k.a}</b></div><div>${u.acc}<b>${acc}%</b></div>
+      <div>${u.taken}<b>${fmt(LIMIT-left)}</b></div>
+    </div>
+    <p>${autoSub ? u.auto+" " : ""}${u.resNote}</p></section>`;
+}
+
+function doSubmit(){
+  submitted = true; stopTimer(); render();
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function resetAll(){
+  picked = new Array(Q.length).fill(null);
+  showAll=false; submitted=false; autoSub=false; left=LIMIT;
+  render(); startTimer(); window.scrollTo({top:0});
+}
+
+$("list").addEventListener("click", e=>{
+  const b = e.target.closest(".opt");
+  if(!b || b.disabled) return;
+  const i = +b.dataset.q, j = +b.dataset.o;
+  if(mode==="test"){ picked[i] = picked[i]===j ? null : j; }
+  else { if(picked[i]!==null) return; picked[i] = j; }
+  render();
+  const btn = document.querySelector(`#q${i} .opt[data-o="${j}"]`) || document.querySelector(`#q${i} .opt`);
+  if(btn) btn.focus({preventScroll:true});
+});
+$("bEn").onclick = ()=>{ lang="en"; render(); };
+$("bHi").onclick = ()=>{ lang="hi"; render(); };
+function setMode(m){
+  if(m===mode) return;
+  const dirty = picked.some(p=>p!==null) || submitted;
+  if(dirty && !confirm(UI[lang].cMode)) return;
+  mode = m; resetAll();
+}
+$("mTest").onclick = ()=>setMode("test");
+$("mPrac").onclick = ()=>setMode("practice");
+$("bSubmit").onclick = ()=>{ if(confirm(UI[lang].cSub)) doSubmit(); };
+$("bShow").onclick = ()=>{ showAll=!showAll; render(); };
+$("bReset").onclick = resetAll;
+
+function paintStart(){
+  const u=UI[lang];
+  $("stTitle").textContent=u.title;
+  $("stSub").textContent=u.stSub;
+  $("stTest").innerHTML=u.stT+"<small>"+u.stTs+"</small>";
+  $("stPrac").innerHTML=u.stP+"<small>"+u.stPs+"</small>";
+  $("stEn").setAttribute("aria-pressed",lang==="en");
+  $("stHi").setAttribute("aria-pressed",lang==="hi");
+}
+function begin(m){ mode=m; $("start").classList.add("hidden"); resetAll(); }
+$("stTest").onclick=()=>begin("test");
+$("stPrac").onclick=()=>begin("practice");
+$("stEn").onclick=()=>{ lang="en"; render(); paintStart(); };
+$("stHi").onclick=()=>{ lang="hi"; render(); paintStart(); };
+$("bEn").addEventListener("click",paintStart);
+$("bHi").addEventListener("click",paintStart);
+render(); paintStart(); $("stTest").focus();
+</script>
+</body>
+</html>
