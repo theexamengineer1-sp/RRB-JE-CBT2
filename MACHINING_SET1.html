@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Machining Smart MCQ Set 1 – Lathe | THE EXAM ENGINEER</title>
+<style>
+:root{
+  --navy:#12306b; --navy-deep:#0c2350; --orange:#f07f1a;
+  --bg:#f3f6fb; --card:#ffffff; --text:#16213a; --muted:#5b6782;
+  --line:#d9e0ec; --opt:#f7f9fd; --opt-hover:#eaf0fa;
+  --ok:#17803d; --ok-bg:#e6f6ec; --bad:#c0272d; --bad-bg:#fdecec;
+  --ex-bg:#fff7ee; --ex-line:#f3c58f; --chip:#e9eef8;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --navy:#2b4f9a; --navy-deep:#16264a; --orange:#ff9a3d;
+    --bg:#0f1524; --card:#18213a; --text:#e8edf8; --muted:#a3aec6;
+    --line:#2c3857; --opt:#1e2944; --opt-hover:#26345a;
+    --ok:#4cd17e; --ok-bg:#163a26; --bad:#ff6b70; --bad-bg:#3d1a1e;
+    --ex-bg:#2a2216; --ex-line:#6b4b22; --chip:#25304d;
+    color-scheme: dark;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:"Segoe UI","Noto Sans","Nirmala UI","Mangal",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  line-height:1.6;font-size:16px}
+header{background:var(--navy-deep);color:#fff;padding:22px 16px 18px}
+.wrap{max-width:860px;margin:0 auto}
+.brand{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand a{color:var(--orange);font-weight:700;text-decoration:none}
+.brand a:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.channel{font-weight:800;letter-spacing:.5px}
+h1{margin:14px 0 4px;font-size:clamp(1.4rem,4.5vw,2rem);line-height:1.2}
+.sub{margin:0;color:#c9d5ee;font-size:.95rem}
+.rules{margin-top:10px;font-size:.88rem;color:#c9d5ee}
+.bar{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:3px solid var(--orange);
+  box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.bar .wrap{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding:10px 16px}
+.seg{display:inline-flex;border:2px solid var(--navy);border-radius:999px;overflow:hidden}
+.seg button{border:0;background:transparent;color:var(--text);padding:6px 14px;font:inherit;font-weight:700;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--navy);color:#fff}
+.stats{display:flex;gap:12px;flex-wrap:wrap;font-size:.9rem;font-weight:600}
+.stats .c{color:var(--ok)} .stats .w{color:var(--bad)} .stats .s{color:var(--orange)}
+.tools button{border:1px solid var(--line);background:var(--opt);color:var(--text);border-radius:8px;
+  padding:6px 10px;font:inherit;font-size:.85rem;cursor:pointer}
+.tools button:hover{background:var(--opt-hover)}
+button:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+main{padding:18px 16px 40px}
+.q{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--navy);
+  border-radius:10px;padding:16px 16px 14px;margin:0 0 16px}
+.qhead{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.qno{font-weight:800;color:var(--navy)}
+@media (prefers-color-scheme: dark){.qno{color:#8fb0f5}}
+.chip{background:var(--chip);color:var(--muted);font-size:.75rem;font-weight:700;padding:2px 9px;border-radius:999px}
+.chip.lv-t{background:var(--bad-bg);color:var(--bad)}
+.chip.lv-h{background:var(--ex-bg);color:var(--orange)}
+.qtext{font-weight:600;margin:4px 0 12px}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;text-align:left;width:100%;border:1.5px solid var(--line);
+  background:var(--opt);color:var(--text);border-radius:8px;padding:9px 12px;font:inherit;cursor:pointer}
+.opt:hover:not(:disabled){background:var(--opt-hover)}
+.opt:disabled{cursor:default}
+.opt .l{font-weight:800;min-width:1.8em;color:var(--muted)}
+.opt.right{border-color:var(--ok);background:var(--ok-bg)}
+.opt.right .l{color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.opt.wrong .l{color:var(--bad)}
+.opt.sel{border-color:var(--navy);background:var(--opt-hover);box-shadow:inset 0 0 0 1px var(--navy)}
+.opt.sel .l{color:var(--navy)}
+@media (prefers-color-scheme: dark){.opt.sel .l{color:#8fb0f5}.opt.sel{border-color:#8fb0f5;box-shadow:inset 0 0 0 1px #8fb0f5}}
+.timer{font-variant-numeric:tabular-nums;font-weight:800}
+.timer.low{color:var(--bad)}
+.tools{display:flex;gap:6px;flex-wrap:wrap}
+.tools button.primary{background:var(--orange);border-color:var(--orange);color:#fff;font-weight:700}
+.tools button.primary:hover{filter:brightness(1.05);background:var(--orange)}
+.hidden{display:none !important}
+.result{background:var(--card);border:2px solid var(--orange);border-radius:12px;padding:16px;margin-bottom:18px}
+.result h2{margin:0 0 10px;font-size:1.2rem;color:var(--orange)}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+.rgrid div{background:var(--opt);border-radius:8px;padding:8px 10px}
+.rgrid b{display:block;font-size:1.3rem}
+.result p{margin:10px 0 0;color:var(--muted);font-size:.9rem}
+.start{position:fixed;inset:0;z-index:20;background:rgba(8,18,40,.78);display:flex;align-items:center;justify-content:center;padding:16px}
+.start .card{background:var(--card);color:var(--text);border-top:6px solid var(--orange);border-radius:14px;max-width:440px;width:100%;padding:22px 20px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.start h2{margin:0 0 6px;font-size:1.3rem;color:var(--navy)}
+@media (prefers-color-scheme: dark){.start h2{color:#8fb0f5}}
+.start p{margin:0 0 16px;color:var(--muted);font-size:.92rem}
+.start .big{display:block;width:100%;margin:10px 0;padding:14px;border-radius:10px;font:inherit;font-size:1.05rem;font-weight:800;cursor:pointer;border:2px solid var(--navy);background:var(--opt);color:var(--text)}
+.start .big.primary{background:var(--orange);border-color:var(--orange);color:#fff}
+.start .big small{display:block;font-weight:500;font-size:.82rem;opacity:.9;margin-top:2px}
+.start .seg{margin-top:10px}
+.ex{margin-top:12px;background:var(--ex-bg);border:1px solid var(--ex-line);border-radius:8px;padding:12px 14px;font-size:.95rem}
+.ex .ans{font-weight:800;color:var(--ok);margin-bottom:4px}
+.ex .verdict-bad{color:var(--bad)}
+.sec{margin:24px 0 12px;font-weight:800;color:var(--orange);font-size:1.05rem;border-bottom:2px solid var(--line);padding-bottom:4px}
+footer{text-align:center;color:var(--muted);font-size:.82rem;padding:10px 16px 30px}
+footer a{color:var(--orange)}
+@media (prefers-reduced-motion: no-preference){.ex{animation:show .25s ease-out}
+  @keyframes show{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}}
+</style>
+</head>
+<body>
+<div class="start" id="start" role="dialog" aria-modal="true" aria-labelledby="stTitle">
+  <div class="card">
+    <h2 id="stTitle"></h2>
+    <p id="stSub"></p>
+    <button class="big primary" id="stTest"></button>
+    <button class="big" id="stPrac"></button>
+    <div class="seg" role="group" aria-label="Language">
+      <button id="stEn" aria-pressed="true">English</button>
+      <button id="stHi" aria-pressed="false">हिंदी</button>
+    </div>
+  </div>
+</div>
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <span class="channel">THE EXAM ENGINEER</span>
+      <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a>
+    </div>
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+    <p class="rules" id="rules"></p>
+  </div>
+</header>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="seg" role="group" aria-label="Language">
+      <button id="bEn" aria-pressed="true">English</button>
+      <button id="bHi" aria-pressed="false">हिंदी</button>
+    </div>
+    <div class="seg" role="group" aria-label="Mode">
+      <button id="mTest" aria-pressed="true"></button>
+      <button id="mPrac" aria-pressed="false"></button>
+    </div>
+    <div class="stats" aria-live="polite">
+      <span class="timer" id="timer"></span>
+      <span id="sAtt"></span><span class="c" id="sC"></span><span class="w" id="sW"></span><span class="s" id="sS"></span>
+    </div>
+    <div class="tools">
+      <button id="bSubmit" class="primary"></button>
+      <button id="bShow"></button>
+      <button id="bReset"></button>
+    </div>
+  </div>
+</div>
+
+<main><div class="wrap"><div id="result"></div><div id="list"></div></div></main>
+
+<footer>
+  <div id="foot"></div>
+  <div>© 2026 THE EXAM ENGINEER · <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a> · theexamengineer1@gmail.com</div>
+  <div>SSC JE AIR 14 · RRB JE 2025 (DMS)</div>
+</footer>
+
+<script>
+const UI = {
+  en:{title:"Machining Smart MCQ – Set 1",
+      sub:"Lathe – Principle, Types, Parts, Accessories & Size · RRB JE CBT-2 (Mechanical & Allied) · RRB JE PYQ based",
+      rules:"25 questions · 20 minutes (RRB CBT-2 pace: 150 Qs in 120 min) · +1 correct, −1/3 wrong",
+      stT:"Start Test",stTs:"20 minutes · timer · submit · full result",stP:"Practice Mode",stPs:"no timer · answer and explanation instantly",stSub:"Choose how you want to attempt this set",
+      rulesP:"Practice mode · no timer · tap an option to see the answer with full explanation instantly",
+      test:"Test",prac:"Practice",submit:"Submit test",time:"Time left",
+      cSub:"Submit the test now? You cannot change answers after submitting.",
+      cMode:"Switching mode will reset your current attempt. Continue?",
+      res:"Your result",un:"Not attempted",taken:"Time taken",acc:"Accuracy",auto:"Time over – test submitted automatically.",
+      resNote:"Answers and full explanations are now shown below each question. Read the explanation of every wrong and unattempted question.",
+      att:"Attempted",c:"Correct",w:"Wrong",s:"Score",show:"Show all answers",hide:"Hide unattempted answers",reset:"Reset",
+      ans:"Correct answer",yours:"Your answer is wrong.",right:"Your answer is correct.",num:"Simple numericals",
+      lv:{e:"Easy",p:"PYQ level",h:"Higher",t:"Tough"},
+      foot:"Original work, free for personal study. Share as it is with the channel link – no re-branding."},
+  hi:{title:"मशीनिंग स्मार्ट MCQ – सेट 1",
+      sub:"लेथ – सिद्धांत, प्रकार, भाग, सहायक उपकरण एवं आकार · RRB JE CBT-2 (मैकेनिकल एवं संबद्ध) · RRB JE PYQ आधारित",
+      rules:"25 प्रश्न · 20 मिनट (RRB CBT-2 गति: 120 मिनट में 150 प्रश्न) · सही +1, गलत −1/3",
+      stT:"टेस्ट शुरू करें",stTs:"20 मिनट · टाइमर · सबमिट · पूरा परिणाम",stP:"प्रैक्टिस मोड",stPs:"कोई टाइमर नहीं · उत्तर व व्याख्या तुरंत",stSub:"यह सेट कैसे हल करना है, चुनें",
+      rulesP:"प्रैक्टिस मोड · कोई टाइमर नहीं · विकल्प पर टैप करें, उत्तर और पूरी व्याख्या तुरंत दिखेगी",
+      test:"टेस्ट",prac:"प्रैक्टिस",submit:"टेस्ट सबमिट करें",time:"शेष समय",
+      cSub:"क्या अभी टेस्ट सबमिट करें? सबमिट के बाद उत्तर नहीं बदल सकेंगे।",
+      cMode:"मोड बदलने पर आपका वर्तमान प्रयास रीसेट हो जाएगा। जारी रखें?",
+      res:"आपका परिणाम",un:"बिना प्रयास",taken:"लिया गया समय",acc:"सटीकता",auto:"समय समाप्त – टेस्ट स्वतः सबमिट हो गया।",
+      resNote:"अब हर प्रश्न के नीचे उत्तर और पूरी व्याख्या दिख रही है। हर गलत और बिना प्रयास वाले प्रश्न की व्याख्या ज़रूर पढ़ें।",
+      att:"प्रयास",c:"सही",w:"गलत",s:"स्कोर",show:"सभी उत्तर दिखाएँ",hide:"बिना प्रयास वाले उत्तर छिपाएँ",reset:"रीसेट",
+      ans:"सही उत्तर",yours:"आपका उत्तर गलत है।",right:"आपका उत्तर सही है।",num:"सरल न्यूमेरिकल",
+      lv:{e:"आसान",p:"PYQ स्तर",h:"उच्च",t:"कठिन"},
+      foot:"मौलिक कार्य, व्यक्तिगत अध्ययन हेतु निःशुल्क। चैनल लिंक सहित जैसा है वैसा ही शेयर करें – री-ब्रांडिंग नहीं।"}
+};
+
+const Q = [
+/* 1 */ {ans:0, lv:"p", tag:{en:"Lathe principle",hi:"लेथ सिद्धांत"},
+en:{q:"On a centre lathe, the primary (cutting) motion is given to the ___ and the feed motion to the ___.",
+o:["workpiece by the spindle; tool by the carriage","tool by the spindle; workpiece by the carriage","workpiece by the carriage; tool by the spindle","tool by the tailstock; workpiece by the apron"],
+e:"On a lathe the <b>workpiece rotates</b> – it is held in a chuck or between centres and turned by the <b>headstock spindle</b>. This rotation is the <b>primary or cutting motion</b>; it decides the cutting speed V = πDN/1000 m/min. The single-point tool is held in the tool post and moved in a straight line by the <b>carriage</b> (along the axis) or the cross-slide (across it) – this is the <b>feed motion</b>, measured in mm per revolution.<br><b>Why not the others:</b> (b) and (c) swap the roles – a rotating tool with a moving work is milling or drilling, not turning; (d) the tailstock only supports the job and the apron only controls carriage feed.<br><b>Compare machines:</b> lathe – work rotates, tool feeds · drilling and milling – tool rotates · shaper – tool reciprocates · planer – work reciprocates.<br><b>Lathe = 'mother of all machine tools'</b> – it can make cylindrical, conical, flat and threaded surfaces."},
+hi:{q:"सेंटर लेथ पर प्राथमिक (कटिंग) गति ___ को और फ़ीड गति ___ को दी जाती है।",
+o:["वर्कपीस को स्पिंडल द्वारा; टूल को कैरिज द्वारा","टूल को स्पिंडल द्वारा; वर्कपीस को कैरिज द्वारा","वर्कपीस को कैरिज द्वारा; टूल को स्पिंडल द्वारा","टूल को टेलस्टॉक द्वारा; वर्कपीस को एप्रन द्वारा"],
+e:"लेथ पर <b>वर्कपीस घूमता है</b> – यह चक में या सेंटरों के बीच पकड़ा जाता है और <b>हेडस्टॉक स्पिंडल</b> द्वारा घुमाया जाता है। यही घूर्णन <b>प्राथमिक या कटिंग गति</b> है; इससे कटिंग स्पीड V = πDN/1000 m/min तय होती है। सिंगल-पॉइंट टूल टूल पोस्ट में पकड़ा जाता है और <b>कैरिज</b> (अक्ष के साथ) या क्रॉस-स्लाइड (अक्ष के आर-पार) द्वारा सीधी रेखा में चलाया जाता है – यही <b>फ़ीड गति</b> है, mm प्रति चक्कर में।<br><b>अन्य क्यों नहीं:</b> (b) और (c) भूमिकाएँ उलट देते हैं – घूमता टूल और चलता जॉब मिलिंग या ड्रिलिंग है, टर्निंग नहीं; (d) टेलस्टॉक केवल जॉब को सहारा देता है और एप्रन केवल कैरिज फ़ीड नियंत्रित करता है।<br><b>मशीनों की तुलना:</b> लेथ – जॉब घूमता, टूल फ़ीड · ड्रिलिंग व मिलिंग – टूल घूमता · शेपर – टूल आगे-पीछे · प्लेनर – जॉब आगे-पीछे।<br><b>लेथ = 'सभी मशीन टूलों की जननी'</b> – यह बेलनाकार, शंक्वाकार, सपाट व चूड़ीदार सतहें बना सकती है।"}},
+
+/* 2 */ {ans:1, lv:"e", tag:{en:"Accessories",hi:"सहायक उपकरण"},
+en:{q:"The included angle of standard lathe centres is:",
+o:["45°","60°","90°","118°"],
+e:"Standard lathe centres (dead, live and the matching centre holes drilled in the job) have an <b>included angle of 60°</b>. The 60° cone gives a good bearing area and keeps the job accurately on the axis. Centre holes are made with a combined centre drill, whose countersink portion is also 60°.<br><b>Trap:</b> 118° is the standard <b>point angle of a twist drill</b>, not a centre; 90° centres are used only for very heavy work in some machines.<br><b>Types of centre:</b> dead centre – does not rotate, needs lubrication; live (revolving) centre – rotates with the job on bearings, for high speeds; half centre – for facing ends; pipe centre – for hollow jobs.<br><b>PYQs:</b> 'the included angle of lathe centre is → 60°' (Railway SSE 2012, TNCSC 2020)."},
+hi:{q:"मानक लेथ सेंटरों का सम्मिलित कोण (included angle) होता है:",
+o:["45°","60°","90°","118°"],
+e:"मानक लेथ सेंटरों (डेड, लाइव और जॉब में ड्रिल किए गए मिलते सेंटर होल) का <b>सम्मिलित कोण 60°</b> होता है। 60° शंकु अच्छा सहारा क्षेत्र देता है और जॉब को अक्ष पर सही रखता है। सेंटर होल संयुक्त सेंटर ड्रिल से बनते हैं, जिसका काउंटरसिंक भाग भी 60° होता है।<br><b>ट्रैप:</b> 118° <b>ट्विस्ट ड्रिल का पॉइंट कोण</b> है, सेंटर का नहीं; 90° सेंटर कुछ मशीनों में केवल बहुत भारी कार्य हेतु।<br><b>सेंटर के प्रकार:</b> डेड सेंटर – घूमता नहीं, स्नेहन चाहिए; लाइव (घूमता) सेंटर – बेयरिंग पर जॉब के साथ घूमता, उच्च गति हेतु; हाफ़ सेंटर – सिरों की फ़ेसिंग हेतु; पाइप सेंटर – खोखले जॉब हेतु।<br><b>PYQ:</b> 'लेथ सेंटर का सम्मिलित कोण → 60°' (रेलवे SSE 2012, TNCSC 2020)।"}},
+
+/* 3 */ {ans:2, lv:"p", tag:{en:"Types of lathe · scenario",hi:"लेथ के प्रकार · परिस्थिति"},
+en:{q:"A railway workshop must re-machine the worn treads and journals of wagon wheel sets, which are heavy and of large diameter. The most suitable machine is:",
+o:["bench lathe","speed lathe","wheel lathe","capstan lathe"],
+e:"A <b>wheel lathe</b> is a special-purpose, heavy-duty lathe built to machine <b>railway wheel sets</b> – the treads (rolling surface with its flange profile) and the journals (bearing seats on the axle). Both wheels on an axle can be profiled together, often in one setting; under-floor wheel lathes can even re-profile wheels without lifting the coach.<br><b>Why not the others:</b> a bench lathe is small, for watch and instrument parts; a speed lathe has no power feed and is for wood, polishing and spinning; a capstan lathe is for repetitive production of small bar parts.<br><b>Other special-purpose lathes:</b> gap-bed lathe – extra-large diameters near the headstock · T-lathe – rotors and jet-engine parts · duplicating lathe – copies a template profile · tool-room lathe – high precision.<br><b>PYQ concept:</b> 'special-purpose lathe for heavy duty → wheel lathe for railway wheels, journals and treads' (RRB-CBT2 Jun'25)."},
+hi:{q:"एक रेलवे वर्कशॉप को वैगन व्हील सेट के घिसे ट्रेड और जर्नल दोबारा मशीन करने हैं, जो भारी और बड़े व्यास के हैं। सबसे उपयुक्त मशीन है:",
+o:["बेंच लेथ","स्पीड लेथ","व्हील लेथ","कैप्स्टन लेथ"],
+e:"<b>व्हील लेथ</b> एक विशेष-उद्देश्य, भारी-कार्य लेथ है जो <b>रेलवे व्हील सेट</b> मशीन करने हेतु बनी है – ट्रेड (फ़्लैंज प्रोफ़ाइल सहित रोलिंग सतह) और जर्नल (एक्सल पर बेयरिंग सीट)। एक एक्सल के दोनों पहिए प्रायः एक ही सेटिंग में साथ प्रोफ़ाइल किए जा सकते हैं; अंडर-फ़्लोर व्हील लेथ कोच उठाए बिना भी पहिए री-प्रोफ़ाइल कर सकती है।<br><b>अन्य क्यों नहीं:</b> बेंच लेथ छोटी, घड़ी व उपकरण पुर्ज़ों हेतु; स्पीड लेथ में पावर फ़ीड नहीं, लकड़ी, पॉलिशिंग व स्पिनिंग हेतु; कैप्स्टन लेथ छोटे बार पुर्ज़ों के दोहराव उत्पादन हेतु।<br><b>अन्य विशेष-उद्देश्य लेथ:</b> गैप-बेड लेथ – हेडस्टॉक के पास अतिरिक्त-बड़े व्यास · T-लेथ – रोटर व जेट-इंजन भाग · डुप्लिकेटिंग लेथ – टेम्पलेट प्रोफ़ाइल की नकल · टूल-रूम लेथ – उच्च परिशुद्धता।<br><b>PYQ अवधारणा:</b> 'भारी कार्य हेतु विशेष-उद्देश्य लेथ → रेलवे पहिए, जर्नल व ट्रेड हेतु व्हील लेथ' (RRB-CBT2 Jun'25)।"}},
+
+/* 4 */ {ans:3, lv:"h", tag:{en:"Lathe bed",hi:"लेथ बेड"},
+en:{q:"On a lathe bed with inverted-V and flat guideways, the inverted-V way mainly:",
+o:["carries the full weight of the headstock","drains coolant away from the bed","lets the tailstock swivel for tapers","aligns and guides the carriage accurately"],
+e:"Lathe beds use a <b>combination of inverted-V and flat guideways</b> (RRB-CBT2 Jul'26). The <b>inverted-V</b> way locates the carriage and tailstock sideways as well as vertically, so they slide in an exact straight line parallel to the spindle axis – it <b>aligns and guides</b>. The <b>flat</b> way gives a broad bearing surface that <b>carries the load</b> and lets the parts settle without binding. Together they keep alignment even as the ways wear. The outer ways carry the carriage; the inner ways carry the headstock and tailstock.<br><b>Why not the others:</b> load is mainly carried by the flat ways; coolant drains to a separate tray; the tailstock does not swivel (it is offset sideways for tapers).<br><b>Bed facts:</b> grey cast iron (damping, easy casting), ways flame- or induction-hardened against wear (KPSC, GPSC PYQ)."},
+hi:{q:"इनवर्टेड-V और फ़्लैट गाइडवे वाले लेथ बेड पर इनवर्टेड-V वे मुख्यतः:",
+o:["हेडस्टॉक का पूरा भार वहन करता है","बेड से कूलेंट बहाकर दूर करता है","टेपर हेतु टेलस्टॉक को घूमने देता है","कैरिज को सटीक संरेखित और निर्देशित करता है"],
+e:"लेथ बेड में <b>इनवर्टेड-V और फ़्लैट गाइडवे का संयोजन</b> होता है (RRB-CBT2 Jul'26)। <b>इनवर्टेड-V</b> वे कैरिज और टेलस्टॉक को बगल व ऊर्ध्व दोनों दिशाओं में स्थित करता है, ताकि वे स्पिंडल अक्ष के समानांतर सटीक सीधी रेखा में फिसलें – यह <b>संरेखित व निर्देशित</b> करता है। <b>फ़्लैट</b> वे चौड़ी सहारा सतह देता है जो <b>भार वहन</b> करती है और भागों को बिना अटके बैठने देती है। दोनों मिलकर घिसने पर भी संरेखण बनाए रखते हैं। बाहरी वे पर कैरिज; भीतरी वे पर हेडस्टॉक व टेलस्टॉक।<br><b>अन्य क्यों नहीं:</b> भार मुख्यतः फ़्लैट वे वहन करते हैं; कूलेंट अलग ट्रे में जाता है; टेलस्टॉक घूमता नहीं (टेपर हेतु बगल में ऑफ़सेट होता है)।<br><b>बेड तथ्य:</b> ग्रे कास्ट आयरन (कंपन अवशोषण, आसान ढलाई), वे फ़्लेम या इंडक्शन से कठोर (KPSC, GPSC PYQ)।"}},
+
+/* 5 */ {ans:1, lv:"e", tag:{en:"Capstan lathe",hi:"कैप्स्टन लेथ"},
+en:{q:"Which of the following is NOT found on a capstan lathe?",
+o:["headstock","tailstock","cross-slide","bed"],
+e:"Capstan and turret lathes are built for <b>repetitive production</b> of identical parts. The usual tailstock is replaced by a <b>hexagonal turret (capstan) head</b> that carries up to six tools – drill, reamer, tap, die, boring bar, stop – each brought into position in turn by indexing the head. So there is <b>no tailstock</b>.<br>They still have a bed, a headstock (often with collet or chuck and quick speed changes) and a cross-slide with front and rear tool posts for turning, forming and parting.<br><b>Advantages:</b> many tools pre-set, less handling and measuring, semi-skilled operators, high output.<br><b>PYQs:</b> 'capstan lathe has no → tailstock' (SSC JE); 'which is not a part of capstan lathe → tailstock' (KPSC 2015)."},
+hi:{q:"निम्न में से कौन-सा भाग कैप्स्टन लेथ में नहीं होता?",
+o:["हेडस्टॉक","टेलस्टॉक","क्रॉस-स्लाइड","बेड"],
+e:"कैप्स्टन और टरेट लेथ एक जैसे पुर्ज़ों के <b>दोहराव उत्पादन</b> हेतु बनी हैं। सामान्य टेलस्टॉक के स्थान पर <b>षट्कोणीय टरेट (कैप्स्टन) हेड</b> होता है जिस पर छह तक टूल – ड्रिल, रीमर, टैप, डाई, बोरिंग बार, स्टॉप – लगे होते हैं, जो हेड को इंडेक्स करके बारी-बारी से स्थिति में आते हैं। इसलिए <b>टेलस्टॉक नहीं</b> होता।<br>इनमें बेड, हेडस्टॉक (प्रायः कॉलेट या चक व तेज़ गति परिवर्तन के साथ) और टर्निंग, फ़ॉर्मिंग व पार्टिंग हेतु आगे-पीछे टूल पोस्ट वाली क्रॉस-स्लाइड होती है।<br><b>लाभ:</b> अनेक टूल पहले से सेट, कम हैंडलिंग व माप, अर्ध-कुशल ऑपरेटर, अधिक उत्पादन।<br><b>PYQ:</b> 'कैप्स्टन लेथ में नहीं होता → टेलस्टॉक' (SSC JE); 'कैप्स्टन लेथ का भाग नहीं → टेलस्टॉक' (KPSC 2015)।"}},
+
+/* 6 */ {ans:0, lv:"h", tag:{en:"Lead screw · scenario",hi:"लीड स्क्रू · परिस्थिति"},
+en:{q:"In a training workshop, a lathe's lead screw is found badly worn while its feed rod is almost new. The instructor says the lead screw should be engaged only for thread cutting. The main reason is:",
+o:["to keep its accuracy for cutting correct pitches","because it cannot move the carriage otherwise","because the feed rod runs only in reverse","because the half nut fits only the feed rod"],
+e:"The <b>lead screw</b> is a precision, single-start Acme-threaded shaft. In thread cutting it is locked to the carriage through the <b>half nut</b>, so that the carriage moves exactly one job-pitch for every revolution of the spindle – the accuracy of every thread cut on the lathe depends on the accuracy of this screw. If it is also used for ordinary turning and facing, its threads wear unevenly and thread pitches become inaccurate.<br>So ordinary power feed for turning and facing is taken from the <b>feed rod</b> (a plain shaft with a keyway driving the apron gears), and the lead screw is engaged <b>only for thread cutting</b> (RRB-CBT2 Jun'25).<br><b>Why not the others:</b> the lead screw can move the carriage – that is exactly what it does in threading; the feed rod runs both ways; the half nut engages the lead screw, not the feed rod.<br><b>Memory hook:</b> Lead screw only for Lines of thread; feed rod for turning and facing."},
+hi:{q:"एक प्रशिक्षण वर्कशॉप में लेथ का लीड स्क्रू बुरी तरह घिसा मिलता है जबकि फ़ीड रॉड लगभग नई है। प्रशिक्षक कहता है कि लीड स्क्रू केवल थ्रेड कटिंग के लिए ही जोड़ना चाहिए। मुख्य कारण है:",
+o:["सही पिच काटने हेतु इसकी सटीकता बनाए रखना","क्योंकि अन्यथा यह कैरिज नहीं चला सकता","क्योंकि फ़ीड रॉड केवल उल्टी दिशा में चलती है","क्योंकि हाफ़ नट केवल फ़ीड रॉड पर ही बैठता है"],
+e:"<b>लीड स्क्रू</b> एक परिशुद्ध, सिंगल-स्टार्ट एक्मी-थ्रेड वाला शाफ़्ट है। थ्रेड कटिंग में यह <b>हाफ़ नट</b> द्वारा कैरिज से जुड़ता है, ताकि स्पिंडल के हर चक्कर पर कैरिज ठीक एक जॉब-पिच चले – लेथ पर कटे हर थ्रेड की सटीकता इसी स्क्रू की सटीकता पर निर्भर है। यदि इसे सामान्य टर्निंग व फ़ेसिंग में भी लगाया जाए तो इसके थ्रेड असमान घिसते हैं और थ्रेड पिच गलत होने लगती है।<br>इसलिए टर्निंग व फ़ेसिंग की सामान्य पावर फ़ीड <b>फ़ीड रॉड</b> (एप्रन गियर चलाने वाला की-वे युक्त सादा शाफ़्ट) से ली जाती है, और लीड स्क्रू <b>केवल थ्रेड कटिंग</b> में जोड़ा जाता है (RRB-CBT2 Jun'25)।<br><b>अन्य क्यों नहीं:</b> लीड स्क्रू कैरिज चला सकता है – थ्रेडिंग में यही करता है; फ़ीड रॉड दोनों दिशा में चलती है; हाफ़ नट लीड स्क्रू पर लगता है, फ़ीड रॉड पर नहीं।<br><b>याद रखें:</b> लीड स्क्रू केवल थ्रेड हेतु; फ़ीड रॉड टर्निंग व फ़ेसिंग हेतु।"}},
+
+/* 7 */ {ans:2, lv:"e", tag:{en:"Numerical – lathe size",hi:"न्यूमेरिकल – लेथ आकार"},
+en:{q:"The centres of a lathe are 225 mm above the bed. Its swing over the bed is about:",
+o:["225 mm","112.5 mm","450 mm","900 mm"],
+e:"<b>Swing over the bed</b> = the largest diameter of work that can rotate over the bed without touching it. The job's radius can be at most equal to the height of the centres above the bed, so<br>swing ≈ 2 × height of centres = 2 × 225 = <b>450 mm</b>.<br><b>Distractor check:</b> (a) takes the radius as the diameter; (b) halves instead of doubling; (d) doubles twice.<br><b>Size of a lathe</b> is specified by <b>swing over the bed × distance between centres</b> (maximum job length) (RRB-CBT2 2019); other data quoted – bed length, swing over carriage, spindle bore, power, speed range.<br><b>PYQ:</b> 'the largest diameter of work that can be carried between the centres of a lathe is known as → swing' (RRB-CBT2 2019)."},
+hi:{q:"एक लेथ के सेंटर बेड से 225 mm ऊपर हैं। बेड के ऊपर इसका स्विंग लगभग है:",
+o:["225 mm","112.5 mm","450 mm","900 mm"],
+e:"<b>बेड के ऊपर स्विंग</b> = जॉब का वह सबसे बड़ा व्यास जो बेड को छुए बिना उसके ऊपर घूम सके। जॉब की त्रिज्या अधिकतम सेंटरों की बेड से ऊँचाई के बराबर हो सकती है, अतः<br>स्विंग ≈ 2 × सेंटरों की ऊँचाई = 2 × 225 = <b>450 mm</b>।<br><b>गलत विकल्प कैसे बने:</b> (a) त्रिज्या को व्यास मान लिया; (b) दोगुना करने के स्थान पर आधा किया; (d) दो बार दोगुना किया।<br><b>लेथ का आकार</b> = <b>बेड के ऊपर स्विंग × सेंटरों के बीच दूरी</b> (अधिकतम जॉब लंबाई) (RRB-CBT2 2019); अन्य आँकड़े – बेड लंबाई, कैरिज के ऊपर स्विंग, स्पिंडल बोर, शक्ति, गति दायरा।<br><b>PYQ:</b> 'लेथ के सेंटरों के बीच ले जाया जा सकने वाला सबसे बड़ा व्यास → स्विंग' (RRB-CBT2 2019)।"}},
+
+/* 8 */ {ans:3, lv:"p", tag:{en:"Carriage parts",hi:"कैरिज के भाग"},
+en:{q:"Match each part of the lathe carriage (List-I) with its function (List-II):<br>P. Saddle<br>Q. Cross-slide<br>R. Compound rest<br>S. Apron<br>1. Houses gears, clutches and the half nut<br>2. Slides on the bed and supports the cross-slide and tool post<br>3. Moves the tool perpendicular to the axis<br>4. Swivels to cut short, steep tapers",
+o:["P-1, Q-3, R-4, S-2","P-2, Q-4, R-3, S-1","P-3, Q-2, R-4, S-1","P-2, Q-3, R-4, S-1"],
+e:"The <b>carriage</b> carries and feeds the tool. Its parts:<br><b>Saddle</b> – H-shaped casting that slides along the outer bed ways (longitudinal movement) and <b>supports the cross-slide and tool post</b> (RRB-CBT2 Jul'26).<br><b>Cross-slide</b> – on top of the saddle; moves the tool <b>perpendicular to the axis</b> – for facing, parting-off and setting the depth of cut (APPSC PYQ).<br><b>Compound rest</b> – on top of the cross-slide; <b>swivels to any angle</b> and is hand-fed for short, steep tapers and chamfers (RRB-CBT2 2019, DMRC PYQ).<br><b>Apron</b> – hangs in front of the saddle; contains the <b>gears, clutches and half nut</b> that control the carriage feed (RRB-CBT2 2019: the horizontal feed is controlled by the apron).<br><b>Tool post</b> – on the compound rest; holds and sets the tool (RRB-CBT2 Apr'25-II)."},
+hi:{q:"लेथ कैरिज के प्रत्येक भाग (सूची-I) को उसके कार्य (सूची-II) से सुमेलित करें:<br>P. सैडल<br>Q. क्रॉस-स्लाइड<br>R. कंपाउंड रेस्ट<br>S. एप्रन<br>1. गियर, क्लच और हाफ़ नट रखता है<br>2. बेड पर फिसलता है और क्रॉस-स्लाइड व टूल पोस्ट को सहारा देता है<br>3. टूल को अक्ष के लंबवत चलाता है<br>4. छोटे, तीखे टेपर काटने हेतु घूमता है",
+o:["P-1, Q-3, R-4, S-2","P-2, Q-4, R-3, S-1","P-3, Q-2, R-4, S-1","P-2, Q-3, R-4, S-1"],
+e:"<b>कैरिज</b> टूल को ले जाती और फ़ीड देती है। इसके भाग:<br><b>सैडल</b> – H-आकार की ढलाई जो बेड के बाहरी वे पर फिसलती है (अनुदैर्ध्य गति) और <b>क्रॉस-स्लाइड व टूल पोस्ट को सहारा</b> देती है (RRB-CBT2 Jul'26)।<br><b>क्रॉस-स्लाइड</b> – सैडल के ऊपर; टूल को <b>अक्ष के लंबवत</b> चलाती है – फ़ेसिंग, पार्टिंग-ऑफ़ व कट की गहराई हेतु (APPSC PYQ)।<br><b>कंपाउंड रेस्ट</b> – क्रॉस-स्लाइड के ऊपर; <b>किसी भी कोण पर घूमता</b> है और हाथ से फ़ीड कर छोटे, तीखे टेपर व चैम्फ़र बनाता है (RRB-CBT2 2019, DMRC PYQ)।<br><b>एप्रन</b> – सैडल के आगे लटका; इसमें कैरिज फ़ीड नियंत्रित करने वाले <b>गियर, क्लच व हाफ़ नट</b> होते हैं (RRB-CBT2 2019: क्षैतिज फ़ीड → एप्रन)।<br><b>टूल पोस्ट</b> – कंपाउंड रेस्ट पर; टूल पकड़ता व सेट करता है (RRB-CBT2 Apr'25-II)।"}},
+
+/* 9 */ {ans:1, lv:"p", tag:{en:"Work holding · scenario",hi:"जॉब पकड़ना · परिस्थिति"},
+en:{q:"A square bar must be held so that a round boss can be turned off its centre (eccentric turning). The most suitable work-holding device is:",
+o:["three-jaw self-centring chuck","four-jaw independent chuck","collet chuck","magnetic chuck"],
+e:"In a <b>four-jaw independent chuck</b> each jaw is moved by its own screw, so the job can be set <b>off-centre deliberately</b> for eccentric turning, and square, rectangular or irregular jobs can be gripped firmly. It gives the <b>strongest grip</b>, but each setting takes time and needs a dial indicator or surface gauge.<br><b>Why not the others:</b> a three-jaw (self-centring) chuck moves all jaws together – it automatically centres round and hexagonal bars, so it cannot hold a job off-centre (Railway JE PYQ: '3-jaw chuck → only cylindrical and hexagonal work'); a collet holds small round bars accurately on centre; a magnetic chuck holds thin ferrous discs for light cuts.<br><b>Also:</b> face plate – large irregular jobs bolted on; concentric circles engraved on the chuck face help quick centring (TNPSC PYQ)."},
+hi:{q:"एक वर्गाकार छड़ को इस प्रकार पकड़ना है कि उस पर केंद्र से हटकर एक गोल बॉस टर्न किया जा सके (एक्सेंट्रिक टर्निंग)। सबसे उपयुक्त जॉब-पकड़ उपकरण है:",
+o:["तीन-जॉ सेल्फ़-सेंटरिंग चक","चार-जॉ इंडिपेंडेंट चक","कॉलेट चक","मैग्नेटिक चक"],
+e:"<b>चार-जॉ इंडिपेंडेंट चक</b> में प्रत्येक जॉ अपने स्क्रू से अलग चलता है, इसलिए एक्सेंट्रिक टर्निंग हेतु जॉब को <b>जानबूझकर केंद्र से हटाकर</b> सेट किया जा सकता है, और वर्गाकार, आयताकार या अनियमित जॉब मज़बूती से पकड़े जा सकते हैं। यह <b>सबसे मज़बूत पकड़</b> देता है, पर हर सेटिंग में समय और डायल इंडिकेटर या सरफ़ेस गेज चाहिए।<br><b>अन्य क्यों नहीं:</b> तीन-जॉ (सेल्फ़-सेंटरिंग) चक सभी जॉ एक साथ चलाता है – गोल व षट्कोणीय छड़ को अपने आप केंद्र में करता है, इसलिए केंद्र से हटाकर नहीं पकड़ सकता (रेलवे JE PYQ: '3-जॉ चक → केवल बेलनाकार व षट्कोणीय जॉब'); कॉलेट छोटी गोल छड़ों को सटीक केंद्र में पकड़ता है; मैग्नेटिक चक पतली लौह डिस्क को हल्के कट हेतु।<br><b>यह भी:</b> फ़ेस प्लेट – बड़े अनियमित जॉब बोल्ट से; चक के फ़ेस पर उकेरे संकेंद्रित वृत्त जल्दी केंद्रण में सहायक (TNPSC PYQ)।"}},
+
+/* 10 */ {ans:0, lv:"h", tag:{en:"Capstan vs turret",hi:"कैप्स्टन बनाम टरेट"},
+en:{q:"Compared with a turret lathe, the hexagonal head of a capstan lathe is mounted on:",
+o:["a ram that slides on an auxiliary saddle","the main saddle that slides on the bed","the cross-slide of the main carriage","the nose of the main headstock spindle"],
+e:"<b>Capstan lathe (ram type):</b> the hexagonal head sits on a short <b>ram (slide)</b> that moves on an <b>auxiliary saddle</b>; the saddle is clamped to the bed at a convenient position and only the light ram moves. Hand operation is quick, but tool travel is short – suited to <b>light bar work</b> (up to about 60 mm diameter) (Metro 2019: 'capstan head is mounted on a slide'; Railway JE: 'capstan lathe is also known as ram-type lathe').<br><b>Turret lathe (saddle type):</b> the turret head is mounted <b>directly on the main saddle</b>, which itself slides on the bed – longer tool travel and more rigidity, suited to <b>heavy chucking work</b> and larger, longer jobs. That is option (b).<br><b>Common to both:</b> no tailstock; several pre-set tools; repetitive production."},
+hi:{q:"टरेट लेथ की तुलना में कैप्स्टन लेथ का षट्कोणीय हेड किस पर लगा होता है?",
+o:["सहायक सैडल पर फिसलने वाले रैम पर","बेड पर फिसलने वाले मुख्य सैडल पर","कैरिज की क्रॉस-स्लाइड पर","हेडस्टॉक स्पिंडल नोज़ पर"],
+e:"<b>कैप्स्टन लेथ (रैम प्रकार):</b> षट्कोणीय हेड एक छोटे <b>रैम (स्लाइड)</b> पर होता है जो <b>सहायक सैडल</b> पर चलता है; सैडल बेड पर सुविधाजनक स्थान पर क्लैंप रहता है और केवल हल्का रैम चलता है। हाथ से संचालन तेज़, पर टूल की यात्रा छोटी – <b>हल्के बार कार्य</b> (लगभग 60 mm व्यास तक) हेतु (मेट्रो 2019: 'कैप्स्टन हेड स्लाइड पर लगा'; रेलवे JE: 'कैप्स्टन लेथ को रैम-प्रकार लेथ भी कहते हैं')।<br><b>टरेट लेथ (सैडल प्रकार):</b> टरेट हेड <b>सीधे मुख्य सैडल</b> पर लगा होता है, जो स्वयं बेड पर फिसलता है – लंबी टूल यात्रा व अधिक दृढ़ता, <b>भारी चकिंग कार्य</b> और बड़े, लंबे जॉब हेतु। यही विकल्प (b) है।<br><b>दोनों में समान:</b> टेलस्टॉक नहीं; अनेक पहले से सेट टूल; दोहराव उत्पादन।"}},
+
+/* 11 */ {ans:2, lv:"p", tag:{en:"Headstock · scenario",hi:"हेडस्टॉक · परिस्थिति"},
+en:{q:"A machinist has to turn a large cast-iron pulley at a very low spindle speed with high torque. He should engage the:",
+o:["tumbler gears","half nut","back gears","quick-change gearbox"],
+e:"<b>Back gears</b> in the headstock (of a cone-pulley lathe) put an extra pair of reduction gears between the cone pulley and the spindle. This gives a further set of <b>much lower spindle speeds with higher torque</b> – needed for large-diameter jobs (where even a low rpm gives a high cutting speed), hard materials, heavy cuts and thread cutting (Railway SSE PYQ: 'back gearing is provided to obtain more speeds which are lower in magnitude').<br><b>Why not the others:</b> tumbler gears only reverse the direction of feed; the half nut locks the carriage to the lead screw for threading; the quick-change gearbox selects feeds and thread pitches, not spindle speeds.<br><b>Cutting speed check:</b> for a 400 mm pulley at 20 m/min, N = 1000 × 20 ÷ (π × 400) ≈ 16 rpm – only back gears can give such a low speed."},
+hi:{q:"एक मशीनिस्ट को बड़ी कास्ट-आयरन पुली बहुत कम स्पिंडल गति और अधिक टॉर्क पर टर्न करनी है। उसे जोड़ना चाहिए:",
+o:["टम्बलर गियर","हाफ़ नट","बैक गियर","क्विक-चेंज गियरबॉक्स"],
+e:"(कोन-पुली लेथ के) हेडस्टॉक में <b>बैक गियर</b> कोन पुली और स्पिंडल के बीच अतिरिक्त रिडक्शन गियर जोड़ते हैं। इससे <b>अधिक टॉर्क के साथ बहुत कम स्पिंडल गतियों</b> का एक और सेट मिलता है – बड़े व्यास के जॉब (जहाँ कम rpm भी अधिक कटिंग स्पीड देता है), कठोर पदार्थ, भारी कट और थ्रेड कटिंग हेतु आवश्यक (रेलवे SSE PYQ: 'बैक गियरिंग → कम मान की अधिक गतियाँ प्राप्त करने हेतु')।<br><b>अन्य क्यों नहीं:</b> टम्बलर गियर केवल फ़ीड की दिशा उलटते हैं; हाफ़ नट थ्रेडिंग हेतु कैरिज को लीड स्क्रू से जोड़ता है; क्विक-चेंज गियरबॉक्स फ़ीड व थ्रेड पिच चुनता है, स्पिंडल गति नहीं।<br><b>कटिंग स्पीड जाँच:</b> 400 mm पुली, 20 m/min पर N = 1000 × 20 ÷ (π × 400) ≈ 16 rpm – इतनी कम गति केवल बैक गियर से।"}},
+
+/* 12 */ {ans:3, lv:"h", tag:{en:"Lathe principle",hi:"लेथ सिद्धांत"},
+en:{q:"To produce a cylindrical surface on a lathe, the generatrix and the directrix are respectively:",
+o:["a straight line from rotation; a circle from the tool","two circles at right angles to each other","two parallel straight lines","a circle from work rotation; a straight tool path"],
+e:"Any machined surface is produced by two lines: the <b>generatrix</b> (the line traced by one motion) moved along the <b>directrix</b> (the path of the other motion). On a lathe, the rotation of the job makes each point trace a <b>circle – the generatrix</b>; the tool moving parallel to the axis traces a <b>straight line – the directrix</b> (Railway SSE PYQ: 'directrix required for a cylindrical surface → straight line'). Circle moved along a straight line = <b>cylinder</b>.<br><b>Change the directrix, change the surface:</b> tool path ⊥ axis → flat face (facing) · tool path at an angle → cone (taper turning) · curved tool path → contour / form turning · tool path geared to rotation → helix (thread).<br><b>Why not the others:</b> (a) swaps the two lines; (b) two circles give a sphere or torus; (c) two straight lines give a flat plane, as in shaping."},
+hi:{q:"लेथ पर बेलनाकार सतह बनाने हेतु जनरेट्रिक्स (generatrix) और डायरेक्ट्रिक्स (directrix) क्रमशः हैं:",
+o:["घूर्णन से सीधी रेखा; टूल से वृत्त","एक-दूसरे के लंबवत दो वृत्त","दो समानांतर सीधी रेखाएँ","जॉब घूर्णन से वृत्त; सीधा टूल मार्ग"],
+e:"हर मशीन की गई सतह दो रेखाओं से बनती है: <b>जनरेट्रिक्स</b> (एक गति द्वारा बनी रेखा) जिसे <b>डायरेक्ट्रिक्स</b> (दूसरी गति का मार्ग) के साथ चलाया जाता है। लेथ पर जॉब के घूमने से हर बिंदु एक <b>वृत्त – जनरेट्रिक्स</b> बनाता है; अक्ष के समानांतर चलता टूल <b>सीधी रेखा – डायरेक्ट्रिक्स</b> बनाता है (रेलवे SSE PYQ: 'बेलनाकार सतह हेतु डायरेक्ट्रिक्स → सीधी रेखा')। सीधी रेखा पर चलाया गया वृत्त = <b>बेलन</b>।<br><b>डायरेक्ट्रिक्स बदलो, सतह बदलो:</b> अक्ष के लंबवत टूल मार्ग → सपाट सतह (फ़ेसिंग) · कोण पर टूल मार्ग → शंकु (टेपर टर्निंग) · वक्र टूल मार्ग → कंटूर / फ़ॉर्म टर्निंग · घूर्णन से जुड़ा टूल मार्ग → हेलिक्स (थ्रेड)।<br><b>अन्य क्यों नहीं:</b> (a) दोनों रेखाएँ उलट देता है; (b) दो वृत्त गोला या टोरस देते हैं; (c) दो सीधी रेखाएँ सपाट तल देती हैं, जैसे शेपिंग में।"}},
+
+/* 13 */ {ans:0, lv:"p", tag:{en:"Lead screw",hi:"लीड स्क्रू"},
+en:{q:"The lead screw of a centre lathe usually has:",
+o:["single-start Acme threads","multi-start V threads","multi-start square threads","single-start buttress threads"],
+e:"The lead screw carries the carriage during thread cutting through the half nut, so it needs:<br><b>Acme (trapezoidal) thread</b> – 29° included angle; stronger than square threads, easy to machine, and its sloping flanks let the <b>half nut engage and disengage easily</b> and allow wear to be taken up (DMRC PYQ: 'a lead screw with half nuts, free to rotate in both directions, has → Acme threads').<br><b>Single start</b> – one thread helix, so the lead equals the pitch and the carriage moves a precise, known distance per revolution, giving accurate pitches (KRCL, Railway JE PYQ: 'the lead screw of a lathe has → single start').<br><b>Why not the others:</b> V threads have high friction and wear; square threads are hard to engage with a split nut; multi-start screws move too fast per turn and are harder to make accurately; buttress threads take load in one direction only."},
+hi:{q:"सेंटर लेथ के लीड स्क्रू में सामान्यतः होते हैं:",
+o:["सिंगल-स्टार्ट एक्मी थ्रेड","मल्टी-स्टार्ट V थ्रेड","मल्टी-स्टार्ट वर्गाकार थ्रेड","सिंगल-स्टार्ट बट्रेस थ्रेड"],
+e:"थ्रेड कटिंग में लीड स्क्रू हाफ़ नट द्वारा कैरिज को चलाता है, इसलिए इसे चाहिए:<br><b>एक्मी (समलंबाकार) थ्रेड</b> – 29° सम्मिलित कोण; वर्गाकार से मज़बूत, बनाने में आसान, और ढलवाँ फ़्लैंक से <b>हाफ़ नट आसानी से जुड़ता-हटता</b> है तथा घिसाव समायोजित होता है (DMRC PYQ: 'दोनों दिशा में घूमने वाला, हाफ़ नट वाला लीड स्क्रू → एक्मी थ्रेड')।<br><b>सिंगल स्टार्ट</b> – एक थ्रेड हेलिक्स, इसलिए लीड = पिच और कैरिज हर चक्कर पर सटीक, ज्ञात दूरी चलती है, जिससे सही पिच मिलती है (KRCL, रेलवे JE PYQ: 'लेथ का लीड स्क्रू → सिंगल स्टार्ट')।<br><b>अन्य क्यों नहीं:</b> V थ्रेड में घर्षण व घिसाव अधिक; वर्गाकार थ्रेड पर विभाजित नट जोड़ना कठिन; मल्टी-स्टार्ट प्रति चक्कर बहुत तेज़ चलते हैं और सटीक बनाना कठिन; बट्रेस थ्रेड एक ही दिशा में भार लेते हैं।"}},
+
+/* 14 */ {ans:2, lv:"h", tag:{en:"Rests · scenario",hi:"रेस्ट · परिस्थिति"},
+en:{q:"While a long, slender shaft is being turned, it bends away from the tool all along the cut, so the support must travel with the tool. The accessory used is:",
+o:["steady rest","mandrel","follower rest","face plate"],
+e:"A long, slender shaft deflects under the cutting force, giving taper, chatter and poor finish. Two supports are used:<br><b>Follower rest</b> – bolted to the <b>carriage (saddle)</b>; its two adjustable jaws press on the just-turned surface right opposite the tool and <b>move along with the tool</b>, supporting the job at the point of cutting along the whole length.<br><b>Steady rest</b> – clamped to the <b>bed</b> at a fixed position (usually mid-length); three jaws support the job there – used when the support can stay in one place, e.g. for facing or drilling the end of a long shaft, or turning in steps (Railway SSE PYQ: 'bending of long shaft can be prevented by → steady rest').<br><b>Trap:</b> both prevent bending – the key word in this question is 'travel with the tool'.<br><b>Why not the others:</b> a mandrel holds a bored job between centres; a face plate holds large irregular jobs."},
+hi:{q:"एक लंबी, पतली शाफ़्ट टर्न करते समय पूरे कट में टूल से दूर मुड़ जाती है, इसलिए सहारा टूल के साथ चलना चाहिए। प्रयुक्त सहायक उपकरण है:",
+o:["स्टेडी रेस्ट","मैंड्रेल","फ़ॉलोअर रेस्ट","फ़ेस प्लेट"],
+e:"लंबी, पतली शाफ़्ट कटिंग बल से झुकती है, जिससे टेपर, चैटर और खराब फ़िनिश आती है। दो सहारे प्रयोग होते हैं:<br><b>फ़ॉलोअर रेस्ट</b> – <b>कैरिज (सैडल)</b> पर बोल्ट; इसके दो समायोज्य जॉ टूल के ठीक सामने अभी टर्न हुई सतह पर दबते हैं और <b>टूल के साथ चलते</b> हैं, पूरी लंबाई में कटिंग बिंदु पर जॉब को सहारा देते हैं।<br><b>स्टेडी रेस्ट</b> – <b>बेड</b> पर एक स्थिर स्थान (प्रायः बीच में) क्लैंप; तीन जॉ वहाँ जॉब को सहारा देते हैं – जब सहारा एक जगह रह सकता हो, जैसे लंबी शाफ़्ट के सिरे की फ़ेसिंग या ड्रिलिंग, या चरणों में टर्निंग (रेलवे SSE PYQ: 'लंबी शाफ़्ट का झुकना रोका जाता है → स्टेडी रेस्ट से')।<br><b>ट्रैप:</b> दोनों झुकाव रोकते हैं – इस प्रश्न का मुख्य शब्द है 'टूल के साथ चलना'।<br><b>अन्य क्यों नहीं:</b> मैंड्रेल बोर किए जॉब को सेंटरों के बीच पकड़ता है; फ़ेस प्लेट बड़े अनियमित जॉब पकड़ती है।"}},
+
+/* 15 */ {ans:1, lv:"p", tag:{en:"Feed mechanism",hi:"फ़ीड तंत्र"},
+en:{q:"Tumbler gears on a lathe are used to:",
+o:["give low speeds with high torque","reverse the direction of feed","lock the carriage to the lead screw","hold the job between centres"],
+e:"<b>Tumbler gears</b> are a small gear train, mounted on a swinging bracket in the headstock end of the feed drive, between the spindle and the feed gearbox. Moving the tumbler lever brings either one or two idler gears into the train – this <b>reverses the direction of rotation</b> of the feed rod and lead screw, so the carriage moves towards or away from the headstock. It is used, for example, to cut left-hand threads or to feed in the opposite direction (KRCL, MECON PYQ: 'tumbler gears are used to → give desired direction of movement to the lathe carriage').<br><b>Why not the others:</b> low speed with high torque → back gears; locking the carriage to the lead screw → half nut; holding between centres → centres, driving plate and dog."},
+hi:{q:"लेथ पर टम्बलर गियर किसके लिए प्रयोग होते हैं?",
+o:["अधिक टॉर्क के साथ कम गति देने हेतु","फ़ीड की दिशा उलटने हेतु","कैरिज को लीड स्क्रू से जोड़ने हेतु","जॉब को सेंटरों के बीच पकड़ने हेतु"],
+e:"<b>टम्बलर गियर</b> फ़ीड ड्राइव के हेडस्टॉक वाले सिरे पर, स्पिंडल और फ़ीड गियरबॉक्स के बीच, झूलने वाले ब्रैकेट पर लगी छोटी गियर श्रृंखला है। टम्बलर लीवर हिलाने पर श्रृंखला में एक या दो आइडलर गियर आते हैं – इससे फ़ीड रॉड व लीड स्क्रू की <b>घूर्णन दिशा उलट</b> जाती है, ताकि कैरिज हेडस्टॉक की ओर या उससे दूर चले। उदाहरण – लेफ़्ट-हैंड थ्रेड काटना या उल्टी दिशा में फ़ीड देना (KRCL, MECON PYQ: 'टम्बलर गियर → लेथ कैरिज की गति की वांछित दिशा देने हेतु')।<br><b>अन्य क्यों नहीं:</b> कम गति, अधिक टॉर्क → बैक गियर; कैरिज को लीड स्क्रू से जोड़ना → हाफ़ नट; सेंटरों के बीच पकड़ना → सेंटर, ड्राइविंग प्लेट व डॉग।"}},
+
+/* 16 */ {ans:3, lv:"p", tag:{en:"Lathe bed",hi:"लेथ बेड"},
+en:{q:"Lathe beds are made of grey cast iron mainly because it:",
+o:["has the highest tensile strength","is much lighter than mild steel","never wears out in long service","damps vibration and casts easily"],
+e:"<b>Grey cast iron</b> contains free graphite flakes, which give it:<br>• excellent <b>damping capacity</b> – it absorbs vibration and shock, giving chatter-free cutting and good finish (Railway JE PYQ: 'bed is cast iron because it has → good shock-absorbing property');<br>• easy <b>casting</b> into the large, complex, ribbed box shape of a bed (Railway SSE PYQ: 'lathe beds are produced by → casting');<br>• good compressive strength, stability and machinability, self-lubricating graphite on the ways, and low cost.<br><b>Why not the others:</b> cast iron has <b>low</b> tensile strength (it is brittle); it is not lighter than steel (densities are similar); it does wear, which is why the ways are flame- or induction-hardened.<br><b>PYQs:</b> RRB-CBT2 2019 ('lathe bed is made of → cast iron'); Railway SSE ('material most commonly used for machine-tool beds → grey cast iron')."},
+hi:{q:"लेथ बेड ग्रे कास्ट आयरन के मुख्यतः क्यों बनाए जाते हैं?",
+o:["इसकी तन्य सामर्थ्य सबसे अधिक है","यह माइल्ड स्टील से काफ़ी हल्का है","यह लंबी सेवा में भी नहीं घिसता","यह कंपन सोखता व आसानी से ढलता है"],
+e:"<b>ग्रे कास्ट आयरन</b> में मुक्त ग्रेफ़ाइट फ़्लेक होते हैं, जो इसे देते हैं:<br>• उत्कृष्ट <b>कंपन-अवशोषण क्षमता</b> – कंपन व झटके सोखता है, जिससे चैटर-रहित कटिंग व अच्छी फ़िनिश (रेलवे JE PYQ: 'बेड कास्ट आयरन का क्योंकि → अच्छा झटका-अवशोषण गुण');<br>• बेड के बड़े, जटिल, पसलीदार बॉक्स आकार में आसान <b>ढलाई</b> (रेलवे SSE PYQ: 'लेथ बेड बनते हैं → ढलाई से');<br>• अच्छी संपीडन सामर्थ्य, स्थिरता व मशीनीयता, वे पर स्व-स्नेहक ग्रेफ़ाइट, और कम लागत।<br><b>अन्य क्यों नहीं:</b> कास्ट आयरन की तन्य सामर्थ्य <b>कम</b> है (भंगुर है); यह स्टील से हल्का नहीं (घनत्व लगभग समान); यह घिसता है, इसीलिए वे फ़्लेम या इंडक्शन से कठोर किए जाते हैं।<br><b>PYQ:</b> RRB-CBT2 2019 ('लेथ बेड → कास्ट आयरन'); रेलवे SSE ('मशीन-टूल बेड हेतु सबसे सामान्य पदार्थ → ग्रे कास्ट आयरन')।"}},
+
+/* 17 */ {ans:2, lv:"h", tag:{en:"Tailstock",hi:"टेलस्टॉक"},
+en:{q:"Consider the following statements about the tailstock of a centre lathe:<br>I. It holds a dead centre to support long jobs.<br>II. It holds a drill or reamer in its barrel.<br>III. It can be offset sideways to turn long, gentle tapers.<br>IV. It rotates the job at different speeds.<br>Which of the statements are correct?",
+o:["I and II only","II, III and IV only","I, II and III only","I, II, III and IV"],
+e:"<b>I ✔</b> – the tailstock, at the right-hand end of the bed, holds a dead or live centre in its barrel to <b>support the free end</b> of long jobs (RRB-CBT2 Apr'25-II: 'provides support and bearing for the rotating job').<br><b>II ✔</b> – the barrel (quill) has a Morse taper bore that takes a <b>drill chuck, drill, reamer or tap</b>; the barrel is advanced by the handwheel for drilling on a lathe (RRB-CBT2 Jul'26: drilling tool is placed in the tailstock).<br><b>III ✔</b> – the tailstock body can be moved sideways on its base – <b>tailstock set-over</b> – to turn long, gentle external tapers between centres.<br><b>IV ✘</b> – rotating the job at different speeds is the job of the <b>headstock</b> spindle (RRB-CBT2 Apr'25-I).<br><b>Also:</b> the tailstock slides on the inner bed ways and can be clamped anywhere along the bed to suit the job length."},
+hi:{q:"सेंटर लेथ के टेलस्टॉक के बारे में निम्न कथनों पर विचार करें:<br>I. यह लंबे जॉब को सहारा देने हेतु डेड सेंटर पकड़ता है।<br>II. यह अपने बैरल में ड्रिल या रीमर पकड़ता है।<br>III. लंबे, हल्के टेपर टर्न करने हेतु इसे बगल में ऑफ़सेट किया जा सकता है।<br>IV. यह जॉब को विभिन्न गतियों पर घुमाता है।<br>कौन-से कथन सही हैं?",
+o:["केवल I और II","केवल II, III और IV","केवल I, II और III","I, II, III और IV"],
+e:"<b>I ✔</b> – बेड के दाहिने सिरे पर टेलस्टॉक अपने बैरल में डेड या लाइव सेंटर पकड़कर लंबे जॉब के <b>मुक्त सिरे को सहारा</b> देता है (RRB-CBT2 Apr'25-II: 'घूमते जॉब को सहारा व बेयरिंग देना')।<br><b>II ✔</b> – बैरल (क्विल) में मोर्स टेपर बोर होता है जिसमें <b>ड्रिल चक, ड्रिल, रीमर या टैप</b> लगते हैं; लेथ पर ड्रिलिंग हेतु बैरल हैंडव्हील से आगे बढ़ाया जाता है (RRB-CBT2 Jul'26: ड्रिलिंग टूल टेलस्टॉक में)।<br><b>III ✔</b> – टेलस्टॉक का ढाँचा अपने आधार पर बगल में खिसकाया जा सकता है – <b>टेलस्टॉक सेट-ओवर</b> – ताकि सेंटरों के बीच लंबे, हल्के बाहरी टेपर टर्न हों।<br><b>IV ✘</b> – जॉब को विभिन्न गतियों पर घुमाना <b>हेडस्टॉक</b> स्पिंडल का कार्य है (RRB-CBT2 Apr'25-I)।<br><b>यह भी:</b> टेलस्टॉक बेड के भीतरी वे पर फिसलता है और जॉब लंबाई अनुसार बेड पर कहीं भी क्लैंप किया जा सकता है।"}},
+
+/* 18 */ {ans:0, lv:"p", tag:{en:"Types of lathe",hi:"लेथ के प्रकार"},
+en:{q:"A lathe with no feed box, lead screw or power carriage, on which the tool is held by hand, and which is used for wood turning, polishing and metal spinning, is a:",
+o:["speed lathe","bench lathe","tool-room lathe","turret lathe"],
+e:"A <b>speed lathe</b> is the simplest lathe: headstock, tailstock and a hand-tool rest on a light bed, but <b>no gearbox, feed rod, lead screw or power-fed carriage</b>. The spindle runs at high speed (hence the name) and the tool is held and guided by hand. Uses: <b>wood turning, polishing, centring and metal spinning</b> (spinning – forming a rotating sheet over a form with a hand tool, a chipless process done on a lathe – SSC JE PYQ).<br><b>Why not the others:</b> a bench lathe is a small engine lathe mounted on a bench (it can have feeds) for watch and instrument parts; a tool-room lathe is a precision engine lathe with a wide speed range and taper attachment for tools and gauges; a turret lathe is a production machine."},
+hi:{q:"बिना फ़ीड बॉक्स, लीड स्क्रू या पावर कैरिज वाली लेथ, जिस पर टूल हाथ से पकड़ा जाता है, और जो लकड़ी टर्निंग, पॉलिशिंग व मेटल स्पिनिंग में प्रयोग होती है, है:",
+o:["स्पीड लेथ","बेंच लेथ","टूल-रूम लेथ","टरेट लेथ"],
+e:"<b>स्पीड लेथ</b> सबसे सरल लेथ है: हल्के बेड पर हेडस्टॉक, टेलस्टॉक और हाथ-टूल रेस्ट, पर <b>न गियरबॉक्स, न फ़ीड रॉड, न लीड स्क्रू, न पावर-फ़ीड कैरिज</b>। स्पिंडल तेज़ गति पर चलता है (इसीलिए नाम) और टूल हाथ से पकड़ा व चलाया जाता है। उपयोग: <b>लकड़ी टर्निंग, पॉलिशिंग, सेंटरिंग और मेटल स्पिनिंग</b> (स्पिनिंग – घूमती शीट को हाथ-टूल से फ़ॉर्म पर आकार देना, लेथ पर होने वाली चिपरहित प्रक्रिया – SSC JE PYQ)।<br><b>अन्य क्यों नहीं:</b> बेंच लेथ बेंच पर लगी छोटी इंजन लेथ है (फ़ीड हो सकती है), घड़ी व उपकरण पुर्ज़ों हेतु; टूल-रूम लेथ टूल व गेज हेतु विस्तृत गति दायरे और टेपर अटैचमेंट वाली परिशुद्ध इंजन लेथ; टरेट लेथ उत्पादन मशीन है।"}},
+
+/* 19 */ {ans:1, lv:"e", tag:{en:"Accessories",hi:"सहायक उपकरण"},
+en:{q:"A pre-bored gear blank must be turned on its outside diameter, true to the bore, between centres. It is mounted on a:",
+o:["face plate","mandrel","collet","magnetic chuck"],
+e:"A <b>mandrel</b> is a hardened, ground bar with a very slight taper (about 1 in 2000) and centre holes at both ends. The bored job is pressed onto it, and the mandrel is held <b>between centres</b> and driven by a dog. Because the outside is turned about the same axis that passes through the bore, the outside diameter comes out <b>concentric with the bore</b>. The mandrel locates and holds the job for machining, so it acts like a <b>fixture</b> (Railway JE PYQ: 'lathe mandrels can be termed as → fixture').<br><b>Types:</b> plain, step, gang (several thin jobs), screwed, cone and expansion mandrels.<br><b>Why not the others:</b> a face plate holds large irregular jobs; a collet holds small solid bars; a magnetic chuck holds thin ferrous discs."},
+hi:{q:"पहले से बोर किए गियर ब्लैंक का बाहरी व्यास, बोर के सापेक्ष सही, सेंटरों के बीच टर्न करना है। इसे लगाया जाता है:",
+o:["फ़ेस प्लेट पर","मैंड्रेल पर","कॉलेट में","मैग्नेटिक चक पर"],
+e:"<b>मैंड्रेल</b> एक कठोर, ग्राइंड की हुई छड़ है जिसमें बहुत हल्का टेपर (लगभग 1 : 2000) और दोनों सिरों पर सेंटर होल होते हैं। बोर किया जॉब उस पर दबाकर चढ़ाया जाता है, और मैंड्रेल <b>सेंटरों के बीच</b> पकड़कर डॉग से घुमाया जाता है। चूँकि बाहरी सतह उसी अक्ष पर टर्न होती है जो बोर से गुज़रता है, बाहरी व्यास <b>बोर के साथ संकेंद्रित</b> बनता है। मैंड्रेल मशीनिंग हेतु जॉब को स्थित करता व पकड़ता है, इसलिए यह <b>फ़िक्स्चर</b> जैसा है (रेलवे JE PYQ: 'लेथ मैंड्रेल → फ़िक्स्चर कहा जा सकता है')।<br><b>प्रकार:</b> प्लेन, स्टेप, गैंग (अनेक पतले जॉब), स्क्रूड, कोन और एक्सपेंशन मैंड्रेल।<br><b>अन्य क्यों नहीं:</b> फ़ेस प्लेट बड़े अनियमित जॉब; कॉलेट छोटी ठोस छड़ें; मैग्नेटिक चक पतली लौह डिस्क।"}},
+
+/* 20 */ {ans:3, lv:"p", tag:{en:"Accessories",hi:"सहायक उपकरण"},
+en:{q:"When turning between centres at high speed, a revolving (live) centre is used in the tailstock because:",
+o:["it holds the job more tightly in place","it allows a much heavier depth of cut","it makes the job rotate at a faster speed","it turns with the job, so no rubbing heat"],
+e:"With an ordinary <b>dead centre</b> in the tailstock, the job rotates on a stationary cone; the rubbing creates friction heat, so the centre hole must be greased and, at high speed, the centre and job can overheat, expand, seize or 'burn' the centre hole. A <b>live (revolving) centre</b> has its point mounted on <b>ball / roller bearings</b>, so the point rotates together with the job – there is <b>no sliding between the centre and the centre hole</b>, hence no friction heat. This allows high spindle speeds (e.g. with carbide tools) and heavy jobs without seizure.<br><b>Why not the others:</b> grip and depth of cut depend on the driving method and machine power; the job speed is set by the headstock.<br><b>Note:</b> the headstock centre always rotates with the spindle, so it is 'live' anyway – the choice matters at the tailstock."},
+hi:{q:"उच्च गति पर सेंटरों के बीच टर्निंग करते समय टेलस्टॉक में घूमने वाला (लाइव) सेंटर क्यों प्रयोग होता है?",
+o:["यह जॉब को अधिक कसकर स्थिर पकड़ता है","यह काफ़ी अधिक गहरा कट लेने देता है","यह जॉब को और तेज़ गति से घुमाता है","जॉब के साथ घूमता है, रगड़ की ऊष्मा नहीं"],
+e:"टेलस्टॉक में सामान्य <b>डेड सेंटर</b> के साथ जॉब एक स्थिर शंकु पर घूमता है; रगड़ से घर्षण ऊष्मा बनती है, इसलिए सेंटर होल में ग्रीस लगानी पड़ती है और उच्च गति पर सेंटर व जॉब गर्म होकर फैल सकते, जाम हो सकते या सेंटर होल 'जला' सकते हैं। <b>लाइव (घूमने वाला) सेंटर</b> का सिरा <b>बॉल / रोलर बेयरिंग</b> पर लगा होता है, इसलिए सिरा जॉब के साथ घूमता है – <b>सेंटर और सेंटर होल के बीच फिसलन नहीं</b>, अतः घर्षण ऊष्मा नहीं। इससे उच्च स्पिंडल गति (जैसे कार्बाइड टूल के साथ) और भारी जॉब बिना जाम हुए संभव।<br><b>अन्य क्यों नहीं:</b> पकड़ और कट की गहराई ड्राइविंग विधि व मशीन शक्ति पर निर्भर; जॉब की गति हेडस्टॉक तय करता है।<br><b>नोट:</b> हेडस्टॉक सेंटर तो हमेशा स्पिंडल के साथ घूमता है, इसलिए वह 'लाइव' ही है – चुनाव टेलस्टॉक पर मायने रखता है।"}},
+
+/* 21 */ {ans:0, lv:"p", tag:{en:"Types of lathe · scenario",hi:"लेथ के प्रकार · परिस्थिति"},
+en:{q:"A jobbing shop sometimes has to face a large flywheel that will not clear the bed in the normal position. A removable bed piece near the headstock lets it swing. This machine is a:",
+o:["gap-bed lathe","wheel lathe","bench lathe","duplicating lathe"],
+e:"In a <b>gap-bed lathe</b> a section of the bed just in front of the headstock can be removed (or the bed is made with a permanent gap). With the gap open, a job of <b>much larger diameter</b> than the normal swing – flywheels, large pulleys, discs, flanges – can be mounted on the face plate or chuck and faced or bored. With the gap piece refitted, the machine works as a normal lathe.<br><b>Trap (RRB-CBT2 Jun'25 option):</b> a gap-bed lathe is for <b>large-diameter</b> jobs – it is not meant for small, high-precision parts.<br><b>Why not the others:</b> a wheel lathe is for railway wheel sets; a bench lathe is small; a duplicating (copying) lathe follows a template to reproduce a profile."},
+hi:{q:"एक जॉबिंग शॉप को कभी-कभी बड़ा फ़्लाईव्हील फ़ेस करना पड़ता है जो सामान्य स्थिति में बेड के ऊपर से नहीं घूम पाता। हेडस्टॉक के पास बेड का हटाने योग्य टुकड़ा उसे घूमने देता है। यह मशीन है:",
+o:["गैप-बेड लेथ","व्हील लेथ","बेंच लेथ","डुप्लिकेटिंग लेथ"],
+e:"<b>गैप-बेड लेथ</b> में हेडस्टॉक के ठीक आगे बेड का एक भाग हटाया जा सकता है (या बेड में स्थायी गैप होता है)। गैप खुला होने पर सामान्य स्विंग से <b>बहुत बड़े व्यास</b> का जॉब – फ़्लाईव्हील, बड़ी पुली, डिस्क, फ़्लैंज – फ़ेस प्लेट या चक पर लगाकर फ़ेस या बोर किया जा सकता है। गैप टुकड़ा वापस लगाने पर मशीन सामान्य लेथ की तरह काम करती है।<br><b>ट्रैप (RRB-CBT2 Jun'25 का विकल्प):</b> गैप-बेड लेथ <b>बड़े व्यास</b> के जॉब हेतु है – छोटे, उच्च-परिशुद्धता पुर्ज़ों हेतु नहीं।<br><b>अन्य क्यों नहीं:</b> व्हील लेथ रेलवे व्हील सेट हेतु; बेंच लेथ छोटी; डुप्लिकेटिंग (कॉपीइंग) लेथ प्रोफ़ाइल दोहराने हेतु टेम्पलेट का अनुसरण करती है।"}},
+
+/* 22 */ {ans:2, lv:"p", tag:{en:"Headstock",hi:"हेडस्टॉक"},
+en:{q:"The headstock spindle of a lathe is made hollow mainly to:",
+o:["reduce weight so that it runs faster","carry coolant up to the tool point","pass bar stock and seat taper centres","lubricate the main spindle bearings"],
+e:"The headstock spindle is a hollow, heavy, accurately ground shaft running in precision bearings. It is made hollow so that:<br>• <b>long bar stock</b> can be passed through the spindle and fed forward, so only a short length projects from the chuck or collet (bar work);<br>• its nose has an internal <b>Morse taper</b> (about 1 in 20) to <b>seat a live centre, collets or a sleeve</b>, and a draw bar can pass through it to hold collets (Railway SSE PYQs: 'lathe spindles are usually made hollow and provided with → internal taper'; 'taper on the lathe spindle → Morse taper').<br>The spindle nose also carries the thread, flange or cam-lock that holds the chuck or face plate.<br><b>Why not the others:</b> weight saving is a minor side effect, not the purpose; coolant is supplied by a separate pump and pipe; bearings are lubricated separately."},
+hi:{q:"लेथ का हेडस्टॉक स्पिंडल मुख्यतः खोखला क्यों बनाया जाता है?",
+o:["भार घटाने हेतु ताकि यह तेज़ घूमे","टूल के सिरे तक कूलेंट ले जाने हेतु","बार स्टॉक निकालने व टेपर सेंटर बैठाने हेतु","मुख्य स्पिंडल बेयरिंग को स्नेहन हेतु"],
+e:"हेडस्टॉक स्पिंडल परिशुद्ध बेयरिंग में घूमने वाला खोखला, भारी, सटीक ग्राइंड किया शाफ़्ट है। इसे खोखला इसलिए बनाते हैं कि:<br>• <b>लंबी बार स्टॉक</b> स्पिंडल से निकालकर आगे बढ़ाई जा सके, ताकि चक या कॉलेट से केवल छोटी लंबाई बाहर रहे (बार कार्य);<br>• इसके नोज़ में भीतरी <b>मोर्स टेपर</b> (लगभग 1 : 20) हो जिसमें <b>लाइव सेंटर, कॉलेट या स्लीव बैठ</b> सकें, और कॉलेट पकड़ने हेतु ड्रॉ बार इससे गुज़र सके (रेलवे SSE PYQ: 'लेथ स्पिंडल खोखले और → भीतरी टेपर सहित'; 'लेथ स्पिंडल का टेपर → मोर्स टेपर')।<br>स्पिंडल नोज़ पर थ्रेड, फ़्लैंज या कैम-लॉक भी होता है जो चक या फ़ेस प्लेट पकड़ता है।<br><b>अन्य क्यों नहीं:</b> भार में बचत गौण प्रभाव है, उद्देश्य नहीं; कूलेंट अलग पंप व पाइप से; बेयरिंग का स्नेहन अलग होता है।"}},
+
+/* 23 */ {ans:1, lv:"p", tag:{en:"Apron · half nut",hi:"एप्रन · हाफ़ नट"},
+en:{q:"The half nut in the apron of a lathe is engaged with the lead screw:",
+o:["for all turning operations","only during thread cutting","only for facing operations","only for knurling operations"],
+e:"The <b>half nut (split nut)</b> is a nut cut into two halves, mounted in the apron. A lever closes the two halves onto the lead screw, <b>locking the carriage to the lead screw</b>; the carriage then moves exactly in step with the spindle, which is essential for cutting a helix of correct pitch. It is engaged <b>only for thread cutting</b> (RRB-CBT2 Jun'25 concept), and the <b>thread-chasing dial</b> tells the operator when to re-engage it for the next cut so the tool falls into the same groove.<br>For turning and facing, the carriage and cross-slide are fed by the <b>feed rod</b> through gears and friction clutches in the apron; knurling also uses the normal feed.<br><b>PYQs:</b> 'a half nut is → the mechanism that locks the lathe carriage to the lead screw for thread cutting' (DMRC 2017); 'power is transmitted by the lead screw to the carriage through → half nut' (RPSC 2021)."},
+hi:{q:"लेथ के एप्रन का हाफ़ नट लीड स्क्रू से जोड़ा जाता है:",
+o:["सभी टर्निंग संक्रियाओं में","केवल थ्रेड कटिंग के दौरान","केवल फ़ेसिंग संक्रिया में","केवल नर्लिंग संक्रिया में"],
+e:"<b>हाफ़ नट (स्प्लिट नट)</b> दो हिस्सों में कटा नट है, जो एप्रन में लगा होता है। लीवर से दोनों हिस्से लीड स्क्रू पर बंद होते हैं और <b>कैरिज को लीड स्क्रू से जोड़</b> देते हैं; तब कैरिज स्पिंडल के साथ ठीक तालमेल में चलती है, जो सही पिच का हेलिक्स काटने हेतु आवश्यक है। इसे <b>केवल थ्रेड कटिंग</b> में जोड़ा जाता है (RRB-CBT2 Jun'25 अवधारणा), और <b>थ्रेड-चेज़िंग डायल</b> बताता है कि अगले कट हेतु इसे कब दोबारा जोड़ें ताकि टूल उसी खाँचे में गिरे।<br>टर्निंग व फ़ेसिंग में कैरिज व क्रॉस-स्लाइड को <b>फ़ीड रॉड</b> से एप्रन के गियर व घर्षण क्लच द्वारा फ़ीड मिलती है; नर्लिंग भी सामान्य फ़ीड से होती है।<br><b>PYQ:</b> 'हाफ़ नट → थ्रेड कटिंग हेतु लेथ कैरिज को लीड स्क्रू से जोड़ने वाला तंत्र' (DMRC 2017); 'लीड स्क्रू से कैरिज तक शक्ति → हाफ़ नट द्वारा' (RPSC 2021)।"}},
+
+/* 24 */ {ans:3, lv:"h", tag:{en:"Lathe size",hi:"लेथ आकार"},
+en:{q:"The swing over the carriage of a lathe is smaller than its swing over the bed because:",
+o:["the bed is lower than the headstock","the tailstock reduces the height","the chuck adds to the diameter","the carriage projects above the bed ways"],
+e:"<b>Swing over the bed</b> is limited only by the bed ways below the centres. But the <b>carriage</b> (saddle, cross-slide) sits on top of the ways and <b>projects above them</b>, so a job that extends over the carriage has less room to rotate. Hence:<br>swing over the bed &gt; swing over the carriage (cross-slide) &gt; (with gap removed) swing in the gap is the largest of all.<br>Lathe specifications usually list all of them, along with the distance between centres (Railway JE PYQ: 'swing diameter over bed as compared to that over carriage is → more').<br><b>Why not the others:</b> bed height relative to the headstock is fixed by design and already included in the 'height of centres'; the tailstock is at the end and does not reduce the swing; the chuck does not change the machine's capacity.<br><b>Practical meaning:</b> a long job of large diameter must fit within the swing over the carriage, not just over the bed."},
+hi:{q:"लेथ का कैरिज के ऊपर स्विंग, बेड के ऊपर स्विंग से छोटा क्यों होता है?",
+o:["बेड हेडस्टॉक से नीचा होता है","टेलस्टॉक ऊँचाई घटा देता है","चक व्यास में जुड़ जाता है","कैरिज बेड वे से ऊपर उभरी होती है"],
+e:"<b>बेड के ऊपर स्विंग</b> केवल सेंटरों के नीचे बेड वे से सीमित होता है। पर <b>कैरिज</b> (सैडल, क्रॉस-स्लाइड) वे के ऊपर बैठती है और <b>उनसे ऊपर उभरी</b> होती है, इसलिए कैरिज के ऊपर फैले जॉब को घूमने की जगह कम मिलती है। अतः:<br>बेड के ऊपर स्विंग &gt; कैरिज (क्रॉस-स्लाइड) के ऊपर स्विंग; (गैप हटाने पर) गैप में स्विंग सबसे अधिक।<br>लेथ विनिर्देश में प्रायः ये सब, सेंटरों के बीच दूरी के साथ, दिए जाते हैं (रेलवे JE PYQ: 'बेड के ऊपर स्विंग, कैरिज के ऊपर की तुलना में → अधिक')।<br><b>अन्य क्यों नहीं:</b> हेडस्टॉक के सापेक्ष बेड की ऊँचाई डिज़ाइन से तय और 'सेंटरों की ऊँचाई' में शामिल; टेलस्टॉक सिरे पर है, स्विंग नहीं घटाता; चक मशीन की क्षमता नहीं बदलता।<br><b>व्यावहारिक अर्थ:</b> बड़े व्यास का लंबा जॉब केवल बेड के ऊपर नहीं, कैरिज के ऊपर स्विंग में भी समाना चाहिए।"}},
+
+/* 25 */ {ans:2, lv:"h", tag:{en:"Numerical – speed range",hi:"न्यूमेरिकल – गति श्रेणी"},
+en:{q:"A lathe has 6 spindle speeds in geometric progression, from a minimum of 50 rpm to a maximum of 1600 rpm. The progression ratio of the speeds is:",
+o:["1.26","1.58","2","32"],
+e:"In a geometric progression, N<sub>max</sub> = N<sub>min</sub> × φ<sup>(z − 1)</sup>, where z = number of speeds.<br>1600 = 50 × φ<sup>5</sup> → φ<sup>5</sup> = 32 → φ = 32<sup>1/5</sup> = <b>2</b>.<br>So the speeds are 50, 100, 200, 400, 800 and 1600 rpm.<br><b>Distractor check:</b> (d) 32 is the overall range ratio N<sub>max</sub>/N<sub>min</sub>, not the step ratio; (a) and (b) are standard ratios (1.26, 1.58) that would need more or fewer steps for this range.<br><b>Why geometric progression?</b> It keeps the percentage loss of cutting speed between two neighbouring speeds the same over the whole range, so a suitable speed is always available for any diameter (SSC JE, Railway SSE PYQ: 'spindle speeds follow → geometric progression').<br><b>Standard ratios:</b> 1.06, 1.12, 1.26, 1.41, 1.58, 1.78, 2."},
+hi:{q:"एक लेथ में 6 स्पिंडल गतियाँ गुणोत्तर श्रेणी में हैं, न्यूनतम 50 rpm से अधिकतम 1600 rpm तक। गतियों का श्रेणी अनुपात है:",
+o:["1.26","1.58","2","32"],
+e:"गुणोत्तर श्रेणी में N<sub>max</sub> = N<sub>min</sub> × φ<sup>(z − 1)</sup>, जहाँ z = गतियों की संख्या।<br>1600 = 50 × φ<sup>5</sup> → φ<sup>5</sup> = 32 → φ = 32<sup>1/5</sup> = <b>2</b>।<br>अतः गतियाँ 50, 100, 200, 400, 800 और 1600 rpm हैं।<br><b>गलत विकल्प कैसे बने:</b> (d) 32 कुल श्रेणी अनुपात N<sub>max</sub>/N<sub>min</sub> है, चरण अनुपात नहीं; (a) और (b) मानक अनुपात (1.26, 1.58) हैं जिनके लिए इस दायरे में अधिक या कम चरण चाहिए।<br><b>गुणोत्तर श्रेणी क्यों?</b> इससे पूरे दायरे में दो पड़ोसी गतियों के बीच कटिंग स्पीड की प्रतिशत हानि समान रहती है, इसलिए हर व्यास हेतु उपयुक्त गति हमेशा मिलती है (SSC JE, रेलवे SSE PYQ: 'स्पिंडल गतियाँ → गुणोत्तर श्रेणी में')।<br><b>मानक अनुपात:</b> 1.06, 1.12, 1.26, 1.41, 1.58, 1.78, 2।"}}
+];
+
+const LIMIT = 20*60;
+let lang = "en";
+let mode = "test";
+let picked = new Array(Q.length).fill(null);
+let showAll = false;
+let submitted = false;
+let autoSub = false;
+let left = LIMIT;
+let tick = null;
+const L = ["a","b","c","d"];
+const $ = id => document.getElementById(id);
+
+function fmt(t){ const m=Math.floor(t/60), s=t%60; return String(m).padStart(2,"0")+":"+String(s).padStart(2,"0"); }
+
+function startTimer(){
+  stopTimer();
+  if(mode!=="test" || submitted) return;
+  tick = setInterval(()=>{
+    left--;
+    if(left<=0){ left=0; autoSub=true; doSubmit(); return; }
+    paintTimer();
+  },1000);
+}
+function stopTimer(){ if(tick){clearInterval(tick); tick=null;} }
+function paintTimer(){
+  const t=$("timer"), u=UI[lang];
+  if(mode!=="test"){ t.classList.add("hidden"); return; }
+  t.classList.remove("hidden");
+  t.textContent = submitted ? u.taken+": "+fmt(LIMIT-left) : u.time+": "+fmt(left);
+  t.classList.toggle("low", !submitted && left<=120);
+}
+
+function isRevealed(i){ return mode==="practice" ? (picked[i]!==null || showAll) : submitted; }
+
+function render(){
+  const u = UI[lang];
+  document.documentElement.lang = lang;
+  $("title").textContent = u.title;
+  $("subtitle").textContent = u.sub;
+  $("rules").textContent = mode==="test" ? u.rules : u.rulesP;
+  $("foot").textContent = u.foot;
+  $("mTest").textContent = u.test; $("mPrac").textContent = u.prac;
+  $("mTest").setAttribute("aria-pressed", mode==="test");
+  $("mPrac").setAttribute("aria-pressed", mode==="practice");
+  $("bSubmit").textContent = u.submit;
+  $("bSubmit").classList.toggle("hidden", !(mode==="test" && !submitted));
+  $("bShow").textContent = showAll ? u.hide : u.show;
+  $("bShow").classList.toggle("hidden", mode!=="practice");
+  $("bReset").textContent = u.reset;
+  $("bEn").setAttribute("aria-pressed", lang==="en");
+  $("bHi").setAttribute("aria-pressed", lang==="hi");
+
+  let html = "";
+  Q.forEach((q,i)=>{
+    if(q.num && i>0 && !Q[i-1].num) html += `<div class="sec">${u.num}</div>`;
+    const d = q[lang], p = picked[i], rev = isRevealed(i);
+    const lvClass = q.lv==="t" ? "lv-t" : q.lv==="h" ? "lv-h" : "";
+    html += `<article class="q" id="q${i}">
+      <div class="qhead"><span class="qno">Q${i+1}.</span><span class="chip">${q.tag[lang]}</span><span class="chip ${lvClass}">${u.lv[q.lv]}</span></div>
+      <div class="qtext">${d.q}</div><div class="opts">`;
+    d.o.forEach((o,j)=>{
+      let cls = "opt";
+      if(rev && j===q.ans) cls += " right";
+      if(rev && p===j && p!==q.ans) cls += " wrong";
+      if(!rev && p===j) cls += " sel";
+      html += `<button class="${cls}" data-q="${i}" data-o="${j}" ${rev?"disabled":""} aria-pressed="${p===j}"><span class="l">(${L[j]})</span><span>${o}</span></button>`;
+    });
+    html += `</div>`;
+    if(rev){
+      let v = "";
+      if(p!==null) v = p===q.ans ? `<div>${u.right}</div>` : `<div class="verdict-bad">${u.yours}</div>`;
+      else if(mode==="test") v = `<div class="verdict-bad">${u.un}</div>`;
+      html += `<div class="ex">${v}<div class="ans">${u.ans}: (${L[q.ans]})</div>${d.e}</div>`;
+    }
+    html += `</article>`;
+  });
+  $("list").innerHTML = html;
+  stats(); paintTimer(); result();
+}
+
+function counts(){
+  let c=0,w=0,a=0;
+  picked.forEach((p,i)=>{ if(p!==null){a++; if(p===Q[i].ans)c++; else w++;} });
+  return {c,w,a,s:(c-w/3).toFixed(2)};
+}
+
+function stats(){
+  const u = UI[lang], k = counts();
+  const hide = mode==="test" && !submitted;
+  $("sAtt").textContent = `${u.att}: ${k.a}/${Q.length}`;
+  $("sC").textContent = `${u.c}: ${k.c}`;
+  $("sW").textContent = `${u.w}: ${k.w}`;
+  $("sS").textContent = `${u.s}: ${k.s}`;
+  ["sC","sW","sS"].forEach(id=>$(id).classList.toggle("hidden", hide));
+}
+
+function result(){
+  const box = $("result");
+  if(!(mode==="test" && submitted)){ box.innerHTML=""; return; }
+  const u = UI[lang], k = counts();
+  const acc = k.a ? Math.round(k.c*100/k.a) : 0;
+  box.innerHTML = `<section class="result" aria-live="polite">
+    <h2>${u.res}: ${k.s} / ${Q.length}</h2>
+    <div class="rgrid">
+      <div>${u.c}<b>${k.c}</b></div><div>${u.w}<b>${k.w}</b></div>
+      <div>${u.un}<b>${Q.length-k.a}</b></div><div>${u.acc}<b>${acc}%</b></div>
+      <div>${u.taken}<b>${fmt(LIMIT-left)}</b></div>
+    </div>
+    <p>${autoSub ? u.auto+" " : ""}${u.resNote}</p></section>`;
+}
+
+function doSubmit(){
+  submitted = true; stopTimer(); render();
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function resetAll(){
+  picked = new Array(Q.length).fill(null);
+  showAll=false; submitted=false; autoSub=false; left=LIMIT;
+  render(); startTimer(); window.scrollTo({top:0});
+}
+
+$("list").addEventListener("click", e=>{
+  const b = e.target.closest(".opt");
+  if(!b || b.disabled) return;
+  const i = +b.dataset.q, j = +b.dataset.o;
+  if(mode==="test"){ picked[i] = picked[i]===j ? null : j; }
+  else { if(picked[i]!==null) return; picked[i] = j; }
+  render();
+  const btn = document.querySelector(`#q${i} .opt[data-o="${j}"]`) || document.querySelector(`#q${i} .opt`);
+  if(btn) btn.focus({preventScroll:true});
+});
+$("bEn").onclick = ()=>{ lang="en"; render(); };
+$("bHi").onclick = ()=>{ lang="hi"; render(); };
+function setMode(m){
+  if(m===mode) return;
+  const dirty = picked.some(p=>p!==null) || submitted;
+  if(dirty && !confirm(UI[lang].cMode)) return;
+  mode = m; resetAll();
+}
+$("mTest").onclick = ()=>setMode("test");
+$("mPrac").onclick = ()=>setMode("practice");
+$("bSubmit").onclick = ()=>{ if(confirm(UI[lang].cSub)) doSubmit(); };
+$("bShow").onclick = ()=>{ showAll=!showAll; render(); };
+$("bReset").onclick = resetAll;
+
+function paintStart(){
+  const u=UI[lang];
+  $("stTitle").textContent=u.title;
+  $("stSub").textContent=u.stSub;
+  $("stTest").innerHTML=u.stT+"<small>"+u.stTs+"</small>";
+  $("stPrac").innerHTML=u.stP+"<small>"+u.stPs+"</small>";
+  $("stEn").setAttribute("aria-pressed",lang==="en");
+  $("stHi").setAttribute("aria-pressed",lang==="hi");
+}
+function begin(m){ mode=m; $("start").classList.add("hidden"); resetAll(); }
+$("stTest").onclick=()=>begin("test");
+$("stPrac").onclick=()=>begin("practice");
+$("stEn").onclick=()=>{ lang="en"; render(); paintStart(); };
+$("stHi").onclick=()=>{ lang="hi"; render(); paintStart(); };
+$("bEn").addEventListener("click",paintStart);
+$("bHi").addEventListener("click",paintStart);
+render(); paintStart(); $("stTest").focus();
+</script>
+</body>
+</html>
