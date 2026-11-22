@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Machining Smart MCQ Set 2 – Lathe Operations | THE EXAM ENGINEER</title>
+<style>
+:root{
+  --navy:#12306b; --navy-deep:#0c2350; --orange:#f07f1a;
+  --bg:#f3f6fb; --card:#ffffff; --text:#16213a; --muted:#5b6782;
+  --line:#d9e0ec; --opt:#f7f9fd; --opt-hover:#eaf0fa;
+  --ok:#17803d; --ok-bg:#e6f6ec; --bad:#c0272d; --bad-bg:#fdecec;
+  --ex-bg:#fff7ee; --ex-line:#f3c58f; --chip:#e9eef8;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --navy:#2b4f9a; --navy-deep:#16264a; --orange:#ff9a3d;
+    --bg:#0f1524; --card:#18213a; --text:#e8edf8; --muted:#a3aec6;
+    --line:#2c3857; --opt:#1e2944; --opt-hover:#26345a;
+    --ok:#4cd17e; --ok-bg:#163a26; --bad:#ff6b70; --bad-bg:#3d1a1e;
+    --ex-bg:#2a2216; --ex-line:#6b4b22; --chip:#25304d;
+    color-scheme: dark;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:"Segoe UI","Noto Sans","Nirmala UI","Mangal",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  line-height:1.6;font-size:16px}
+header{background:var(--navy-deep);color:#fff;padding:22px 16px 18px}
+.wrap{max-width:860px;margin:0 auto}
+.brand{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand a{color:var(--orange);font-weight:700;text-decoration:none}
+.brand a:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.channel{font-weight:800;letter-spacing:.5px}
+h1{margin:14px 0 4px;font-size:clamp(1.4rem,4.5vw,2rem);line-height:1.2}
+.sub{margin:0;color:#c9d5ee;font-size:.95rem}
+.rules{margin-top:10px;font-size:.88rem;color:#c9d5ee}
+.bar{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:3px solid var(--orange);
+  box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.bar .wrap{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding:10px 16px}
+.seg{display:inline-flex;border:2px solid var(--navy);border-radius:999px;overflow:hidden}
+.seg button{border:0;background:transparent;color:var(--text);padding:6px 14px;font:inherit;font-weight:700;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--navy);color:#fff}
+.stats{display:flex;gap:12px;flex-wrap:wrap;font-size:.9rem;font-weight:600}
+.stats .c{color:var(--ok)} .stats .w{color:var(--bad)} .stats .s{color:var(--orange)}
+.tools button{border:1px solid var(--line);background:var(--opt);color:var(--text);border-radius:8px;
+  padding:6px 10px;font:inherit;font-size:.85rem;cursor:pointer}
+.tools button:hover{background:var(--opt-hover)}
+button:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+main{padding:18px 16px 40px}
+.q{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--navy);
+  border-radius:10px;padding:16px 16px 14px;margin:0 0 16px}
+.qhead{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.qno{font-weight:800;color:var(--navy)}
+@media (prefers-color-scheme: dark){.qno{color:#8fb0f5}}
+.chip{background:var(--chip);color:var(--muted);font-size:.75rem;font-weight:700;padding:2px 9px;border-radius:999px}
+.chip.lv-t{background:var(--bad-bg);color:var(--bad)}
+.chip.lv-h{background:var(--ex-bg);color:var(--orange)}
+.qtext{font-weight:600;margin:4px 0 12px}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;text-align:left;width:100%;border:1.5px solid var(--line);
+  background:var(--opt);color:var(--text);border-radius:8px;padding:9px 12px;font:inherit;cursor:pointer}
+.opt:hover:not(:disabled){background:var(--opt-hover)}
+.opt:disabled{cursor:default}
+.opt .l{font-weight:800;min-width:1.8em;color:var(--muted)}
+.opt.right{border-color:var(--ok);background:var(--ok-bg)}
+.opt.right .l{color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.opt.wrong .l{color:var(--bad)}
+.opt.sel{border-color:var(--navy);background:var(--opt-hover);box-shadow:inset 0 0 0 1px var(--navy)}
+.opt.sel .l{color:var(--navy)}
+@media (prefers-color-scheme: dark){.opt.sel .l{color:#8fb0f5}.opt.sel{border-color:#8fb0f5;box-shadow:inset 0 0 0 1px #8fb0f5}}
+.timer{font-variant-numeric:tabular-nums;font-weight:800}
+.timer.low{color:var(--bad)}
+.tools{display:flex;gap:6px;flex-wrap:wrap}
+.tools button.primary{background:var(--orange);border-color:var(--orange);color:#fff;font-weight:700}
+.tools button.primary:hover{filter:brightness(1.05);background:var(--orange)}
+.hidden{display:none !important}
+.result{background:var(--card);border:2px solid var(--orange);border-radius:12px;padding:16px;margin-bottom:18px}
+.result h2{margin:0 0 10px;font-size:1.2rem;color:var(--orange)}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+.rgrid div{background:var(--opt);border-radius:8px;padding:8px 10px}
+.rgrid b{display:block;font-size:1.3rem}
+.result p{margin:10px 0 0;color:var(--muted);font-size:.9rem}
+.start{position:fixed;inset:0;z-index:20;background:rgba(8,18,40,.78);display:flex;align-items:center;justify-content:center;padding:16px}
+.start .card{background:var(--card);color:var(--text);border-top:6px solid var(--orange);border-radius:14px;max-width:440px;width:100%;padding:22px 20px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.start h2{margin:0 0 6px;font-size:1.3rem;color:var(--navy)}
+@media (prefers-color-scheme: dark){.start h2{color:#8fb0f5}}
+.start p{margin:0 0 16px;color:var(--muted);font-size:.92rem}
+.start .big{display:block;width:100%;margin:10px 0;padding:14px;border-radius:10px;font:inherit;font-size:1.05rem;font-weight:800;cursor:pointer;border:2px solid var(--navy);background:var(--opt);color:var(--text)}
+.start .big.primary{background:var(--orange);border-color:var(--orange);color:#fff}
+.start .big small{display:block;font-weight:500;font-size:.82rem;opacity:.9;margin-top:2px}
+.start .seg{margin-top:10px}
+.ex{margin-top:12px;background:var(--ex-bg);border:1px solid var(--ex-line);border-radius:8px;padding:12px 14px;font-size:.95rem}
+.ex .ans{font-weight:800;color:var(--ok);margin-bottom:4px}
+.ex .verdict-bad{color:var(--bad)}
+.sec{margin:24px 0 12px;font-weight:800;color:var(--orange);font-size:1.05rem;border-bottom:2px solid var(--line);padding-bottom:4px}
+footer{text-align:center;color:var(--muted);font-size:.82rem;padding:10px 16px 30px}
+footer a{color:var(--orange)}
+@media (prefers-reduced-motion: no-preference){.ex{animation:show .25s ease-out}
+  @keyframes show{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}}
+</style>
+</head>
+<body>
+<div class="start" id="start" role="dialog" aria-modal="true" aria-labelledby="stTitle">
+  <div class="card">
+    <h2 id="stTitle"></h2>
+    <p id="stSub"></p>
+    <button class="big primary" id="stTest"></button>
+    <button class="big" id="stPrac"></button>
+    <div class="seg" role="group" aria-label="Language">
+      <button id="stEn" aria-pressed="true">English</button>
+      <button id="stHi" aria-pressed="false">हिंदी</button>
+    </div>
+  </div>
+</div>
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <span class="channel">THE EXAM ENGINEER</span>
+      <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a>
+    </div>
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+    <p class="rules" id="rules"></p>
+  </div>
+</header>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="seg" role="group" aria-label="Language">
+      <button id="bEn" aria-pressed="true">English</button>
+      <button id="bHi" aria-pressed="false">हिंदी</button>
+    </div>
+    <div class="seg" role="group" aria-label="Mode">
+      <button id="mTest" aria-pressed="true"></button>
+      <button id="mPrac" aria-pressed="false"></button>
+    </div>
+    <div class="stats" aria-live="polite">
+      <span class="timer" id="timer"></span>
+      <span id="sAtt"></span><span class="c" id="sC"></span><span class="w" id="sW"></span><span class="s" id="sS"></span>
+    </div>
+    <div class="tools">
+      <button id="bSubmit" class="primary"></button>
+      <button id="bShow"></button>
+      <button id="bReset"></button>
+    </div>
+  </div>
+</div>
+
+<main><div class="wrap"><div id="result"></div><div id="list"></div></div></main>
+
+<footer>
+  <div id="foot"></div>
+  <div>© 2026 THE EXAM ENGINEER · <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a> · theexamengineer1@gmail.com</div>
+  <div>SSC JE AIR 14 · RRB JE 2025 (DMS)</div>
+</footer>
+
+<script>
+const UI = {
+  en:{title:"Machining Smart MCQ – Set 2",
+      sub:"Lathe Operations – Turning, Facing, Taper, Threads, Drilling, Boring, Parting · RRB JE CBT-2 (Mechanical & Allied) · RRB JE PYQ based",
+      rules:"25 questions · 20 minutes (RRB CBT-2 pace: 150 Qs in 120 min) · +1 correct, −1/3 wrong",
+      stT:"Start Test",stTs:"20 minutes · timer · submit · full result",stP:"Practice Mode",stPs:"no timer · answer and explanation instantly",stSub:"Choose how you want to attempt this set",
+      rulesP:"Practice mode · no timer · tap an option to see the answer with full explanation instantly",
+      test:"Test",prac:"Practice",submit:"Submit test",time:"Time left",
+      cSub:"Submit the test now? You cannot change answers after submitting.",
+      cMode:"Switching mode will reset your current attempt. Continue?",
+      res:"Your result",un:"Not attempted",taken:"Time taken",acc:"Accuracy",auto:"Time over – test submitted automatically.",
+      resNote:"Answers and full explanations are now shown below each question. Read the explanation of every wrong and unattempted question.",
+      att:"Attempted",c:"Correct",w:"Wrong",s:"Score",show:"Show all answers",hide:"Hide unattempted answers",reset:"Reset",
+      ans:"Correct answer",yours:"Your answer is wrong.",right:"Your answer is correct.",num:"Simple numericals",
+      lv:{e:"Easy",p:"PYQ level",h:"Higher",t:"Tough"},
+      foot:"Original work, free for personal study. Share as it is with the channel link – no re-branding."},
+  hi:{title:"मशीनिंग स्मार्ट MCQ – सेट 2",
+      sub:"लेथ संक्रियाएँ – टर्निंग, फ़ेसिंग, टेपर, थ्रेड, ड्रिलिंग, बोरिंग, पार्टिंग · RRB JE CBT-2 (मैकेनिकल एवं संबद्ध) · RRB JE PYQ आधारित",
+      rules:"25 प्रश्न · 20 मिनट (RRB CBT-2 गति: 120 मिनट में 150 प्रश्न) · सही +1, गलत −1/3",
+      stT:"टेस्ट शुरू करें",stTs:"20 मिनट · टाइमर · सबमिट · पूरा परिणाम",stP:"प्रैक्टिस मोड",stPs:"कोई टाइमर नहीं · उत्तर व व्याख्या तुरंत",stSub:"यह सेट कैसे हल करना है, चुनें",
+      rulesP:"प्रैक्टिस मोड · कोई टाइमर नहीं · विकल्प पर टैप करें, उत्तर और पूरी व्याख्या तुरंत दिखेगी",
+      test:"टेस्ट",prac:"प्रैक्टिस",submit:"टेस्ट सबमिट करें",time:"शेष समय",
+      cSub:"क्या अभी टेस्ट सबमिट करें? सबमिट के बाद उत्तर नहीं बदल सकेंगे।",
+      cMode:"मोड बदलने पर आपका वर्तमान प्रयास रीसेट हो जाएगा। जारी रखें?",
+      res:"आपका परिणाम",un:"बिना प्रयास",taken:"लिया गया समय",acc:"सटीकता",auto:"समय समाप्त – टेस्ट स्वतः सबमिट हो गया।",
+      resNote:"अब हर प्रश्न के नीचे उत्तर और पूरी व्याख्या दिख रही है। हर गलत और बिना प्रयास वाले प्रश्न की व्याख्या ज़रूर पढ़ें।",
+      att:"प्रयास",c:"सही",w:"गलत",s:"स्कोर",show:"सभी उत्तर दिखाएँ",hide:"बिना प्रयास वाले उत्तर छिपाएँ",reset:"रीसेट",
+      ans:"सही उत्तर",yours:"आपका उत्तर गलत है।",right:"आपका उत्तर सही है।",num:"सरल न्यूमेरिकल",
+      lv:{e:"आसान",p:"PYQ स्तर",h:"उच्च",t:"कठिन"},
+      foot:"मौलिक कार्य, व्यक्तिगत अध्ययन हेतु निःशुल्क। चैनल लिंक सहित जैसा है वैसा ही शेयर करें – री-ब्रांडिंग नहीं।"}
+};
+
+const Q = [
+/* 1 */ {ans:1, lv:"e", tag:{en:"Facing",hi:"फ़ेसिंग"},
+en:{q:"Facing on a lathe produces:",
+o:["a conical surface along the axis","a flat surface square to the axis","a helical groove around the job","a cylindrical surface of the job"],
+e:"In <b>facing</b> the tool is fed by the <b>cross-slide perpendicular to the axis</b> across the end of the rotating job. The tool path is a straight line at 90° to the axis, so the end becomes a <b>flat surface square (perpendicular) to the axis</b> – and the job length decreases slightly (NLCIL PYQ). Square, flat ends seat properly against shoulders and mating parts in assemblies (RRB-CBT2 Jul'26 concept); facing is usually the first operation, done before centre drilling.<br><b>Surface by tool path:</b> parallel to axis → cylinder (turning) · perpendicular → flat face (facing) · at an angle → cone (taper turning) · along a helix → thread · curved → form/contour.<br><b>PYQ:</b> 'the process of making flat surfaces on a lathe → facing' (RRB-CBT2 2019)."},
+hi:{q:"लेथ पर फ़ेसिंग से बनती है:",
+o:["एक शंक्वाकार सतह","अक्ष के लंबवत सपाट सतह","एक हेलिकल खाँचा","एक बेलनाकार सतह"],
+e:"<b>फ़ेसिंग</b> में टूल को <b>क्रॉस-स्लाइड द्वारा अक्ष के लंबवत</b> घूमते जॉब के सिरे पर चलाया जाता है। टूल मार्ग अक्ष से 90° पर सीधी रेखा है, इसलिए सिरा <b>अक्ष के लंबवत सपाट सतह</b> बनता है – और जॉब की लंबाई थोड़ी घटती है (NLCIL PYQ)। वर्गाकार, सपाट सिरे असेंबली में शोल्डर व मिलते भागों से ठीक बैठते हैं (RRB-CBT2 Jul'26 अवधारणा); फ़ेसिंग प्रायः पहली संक्रिया होती है, सेंटर ड्रिलिंग से पहले।<br><b>टूल मार्ग से सतह:</b> अक्ष के समानांतर → बेलन (टर्निंग) · लंबवत → सपाट फ़ेस (फ़ेसिंग) · कोण पर → शंकु (टेपर टर्निंग) · हेलिक्स के साथ → थ्रेड · वक्र → फ़ॉर्म/कंटूर।<br><b>PYQ:</b> 'लेथ पर सपाट सतह बनाने की प्रक्रिया → फ़ेसिंग' (RRB-CBT2 2019)।"}},
+
+/* 2 */ {ans:2, lv:"h", tag:{en:"Taper turning · scenario",hi:"टेपर टर्निंग · परिस्थिति"},
+en:{q:"A 400 mm long shaft, held between centres, needs a long, gentle external taper along its full length with power feed. The shop has no taper attachment. The method used is:",
+o:["swivelling the compound rest","using a broad form tool","offsetting the tailstock","combined cross and compound feed"],
+e:"<b>Tailstock set-over:</b> the tailstock body is moved sideways so the job axis is inclined to the line of carriage travel; the tool then moves parallel to the bed under <b>power feed</b> and cuts a taper along the <b>whole length</b>. It suits <b>long, gentle, external tapers on jobs between centres</b> only (RPSC PYQ: external tapers only → tailstock offset). Limits: small taper angles, centres misalign (wear of centre holes), not for internal tapers.<br><b>Why not the others:</b> the compound rest has short travel and hand feed – only short, steep tapers (RRB-CBT2 Apr'25-II); a form tool covers only a short length; combination feed gives tapers but is not convenient for a long, uniform taper.<br><b>Four methods – hook:</b> Short & Steep → Swivel the compound · Long & Slender → Set-over · Inside → Attachment · Short length → Form tool."},
+hi:{q:"सेंटरों के बीच पकड़ी 400 mm लंबी शाफ़्ट पर पूरी लंबाई में पावर फ़ीड से लंबा, हल्का बाहरी टेपर चाहिए। शॉप में टेपर अटैचमेंट नहीं है। प्रयुक्त विधि है:",
+o:["कंपाउंड रेस्ट को घुमाना","चौड़े फ़ॉर्म टूल का प्रयोग","टेलस्टॉक को ऑफ़सेट करना","क्रॉस व कंपाउंड की संयुक्त फ़ीड"],
+e:"<b>टेलस्टॉक सेट-ओवर:</b> टेलस्टॉक का ढाँचा बगल में खिसकाया जाता है ताकि जॉब अक्ष कैरिज के चलने की रेखा से झुका रहे; तब टूल <b>पावर फ़ीड</b> पर बेड के समानांतर चलता है और <b>पूरी लंबाई</b> में टेपर काटता है। यह केवल <b>सेंटरों के बीच जॉब पर लंबे, हल्के, बाहरी टेपर</b> हेतु उपयुक्त है (RPSC PYQ: केवल बाहरी टेपर → टेलस्टॉक ऑफ़सेट)। सीमाएँ: छोटे टेपर कोण, सेंटर असंरेखित (सेंटर होल घिसते), भीतरी टेपर नहीं।<br><b>अन्य क्यों नहीं:</b> कंपाउंड रेस्ट की यात्रा छोटी व हाथ फ़ीड – केवल छोटे, तीखे टेपर (RRB-CBT2 Apr'25-II); फ़ॉर्म टूल केवल छोटी लंबाई; संयुक्त फ़ीड टेपर देती है पर लंबे, एकसमान टेपर हेतु सुविधाजनक नहीं।<br><b>चार विधियाँ – याद रखें:</b> छोटा व तीखा → कंपाउंड घुमाओ · लंबा व पतला → सेट-ओवर · भीतर → अटैचमेंट · छोटी लंबाई → फ़ॉर्म टूल।"}},
+
+/* 3 */ {ans:3, lv:"p", tag:{en:"Thread cutting",hi:"थ्रेड कटिंग"},
+en:{q:"The included angle of a single-point tool for cutting Whitworth (BSW) threads is:",
+o:["29°","47.5°","60°","55°"],
+e:"A single-point thread tool is ground to the exact included angle of the thread form, checked with a thread (centre) gauge:<br><b>British Standard Whitworth (BSW)</b> – <b>55°</b>, rounded crests and roots.<br><b>Metric / ISO and American unified</b> – <b>60°</b> (RRB-CBT2 Apr'25-I).<br><b>Acme</b> – <b>29°</b> (used on lathe lead screws).<br><b>British Association (BA)</b> – 47.5°, small instrument threads.<br><b>Square</b> – no angle; a flat-nosed tool.<br><b>Trap:</b> students often mark 60° for every thread – 60° is metric only.<br><b>Thread-cutting practice:</b> tool at centre height, set square to the job with a centre gauge, zero rake, lowest speed, light cuts fed in with the compound rest set at half the thread angle."},
+hi:{q:"व्हिटवर्थ (BSW) थ्रेड काटने वाले सिंगल-पॉइंट टूल का सम्मिलित कोण है:",
+o:["29°","47.5°","60°","55°"],
+e:"सिंगल-पॉइंट थ्रेड टूल थ्रेड रूप के ठीक सम्मिलित कोण पर ग्राइंड किया जाता है, थ्रेड (सेंटर) गेज से जाँचा जाता है:<br><b>ब्रिटिश स्टैंडर्ड व्हिटवर्थ (BSW)</b> – <b>55°</b>, गोल शिखर व तल।<br><b>मीट्रिक / ISO और अमेरिकन यूनिफ़ाइड</b> – <b>60°</b> (RRB-CBT2 Apr'25-I)।<br><b>एक्मी</b> – <b>29°</b> (लेथ लीड स्क्रू पर)।<br><b>ब्रिटिश एसोसिएशन (BA)</b> – 47.5°, छोटे उपकरण थ्रेड।<br><b>वर्गाकार</b> – कोई कोण नहीं; सपाट सिरे वाला टूल।<br><b>ट्रैप:</b> छात्र हर थ्रेड हेतु 60° चुन लेते हैं – 60° केवल मीट्रिक है।<br><b>थ्रेड कटिंग अभ्यास:</b> टूल सेंटर ऊँचाई पर, सेंटर गेज से जॉब के वर्गाकार सेट, शून्य रेक, न्यूनतम गति, हल्के कट, कंपाउंड रेस्ट को थ्रेड कोण के आधे पर सेट कर फ़ीड।"}},
+
+/* 4 */ {ans:0, lv:"p", tag:{en:"Numerical – machining time",hi:"न्यूमेरिकल – मशीनिंग समय"},
+en:{q:"A 150 mm length is turned in one pass at 400 rpm with a feed of 0.2 mm/rev. The approach plus over-travel is 10 mm. The machining time is:",
+o:["2.0 min","1.875 min","0.5 min","20 min"],
+e:"Machining time T = total tool travel ÷ (feed × rpm) = (L + approach + over-travel) ÷ (f × N)<br>= (150 + 10) ÷ (0.2 × 400) = 160 ÷ 80 = <b>2.0 min</b>.<br><b>Distractor check:</b> (b) 1.875 min ignores the approach and over-travel (150 ÷ 80); (c) 0.5 min inverts the formula; (d) 20 min misplaces the decimal of the feed.<br><b>Remember:</b> feed × rpm = feed rate in mm/min (here 80 mm/min); for more passes multiply by the number of passes; if the feed is given in mm/s, T = L ÷ feed rate directly (Railway PYQ: 120 mm at 0.25 mm/s → 8 min).<br><b>Related formulas:</b> V = πDN/1000 · depth of cut = (D₁ − D₂)/2 · MRR = π D<sub>avg</sub> d f N."},
+hi:{q:"150 mm लंबाई एक पास में 400 rpm और 0.2 mm/rev फ़ीड से टर्न की जाती है। अप्रोच व ओवर-ट्रैवल मिलाकर 10 mm है। मशीनिंग समय है:",
+o:["2.0 मिनट","1.875 मिनट","0.5 मिनट","20 मिनट"],
+e:"मशीनिंग समय T = कुल टूल यात्रा ÷ (फ़ीड × rpm) = (L + अप्रोच + ओवर-ट्रैवल) ÷ (f × N)<br>= (150 + 10) ÷ (0.2 × 400) = 160 ÷ 80 = <b>2.0 मिनट</b>।<br><b>गलत विकल्प कैसे बने:</b> (b) 1.875 मिनट में अप्रोच व ओवर-ट्रैवल छोड़ दिए (150 ÷ 80); (c) 0.5 मिनट में सूत्र उलटा; (d) 20 मिनट में फ़ीड का दशमलव गलत।<br><b>याद रखें:</b> फ़ीड × rpm = फ़ीड दर mm/min में (यहाँ 80 mm/min); अधिक पास हों तो पासों की संख्या से गुणा; फ़ीड mm/s में हो तो सीधे T = L ÷ फ़ीड दर (रेलवे PYQ: 120 mm, 0.25 mm/s → 8 मिनट)।<br><b>संबंधित सूत्र:</b> V = πDN/1000 · कट की गहराई = (D₁ − D₂)/2 · MRR = π D<sub>avg</sub> d f N।"}},
+
+/* 5 */ {ans:0, lv:"h", tag:{en:"Boring vs reaming · scenario",hi:"बोरिंग बनाम रीमिंग · परिस्थिति"},
+en:{q:"A drilled hole has wandered slightly off the axis. Which operation can correct the position and straightness of the hole before it is sized?",
+o:["boring with a single-point tool","reaming with a machine reamer","countersinking the hole mouth","re-drilling with the same drill"],
+e:"<b>Boring</b> uses a <b>single-point tool</b> on a rigid boring bar, fed in a straight line along the axis of rotation (RRB-CBT2 2019: 'single-point tool fed linearly → boring'). Because the tool path is set by the machine's axis – not by the existing hole – boring <b>corrects the position, alignment and straightness</b> of a drilled hole while enlarging it ('internal turning' – HPSC PYQ).<br><b>Why not the others:</b> a <b>reamer</b> is a multi-edge tool that <b>follows the existing hole</b> – it gives excellent size and finish but cannot correct a wandered axis (trap); countersinking only cones the mouth; re-drilling with the same drill follows the same wrong path.<br><b>Hole-making family:</b> drill (new hole) → bore (enlarge and correct) → ream (size and finish, best accuracy) · counterbore (flat step for socket heads) · countersink (cone for flat-head screws) · spot face (smooth seat around a hole)."},
+hi:{q:"एक ड्रिल किया होल अक्ष से थोड़ा भटक गया है। साइज़ करने से पहले होल की स्थिति और सीधापन कौन-सी संक्रिया सुधार सकती है?",
+o:["सिंगल-पॉइंट टूल से बोरिंग","मशीन रीमर से रीमिंग","होल के मुँह की काउंटरसिंकिंग","उसी ड्रिल से दोबारा ड्रिलिंग"],
+e:"<b>बोरिंग</b> में दृढ़ बोरिंग बार पर <b>सिंगल-पॉइंट टूल</b> घूर्णन अक्ष के साथ सीधी रेखा में चलाया जाता है (RRB-CBT2 2019: 'रेखीय फ़ीड वाला सिंगल-पॉइंट टूल → बोरिंग')। चूँकि टूल मार्ग मशीन का अक्ष तय करता है – मौजूदा होल नहीं – बोरिंग ड्रिल होल को बड़ा करते हुए उसकी <b>स्थिति, संरेखण व सीधापन सुधारती</b> है ('भीतरी टर्निंग' – HPSC PYQ)।<br><b>अन्य क्यों नहीं:</b> <b>रीमर</b> बहु-धार टूल है जो <b>मौजूदा होल का ही अनुसरण</b> करता है – उत्कृष्ट साइज़ व फ़िनिश देता है पर भटका अक्ष नहीं सुधारता (ट्रैप); काउंटरसिंकिंग केवल मुँह को शंक्वाकार करती है; उसी ड्रिल से दोबारा ड्रिलिंग उसी गलत मार्ग पर चलती है।<br><b>होल-निर्माण परिवार:</b> ड्रिल (नया होल) → बोर (बड़ा व सुधार) → रीम (साइज़ व फ़िनिश, सर्वोत्तम सटीकता) · काउंटरबोर (सॉकेट हेड हेतु सपाट सीढ़ी) · काउंटरसिंक (फ़्लैट-हेड स्क्रू हेतु शंकु) · स्पॉट फ़ेस (होल के चारों ओर चिकनी सीट)।"}},
+
+/* 6 */ {ans:3, lv:"h", tag:{en:"Knurling",hi:"नर्लिंग"},
+en:{q:"Knurling on a lathe is basically a:",
+o:["multi-point cutting process","grinding process","heat-treatment process","chipless forming process"],
+e:"<b>Knurling</b> presses one or two <b>hardened, patterned rollers (knurls)</b> held in a knurling tool against the rotating job. The metal surface is <b>plastically displaced</b> – raised into a straight, diagonal or diamond pattern – <b>without removing chips</b>, so it is a cold <b>forming (chipless)</b> operation, not cutting. Purpose: a rough surface for <b>hand grip</b> (handles, knobs, screw heads) or for a press fit (Railway JE PYQ: 'knurling is an operation of roughing the surface for hand grip').<br><b>Practice:</b> slowest spindle speed, coarse feed, plenty of lubricant, high radial pressure; the diameter grows slightly because metal is pushed up.<br><b>Why not the others:</b> the knurl has no cutting edges (option a is the trap); no abrasive wheel; no change of metallurgical structure.<br><b>Other chipless lathe work:</b> spinning of sheet metal; burnishing; thread rolling attachments."},
+hi:{q:"लेथ पर नर्लिंग मूलतः है:",
+o:["बहु-बिंदु कटिंग प्रक्रिया","ग्राइंडिंग प्रक्रिया","ऊष्मा-उपचार प्रक्रिया","चिपरहित फ़ॉर्मिंग प्रक्रिया"],
+e:"<b>नर्लिंग</b> में नर्लिंग टूल में पकड़े एक या दो <b>कठोर, पैटर्न वाले रोलर (नर्ल)</b> घूमते जॉब पर दबाए जाते हैं। धातु की सतह <b>प्लास्टिक रूप से विस्थापित</b> होकर सीधे, तिरछे या हीरे के पैटर्न में उभरती है – <b>चिप हटाए बिना</b>, इसलिए यह ठंडी <b>फ़ॉर्मिंग (चिपरहित)</b> संक्रिया है, कटिंग नहीं। उद्देश्य: <b>हाथ की पकड़</b> हेतु खुरदरी सतह (हैंडल, नॉब, स्क्रू हेड) या प्रेस फ़िट हेतु (रेलवे JE PYQ: 'नर्लिंग → हाथ की पकड़ हेतु सतह खुरदरी करना')।<br><b>अभ्यास:</b> न्यूनतम स्पिंडल गति, मोटी फ़ीड, भरपूर स्नेहक, अधिक त्रिज्य दाब; धातु ऊपर उठने से व्यास थोड़ा बढ़ता है।<br><b>अन्य क्यों नहीं:</b> नर्ल में कटिंग धार नहीं (विकल्प a ट्रैप है); कोई अपघर्षी पहिया नहीं; धातु संरचना में परिवर्तन नहीं।<br><b>लेथ पर अन्य चिपरहित कार्य:</b> शीट धातु स्पिनिंग; बर्निशिंग; थ्रेड रोलिंग अटैचमेंट।"}},
+
+/* 7 */ {ans:1, lv:"p", tag:{en:"Numerical – change gears",hi:"न्यूमेरिकल – चेंज गियर"},
+en:{q:"A lathe has a lead screw of 6 mm pitch. A thread of 2 mm pitch is to be cut. The correct simple change-gear train (spindle gear = driver) is:",
+o:["60T driver, 20T driven","20T driver, 60T driven","30T driver, 60T driven","20T driver, 120T driven"],
+e:"For thread cutting the spindle and lead screw are linked so that the carriage moves one job-pitch per spindle revolution:<br><b>driver teeth ÷ driven teeth = pitch of job ÷ pitch of lead screw</b> = 2 ÷ 6 = <b>1/3</b>.<br>So a 20-tooth gear on the spindle (driver) and a 60-tooth gear on the lead screw (driven) – an idler between them only bridges the gap and does not change the ratio.<br><b>Distractor check:</b> (a) inverts the ratio – it would give a 18 mm pitch; (c) gives 1/2 → 3 mm pitch; (d) gives 1/6 → 1 mm pitch.<br><b>Logic check:</b> the job pitch is smaller than the lead-screw pitch, so the lead screw must turn slower than the spindle → the driven gear is larger.<br><b>Notes example:</b> lead screw 6 mm, job 1.5 mm → 1/4 → 20T : 80T."},
+hi:{q:"एक लेथ का लीड स्क्रू 6 mm पिच का है। 2 mm पिच का थ्रेड काटना है। सही सरल चेंज-गियर श्रृंखला (स्पिंडल गियर = ड्राइवर) है:",
+o:["60T ड्राइवर, 20T ड्रिवन","20T ड्राइवर, 60T ड्रिवन","30T ड्राइवर, 60T ड्रिवन","20T ड्राइवर, 120T ड्रिवन"],
+e:"थ्रेड कटिंग में स्पिंडल और लीड स्क्रू इस प्रकार जोड़े जाते हैं कि स्पिंडल के एक चक्कर पर कैरिज एक जॉब-पिच चले:<br><b>ड्राइवर दाँत ÷ ड्रिवन दाँत = जॉब की पिच ÷ लीड स्क्रू की पिच</b> = 2 ÷ 6 = <b>1/3</b>।<br>अतः स्पिंडल पर 20-दाँत गियर (ड्राइवर) और लीड स्क्रू पर 60-दाँत गियर (ड्रिवन) – बीच का आइडलर केवल दूरी भरता है, अनुपात नहीं बदलता।<br><b>गलत विकल्प कैसे बने:</b> (a) अनुपात उलटा – 18 mm पिच देगा; (c) 1/2 → 3 mm पिच; (d) 1/6 → 1 mm पिच।<br><b>तर्क जाँच:</b> जॉब पिच लीड स्क्रू पिच से छोटी है, इसलिए लीड स्क्रू स्पिंडल से धीमा घूमे → ड्रिवन गियर बड़ा।<br><b>नोट्स उदाहरण:</b> लीड स्क्रू 6 mm, जॉब 1.5 mm → 1/4 → 20T : 80T।"}},
+
+/* 8 */ {ans:2, lv:"e", tag:{en:"Drilling on lathe",hi:"लेथ पर ड्रिलिंग"},
+en:{q:"When a hole is drilled on a centre lathe:",
+o:["the drill rotates and the job is fixed","both the drill and the job rotate","the job rotates and the drill is fed","the carriage rotates the drill"],
+e:"On a lathe the <b>job rotates</b> in the chuck (driven by the headstock spindle) while the <b>drill stays stationary</b> in the tailstock barrel (or a drill chuck in it) and is <b>fed axially</b> by turning the tailstock handwheel (RRB-CBT2 Jul'26 concept: the drill is placed in the tailstock). This is the opposite of a drilling machine, where the drill rotates and the job is fixed.<br><b>Steps:</b> face the end → centre drill (pilot) → drill (step drill for big holes) → bore/ream if accuracy is needed; use coolant and clear chips often.<br><b>Why not the others:</b> (a) describes a drilling machine; (b) both rotating is not a standard lathe set-up; (d) the carriage does not rotate anything.<br><b>Advantage:</b> because the job spins about the lathe axis, a hole drilled on a lathe is concentric with the turned outside diameter."},
+hi:{q:"सेंटर लेथ पर होल ड्रिल करते समय:",
+o:["ड्रिल घूमता है और जॉब स्थिर रहता है","ड्रिल और जॉब दोनों एक साथ घूमते हैं","जॉब घूमता है, ड्रिल को फ़ीड मिलती है","कैरिज स्वयं ड्रिल को घुमाती है"],
+e:"लेथ पर <b>जॉब</b> चक में <b>घूमता</b> है (हेडस्टॉक स्पिंडल द्वारा) जबकि <b>ड्रिल</b> टेलस्टॉक बैरल (या उसमें लगे ड्रिल चक) में <b>स्थिर</b> रहता है और टेलस्टॉक हैंडव्हील घुमाकर <b>अक्षीय फ़ीड</b> दी जाती है (RRB-CBT2 Jul'26 अवधारणा: ड्रिल टेलस्टॉक में)। यह ड्रिलिंग मशीन का उल्टा है, जहाँ ड्रिल घूमता और जॉब स्थिर रहता है।<br><b>चरण:</b> सिरा फ़ेस → सेंटर ड्रिल (पायलट) → ड्रिल (बड़े होल हेतु चरणों में) → सटीकता हेतु बोर/रीम; कूलेंट प्रयोग करें और चिप बार-बार निकालें।<br><b>अन्य क्यों नहीं:</b> (a) ड्रिलिंग मशीन का वर्णन; (b) दोनों का घूमना मानक लेथ सेट-अप नहीं; (d) कैरिज कुछ नहीं घुमाती।<br><b>लाभ:</b> जॉब लेथ अक्ष पर घूमता है, इसलिए लेथ पर ड्रिल किया होल टर्न किए बाहरी व्यास के साथ संकेंद्रित होता है।"}},
+
+/* 9 */ {ans:1, lv:"h", tag:{en:"Parting-off · scenario",hi:"पार्टिंग-ऑफ़ · परिस्थिति"},
+en:{q:"Parting-off is not done on a job held between centres because, as the cut nears the axis:",
+o:["the parting tool cannot reach the centre line","the job would close on the tool and jam it","the cross-slide cannot feed in that position","parting is possible only at very high speed"],
+e:"In <b>parting-off</b> a narrow blade tool is fed radially by the cross-slide (by hand – RRB-CBT2 Jun'25 concept) to cut the job completely through. When the job is held <b>between two centres</b>, both ends are pushed towards each other by the centres. As the groove deepens, the remaining neck weakens and the two halves <b>bend and close in on the tool</b>, gripping and jamming it – the tool breaks, the job is spoilt, and a part may fly out. That is why parting-off is done on work held in a <b>chuck or collet</b>, close to the jaws (Railway SSE PYQ: 'operation not done on a workpiece held between centres → parting-off').<br><b>Why not the others:</b> the tool can reach the centre line; the cross-slide feeds normally; parting is done at <b>low</b> speed.<br><b>Good practice:</b> tool exactly at centre height, minimum overhang, rigid set-up, slow speed, steady feed, plenty of coolant."},
+hi:{q:"सेंटरों के बीच पकड़े जॉब पर पार्टिंग-ऑफ़ नहीं की जाती, क्योंकि जैसे-जैसे कट अक्ष के पास पहुँचता है:",
+o:["पार्टिंग टूल केंद्र रेखा तक नहीं पहुँच सकता","जॉब टूल पर बंद होकर उसे फँसा देगा","उस स्थिति में क्रॉस-स्लाइड फ़ीड नहीं दे सकती","पार्टिंग केवल बहुत उच्च गति पर संभव है"],
+e:"<b>पार्टिंग-ऑफ़</b> में पतले ब्लेड टूल को क्रॉस-स्लाइड से (हाथ से – RRB-CBT2 Jun'25 अवधारणा) त्रिज्य दिशा में चलाकर जॉब को पूरा काटा जाता है। जब जॉब <b>दो सेंटरों के बीच</b> पकड़ा होता है, दोनों सिरे सेंटरों द्वारा एक-दूसरे की ओर दबे रहते हैं। खाँचा गहरा होने पर बची गर्दन कमज़ोर होती है और दोनों हिस्से <b>मुड़कर टूल पर बंद</b> हो जाते हैं, उसे पकड़कर फँसा देते हैं – टूल टूटता है, जॉब खराब होता है, और भाग उछल सकता है। इसलिए पार्टिंग-ऑफ़ <b>चक या कॉलेट</b> में, जॉ के पास पकड़े जॉब पर की जाती है (रेलवे SSE PYQ: 'सेंटरों के बीच जॉब पर नहीं की जाने वाली संक्रिया → पार्टिंग-ऑफ़')।<br><b>अन्य क्यों नहीं:</b> टूल केंद्र रेखा तक पहुँचता है; क्रॉस-स्लाइड सामान्य फ़ीड देती है; पार्टिंग <b>कम</b> गति पर होती है।<br><b>अच्छा अभ्यास:</b> टूल ठीक सेंटर ऊँचाई पर, न्यूनतम ओवरहैंग, दृढ़ सेट-अप, धीमी गति, स्थिर फ़ीड, भरपूर कूलेंट।"}},
+
+/* 10 */ {ans:0, lv:"p", tag:{en:"Taper turning",hi:"टेपर टर्निंग"},
+en:{q:"Turning a long internal taper in a bore with power feed is best done by:",
+o:["a taper-turning attachment","tailstock set-over","swivelling the compound rest","a broad form tool"],
+e:"A <b>taper-turning attachment</b> is bolted to the back of the bed. Its <b>guide bar</b> is swivelled to half the taper angle (α/2), and a sliding block connected to the cross-slide follows it, so as the carriage moves under <b>power feed</b> the tool moves in and out to produce the taper. Because the job stays on the lathe axis (no centre misalignment), it can cut <b>both internal and external tapers</b> of any reasonable length – and it is <b>the best method for internal tapers</b> (Railway SSE, NPSC PYQ: 'for turning internal tapers → taper attachment').<br><b>Why not the others:</b> tailstock set-over needs the job between centres – external only; the compound rest is hand-fed with short travel – short tapers only; a form tool cuts only a very short taper.<br><b>Formula:</b> tan(α/2) = (D − d) ÷ 2l, used to set the guide bar or compound rest."},
+hi:{q:"बोर में लंबा भीतरी टेपर पावर फ़ीड से टर्न करने की सर्वोत्तम विधि है:",
+o:["टेपर-टर्निंग अटैचमेंट","टेलस्टॉक सेट-ओवर","कंपाउंड रेस्ट को घुमाना","चौड़ा फ़ॉर्म टूल"],
+e:"<b>टेपर-टर्निंग अटैचमेंट</b> बेड के पीछे बोल्ट किया जाता है। इसका <b>गाइड बार</b> टेपर कोण के आधे (α/2) पर घुमाया जाता है, और क्रॉस-स्लाइड से जुड़ा स्लाइडिंग ब्लॉक उसका अनुसरण करता है, इसलिए कैरिज के <b>पावर फ़ीड</b> पर चलने पर टूल अंदर-बाहर होकर टेपर बनाता है। जॉब लेथ अक्ष पर ही रहता है (सेंटर असंरेखित नहीं), इसलिए यह किसी भी उचित लंबाई के <b>भीतरी व बाहरी दोनों टेपर</b> काट सकता है – और <b>भीतरी टेपर हेतु सर्वोत्तम</b> है (रेलवे SSE, NPSC PYQ: 'भीतरी टेपर टर्निंग → टेपर अटैचमेंट')।<br><b>अन्य क्यों नहीं:</b> टेलस्टॉक सेट-ओवर को जॉब सेंटरों के बीच चाहिए – केवल बाहरी; कंपाउंड रेस्ट हाथ फ़ीड व छोटी यात्रा – केवल छोटे टेपर; फ़ॉर्म टूल बहुत छोटा टेपर ही काटता है।<br><b>सूत्र:</b> tan(α/2) = (D − d) ÷ 2l, गाइड बार या कंपाउंड रेस्ट सेट करने हेतु।"}},
+
+/* 11 */ {ans:3, lv:"e", tag:{en:"Numerical – depth of cut",hi:"न्यूमेरिकल – कट की गहराई"},
+en:{q:"A 50 mm diameter bar is turned down to 44 mm diameter in one pass. The depth of cut is:",
+o:["6 mm","12 mm","1.5 mm","3 mm"],
+e:"Depth of cut = the thickness of metal removed, measured radially (perpendicular to the machined surface):<br>d = (D₁ − D₂) ÷ 2 = (50 − 44) ÷ 2 = <b>3 mm</b>.<br>The tool removes 3 mm from each side, so the diameter falls by 6 mm.<br><b>Trap:</b> (a) 6 mm is the reduction in <b>diameter</b>, not the depth of cut; (b) and (c) misuse the factor of 2.<br><b>PYQs on the same idea:</b> 'depth of cut in turning is the total reduction in the → radius of the work in one pass' (PPSC 2017); '100 mm reduced to 90 mm → depth of cut 5 mm' (NLCIL 2020).<br><b>Used in:</b> MRR = π D<sub>avg</sub> × d × f × N, where D<sub>avg</sub> = (D₁ + D₂)/2."},
+hi:{q:"50 mm व्यास की छड़ को एक पास में 44 mm व्यास तक टर्न किया जाता है। कट की गहराई है:",
+o:["6 mm","12 mm","1.5 mm","3 mm"],
+e:"कट की गहराई = हटाई गई धातु की मोटाई, त्रिज्य दिशा में (मशीन सतह के लंबवत) मापी गई:<br>d = (D₁ − D₂) ÷ 2 = (50 − 44) ÷ 2 = <b>3 mm</b>।<br>टूल हर ओर से 3 mm हटाता है, इसलिए व्यास 6 mm घटता है।<br><b>ट्रैप:</b> (a) 6 mm <b>व्यास</b> में कमी है, कट की गहराई नहीं; (b) और (c) में 2 का गुणक गलत।<br><b>इसी विचार पर PYQ:</b> 'टर्निंग में कट की गहराई → एक पास में जॉब की त्रिज्या में कुल कमी' (PPSC 2017); '100 mm से 90 mm → कट की गहराई 5 mm' (NLCIL 2020)।<br><b>प्रयोग:</b> MRR = π D<sub>avg</sub> × d × f × N, जहाँ D<sub>avg</sub> = (D₁ + D₂)/2।"}},
+
+/* 12 */ {ans:2, lv:"h", tag:{en:"Thread cutting",hi:"थ्रेड कटिंग"},
+en:{q:"Single-point thread-cutting tools are ground with zero rake mainly because:",
+o:["it gives the fastest metal removal","it lets the tool be used at high speed","a rake would distort the thread angle","it reduces the cutting force to zero"],
+e:"A thread tool is ground so that its <b>profile, seen in the plane through the job axis, matches the thread angle</b> (60°, 55°, 29°…). If the top face is given a rake, that face is no longer in the axial plane; the profile actually reproduced on the job is then the projection of a tilted face, so the cut <b>thread angle becomes wrong</b> (a positive rake makes the thread angle larger). With <b>zero (top) rake</b> and the tool exactly at centre height, the tool cuts the true form (SSC JE, MPSC PYQ: 'single-point thread-cutting tool should ideally have → zero rake').<br><b>Same rule for form tools</b> and for brass-cutting tools (zero rake so the tool does not dig in – Railway JE PYQ).<br><b>Why not the others:</b> zero rake actually increases cutting force; thread cutting is done at low speed; metal removal is small."},
+hi:{q:"सिंगल-पॉइंट थ्रेड-कटिंग टूल मुख्यतः शून्य रेक पर क्यों ग्राइंड किए जाते हैं?",
+o:["इससे सबसे तेज़ धातु हटती है","इससे टूल उच्च गति पर चल सकता है","रेक देने से थ्रेड कोण बिगड़ जाएगा","इससे कटिंग बल शून्य हो जाता है"],
+e:"थ्रेड टूल इस प्रकार ग्राइंड होता है कि जॉब अक्ष से गुज़रते तल में देखी गई उसकी <b>प्रोफ़ाइल थ्रेड कोण से मेल</b> खाए (60°, 55°, 29°…)। यदि ऊपरी फ़ेस को रेक दिया जाए तो वह फ़ेस अक्षीय तल में नहीं रहता; जॉब पर बनने वाली प्रोफ़ाइल झुके फ़ेस का प्रक्षेप होती है, इसलिए कटा <b>थ्रेड कोण गलत</b> हो जाता है (धनात्मक रेक से थ्रेड कोण बड़ा)। <b>शून्य (टॉप) रेक</b> और टूल ठीक सेंटर ऊँचाई पर होने से सही रूप कटता है (SSC JE, MPSC PYQ: 'सिंगल-पॉइंट थ्रेड-कटिंग टूल → आदर्श रूप से शून्य रेक')।<br><b>यही नियम फ़ॉर्म टूल</b> और पीतल काटने वाले टूल पर (शून्य रेक ताकि टूल अंदर न धँसे – रेलवे JE PYQ)।<br><b>अन्य क्यों नहीं:</b> शून्य रेक वास्तव में कटिंग बल बढ़ाता है; थ्रेड कटिंग कम गति पर होती है; धातु कम हटती है।"}},
+
+/* 13 */ {ans:0, lv:"p", tag:{en:"Form turning · scenario",hi:"फ़ॉर्म टर्निंग · परिस्थिति"},
+en:{q:"A ball-shaped knob is produced by plunging a tool whose cutting edge has the reverse of the knob's profile. This operation is:",
+o:["form turning","taper turning","facing","knurling"],
+e:"In <b>form turning</b> a <b>form tool</b> is ground with the <b>exact reverse (negative) of the required profile</b> – a convex ball needs a concave edge. The tool is simply <b>plunged radially</b> into the rotating job with the cross-slide, so the whole profile is produced at once. It is quick and repeatable for <b>short</b> profiles – balls, radii, grooves, beads – but the wide cutting edge produces heavy force and chatter, so low speed, slow feed and a rigid set-up are needed.<br><b>Contour (copy) turning</b> is the other way to make a curved profile: a single-point tool is moved along a <b>curved path</b> by a template, copy attachment or computer numerical control – the tool is not fed in a straight line (RRB-CBT2 2019 concept).<br><b>Why not the others:</b> taper turning gives a straight cone; facing gives a flat end; knurling gives a gripping pattern."},
+hi:{q:"एक गेंद-आकार का नॉब ऐसे टूल को अंदर धँसाकर बनाया जाता है जिसकी कटिंग धार नॉब की प्रोफ़ाइल की उल्टी है। यह संक्रिया है:",
+o:["फ़ॉर्म टर्निंग","टेपर टर्निंग","फ़ेसिंग","नर्लिंग"],
+e:"<b>फ़ॉर्म टर्निंग</b> में <b>फ़ॉर्म टूल</b> आवश्यक प्रोफ़ाइल की <b>ठीक उल्टी (नेगेटिव)</b> पर ग्राइंड होता है – उत्तल गेंद हेतु अवतल धार। टूल को क्रॉस-स्लाइड से घूमते जॉब में बस <b>त्रिज्य दिशा में धँसाया</b> जाता है, इसलिए पूरी प्रोफ़ाइल एक साथ बनती है। यह <b>छोटी</b> प्रोफ़ाइल – गेंद, त्रिज्या, खाँचे, बीड – हेतु तेज़ व दोहराने योग्य है, पर चौड़ी धार भारी बल व चैटर देती है, इसलिए कम गति, धीमी फ़ीड व दृढ़ सेट-अप चाहिए।<br><b>कंटूर (कॉपी) टर्निंग</b> वक्र प्रोफ़ाइल बनाने का दूसरा तरीका है: सिंगल-पॉइंट टूल को टेम्पलेट, कॉपी अटैचमेंट या कंप्यूटर न्यूमेरिकल कंट्रोल द्वारा <b>वक्र मार्ग</b> पर चलाया जाता है – टूल सीधी रेखा में नहीं चलता (RRB-CBT2 2019 अवधारणा)।<br><b>अन्य क्यों नहीं:</b> टेपर टर्निंग सीधा शंकु देती है; फ़ेसिंग सपाट सिरा; नर्लिंग पकड़ का पैटर्न।"}},
+
+/* 14 */ {ans:3, lv:"p", tag:{en:"Thread cutting",hi:"थ्रेड कटिंग"},
+en:{q:"Thread cutting on a centre lathe is done at the lowest spindle speeds mainly because:",
+o:["the lead screw cannot turn any faster","threads need a very large depth of cut","coolant cannot reach the tool point","the carriage moves fast and must stop in time"],
+e:"In thread cutting the carriage is locked to the lead screw and moves <b>one full pitch per spindle revolution</b> – far faster than a normal turning feed (e.g. 2 mm/rev against 0.2 mm/rev). At the end of each pass the operator must <b>withdraw the tool and open the half nut</b> exactly at the right point – before the carriage runs into a shoulder or the chuck. A low spindle speed gives time to do this safely and also gives a better finish on the thread flanks with the form tool (RPSC PYQ: 'operation on a lathe in which spindle speed is least → thread cutting').<br><b>Why not the others:</b> the lead screw could turn faster; each thread pass takes only a light cut; coolant reaches the tool normally.<br><b>Also run at low speeds:</b> knurling, parting-off, form turning, reaming – and any operation on hard materials."},
+hi:{q:"सेंटर लेथ पर थ्रेड कटिंग न्यूनतम स्पिंडल गति पर मुख्यतः क्यों की जाती है?",
+o:["लीड स्क्रू इससे तेज़ नहीं घूम सकता","थ्रेड में बहुत अधिक कट की गहराई चाहिए","कूलेंट टूल के सिरे तक नहीं पहुँच पाता","कैरिज तेज़ चलती है, समय पर रोकनी होती है"],
+e:"थ्रेड कटिंग में कैरिज लीड स्क्रू से जुड़कर <b>स्पिंडल के हर चक्कर पर एक पूरी पिच</b> चलती है – सामान्य टर्निंग फ़ीड से कहीं तेज़ (जैसे 0.2 mm/rev के मुकाबले 2 mm/rev)। हर पास के अंत में ऑपरेटर को ठीक सही बिंदु पर <b>टूल हटाना और हाफ़ नट खोलना</b> होता है – कैरिज के शोल्डर या चक से टकराने से पहले। कम स्पिंडल गति इसके लिए सुरक्षित समय देती है और फ़ॉर्म टूल से थ्रेड फ़्लैंक पर बेहतर फ़िनिश भी (RPSC PYQ: 'लेथ पर संक्रिया जिसमें स्पिंडल गति न्यूनतम → थ्रेड कटिंग')।<br><b>अन्य क्यों नहीं:</b> लीड स्क्रू तेज़ घूम सकता है; हर थ्रेड पास में हल्का कट; कूलेंट सामान्य रूप से पहुँचता है।<br><b>अन्य कम गति संक्रियाएँ:</b> नर्लिंग, पार्टिंग-ऑफ़, फ़ॉर्म टर्निंग, रीमिंग – और कठोर पदार्थों पर कोई भी संक्रिया।"}},
+
+/* 15 */ {ans:1, lv:"h", tag:{en:"Numerical – set-over",hi:"न्यूमेरिकल – सेट-ओवर"},
+en:{q:"A 400 mm long shaft, held between centres, is to be tapered along its whole length from 60 mm to 52 mm diameter. The tailstock set-over required is:",
+o:["8 mm","4 mm","2 mm","16 mm"],
+e:"Tailstock set-over S = (D − d) × L ÷ (2 l), where L = length between centres (job length) and l = length of the tapered portion.<br>Here the taper runs along the <b>whole length</b>, so l = L and S = (D − d) ÷ 2 = (60 − 52) ÷ 2 = <b>4 mm</b>.<br><b>Why half?</b> Offsetting the tailstock by S moves the job axis so that the tool removes S more from the radius at one end than the other – a radius change of S means a diameter change of 2S.<br><b>Distractor check:</b> (a) 8 mm uses the full diameter difference; (c) halves twice; (d) doubles.<br><b>If only part of the job is tapered</b> (notes example: 300 mm job, taper over 100 mm from 50 to 40 mm) → S = 10 × 300 ÷ 200 = 15 mm.<br><b>PYQ:</b> 'set-over on a lathe depends upon → amount of taper' (Railway SSE 2012)."},
+hi:{q:"सेंटरों के बीच पकड़ी 400 mm लंबी शाफ़्ट पर पूरी लंबाई में 60 mm से 52 mm व्यास तक टेपर बनाना है। आवश्यक टेलस्टॉक सेट-ओवर है:",
+o:["8 mm","4 mm","2 mm","16 mm"],
+e:"टेलस्टॉक सेट-ओवर S = (D − d) × L ÷ (2 l), जहाँ L = सेंटरों के बीच लंबाई (जॉब लंबाई) और l = टेपर भाग की लंबाई।<br>यहाँ टेपर <b>पूरी लंबाई</b> में है, इसलिए l = L और S = (D − d) ÷ 2 = (60 − 52) ÷ 2 = <b>4 mm</b>।<br><b>आधा क्यों?</b> टेलस्टॉक को S खिसकाने से जॉब अक्ष ऐसा झुकता है कि टूल एक सिरे पर दूसरे से त्रिज्या में S अधिक हटाता है – त्रिज्या में S बदलाव यानी व्यास में 2S।<br><b>गलत विकल्प कैसे बने:</b> (a) 8 mm में पूरा व्यास अंतर लिया; (c) दो बार आधा; (d) दोगुना।<br><b>यदि जॉब का केवल भाग टेपर हो</b> (नोट्स उदाहरण: 300 mm जॉब, 100 mm पर 50 से 40 mm) → S = 10 × 300 ÷ 200 = 15 mm।<br><b>PYQ:</b> 'लेथ पर सेट-ओवर निर्भर → टेपर की मात्रा पर' (रेलवे SSE 2012)।"}},
+
+/* 16 */ {ans:2, lv:"p", tag:{en:"Thread cutting",hi:"थ्रेड कटिंग"},
+en:{q:"The thread-chasing dial on a lathe tells the operator:",
+o:["the spindle speed in rpm","the depth of each thread cut","when to re-engage the half nut","the pitch of the lead screw"],
+e:"A thread is cut in several passes. After each pass the half nut is opened and the carriage returned; for the next pass the tool must enter <b>exactly the same groove</b>. The <b>thread-chasing dial</b> is a small dial on the apron driven by a worm wheel meshing with the lead screw; its numbered lines show the positions at which closing the <b>half nut</b> again will put the tool back in step with the groove. For even threads (pitch a multiple of the lead-screw pitch) any line works; for others, only particular lines.<br><b>Why not the others:</b> speed is read from the gearbox chart; depth is set with the cross-slide or compound-rest micrometer dial; the lead-screw pitch is fixed and marked on the machine.<br><b>Alternative without a dial:</b> keep the half nut closed and reverse the spindle after each pass."},
+hi:{q:"लेथ पर थ्रेड-चेज़िंग डायल ऑपरेटर को बताता है:",
+o:["स्पिंडल की गति rpm में कितनी है","प्रत्येक थ्रेड कट की गहराई","हाफ़ नट को दोबारा कब जोड़ना है","लीड स्क्रू की पिच कितनी है"],
+e:"थ्रेड कई पासों में कटता है। हर पास के बाद हाफ़ नट खोलकर कैरिज लौटाई जाती है; अगले पास में टूल को <b>ठीक उसी खाँचे</b> में जाना चाहिए। <b>थ्रेड-चेज़िंग डायल</b> एप्रन पर लगा छोटा डायल है जो लीड स्क्रू से मिले वर्म व्हील से चलता है; इसकी अंकित रेखाएँ बताती हैं कि किन स्थितियों पर <b>हाफ़ नट</b> दोबारा बंद करने से टूल खाँचे के साथ तालमेल में लौटेगा। सम थ्रेड (पिच लीड-स्क्रू पिच का गुणज) में कोई भी रेखा; अन्य में केवल विशेष रेखाएँ।<br><b>अन्य क्यों नहीं:</b> गति गियरबॉक्स चार्ट से; गहराई क्रॉस-स्लाइड या कंपाउंड-रेस्ट के माइक्रोमीटर डायल से; लीड-स्क्रू पिच स्थिर व मशीन पर अंकित।<br><b>डायल के बिना विकल्प:</b> हाफ़ नट बंद रखें और हर पास के बाद स्पिंडल उल्टा घुमाएँ।"}},
+
+/* 17 */ {ans:0, lv:"h", tag:{en:"Hole sequence",hi:"होल क्रम"},
+en:{q:"For producing an accurate hole on a lathe, the correct sequence of operations is:",
+o:["centre drill → drill → bore → ream","drill → centre drill → ream → bore","centre drill → ream → drill → bore","drill → bore → centre drill → ream"],
+e:"<b>1. Centre drill</b> – a short, stiff combined drill makes a <b>pilot</b> with a 60° countersink so the twist drill starts true and does not wander (RRB-CBT2 Jul'26 concept).<br><b>2. Drill</b> – makes the hole slightly undersize (step-drill for large holes).<br><b>3. Bore</b> – single-point tool corrects position and straightness and enlarges to near size.<br><b>4. Ream</b> – removes a small allowance to give the final size and best finish (Railway JE, GPSC PYQ: 'best accuracy of hole → reaming').<br>Each step needs the one before: a reamer cannot start without a hole, and boring corrects what drilling leaves.<br><b>PYQ:</b> 'for producing more accurate holes, the sequence is → centering, drilling, boring, reaming' (BPSC 2017, KPSC 2015)."},
+hi:{q:"लेथ पर सटीक होल बनाने हेतु संक्रियाओं का सही क्रम है:",
+o:["सेंटर ड्रिल → ड्रिल → बोर → रीम","ड्रिल → सेंटर ड्रिल → रीम → बोर","सेंटर ड्रिल → रीम → ड्रिल → बोर","ड्रिल → बोर → सेंटर ड्रिल → रीम"],
+e:"<b>1. सेंटर ड्रिल</b> – छोटा, कड़ा संयुक्त ड्रिल 60° काउंटरसिंक वाला <b>पायलट</b> बनाता है ताकि ट्विस्ट ड्रिल सही शुरू हो और भटके नहीं (RRB-CBT2 Jul'26 अवधारणा)।<br><b>2. ड्रिल</b> – होल को थोड़ा छोटा बनाता है (बड़े होल हेतु चरणों में)।<br><b>3. बोर</b> – सिंगल-पॉइंट टूल स्थिति व सीधापन सुधारता है और लगभग साइज़ तक बड़ा करता है।<br><b>4. रीम</b> – थोड़ा अलाउंस हटाकर अंतिम साइज़ और सर्वोत्तम फ़िनिश देता है (रेलवे JE, GPSC PYQ: 'होल की सर्वोत्तम सटीकता → रीमिंग')।<br>हर चरण पिछले पर निर्भर है: बिना होल रीमर शुरू नहीं हो सकता, और बोरिंग ड्रिलिंग की कमी सुधारती है।<br><b>PYQ:</b> 'अधिक सटीक होल हेतु क्रम → सेंटरिंग, ड्रिलिंग, बोरिंग, रीमिंग' (BPSC 2017, KPSC 2015)।"}},
+
+/* 18 */ {ans:3, lv:"e", tag:{en:"Grooving",hi:"ग्रूविंग"},
+en:{q:"Before cutting a thread up to a shoulder, a narrow groove is turned at the end of the thread length so that:",
+o:["the thread becomes stronger","the pitch can be measured easily","coolant can collect there","the tool can run out cleanly"],
+e:"This groove is called a <b>thread relief / undercut</b>. In thread cutting the carriage moves fast (one pitch per revolution), and the tool must be withdrawn at the end of every pass. Without a groove the tool would have to stop exactly at the shoulder – a slight delay would crash it into the shoulder and break it, and the last thread would be incomplete. The groove gives the tool <b>space to run out cleanly</b>, and it also lets a nut or mating part screw fully up against the shoulder.<br><b>Grooving</b> in general = reducing the diameter over a very narrow width with a grooving (parting-type) tool (Railway SSE PYQ) – used for thread relief, circlip and O-ring seats, and grinding wheel run-out.<br><b>Why not the others:</b> a groove actually weakens the section slightly; pitch is measured with a pitch gauge on the thread; coolant does not need a groove."},
+hi:{q:"शोल्डर तक थ्रेड काटने से पहले थ्रेड लंबाई के अंत में एक संकरा खाँचा टर्न किया जाता है ताकि:",
+o:["थ्रेड अधिक मज़बूत हो जाए","पिच आसानी से मापी जा सके","वहाँ कूलेंट इकट्ठा हो सके","टूल साफ़ तरह से बाहर निकल सके"],
+e:"इस खाँचे को <b>थ्रेड रिलीफ़ / अंडरकट</b> कहते हैं। थ्रेड कटिंग में कैरिज तेज़ चलती है (हर चक्कर पर एक पिच), और हर पास के अंत में टूल हटाना होता है। खाँचे के बिना टूल को ठीक शोल्डर पर रुकना पड़ता – थोड़ी देर से वह शोल्डर से टकराकर टूट जाता, और अंतिम थ्रेड अधूरा रहता। खाँचा टूल को <b>साफ़ बाहर निकलने की जगह</b> देता है, और नट या मिलता भाग शोल्डर तक पूरा कस सकता है।<br>सामान्यतः <b>ग्रूविंग</b> = ग्रूविंग (पार्टिंग-प्रकार) टूल से बहुत संकरी चौड़ाई पर व्यास घटाना (रेलवे SSE PYQ) – थ्रेड रिलीफ़, सर्किलप व O-रिंग सीट, और ग्राइंडिंग व्हील रन-आउट हेतु।<br><b>अन्य क्यों नहीं:</b> खाँचा सेक्शन को थोड़ा कमज़ोर करता है; पिच थ्रेड पर पिच गेज से मापी जाती है; कूलेंट को खाँचे की ज़रूरत नहीं।"}},
+
+/* 19 */ {ans:1, lv:"p", tag:{en:"Centre drilling",hi:"सेंटर ड्रिलिंग"},
+en:{q:"Centre drilling on a lathe is done at a high spindle speed but a slow feed because:",
+o:["the job must not heat up at any stage","the tiny drill needs speed but snaps easily","the tailstock cannot move any faster","high speed gives a deeper 60° countersink"],
+e:"A centre drill has a very <b>small pilot diameter</b> (often 1–3 mm). Cutting speed V = πDN/1000, so a tiny diameter needs a <b>high rpm</b> to reach a proper cutting speed – at low rpm it would rub rather than cut. But the slender pilot is <b>fragile</b>: chips pack in its short flutes and a heavy feed snaps it off inside the job (a broken centre drill is very hard to remove). Hence <b>high rpm with a slow, gentle feed</b>, withdrawing often to clear chips, with a little cutting oil (Railway SSE PYQ: 'centre drilling should be done at → higher rpm with a slower feed').<br><b>Why not the others:</b> some heating is normal; the tailstock is hand-fed at any rate; cone depth is set by how far the drill is fed, not the speed.<br><b>Purpose:</b> a pilot to guide the main drill, and a 60° seat for lathe centres."},
+hi:{q:"लेथ पर सेंटर ड्रिलिंग उच्च स्पिंडल गति पर पर धीमी फ़ीड से क्यों की जाती है?",
+o:["जॉब किसी भी चरण में गर्म नहीं होना चाहिए","पतले ड्रिल को गति चाहिए पर वह जल्दी टूटता है","टेलस्टॉक इससे अधिक तेज़ नहीं चल सकता","उच्च गति से 60° शंकु अधिक गहरा बनता है"],
+e:"सेंटर ड्रिल का <b>पायलट व्यास बहुत छोटा</b> (प्रायः 1–3 mm) होता है। कटिंग स्पीड V = πDN/1000, इसलिए बहुत छोटे व्यास को उचित कटिंग स्पीड हेतु <b>अधिक rpm</b> चाहिए – कम rpm पर यह काटने के स्थान पर रगड़ेगा। पर पतला पायलट <b>नाज़ुक</b> होता है: इसकी छोटी फ़्लूट में चिप भर जाती हैं और भारी फ़ीड इसे जॉब के अंदर तोड़ देती है (टूटा सेंटर ड्रिल निकालना बहुत कठिन)। इसलिए <b>अधिक rpm के साथ धीमी, हल्की फ़ीड</b>, चिप निकालने हेतु बार-बार बाहर खींचना, थोड़ा कटिंग तेल (रेलवे SSE PYQ: 'सेंटर ड्रिलिंग → अधिक rpm व धीमी फ़ीड पर')।<br><b>अन्य क्यों नहीं:</b> थोड़ा गर्म होना सामान्य; टेलस्टॉक हाथ से किसी भी दर पर फ़ीड; शंकु गहराई इस पर निर्भर कि ड्रिल कितना आगे बढ़ाया, गति पर नहीं।<br><b>उद्देश्य:</b> मुख्य ड्रिल को निर्देशित करने हेतु पायलट, और लेथ सेंटरों हेतु 60° सीट।"}},
+
+/* 20 */ {ans:2, lv:"p", tag:{en:"Taper turning · scenario",hi:"टेपर टर्निंग · परिस्थिति"},
+en:{q:"A 60° point, a short steep cone only a few millimetres long, is to be turned on a lathe centre. The most convenient method is:",
+o:["tailstock set-over","taper-turning attachment","swivelling the compound rest","combination feed"],
+e:"The <b>compound rest</b> is swivelled to <b>half the included angle</b> – here 30° – from the axis, and the tool is fed by hand along the compound slide. Its short travel is enough for a cone a few millimetres long, and it can be set to <b>any steep angle</b>, so it is the standard way to turn lathe centres, chamfers, bevel-gear blanks and valve seats (DMRC PYQ: 'swivelling the compound rest is preferred for → short jobs with steep taper angles').<br><b>Why not the others:</b> tailstock set-over gives only small angles (a 30° half-angle would need an impossible offset) and needs centres; a taper attachment's guide bar swivels only a few degrees and suits long tapers; combination feed is not convenient for such a short, steep cone.<br><b>Limitation:</b> the compound slide's travel is short and it is hand-fed – only short tapers (RRB-CBT2 Apr'25-II concept)."},
+hi:{q:"लेथ सेंटर पर 60° की नोक – कुछ ही मिलीमीटर लंबा छोटा, तीखा शंकु – टर्न करनी है। सबसे सुविधाजनक विधि है:",
+o:["टेलस्टॉक सेट-ओवर","टेपर-टर्निंग अटैचमेंट","कंपाउंड रेस्ट को घुमाना","संयुक्त (कॉम्बिनेशन) फ़ीड"],
+e:"<b>कंपाउंड रेस्ट</b> को अक्ष से <b>सम्मिलित कोण के आधे</b> – यहाँ 30° – पर घुमाया जाता है, और टूल को कंपाउंड स्लाइड के साथ हाथ से फ़ीड दी जाती है। इसकी छोटी यात्रा कुछ मिलीमीटर लंबे शंकु हेतु पर्याप्त है, और यह <b>किसी भी तीखे कोण</b> पर सेट हो सकता है, इसलिए लेथ सेंटर, चैम्फ़र, बेवल-गियर ब्लैंक और वाल्व सीट टर्न करने का यही मानक तरीका है (DMRC PYQ: 'कंपाउंड रेस्ट घुमाना → तीखे टेपर कोण वाले छोटे जॉब हेतु')।<br><b>अन्य क्यों नहीं:</b> टेलस्टॉक सेट-ओवर केवल छोटे कोण देता है (30° अर्ध-कोण हेतु असंभव ऑफ़सेट) और सेंटर चाहिए; टेपर अटैचमेंट का गाइड बार कुछ ही डिग्री घूमता है और लंबे टेपर हेतु है; कॉम्बिनेशन फ़ीड इतने छोटे, तीखे शंकु हेतु सुविधाजनक नहीं।<br><b>सीमा:</b> कंपाउंड स्लाइड की यात्रा छोटी व हाथ फ़ीड – केवल छोटे टेपर (RRB-CBT2 Apr'25-II अवधारणा)।"}},
+
+/* 21 */ {ans:0, lv:"p", tag:{en:"Reaming",hi:"रीमिंग"},
+en:{q:"The material left in a 20 mm drilled hole for reaming is usually:",
+o:["about 0.2–0.3 mm","about 2–3 mm","about 5 mm","about 10 mm"],
+e:"<b>Reaming</b> is a finishing and sizing operation: a multi-edge reamer removes only a <b>very small allowance</b> – typically about <b>0.1–0.3 mm on diameter</b> for small and medium holes (a little more for large holes). This gives the hole an accurate size (close tolerance), good roundness and a smooth finish (Railway JE PYQs: 'enlarging holes to accurate size → reaming'; 'finishing of an existing hole → reaming').<br><b>Too little allowance</b> – the reamer rubs and burnishes instead of cutting, wears fast and glazes the hole. <b>Too much</b> – it is overloaded, chatters, leaves a poor finish and may break.<br><b>Practice:</b> low speed (about half the drilling speed), moderate feed, plenty of cutting fluid, never turn a reamer backwards.<br><b>Why not the others:</b> 2–10 mm is a drilling or boring job."},
+hi:{q:"20 mm के ड्रिल किए होल में रीमिंग हेतु सामान्यतः कितना पदार्थ छोड़ा जाता है?",
+o:["लगभग 0.2–0.3 mm","लगभग 2–3 mm","लगभग 5 mm","लगभग 10 mm"],
+e:"<b>रीमिंग</b> फ़िनिशिंग व साइज़िंग संक्रिया है: बहु-धार रीमर केवल <b>बहुत छोटा अलाउंस</b> हटाता है – छोटे व मध्यम होल हेतु सामान्यतः <b>व्यास पर लगभग 0.1–0.3 mm</b> (बड़े होल हेतु थोड़ा अधिक)। इससे होल को सटीक साइज़ (निकट सहनशीलता), अच्छी गोलाई व चिकनी फ़िनिश मिलती है (रेलवे JE PYQ: 'होल को सटीक साइज़ तक बड़ा करना → रीमिंग'; 'मौजूदा होल की फ़िनिशिंग → रीमिंग')।<br><b>बहुत कम अलाउंस</b> – रीमर काटने के स्थान पर रगड़ता व बर्निश करता है, जल्दी घिसता है और होल चमका देता है। <b>बहुत अधिक</b> – अतिभारित, चैटर, खराब फ़िनिश और टूट सकता है।<br><b>अभ्यास:</b> कम गति (ड्रिलिंग गति की लगभग आधी), मध्यम फ़ीड, भरपूर कटिंग फ़्लूइड, रीमर को कभी उल्टा न घुमाएँ।<br><b>अन्य क्यों नहीं:</b> 2–10 mm ड्रिलिंग या बोरिंग का कार्य है।"}},
+
+/* 22 */ {ans:3, lv:"h", tag:{en:"Parting-off",hi:"पार्टिंग-ऑफ़"},
+en:{q:"Consider the following statements about parting-off on a lathe:<br>I. The tool is set exactly at centre height.<br>II. The tool overhang is kept to a minimum.<br>III. A high speed and a heavy feed are preferred.<br>Which of the statements are correct?",
+o:["I only","II and III only","I and III only","I and II only"],
+e:"<b>I ✔</b> – if the parting tool is above centre it rubs and leaves a pip; below centre the job climbs onto the tool and it digs in and breaks. Exactly at <b>centre height</b> it cuts cleanly right to the axis.<br><b>II ✔</b> – the parting blade is thin and weak; a long overhang lets it bend and chatter. Keep the blade projecting just enough for the job radius, and keep the cut close to the chuck jaws.<br><b>III ✘</b> – parting uses a <b>low speed</b> (often about half the turning speed) and a <b>light, steady feed</b>, with plenty of coolant; high speed and heavy feed cause chatter, jamming and tool breakage.<br><b>Feed:</b> by rotating the cross-slide screw by hand, perpendicular to the axis (RRB-CBT2 Jun'25 concept); depth of parting cut is usually about 3–10 mm (SSC JE)."},
+hi:{q:"लेथ पर पार्टिंग-ऑफ़ के बारे में निम्न कथनों पर विचार करें:<br>I. टूल ठीक सेंटर ऊँचाई पर सेट किया जाता है।<br>II. टूल का ओवरहैंग न्यूनतम रखा जाता है।<br>III. उच्च गति और भारी फ़ीड पसंद की जाती है।<br>कौन-से कथन सही हैं?",
+o:["केवल I","केवल II और III","केवल I और III","केवल I और II"],
+e:"<b>I ✔</b> – पार्टिंग टूल सेंटर से ऊपर हो तो रगड़ता है और एक उभार (पिप) छोड़ता है; नीचे हो तो जॉब टूल पर चढ़ता है और टूल धँसकर टूटता है। ठीक <b>सेंटर ऊँचाई</b> पर यह अक्ष तक साफ़ काटता है।<br><b>II ✔</b> – पार्टिंग ब्लेड पतला व कमज़ोर होता है; लंबा ओवरहैंग उसे मोड़ता व चैटर कराता है। ब्लेड को जॉब त्रिज्या जितना ही बाहर रखें, और कट चक जॉ के पास रखें।<br><b>III ✘</b> – पार्टिंग में <b>कम गति</b> (प्रायः टर्निंग गति की लगभग आधी) और <b>हल्की, स्थिर फ़ीड</b>, भरपूर कूलेंट; उच्च गति व भारी फ़ीड से चैटर, फँसना और टूल टूटना।<br><b>फ़ीड:</b> क्रॉस-स्लाइड स्क्रू हाथ से घुमाकर, अक्ष के लंबवत (RRB-CBT2 Jun'25 अवधारणा); पार्टिंग कट की गहराई प्रायः लगभग 3–10 mm (SSC JE)।"}},
+
+/* 23 */ {ans:1, lv:"p", tag:{en:"Numerical – spindle speed",hi:"न्यूमेरिकल – स्पिंडल गति"},
+en:{q:"An 80 mm diameter bar is to be turned at a cutting speed of 50 m/min. The spindle speed should be about:",
+o:["625 rpm","199 rpm","63.7 rpm","1990 rpm"],
+e:"Cutting speed V = πDN ÷ 1000 (V in m/min, D in mm), so<br>N = 1000 V ÷ (π D) = 1000 × 50 ÷ (π × 80) = 50 000 ÷ 251.3 ≈ <b>199 rpm</b>.<br><b>Distractor check:</b> (a) 625 rpm forgets π (50 000 ÷ 80); (c) 63.7 rpm forgets the factor 1000 conversion partly; (d) 1990 rpm misplaces a zero.<br><b>Units trap:</b> the 1000 converts metres to millimetres – if D is in metres, use N = V ÷ (πD).<br><b>Same pattern in PYQs:</b> 25 mm shaft at 50 m/min → 637 rpm (RRB-CBT2 2019); 100 mm at 100 m/min → 318 rpm (NPSC); 40 mm at 20 m/min → 160 rpm (RPSC).<br><b>Practical note:</b> the machine is set to the nearest available speed below the calculated value."},
+hi:{q:"80 mm व्यास की छड़ को 50 m/min कटिंग स्पीड पर टर्न करना है। स्पिंडल गति लगभग होनी चाहिए:",
+o:["625 rpm","199 rpm","63.7 rpm","1990 rpm"],
+e:"कटिंग स्पीड V = πDN ÷ 1000 (V m/min में, D mm में), अतः<br>N = 1000 V ÷ (π D) = 1000 × 50 ÷ (π × 80) = 50 000 ÷ 251.3 ≈ <b>199 rpm</b>।<br><b>गलत विकल्प कैसे बने:</b> (a) 625 rpm में π भूल गए (50 000 ÷ 80); (c) 63.7 rpm में 1000 का रूपांतरण आंशिक गलत; (d) 1990 rpm में एक शून्य गलत।<br><b>इकाई ट्रैप:</b> 1000 मीटर को मिलीमीटर में बदलता है – यदि D मीटर में हो तो N = V ÷ (πD)।<br><b>PYQ में यही पैटर्न:</b> 25 mm शाफ़्ट, 50 m/min → 637 rpm (RRB-CBT2 2019); 100 mm, 100 m/min → 318 rpm (NPSC); 40 mm, 20 m/min → 160 rpm (RPSC)।<br><b>व्यावहारिक नोट:</b> मशीन गणना किए मान से नीचे की निकटतम उपलब्ध गति पर सेट की जाती है।"}},
+
+/* 24 */ {ans:2, lv:"p", tag:{en:"Chamfering",hi:"चैम्फ़रिंग"},
+en:{q:"A chamfer is turned at the start of an external thread mainly to:",
+o:["increase the depth of the thread","mark the length of the thread","remove the burr and help the nut start","reduce the cutting force on the tool"],
+e:"<b>Chamfering</b> = bevelling the extreme end of a workpiece, usually at 45° (Railway JE PYQ). After a thread is cut, the first, incomplete thread at the end is thin and carries a sharp <b>burr</b>. A chamfer down to about the root diameter removes this feather-edge, so it does not bend or tear, <b>guides the nut</b> squarely onto the thread, protects the start of the thread from damage in handling and removes sharp edges for safety (Railway JE PYQ: 'chamfering is an essential operation after → thread cutting').<br>Chamfers are also turned on the ends of shafts and edges of bores for easy assembly – e.g. pressing on a bearing.<br><b>Why not the others:</b> thread depth is set by the cutting passes; the length is set by the thread relief groove; the chamfer does not affect cutting force.<br><b>Methods:</b> a chamfering tool, or the compound rest swivelled to 45°."},
+hi:{q:"बाहरी थ्रेड के प्रारंभ में चैम्फ़र मुख्यतः क्यों टर्न किया जाता है?",
+o:["थ्रेड की गहराई और बढ़ाने हेतु","थ्रेड की लंबाई अंकित करने हेतु","बर हटाने व नट शुरू करने में मदद हेतु","टूल पर लगने वाला कटिंग बल घटाने हेतु"],
+e:"<b>चैम्फ़रिंग</b> = जॉब के अंतिम सिरे को सामान्यतः 45° पर बेवल करना (रेलवे JE PYQ)। थ्रेड कटने के बाद सिरे का पहला, अधूरा थ्रेड पतला होता है और उस पर नुकीला <b>बर</b> रहता है। लगभग रूट व्यास तक चैम्फ़र इस पतले किनारे को हटाता है, ताकि वह मुड़े या फटे नहीं, <b>नट को सीधा थ्रेड पर ले जाता</b> है, हैंडलिंग में थ्रेड के प्रारंभ को क्षति से बचाता है और सुरक्षा हेतु तीखे किनारे हटाता है (रेलवे JE PYQ: 'चैम्फ़रिंग अनिवार्य संक्रिया है → थ्रेड कटिंग के बाद')।<br>आसान असेंबली हेतु शाफ़्ट के सिरों और बोर के किनारों पर भी चैम्फ़र – जैसे बेयरिंग दबाकर चढ़ाना।<br><b>अन्य क्यों नहीं:</b> थ्रेड गहराई कटिंग पासों से तय; लंबाई थ्रेड रिलीफ़ खाँचे से; चैम्फ़र कटिंग बल पर असर नहीं डालता।<br><b>विधियाँ:</b> चैम्फ़रिंग टूल, या 45° पर घुमाया कंपाउंड रेस्ट।"}},
+
+/* 25 */ {ans:3, lv:"p", tag:{en:"Cutting speed",hi:"कटिंग स्पीड"},
+en:{q:"A lathe runs at the same rpm for a 40 mm bar and for an 80 mm bar. The cutting speed on the 80 mm bar is:",
+o:["half","the same","four times","twice"],
+e:"Cutting speed V = πDN ÷ 1000 – at a fixed rpm N, <b>V is directly proportional to the diameter D</b> (CIL, BPSC PYQ: 'cutting speed in turning is directly proportional to the diameter of the workpiece').<br>D doubles (40 → 80 mm) → V doubles → <b>twice</b>.<br><b>Distractor check:</b> 'four times' would apply to area (∝ D²), not speed; 'half' inverts the relation.<br><b>Practical meaning:</b> larger diameters must be run at <b>lower rpm</b> to keep the same cutting speed – that is why big jobs use back gears and low speeds, and why a lathe needs a wide speed range. In facing, the cutting speed falls continuously as the tool moves towards the centre (computer numerical control lathes use 'constant surface speed' to raise the rpm automatically).<br><b>Choosing speed:</b> softer material and better tool → higher V; aluminium has the highest cutting speed of common metals (NPSC PYQ)."},
+hi:{q:"एक लेथ 40 mm और 80 mm की छड़ के लिए एक ही rpm पर चलती है। 80 mm छड़ पर कटिंग स्पीड है:",
+o:["आधी","समान","चार गुनी","दोगुनी"],
+e:"कटिंग स्पीड V = πDN ÷ 1000 – स्थिर rpm N पर <b>V व्यास D के समानुपाती</b> है (CIL, BPSC PYQ: 'टर्निंग में कटिंग स्पीड → जॉब के व्यास के समानुपाती')।<br>D दोगुना (40 → 80 mm) → V दोगुना → <b>दोगुनी</b>।<br><b>गलत विकल्प कैसे बने:</b> 'चार गुनी' क्षेत्रफल (∝ D²) पर लागू होता, गति पर नहीं; 'आधी' संबंध उलट देती है।<br><b>व्यावहारिक अर्थ:</b> बड़े व्यास को समान कटिंग स्पीड हेतु <b>कम rpm</b> पर चलाना होता है – इसीलिए बड़े जॉब में बैक गियर व कम गति, और लेथ को विस्तृत गति दायरा चाहिए। फ़ेसिंग में टूल के केंद्र की ओर बढ़ने पर कटिंग स्पीड लगातार घटती है (कंप्यूटर न्यूमेरिकल कंट्रोल लेथ 'स्थिर सतह गति' से rpm अपने आप बढ़ाती हैं)।<br><b>गति चुनना:</b> नरम पदार्थ व बेहतर टूल → अधिक V; सामान्य धातुओं में एल्युमिनियम की कटिंग स्पीड सबसे अधिक (NPSC PYQ)।"}}
+];
+
+const LIMIT = 20*60;
+let lang = "en";
+let mode = "test";
+let picked = new Array(Q.length).fill(null);
+let showAll = false;
+let submitted = false;
+let autoSub = false;
+let left = LIMIT;
+let tick = null;
+const L = ["a","b","c","d"];
+const $ = id => document.getElementById(id);
+
+function fmt(t){ const m=Math.floor(t/60), s=t%60; return String(m).padStart(2,"0")+":"+String(s).padStart(2,"0"); }
+
+function startTimer(){
+  stopTimer();
+  if(mode!=="test" || submitted) return;
+  tick = setInterval(()=>{
+    left--;
+    if(left<=0){ left=0; autoSub=true; doSubmit(); return; }
+    paintTimer();
+  },1000);
+}
+function stopTimer(){ if(tick){clearInterval(tick); tick=null;} }
+function paintTimer(){
+  const t=$("timer"), u=UI[lang];
+  if(mode!=="test"){ t.classList.add("hidden"); return; }
+  t.classList.remove("hidden");
+  t.textContent = submitted ? u.taken+": "+fmt(LIMIT-left) : u.time+": "+fmt(left);
+  t.classList.toggle("low", !submitted && left<=120);
+}
+
+function isRevealed(i){ return mode==="practice" ? (picked[i]!==null || showAll) : submitted; }
+
+function render(){
+  const u = UI[lang];
+  document.documentElement.lang = lang;
+  $("title").textContent = u.title;
+  $("subtitle").textContent = u.sub;
+  $("rules").textContent = mode==="test" ? u.rules : u.rulesP;
+  $("foot").textContent = u.foot;
+  $("mTest").textContent = u.test; $("mPrac").textContent = u.prac;
+  $("mTest").setAttribute("aria-pressed", mode==="test");
+  $("mPrac").setAttribute("aria-pressed", mode==="practice");
+  $("bSubmit").textContent = u.submit;
+  $("bSubmit").classList.toggle("hidden", !(mode==="test" && !submitted));
+  $("bShow").textContent = showAll ? u.hide : u.show;
+  $("bShow").classList.toggle("hidden", mode!=="practice");
+  $("bReset").textContent = u.reset;
+  $("bEn").setAttribute("aria-pressed", lang==="en");
+  $("bHi").setAttribute("aria-pressed", lang==="hi");
+
+  let html = "";
+  Q.forEach((q,i)=>{
+    if(q.num && i>0 && !Q[i-1].num) html += `<div class="sec">${u.num}</div>`;
+    const d = q[lang], p = picked[i], rev = isRevealed(i);
+    const lvClass = q.lv==="t" ? "lv-t" : q.lv==="h" ? "lv-h" : "";
+    html += `<article class="q" id="q${i}">
+      <div class="qhead"><span class="qno">Q${i+1}.</span><span class="chip">${q.tag[lang]}</span><span class="chip ${lvClass}">${u.lv[q.lv]}</span></div>
+      <div class="qtext">${d.q}</div><div class="opts">`;
+    d.o.forEach((o,j)=>{
+      let cls = "opt";
+      if(rev && j===q.ans) cls += " right";
+      if(rev && p===j && p!==q.ans) cls += " wrong";
+      if(!rev && p===j) cls += " sel";
+      html += `<button class="${cls}" data-q="${i}" data-o="${j}" ${rev?"disabled":""} aria-pressed="${p===j}"><span class="l">(${L[j]})</span><span>${o}</span></button>`;
+    });
+    html += `</div>`;
+    if(rev){
+      let v = "";
+      if(p!==null) v = p===q.ans ? `<div>${u.right}</div>` : `<div class="verdict-bad">${u.yours}</div>`;
+      else if(mode==="test") v = `<div class="verdict-bad">${u.un}</div>`;
+      html += `<div class="ex">${v}<div class="ans">${u.ans}: (${L[q.ans]})</div>${d.e}</div>`;
+    }
+    html += `</article>`;
+  });
+  $("list").innerHTML = html;
+  stats(); paintTimer(); result();
+}
+
+function counts(){
+  let c=0,w=0,a=0;
+  picked.forEach((p,i)=>{ if(p!==null){a++; if(p===Q[i].ans)c++; else w++;} });
+  return {c,w,a,s:(c-w/3).toFixed(2)};
+}
+
+function stats(){
+  const u = UI[lang], k = counts();
+  const hide = mode==="test" && !submitted;
+  $("sAtt").textContent = `${u.att}: ${k.a}/${Q.length}`;
+  $("sC").textContent = `${u.c}: ${k.c}`;
+  $("sW").textContent = `${u.w}: ${k.w}`;
+  $("sS").textContent = `${u.s}: ${k.s}`;
+  ["sC","sW","sS"].forEach(id=>$(id).classList.toggle("hidden", hide));
+}
+
+function result(){
+  const box = $("result");
+  if(!(mode==="test" && submitted)){ box.innerHTML=""; return; }
+  const u = UI[lang], k = counts();
+  const acc = k.a ? Math.round(k.c*100/k.a) : 0;
+  box.innerHTML = `<section class="result" aria-live="polite">
+    <h2>${u.res}: ${k.s} / ${Q.length}</h2>
+    <div class="rgrid">
+      <div>${u.c}<b>${k.c}</b></div><div>${u.w}<b>${k.w}</b></div>
+      <div>${u.un}<b>${Q.length-k.a}</b></div><div>${u.acc}<b>${acc}%</b></div>
+      <div>${u.taken}<b>${fmt(LIMIT-left)}</b></div>
+    </div>
+    <p>${autoSub ? u.auto+" " : ""}${u.resNote}</p></section>`;
+}
+
+function doSubmit(){
+  submitted = true; stopTimer(); render();
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function resetAll(){
+  picked = new Array(Q.length).fill(null);
+  showAll=false; submitted=false; autoSub=false; left=LIMIT;
+  render(); startTimer(); window.scrollTo({top:0});
+}
+
+$("list").addEventListener("click", e=>{
+  const b = e.target.closest(".opt");
+  if(!b || b.disabled) return;
+  const i = +b.dataset.q, j = +b.dataset.o;
+  if(mode==="test"){ picked[i] = picked[i]===j ? null : j; }
+  else { if(picked[i]!==null) return; picked[i] = j; }
+  render();
+  const btn = document.querySelector(`#q${i} .opt[data-o="${j}"]`) || document.querySelector(`#q${i} .opt`);
+  if(btn) btn.focus({preventScroll:true});
+});
+$("bEn").onclick = ()=>{ lang="en"; render(); };
+$("bHi").onclick = ()=>{ lang="hi"; render(); };
+function setMode(m){
+  if(m===mode) return;
+  const dirty = picked.some(p=>p!==null) || submitted;
+  if(dirty && !confirm(UI[lang].cMode)) return;
+  mode = m; resetAll();
+}
+$("mTest").onclick = ()=>setMode("test");
+$("mPrac").onclick = ()=>setMode("practice");
+$("bSubmit").onclick = ()=>{ if(confirm(UI[lang].cSub)) doSubmit(); };
+$("bShow").onclick = ()=>{ showAll=!showAll; render(); };
+$("bReset").onclick = resetAll;
+
+function paintStart(){
+  const u=UI[lang];
+  $("stTitle").textContent=u.title;
+  $("stSub").textContent=u.stSub;
+  $("stTest").innerHTML=u.stT+"<small>"+u.stTs+"</small>";
+  $("stPrac").innerHTML=u.stP+"<small>"+u.stPs+"</small>";
+  $("stEn").setAttribute("aria-pressed",lang==="en");
+  $("stHi").setAttribute("aria-pressed",lang==="hi");
+}
+function begin(m){ mode=m; $("start").classList.add("hidden"); resetAll(); }
+$("stTest").onclick=()=>begin("test");
+$("stPrac").onclick=()=>begin("practice");
+$("stEn").onclick=()=>{ lang="en"; render(); paintStart(); };
+$("stHi").onclick=()=>{ lang="hi"; render(); paintStart(); };
+$("bEn").addEventListener("click",paintStart);
+$("bHi").addEventListener("click",paintStart);
+render(); paintStart(); $("stTest").focus();
+</script>
+</body>
+</html>
