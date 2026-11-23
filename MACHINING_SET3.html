@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Machining Smart MCQ Set 3 – Tool Geometry, Metal Cutting & Tool Life | THE EXAM ENGINEER</title>
+<style>
+:root{
+  --navy:#12306b; --navy-deep:#0c2350; --orange:#f07f1a;
+  --bg:#f3f6fb; --card:#ffffff; --text:#16213a; --muted:#5b6782;
+  --line:#d9e0ec; --opt:#f7f9fd; --opt-hover:#eaf0fa;
+  --ok:#17803d; --ok-bg:#e6f6ec; --bad:#c0272d; --bad-bg:#fdecec;
+  --ex-bg:#fff7ee; --ex-line:#f3c58f; --chip:#e9eef8;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --navy:#2b4f9a; --navy-deep:#16264a; --orange:#ff9a3d;
+    --bg:#0f1524; --card:#18213a; --text:#e8edf8; --muted:#a3aec6;
+    --line:#2c3857; --opt:#1e2944; --opt-hover:#26345a;
+    --ok:#4cd17e; --ok-bg:#163a26; --bad:#ff6b70; --bad-bg:#3d1a1e;
+    --ex-bg:#2a2216; --ex-line:#6b4b22; --chip:#25304d;
+    color-scheme: dark;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:"Segoe UI","Noto Sans","Nirmala UI","Mangal",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  line-height:1.6;font-size:16px}
+header{background:var(--navy-deep);color:#fff;padding:22px 16px 18px}
+.wrap{max-width:860px;margin:0 auto}
+.brand{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand a{color:var(--orange);font-weight:700;text-decoration:none}
+.brand a:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.channel{font-weight:800;letter-spacing:.5px}
+h1{margin:14px 0 4px;font-size:clamp(1.4rem,4.5vw,2rem);line-height:1.2}
+.sub{margin:0;color:#c9d5ee;font-size:.95rem}
+.rules{margin-top:10px;font-size:.88rem;color:#c9d5ee}
+.bar{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:3px solid var(--orange);
+  box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.bar .wrap{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding:10px 16px}
+.seg{display:inline-flex;border:2px solid var(--navy);border-radius:999px;overflow:hidden}
+.seg button{border:0;background:transparent;color:var(--text);padding:6px 14px;font:inherit;font-weight:700;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--navy);color:#fff}
+.stats{display:flex;gap:12px;flex-wrap:wrap;font-size:.9rem;font-weight:600}
+.stats .c{color:var(--ok)} .stats .w{color:var(--bad)} .stats .s{color:var(--orange)}
+.tools button{border:1px solid var(--line);background:var(--opt);color:var(--text);border-radius:8px;
+  padding:6px 10px;font:inherit;font-size:.85rem;cursor:pointer}
+.tools button:hover{background:var(--opt-hover)}
+button:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+main{padding:18px 16px 40px}
+.q{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--navy);
+  border-radius:10px;padding:16px 16px 14px;margin:0 0 16px}
+.qhead{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.qno{font-weight:800;color:var(--navy)}
+@media (prefers-color-scheme: dark){.qno{color:#8fb0f5}}
+.chip{background:var(--chip);color:var(--muted);font-size:.75rem;font-weight:700;padding:2px 9px;border-radius:999px}
+.chip.lv-t{background:var(--bad-bg);color:var(--bad)}
+.chip.lv-h{background:var(--ex-bg);color:var(--orange)}
+.qtext{font-weight:600;margin:4px 0 12px}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;text-align:left;width:100%;border:1.5px solid var(--line);
+  background:var(--opt);color:var(--text);border-radius:8px;padding:9px 12px;font:inherit;cursor:pointer}
+.opt:hover:not(:disabled){background:var(--opt-hover)}
+.opt:disabled{cursor:default}
+.opt .l{font-weight:800;min-width:1.8em;color:var(--muted)}
+.opt.right{border-color:var(--ok);background:var(--ok-bg)}
+.opt.right .l{color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.opt.wrong .l{color:var(--bad)}
+.opt.sel{border-color:var(--navy);background:var(--opt-hover);box-shadow:inset 0 0 0 1px var(--navy)}
+.opt.sel .l{color:var(--navy)}
+@media (prefers-color-scheme: dark){.opt.sel .l{color:#8fb0f5}.opt.sel{border-color:#8fb0f5;box-shadow:inset 0 0 0 1px #8fb0f5}}
+.timer{font-variant-numeric:tabular-nums;font-weight:800}
+.timer.low{color:var(--bad)}
+.tools{display:flex;gap:6px;flex-wrap:wrap}
+.tools button.primary{background:var(--orange);border-color:var(--orange);color:#fff;font-weight:700}
+.tools button.primary:hover{filter:brightness(1.05);background:var(--orange)}
+.hidden{display:none !important}
+.result{background:var(--card);border:2px solid var(--orange);border-radius:12px;padding:16px;margin-bottom:18px}
+.result h2{margin:0 0 10px;font-size:1.2rem;color:var(--orange)}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+.rgrid div{background:var(--opt);border-radius:8px;padding:8px 10px}
+.rgrid b{display:block;font-size:1.3rem}
+.result p{margin:10px 0 0;color:var(--muted);font-size:.9rem}
+.start{position:fixed;inset:0;z-index:20;background:rgba(8,18,40,.78);display:flex;align-items:center;justify-content:center;padding:16px}
+.start .card{background:var(--card);color:var(--text);border-top:6px solid var(--orange);border-radius:14px;max-width:440px;width:100%;padding:22px 20px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.start h2{margin:0 0 6px;font-size:1.3rem;color:var(--navy)}
+@media (prefers-color-scheme: dark){.start h2{color:#8fb0f5}}
+.start p{margin:0 0 16px;color:var(--muted);font-size:.92rem}
+.start .big{display:block;width:100%;margin:10px 0;padding:14px;border-radius:10px;font:inherit;font-size:1.05rem;font-weight:800;cursor:pointer;border:2px solid var(--navy);background:var(--opt);color:var(--text)}
+.start .big.primary{background:var(--orange);border-color:var(--orange);color:#fff}
+.start .big small{display:block;font-weight:500;font-size:.82rem;opacity:.9;margin-top:2px}
+.start .seg{margin-top:10px}
+.ex{margin-top:12px;background:var(--ex-bg);border:1px solid var(--ex-line);border-radius:8px;padding:12px 14px;font-size:.95rem}
+.ex .ans{font-weight:800;color:var(--ok);margin-bottom:4px}
+.ex .verdict-bad{color:var(--bad)}
+.sec{margin:24px 0 12px;font-weight:800;color:var(--orange);font-size:1.05rem;border-bottom:2px solid var(--line);padding-bottom:4px}
+footer{text-align:center;color:var(--muted);font-size:.82rem;padding:10px 16px 30px}
+footer a{color:var(--orange)}
+@media (prefers-reduced-motion: no-preference){.ex{animation:show .25s ease-out}
+  @keyframes show{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}}
+</style>
+</head>
+<body>
+<div class="start" id="start" role="dialog" aria-modal="true" aria-labelledby="stTitle">
+  <div class="card">
+    <h2 id="stTitle"></h2>
+    <p id="stSub"></p>
+    <button class="big primary" id="stTest"></button>
+    <button class="big" id="stPrac"></button>
+    <div class="seg" role="group" aria-label="Language">
+      <button id="stEn" aria-pressed="true">English</button>
+      <button id="stHi" aria-pressed="false">हिंदी</button>
+    </div>
+  </div>
+</div>
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <span class="channel">THE EXAM ENGINEER</span>
+      <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a>
+    </div>
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+    <p class="rules" id="rules"></p>
+  </div>
+</header>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="seg" role="group" aria-label="Language">
+      <button id="bEn" aria-pressed="true">English</button>
+      <button id="bHi" aria-pressed="false">हिंदी</button>
+    </div>
+    <div class="seg" role="group" aria-label="Mode">
+      <button id="mTest" aria-pressed="true"></button>
+      <button id="mPrac" aria-pressed="false"></button>
+    </div>
+    <div class="stats" aria-live="polite">
+      <span class="timer" id="timer"></span>
+      <span id="sAtt"></span><span class="c" id="sC"></span><span class="w" id="sW"></span><span class="s" id="sS"></span>
+    </div>
+    <div class="tools">
+      <button id="bSubmit" class="primary"></button>
+      <button id="bShow"></button>
+      <button id="bReset"></button>
+    </div>
+  </div>
+</div>
+
+<main><div class="wrap"><div id="result"></div><div id="list"></div></div></main>
+
+<footer>
+  <div id="foot"></div>
+  <div>© 2026 THE EXAM ENGINEER · <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a> · theexamengineer1@gmail.com</div>
+  <div>SSC JE AIR 14 · RRB JE 2025 (DMS)</div>
+</footer>
+
+<script>
+const UI = {
+  en:{title:"Machining Smart MCQ – Set 3",
+      sub:"Tool Geometry & Signature, Metal Cutting, Tool Wear, Tool Life & Tool Materials · RRB JE CBT-2 (Mechanical & Allied) · RRB JE PYQ based",
+      rules:"25 questions · 20 minutes (RRB CBT-2 pace: 150 Qs in 120 min) · +1 correct, −1/3 wrong",
+      stT:"Start Test",stTs:"20 minutes · timer · submit · full result",stP:"Practice Mode",stPs:"no timer · answer and explanation instantly",stSub:"Choose how you want to attempt this set",
+      rulesP:"Practice mode · no timer · tap an option to see the answer with full explanation instantly",
+      test:"Test",prac:"Practice",submit:"Submit test",time:"Time left",
+      cSub:"Submit the test now? You cannot change answers after submitting.",
+      cMode:"Switching mode will reset your current attempt. Continue?",
+      res:"Your result",un:"Not attempted",taken:"Time taken",acc:"Accuracy",auto:"Time over – test submitted automatically.",
+      resNote:"Answers and full explanations are now shown below each question. Read the explanation of every wrong and unattempted question.",
+      att:"Attempted",c:"Correct",w:"Wrong",s:"Score",show:"Show all answers",hide:"Hide unattempted answers",reset:"Reset",
+      ans:"Correct answer",yours:"Your answer is wrong.",right:"Your answer is correct.",num:"Simple numericals",
+      lv:{e:"Easy",p:"PYQ level",h:"Higher",t:"Tough"},
+      foot:"Original work, free for personal study. Share as it is with the channel link – no re-branding."},
+  hi:{title:"मशीनिंग स्मार्ट MCQ – सेट 3",
+      sub:"टूल ज्यामिति एवं सिग्नेचर, धातु कटिंग, टूल घिसाव, टूल जीवन एवं टूल पदार्थ · RRB JE CBT-2 (मैकेनिकल एवं संबद्ध) · RRB JE PYQ आधारित",
+      rules:"25 प्रश्न · 20 मिनट (RRB CBT-2 गति: 120 मिनट में 150 प्रश्न) · सही +1, गलत −1/3",
+      stT:"टेस्ट शुरू करें",stTs:"20 मिनट · टाइमर · सबमिट · पूरा परिणाम",stP:"प्रैक्टिस मोड",stPs:"कोई टाइमर नहीं · उत्तर व व्याख्या तुरंत",stSub:"यह सेट कैसे हल करना है, चुनें",
+      rulesP:"प्रैक्टिस मोड · कोई टाइमर नहीं · विकल्प पर टैप करें, उत्तर और पूरी व्याख्या तुरंत दिखेगी",
+      test:"टेस्ट",prac:"प्रैक्टिस",submit:"टेस्ट सबमिट करें",time:"शेष समय",
+      cSub:"क्या अभी टेस्ट सबमिट करें? सबमिट के बाद उत्तर नहीं बदल सकेंगे।",
+      cMode:"मोड बदलने पर आपका वर्तमान प्रयास रीसेट हो जाएगा। जारी रखें?",
+      res:"आपका परिणाम",un:"बिना प्रयास",taken:"लिया गया समय",acc:"सटीकता",auto:"समय समाप्त – टेस्ट स्वतः सबमिट हो गया।",
+      resNote:"अब हर प्रश्न के नीचे उत्तर और पूरी व्याख्या दिख रही है। हर गलत और बिना प्रयास वाले प्रश्न की व्याख्या ज़रूर पढ़ें।",
+      att:"प्रयास",c:"सही",w:"गलत",s:"स्कोर",show:"सभी उत्तर दिखाएँ",hide:"बिना प्रयास वाले उत्तर छिपाएँ",reset:"रीसेट",
+      ans:"सही उत्तर",yours:"आपका उत्तर गलत है।",right:"आपका उत्तर सही है।",num:"सरल न्यूमेरिकल",
+      lv:{e:"आसान",p:"PYQ स्तर",h:"उच्च",t:"कठिन"},
+      foot:"मौलिक कार्य, व्यक्तिगत अध्ययन हेतु निःशुल्क। चैनल लिंक सहित जैसा है वैसा ही शेयर करें – री-ब्रांडिंग नहीं।"}
+};
+
+const Q = [
+/* 1 */ {ans:1, lv:"e", tag:{en:"Tool nomenclature",hi:"टूल नामावली"},
+en:{q:"In a single-point cutting tool, the chip slides over the:",
+o:["flank","face","heel","shank"],
+e:"The <b>face</b> (rake face) is the top surface of the tool point over which the <b>chip flows</b>; its inclination is the rake angle, which controls chip flow, cutting force and power.<br><b>Other terms:</b> <b>flank</b> – surfaces below the cutting edges, facing the work (side and end flanks); their inclination is the relief (clearance) angle · <b>nose</b> – junction of the side and end cutting edges (RRB-CBT2 2019) · <b>heel</b> – intersection of the flank and the base (RRB-CBT2 2019) · <b>shank</b> – the body held in the tool post · <b>base</b> – bottom surface of the shank.<br><b>Wear link:</b> crater wear forms on the face (where the chip rubs); flank wear forms on the flank (where the work rubs).<br><b>Chip side note:</b> the chip surface that slid on the face is shiny; the free side is rough."},
+hi:{q:"सिंगल-पॉइंट कटिंग टूल में चिप किस पर फिसलती है?",
+o:["फ़्लैंक","फ़ेस","हील","शैंक"],
+e:"<b>फ़ेस</b> (रेक फ़ेस) टूल पॉइंट की ऊपरी सतह है जिस पर <b>चिप बहती</b> है; इसका झुकाव रेक कोण है, जो चिप प्रवाह, कटिंग बल और शक्ति नियंत्रित करता है।<br><b>अन्य शब्द:</b> <b>फ़्लैंक</b> – कटिंग धार के नीचे की सतहें, जॉब की ओर (साइड व एंड फ़्लैंक); इनका झुकाव रिलीफ़ (क्लीयरेंस) कोण · <b>नोज़</b> – साइड व एंड कटिंग धार का मिलन (RRB-CBT2 2019) · <b>हील</b> – फ़्लैंक और बेस का प्रतिच्छेदन (RRB-CBT2 2019) · <b>शैंक</b> – टूल पोस्ट में पकड़ा जाने वाला भाग · <b>बेस</b> – शैंक की निचली सतह।<br><b>घिसाव लिंक:</b> क्रेटर घिसाव फ़ेस पर (जहाँ चिप रगड़ती है); फ़्लैंक घिसाव फ़्लैंक पर (जहाँ जॉब रगड़ता है)।<br><b>चिप नोट:</b> फ़ेस पर फिसली चिप सतह चमकीली; मुक्त सतह खुरदरी।"}},
+
+/* 2 */ {ans:2, lv:"h", tag:{en:"Rake angle · scenario",hi:"रेक कोण · परिस्थिति"},
+en:{q:"A cemented carbide insert is used for interrupted cutting of hardened steel at high speed. It is given a negative rake angle mainly because:",
+o:["it reduces the cutting force sharply","it gives a sharper cutting edge","it keeps the brittle tip in compression","it improves chip flow over the face"],
+e:"Cemented carbide (and ceramic) is very hard but <b>brittle</b> – weak in tension and bending, strong in compression. With a <b>negative rake</b>, the cutting force pushes on the tip so that the cutting edge is supported by more tool material and is loaded mainly in <b>compression</b>; the first impact of an interrupted cut falls on the face, a little behind the edge, not on the fragile edge itself. This makes the edge much stronger against chipping (GPSC, MPPSC PYQ: 'negative rake is usually provided on → cemented carbide tools').<br><b>Price:</b> higher cutting force and power, so a rigid, powerful machine and high speeds are needed.<br><b>Why not the others:</b> negative rake <b>increases</b> force, gives a <b>blunter</b> edge and makes chip flow harder.<br><b>Rake guide:</b> positive – high-speed steel, soft/ductile metals (aluminium), light cuts · zero – brass, thread and form tools · negative – carbide and ceramic, hard metals, interrupted cuts, high speed."},
+hi:{q:"कठोर स्टील की उच्च गति पर इंटरप्टेड कटिंग हेतु सीमेंटेड कार्बाइड इंसर्ट प्रयोग होता है। इसे ऋणात्मक रेक कोण मुख्यतः क्यों दिया जाता है?",
+o:["यह कटिंग बल को बहुत घटा देता है","इससे कटिंग धार अधिक तीखी बनती है","यह भंगुर सिरे को संपीडन में रखता है","यह फ़ेस पर चिप प्रवाह सुधारता है"],
+e:"सीमेंटेड कार्बाइड (और सिरेमिक) बहुत कठोर पर <b>भंगुर</b> है – तनन व बंकन में कमज़ोर, संपीडन में मज़बूत। <b>ऋणात्मक रेक</b> में कटिंग बल सिरे पर ऐसे दबाता है कि कटिंग धार को अधिक टूल पदार्थ का सहारा मिलता है और वह मुख्यतः <b>संपीडन</b> में भारित रहती है; इंटरप्टेड कट का पहला झटका नाज़ुक धार पर नहीं, धार से थोड़ा पीछे फ़ेस पर पड़ता है। इससे धार चिपिंग के प्रति बहुत मज़बूत बनती है (GPSC, MPPSC PYQ: 'ऋणात्मक रेक सामान्यतः → सीमेंटेड कार्बाइड टूल पर')।<br><b>कीमत:</b> अधिक कटिंग बल व शक्ति, इसलिए दृढ़, शक्तिशाली मशीन और उच्च गति चाहिए।<br><b>अन्य क्यों नहीं:</b> ऋणात्मक रेक बल <b>बढ़ाता</b> है, धार <b>भोथरी</b> करता है और चिप प्रवाह कठिन बनाता है।<br><b>रेक मार्गदर्शिका:</b> धनात्मक – हाई-स्पीड स्टील, नरम/तन्य धातुएँ (एल्युमिनियम), हल्के कट · शून्य – पीतल, थ्रेड व फ़ॉर्म टूल · ऋणात्मक – कार्बाइड व सिरेमिक, कठोर धातुएँ, इंटरप्टेड कट, उच्च गति।"}},
+
+/* 3 */ {ans:0, lv:"e", tag:{en:"Tool materials",hi:"टूल पदार्थ"},
+en:{q:"In 18-4-1 high-speed steel (HSS), the numbers give the percentages of:",
+o:["tungsten, chromium, vanadium","chromium, nickel, vanadium","tungsten, cobalt, molybdenum","molybdenum, chromium, vanadium"],
+e:"The classic tungsten high-speed steel <b>18-4-1</b> contains <b>18 % tungsten, 4 % chromium and 1 % vanadium</b> (about 0.7 % carbon) (SSC JE PYQ). Tungsten gives hot hardness, chromium gives hardenability, vanadium forms very hard carbides for wear resistance. High-speed steel is an <b>alloy steel</b> (Railway SSE PYQ) and keeps its hardness up to about <b>600 °C</b>, so it can cut about 2–3 times faster than plain carbon tool steel.<br><b>Variants:</b> tungsten can be replaced by <b>molybdenum</b> (M-series, e.g. M2 – Railway SSE PYQ); <b>cobalt</b> is added to 'super HSS' for higher hot hardness.<br><b>Uses:</b> drills, taps, reamers, milling cutters, broaches (the most widely used broach material – RRB-CBT2 Apr'25-I), form tools – where toughness matters."},
+hi:{q:"18-4-1 हाई-स्पीड स्टील (HSS) में संख्याएँ किसके प्रतिशत बताती हैं?",
+o:["टंगस्टन, क्रोमियम, वैनेडियम","क्रोमियम, निकल, वैनेडियम","टंगस्टन, कोबाल्ट, मॉलिब्डेनम","मॉलिब्डेनम, क्रोमियम, वैनेडियम"],
+e:"क्लासिक टंगस्टन हाई-स्पीड स्टील <b>18-4-1</b> में <b>18 % टंगस्टन, 4 % क्रोमियम और 1 % वैनेडियम</b> (लगभग 0.7 % कार्बन) होता है (SSC JE PYQ)। टंगस्टन गर्म कठोरता देता है, क्रोमियम कठोर होने की क्षमता, वैनेडियम घिसाव-प्रतिरोध हेतु बहुत कठोर कार्बाइड बनाता है। हाई-स्पीड स्टील एक <b>मिश्र-धातु स्टील</b> है (रेलवे SSE PYQ) और लगभग <b>600 °C</b> तक कठोरता बनाए रखता है, इसलिए सादे कार्बन टूल स्टील से लगभग 2–3 गुना तेज़ काट सकता है।<br><b>प्रकार:</b> टंगस्टन के स्थान पर <b>मॉलिब्डेनम</b> (M-श्रृंखला, जैसे M2 – रेलवे SSE PYQ); अधिक गर्म कठोरता हेतु 'सुपर HSS' में <b>कोबाल्ट</b>।<br><b>उपयोग:</b> ड्रिल, टैप, रीमर, मिलिंग कटर, ब्रोच (सबसे अधिक प्रयुक्त ब्रोच पदार्थ – RRB-CBT2 Apr'25-I), फ़ॉर्म टूल – जहाँ टफ़नेस आवश्यक।"}},
+
+/* 4 */ {ans:3, lv:"h", tag:{en:"Numerical – shear angle",hi:"न्यूमेरिकल – शियर कोण"},
+en:{q:"In orthogonal cutting with a tool of rake angle 10°, the uncut chip thickness is 0.3 mm and the chip thickness is 0.75 mm. The shear angle is about:",
+o:["21.8°","45°","32°","22.9°"],
+e:"<b>Step 1 – chip thickness ratio</b> r = t₁ ÷ t₂ = 0.3 ÷ 0.75 = 0.4 (always less than 1, because the chip is thicker than the uncut layer).<br><b>Step 2 – shear angle:</b> tan φ = r cos α ÷ (1 − r sin α)<br>= 0.4 × cos 10° ÷ (1 − 0.4 × sin 10°) = 0.394 ÷ (1 − 0.0695) = 0.394 ÷ 0.931 = 0.423<br>φ = tan⁻¹(0.423) ≈ <b>22.9°</b>.<br><b>Trap:</b> (a) 21.8° = tan⁻¹(0.4) – correct only when the rake angle is zero (then tan φ = r). (b) 45° would need r = 1 at zero rake (GPSC PYQ: t₁ = t₂, α = 0 → φ = 45°).<br><b>Meaning:</b> a larger shear angle means a shorter shear plane, less force, power and heat; it rises with a larger rake and lower friction.<br><b>Related:</b> chip reduction coefficient = 1/r = 2.5; shear strain γ = cot φ + tan(φ − α)."},
+hi:{q:"10° रेक कोण वाले टूल से ऑर्थोगोनल कटिंग में बिना कटी चिप की मोटाई 0.3 mm और चिप की मोटाई 0.75 mm है। शियर कोण लगभग है:",
+o:["21.8°","45°","32°","22.9°"],
+e:"<b>चरण 1 – चिप मोटाई अनुपात</b> r = t₁ ÷ t₂ = 0.3 ÷ 0.75 = 0.4 (हमेशा 1 से कम, क्योंकि चिप बिना कटी परत से मोटी होती है)।<br><b>चरण 2 – शियर कोण:</b> tan φ = r cos α ÷ (1 − r sin α)<br>= 0.4 × cos 10° ÷ (1 − 0.4 × sin 10°) = 0.394 ÷ (1 − 0.0695) = 0.394 ÷ 0.931 = 0.423<br>φ = tan⁻¹(0.423) ≈ <b>22.9°</b>।<br><b>ट्रैप:</b> (a) 21.8° = tan⁻¹(0.4) – केवल रेक कोण शून्य होने पर सही (तब tan φ = r)। (b) 45° के लिए शून्य रेक पर r = 1 चाहिए (GPSC PYQ: t₁ = t₂, α = 0 → φ = 45°)।<br><b>अर्थ:</b> बड़ा शियर कोण यानी छोटा शियर तल, कम बल, शक्ति व ऊष्मा; यह अधिक रेक और कम घर्षण से बढ़ता है।<br><b>संबंधित:</b> चिप रिडक्शन गुणांक = 1/r = 2.5; शियर विकृति γ = cot φ + tan(φ − α)।"}},
+
+/* 5 */ {ans:1, lv:"p", tag:{en:"Orthogonal vs oblique",hi:"ऑर्थोगोनल बनाम ऑब्लिक"},
+en:{q:"Which of the following is closest to orthogonal cutting?",
+o:["drilling a hole with a twist drill","shaping, edge square to the stroke","turning with an inclined side edge","milling with a helical-tooth cutter"],
+e:"<b>Orthogonal (two-dimensional) cutting:</b> the cutting edge is <b>perpendicular to the direction of cutting velocity</b> (inclination angle i = 0) and wider than the work; the chip flows straight up the face as a flat spiral, and only <b>two force components</b> act – cutting force and thrust force. Examples: <b>shaping or planing with a straight edge square to the stroke</b>, parting-off, turning the end of a thin tube (Railway JE PYQ: 'example of orthogonal cutting → shaping').<br><b>Oblique (three-dimensional) cutting:</b> the edge is inclined (i ≠ 0); the chip flows sideways as a long helix and <b>three force components</b> act. Most practical operations are oblique – <b>turning</b> with a side cutting edge angle, <b>drilling</b> (Assam PYQ), <b>milling</b> with helical teeth.<br><b>Why the theory uses orthogonal cutting:</b> it is simple enough for Merchant's analysis."},
+hi:{q:"निम्न में से कौन ऑर्थोगोनल कटिंग के सबसे निकट है?",
+o:["ट्विस्ट ड्रिल से ड्रिलिंग","स्ट्रोक के लंबवत धार से शेपिंग","झुकी साइड धार से टर्निंग","हेलिकल कटर से मिलिंग"],
+e:"<b>ऑर्थोगोनल (द्वि-आयामी) कटिंग:</b> कटिंग धार <b>कटिंग वेग की दिशा के लंबवत</b> (झुकाव कोण i = 0) और जॉब से चौड़ी; चिप फ़ेस पर सीधी ऊपर सपाट सर्पिल के रूप में बहती है, और केवल <b>दो बल घटक</b> – कटिंग बल व थ्रस्ट बल। उदाहरण: <b>स्ट्रोक के लंबवत सीधी धार से शेपिंग या प्लेनिंग</b>, पार्टिंग-ऑफ़, पतली ट्यूब का सिरा टर्न करना (रेलवे JE PYQ: 'ऑर्थोगोनल कटिंग का उदाहरण → शेपिंग')।<br><b>ऑब्लिक (त्रि-आयामी) कटिंग:</b> धार झुकी (i ≠ 0); चिप बगल में लंबे हेलिक्स के रूप में बहती है और <b>तीन बल घटक</b>। अधिकांश व्यावहारिक संक्रियाएँ ऑब्लिक – साइड कटिंग एज कोण वाली <b>टर्निंग</b>, <b>ड्रिलिंग</b> (असम PYQ), हेलिकल दाँतों वाली <b>मिलिंग</b>।<br><b>सिद्धांत ऑर्थोगोनल कटिंग क्यों लेता है:</b> यह मर्चेंट विश्लेषण हेतु पर्याप्त सरल है।"}},
+
+/* 6 */ {ans:3, lv:"p", tag:{en:"Clearance angle",hi:"क्लीयरेंस कोण"},
+en:{q:"A cutting tool can have a negative rake angle but never a negative clearance angle, because a negative clearance would:",
+o:["make the chip curl too tightly","raise the cutting speed","weaken the tool shank","make the flank rub the work"],
+e:"The <b>clearance (relief) angle</b> tilts the flank away from the freshly machined surface so that only the cutting edge touches the work. If it were zero or negative, the <b>flank would press and rub on the work</b> – generating heat, rapid flank wear, a burnished/torn surface, chatter and high forces; the tool could not cut at all (RRB-CBT2 2019 PYQ: 'a cutting tool can never have → negative clearance angle'; Railway SSE: 'to prevent the tool from rubbing the work, relief angles are provided').<br>The <b>rake</b>, on the other hand, is on the chip side – a negative rake only makes the edge stronger and the force higher, so it is allowed (carbide, ceramic tools).<br><b>Typical values:</b> relief 5–15° (DMRC PYQ); too large a relief weakens the edge.<br><b>Same idea in broaching:</b> the back-off angle stops the broach tooth rubbing (RRB-CBT2 Jun'25)."},
+hi:{q:"कटिंग टूल में ऋणात्मक रेक कोण हो सकता है पर ऋणात्मक क्लीयरेंस कोण कभी नहीं, क्योंकि ऋणात्मक क्लीयरेंस से:",
+o:["चिप बहुत कसकर मुड़ेगी","कटिंग स्पीड बढ़ जाएगी","टूल शैंक कमज़ोर होगा","फ़्लैंक जॉब पर रगड़ेगा"],
+e:"<b>क्लीयरेंस (रिलीफ़) कोण</b> फ़्लैंक को नई मशीन की गई सतह से दूर झुकाता है ताकि केवल कटिंग धार जॉब को छुए। यदि यह शून्य या ऋणात्मक हो, तो <b>फ़्लैंक जॉब पर दबकर रगड़ेगा</b> – ऊष्मा, तेज़ फ़्लैंक घिसाव, चमकी/फटी सतह, चैटर और अधिक बल; टूल काट ही नहीं पाएगा (RRB-CBT2 2019 PYQ: 'कटिंग टूल में कभी नहीं → ऋणात्मक क्लीयरेंस कोण'; रेलवे SSE: 'टूल को जॉब से रगड़ने से रोकने हेतु → रिलीफ़ कोण')।<br><b>रेक</b> तो चिप की ओर है – ऋणात्मक रेक केवल धार मज़बूत और बल अधिक करता है, इसलिए स्वीकार्य (कार्बाइड, सिरेमिक टूल)।<br><b>सामान्य मान:</b> रिलीफ़ 5–15° (DMRC PYQ); बहुत अधिक रिलीफ़ धार कमज़ोर करता है।<br><b>ब्रोचिंग में यही विचार:</b> बैक-ऑफ़ कोण ब्रोच दाँत को रगड़ने से रोकता है (RRB-CBT2 Jun'25)।"}},
+
+/* 7 */ {ans:0, lv:"p", tag:{en:"Numerical – Merchant theory",hi:"न्यूमेरिकल – मर्चेंट सिद्धांत"},
+en:{q:"By Merchant's theory, the shear angle for a tool with a rake angle of 12° and a friction angle of 38° is:",
+o:["32°","26°","45°","19°"],
+e:"Merchant's minimum-energy theory: 2φ + β − α = 90°, i.e.<br><b>φ = 45° + α/2 − β/2</b> = 45° + 12°/2 − 38°/2 = 45 + 6 − 19 = <b>32°</b>.<br><b>Distractor check:</b> (b) 26° uses the Lee–Shaffer form φ = 45° + α − β = 45 + 12 − 38 = 19°… (d) 19° is exactly Lee–Shaffer; (b) 26° subtracts both halves; (c) 45° ignores rake and friction.<br><b>Other theories:</b> Lee–Shaffer φ = 45° + α − β (slip-line field basis – HPPSC PYQ) · Stabler φ = 45° + α − β/2 · modified Merchant 2φ + β − α = C, where C is a machining constant for the work material (GPSC PYQ).<br><b>Lesson:</b> φ rises with a larger rake angle and falls with more friction – so sharp, polished, high-rake tools and good lubrication reduce cutting force.<br><b>Friction angle:</b> β = tan⁻¹ μ."},
+hi:{q:"मर्चेंट सिद्धांत से 12° रेक कोण और 38° घर्षण कोण वाले टूल का शियर कोण है:",
+o:["32°","26°","45°","19°"],
+e:"मर्चेंट का न्यूनतम-ऊर्जा सिद्धांत: 2φ + β − α = 90°, अर्थात<br><b>φ = 45° + α/2 − β/2</b> = 45° + 12°/2 − 38°/2 = 45 + 6 − 19 = <b>32°</b>।<br><b>गलत विकल्प कैसे बने:</b> (d) 19° ठीक ली–शैफ़र रूप है φ = 45° + α − β = 45 + 12 − 38; (b) 26° में दोनों आधे घटा दिए; (c) 45° में रेक व घर्षण छोड़ दिए।<br><b>अन्य सिद्धांत:</b> ली–शैफ़र φ = 45° + α − β (स्लिप-लाइन फ़ील्ड आधारित – HPPSC PYQ) · स्टेबलर φ = 45° + α − β/2 · संशोधित मर्चेंट 2φ + β − α = C, जहाँ C जॉब पदार्थ का मशीनिंग स्थिरांक (GPSC PYQ)।<br><b>सीख:</b> φ बड़े रेक कोण से बढ़ता और अधिक घर्षण से घटता है – इसलिए तीखे, पॉलिश, अधिक रेक वाले टूल और अच्छा स्नेहन कटिंग बल घटाते हैं।<br><b>घर्षण कोण:</b> β = tan⁻¹ μ।"}},
+
+/* 8 */ {ans:2, lv:"p", tag:{en:"Heat in cutting · scenario",hi:"कटिंग में ऊष्मा · परिस्थिति"},
+en:{q:"When steel is machined with a carbide tool at high speed, most of the heat generated is carried away by the:",
+o:["workpiece","tool","chip","machine bed"],
+e:"Heat is generated in three zones: the <b>primary shear zone</b> (about 80–85 % – plastic deformation along the shear plane – Assam, APPSC PYQ), the <b>secondary zone</b> at the chip–tool interface (friction, about 15–20 %) and the tool–work rubbing at the flank (1–3 %).<br>Most of this heat is produced in the metal that becomes the chip, and the chip leaves quickly, so at high speed the <b>chip carries about 80 %</b>, the tool about 10 % and the work about 10 % (Railway SSE, PPSC PYQ: 'chip : tool : work ≈ 80 : 10 : 10'; Railway JE: 'largest share of heat at high speed goes to → chip').<br><b>Why it matters:</b> even 10 % into the small tool tip makes it very hot – hence hot hardness, cutting fluids and crater wear.<br><b>Trend:</b> the higher the speed, the larger the chip's share (less time for heat to flow into the work)."},
+hi:{q:"कार्बाइड टूल से उच्च गति पर स्टील मशीन करते समय उत्पन्न अधिकांश ऊष्मा किसके द्वारा ले जाई जाती है?",
+o:["वर्कपीस","टूल","चिप","मशीन बेड"],
+e:"ऊष्मा तीन क्षेत्रों में बनती है: <b>प्राथमिक शियर क्षेत्र</b> (लगभग 80–85 % – शियर तल पर प्लास्टिक विरूपण – असम, APPSC PYQ), चिप–टूल इंटरफ़ेस पर <b>द्वितीयक क्षेत्र</b> (घर्षण, लगभग 15–20 %) और फ़्लैंक पर टूल–जॉब रगड़ (1–3 %)।<br>अधिकांश ऊष्मा उसी धातु में बनती है जो चिप बनती है, और चिप जल्दी निकल जाती है, इसलिए उच्च गति पर <b>चिप लगभग 80 %</b>, टूल लगभग 10 % और जॉब लगभग 10 % ले जाते हैं (रेलवे SSE, PPSC PYQ: 'चिप : टूल : जॉब ≈ 80 : 10 : 10'; रेलवे JE: 'उच्च गति पर सबसे अधिक ऊष्मा → चिप में')।<br><b>महत्व:</b> छोटे टूल सिरे में 10 % ऊष्मा भी उसे बहुत गर्म करती है – इसीलिए गर्म कठोरता, कटिंग फ़्लूइड और क्रेटर घिसाव।<br><b>प्रवृत्ति:</b> गति जितनी अधिक, चिप का हिस्सा उतना बड़ा (जॉब में ऊष्मा जाने का समय कम)।"}},
+
+/* 9 */ {ans:2, lv:"p", tag:{en:"Oblique cutting",hi:"ऑब्लिक कटिंग"},
+en:{q:"The number of mutually perpendicular force components in oblique cutting (for example, plain turning) is:",
+o:["one","two","three","four"],
+e:"In <b>oblique cutting</b> the cutting edge is inclined, so the resultant force has <b>three mutually perpendicular components</b>, measured by a three-component lathe tool dynamometer:<br>• <b>cutting (tangential) force</b> F<sub>c</sub> or F<sub>z</sub> – along the cutting velocity, the largest; decides the power (P = F<sub>c</sub> × V);<br>• <b>feed (axial) force</b> F<sub>x</sub> – along the feed direction;<br>• <b>radial force</b> F<sub>y</sub> – perpendicular to the job axis, tends to push the tool away and bend slender jobs.<br>In <b>orthogonal cutting</b> there are only <b>two</b> – cutting force and thrust force.<br><b>Conversion used in turning:</b> thrust F<sub>t</sub> = √(F<sub>x</sub>² + F<sub>y</sub>²); approach angle λ = 90° − side cutting edge angle; feed force = F<sub>t</sub> sin λ, radial force = F<sub>t</sub> cos λ."},
+hi:{q:"ऑब्लिक कटिंग (जैसे सादी टर्निंग) में परस्पर लंबवत बल घटकों की संख्या है:",
+o:["एक","दो","तीन","चार"],
+e:"<b>ऑब्लिक कटिंग</b> में कटिंग धार झुकी होती है, इसलिए परिणामी बल के <b>तीन परस्पर लंबवत घटक</b> होते हैं, जो तीन-घटक लेथ टूल डायनेमोमीटर से मापे जाते हैं:<br>• <b>कटिंग (स्पर्शरेखीय) बल</b> F<sub>c</sub> या F<sub>z</sub> – कटिंग वेग की दिशा में, सबसे बड़ा; शक्ति तय करता है (P = F<sub>c</sub> × V);<br>• <b>फ़ीड (अक्षीय) बल</b> F<sub>x</sub> – फ़ीड दिशा में;<br>• <b>त्रिज्य बल</b> F<sub>y</sub> – जॉब अक्ष के लंबवत, टूल को पीछे धकेलता और पतले जॉब को मोड़ता है।<br><b>ऑर्थोगोनल कटिंग</b> में केवल <b>दो</b> – कटिंग बल व थ्रस्ट बल।<br><b>टर्निंग में रूपांतरण:</b> थ्रस्ट F<sub>t</sub> = √(F<sub>x</sub>² + F<sub>y</sub>²); अप्रोच कोण λ = 90° − साइड कटिंग एज कोण; फ़ीड बल = F<sub>t</sub> sin λ, त्रिज्य बल = F<sub>t</sub> cos λ।"}},
+
+/* 10 */ {ans:1, lv:"h", tag:{en:"Rake angle",hi:"रेक कोण"},
+en:{q:"As the rake angle of a tool is increased (within limits):<br>I. the cutting force and power decrease.<br>II. the cutting edge becomes weaker.<br>III. the chip is deformed more.<br>Which of the statements are correct?",
+o:["I only","I and II only","II and III only","I, II and III"],
+e:"<b>I ✔</b> – a larger positive rake raises the shear angle, shortens the shear plane and lets the chip slide off more easily, so <b>cutting force, power and heat fall</b>.<br><b>II ✔</b> – a larger rake means a smaller lip (wedge) angle (rake + lip + clearance = 90°), so there is less metal behind the edge – the <b>edge is weaker</b> and heat flows away less easily (APPSC PYQ: 'on increasing rake angle, tool strength → decreases').<br><b>III ✘</b> – it is the opposite: with a large positive rake the <b>material is deformed less</b> in the chip (Railway JE PYQ).<br><b>Tool life:</b> first increases, then decreases as rake rises – a moderate rake is best (NPCIL PYQ).<br><b>Rake by material:</b> soft, ductile (aluminium, copper) → large positive · brass → zero · hard steels, carbide/ceramic tools → negative."},
+hi:{q:"टूल का रेक कोण (सीमा के अंदर) बढ़ाने पर:<br>I. कटिंग बल व शक्ति घटते हैं।<br>II. कटिंग धार कमज़ोर हो जाती है।<br>III. चिप का विरूपण अधिक होता है।<br>कौन-से कथन सही हैं?",
+o:["केवल I","केवल I और II","केवल II और III","I, II और III"],
+e:"<b>I ✔</b> – बड़ा धनात्मक रेक शियर कोण बढ़ाता है, शियर तल छोटा करता है और चिप को आसानी से फिसलने देता है, इसलिए <b>कटिंग बल, शक्ति व ऊष्मा घटते</b> हैं।<br><b>II ✔</b> – बड़ा रेक यानी छोटा लिप (वेज) कोण (रेक + लिप + क्लीयरेंस = 90°), इसलिए धार के पीछे कम धातु – <b>धार कमज़ोर</b> और ऊष्मा कम आसानी से निकलती है (APPSC PYQ: 'रेक कोण बढ़ाने पर टूल सामर्थ्य → घटती है')।<br><b>III ✘</b> – उल्टा है: बड़े धनात्मक रेक में <b>चिप में पदार्थ का विरूपण कम</b> होता है (रेलवे JE PYQ)।<br><b>टूल जीवन:</b> रेक बढ़ने पर पहले बढ़ता, फिर घटता – मध्यम रेक सर्वोत्तम (NPCIL PYQ)।<br><b>पदार्थ अनुसार रेक:</b> नरम, तन्य (एल्युमिनियम, कॉपर) → बड़ा धनात्मक · पीतल → शून्य · कठोर स्टील, कार्बाइड/सिरेमिक टूल → ऋणात्मक।"}},
+
+/* 11 */ {ans:3, lv:"t", tag:{en:"Tool materials · scenario",hi:"टूल पदार्थ · परिस्थिति"},
+en:{q:"A shop finds that diamond tools last very long on aluminium and copper alloys but wear out quickly on steel. The main reason is:",
+o:["steel is harder than diamond","diamond cannot be ground sharp","steel melts the diamond tip","carbon of diamond reacts with hot iron"],
+e:"Diamond is the <b>hardest</b> tool material, but it is pure carbon. At the high temperatures of cutting steel (above about 700 °C), the carbon atoms of diamond <b>diffuse into the iron</b> (iron has a strong chemical affinity for carbon) and diamond also tends to turn into graphite – the tool wears away very fast by chemical/diffusion wear, not by abrasion. So diamond is used for <b>non-ferrous metals</b> (aluminium–silicon alloys, copper, brass), plastics, composites, glass and ceramics – <b>not for steel or cast iron</b> (SSC JE PYQ: 'hardest common tool material → diamond, not for steel').<br><b>For hardened steel:</b> <b>cubic boron nitride</b> – second hardest, chemically stable with iron.<br><b>Why not the others:</b> steel is far softer than diamond; diamond can be given a very sharp edge; steel does not melt during cutting.<br><b>Cutting-speed ladder:</b> carbon tool steel &lt; high-speed steel &lt; carbide &lt; ceramic (Railway SSE PYQ)."},
+hi:{q:"एक शॉप पाती है कि डायमंड टूल एल्युमिनियम व कॉपर मिश्रधातुओं पर बहुत लंबे चलते हैं पर स्टील पर जल्दी घिस जाते हैं। मुख्य कारण है:",
+o:["स्टील डायमंड से भी अधिक कठोर है","डायमंड को तीखा ग्राइंड नहीं किया जा सकता","स्टील डायमंड के सिरे को पिघला देता है","कार्बन गर्म आयरन से क्रिया करता है"],
+e:"डायमंड <b>सबसे कठोर</b> टूल पदार्थ है, पर यह शुद्ध कार्बन है। स्टील काटने के उच्च तापमान (लगभग 700 °C से ऊपर) पर डायमंड के कार्बन परमाणु <b>आयरन में विसरित</b> होते हैं (आयरन की कार्बन से प्रबल रासायनिक आसक्ति) और डायमंड ग्रेफ़ाइट में भी बदलने लगता है – टूल अपघर्षण से नहीं, रासायनिक/विसरण घिसाव से बहुत तेज़ घिसता है। इसलिए डायमंड <b>अलौह धातुओं</b> (एल्युमिनियम–सिलिकॉन मिश्रधातु, कॉपर, पीतल), प्लास्टिक, कंपोज़िट, काँच व सिरेमिक हेतु – <b>स्टील या कास्ट आयरन हेतु नहीं</b> (SSC JE PYQ: 'सबसे कठोर सामान्य टूल पदार्थ → डायमंड, स्टील हेतु नहीं')।<br><b>कठोर स्टील हेतु:</b> <b>क्यूबिक बोरॉन नाइट्राइड</b> – दूसरा सबसे कठोर, आयरन के साथ रासायनिक रूप से स्थिर।<br><b>अन्य क्यों नहीं:</b> स्टील डायमंड से बहुत नरम; डायमंड को बहुत तीखी धार दी जा सकती है; कटिंग में स्टील नहीं पिघलता।<br><b>कटिंग-स्पीड सीढ़ी:</b> कार्बन टूल स्टील &lt; हाई-स्पीड स्टील &lt; कार्बाइड &lt; सिरेमिक (रेलवे SSE PYQ)।"}},
+
+/* 12 */ {ans:0, lv:"e", tag:{en:"Numerical – lip angle",hi:"न्यूमेरिकल – लिप कोण"},
+en:{q:"A tool has a rake angle of 12° and a clearance angle of 8°. Its lip (wedge) angle is:",
+o:["70°","80°","20°","110°"],
+e:"For any cutting tool, measured in the same plane: <b>rake angle + lip angle + clearance angle = 90°</b> (RRB-CBT2 2019 PYQ).<br>Lip angle = 90° − 12° − 8° = <b>70°</b>.<br><b>Distractor check:</b> (b) 80° subtracts only one angle; (c) 20° is rake + clearance; (d) 110° adds instead of subtracting.<br><b>Lip (wedge) angle</b> = angle between the face and the flank – it decides the <b>strength of the cutting edge</b> and how well heat flows away from it (NPSC, KPSC PYQ: 'angle on which strength of the tool depends → lip angle'; usual value about 60–80°).<br><b>Cutting angle</b> = angle between the face and the machined surface = 90° − rake = lip + clearance = 78° here."},
+hi:{q:"एक टूल का रेक कोण 12° और क्लीयरेंस कोण 8° है। इसका लिप (वेज) कोण है:",
+o:["70°","80°","20°","110°"],
+e:"किसी भी कटिंग टूल में, एक ही तल में मापे गए: <b>रेक कोण + लिप कोण + क्लीयरेंस कोण = 90°</b> (RRB-CBT2 2019 PYQ)।<br>लिप कोण = 90° − 12° − 8° = <b>70°</b>।<br><b>गलत विकल्प कैसे बने:</b> (b) 80° में केवल एक कोण घटाया; (c) 20° = रेक + क्लीयरेंस; (d) 110° में घटाने के स्थान पर जोड़ दिया।<br><b>लिप (वेज) कोण</b> = फ़ेस और फ़्लैंक के बीच का कोण – यह <b>कटिंग धार की सामर्थ्य</b> और उससे ऊष्मा निकलने की क्षमता तय करता है (NPSC, KPSC PYQ: 'टूल की सामर्थ्य जिस कोण पर निर्भर → लिप कोण'; सामान्य मान लगभग 60–80°)।<br><b>कटिंग कोण</b> = फ़ेस और मशीन सतह के बीच का कोण = 90° − रेक = लिप + क्लीयरेंस = यहाँ 78°।"}},
+
+/* 13 */ {ans:2, lv:"p", tag:{en:"Tool signature",hi:"टूल सिग्नेचर"},
+en:{q:"In the American Standards Association (ASA) tool signature 10-15-8-7-10-20-2, the value 7 is the:",
+o:["end relief angle","side rake angle","side relief angle","end cutting edge angle"],
+e:"The ASA (American) tool signature has <b>seven elements in a fixed order</b> (KRCL, CGPSC PYQ):<br>① back rake α<sub>b</sub> – 10° · ② side rake α<sub>s</sub> – 15° · ③ end relief γ<sub>e</sub> – 8° · ④ <b>side relief γ<sub>s</sub> – 7°</b> · ⑤ end cutting edge angle C<sub>e</sub> – 10° · ⑥ side cutting edge angle C<sub>s</sub> – 20° · ⑦ nose radius R – 2 mm.<br>So 7 is the <b>side relief angle</b> – the angle between the side flank and a line perpendicular to the base, which stops the side flank rubbing the work (MECON PYQ).<br><b>Memory:</b> rakes (back, side) → reliefs (end, side) → edge angles (end, side) → nose radius; the order 'back–side' for rakes becomes 'end–side' for reliefs and edges.<br><b>PYQs on the same pattern:</b> 8-8-5-5-6-6-1 → '1' = nose radius (RRB-CBT2 2019); 10-12-8-6-15-20-3 → '12' = side rake (Metro 2019); 10-20-7-6-8-15-2 → side relief = 6° (Railway SSE)."},
+hi:{q:"अमेरिकन स्टैंडर्ड्स एसोसिएशन (ASA) टूल सिग्नेचर 10-15-8-7-10-20-2 में मान 7 है:",
+o:["एंड रिलीफ़ कोण","साइड रेक कोण","साइड रिलीफ़ कोण","एंड कटिंग एज कोण"],
+e:"ASA (अमेरिकन) टूल सिग्नेचर में <b>निश्चित क्रम में सात तत्व</b> होते हैं (KRCL, CGPSC PYQ):<br>① बैक रेक α<sub>b</sub> – 10° · ② साइड रेक α<sub>s</sub> – 15° · ③ एंड रिलीफ़ γ<sub>e</sub> – 8° · ④ <b>साइड रिलीफ़ γ<sub>s</sub> – 7°</b> · ⑤ एंड कटिंग एज कोण C<sub>e</sub> – 10° · ⑥ साइड कटिंग एज कोण C<sub>s</sub> – 20° · ⑦ नोज़ त्रिज्या R – 2 mm।<br>अतः 7 <b>साइड रिलीफ़ कोण</b> है – साइड फ़्लैंक और बेस के लंबवत रेखा के बीच का कोण, जो साइड फ़्लैंक को जॉब से रगड़ने से रोकता है (MECON PYQ)।<br><b>याद रखें:</b> रेक (बैक, साइड) → रिलीफ़ (एंड, साइड) → एज कोण (एंड, साइड) → नोज़ त्रिज्या।<br><b>इसी पैटर्न के PYQ:</b> 8-8-5-5-6-6-1 → '1' = नोज़ त्रिज्या (RRB-CBT2 2019); 10-12-8-6-15-20-3 → '12' = साइड रेक (मेट्रो 2019); 10-20-7-6-8-15-2 → साइड रिलीफ़ = 6° (रेलवे SSE)।"}},
+
+/* 14 */ {ans:1, lv:"h", tag:{en:"Built-up edge · scenario",hi:"बिल्ट-अप एज · परिस्थिति"},
+en:{q:"Turning mild steel at low speed with a small-rake tool and poor coolant gives a rough finish because of a built-up edge (BUE). The most effective remedy is to:",
+o:["reduce the cutting speed further","raise the speed and use a larger rake","use a blunter and duller tool edge","cut dry without any coolant at all"],
+e:"A <b>built-up edge</b> is a lump of work material that welds onto the tool tip under high pressure and moderate temperature. It forms when cutting <b>ductile metals at low speed</b>, with a <b>small rake</b>, a <b>dull edge</b> and poor lubrication (MECON, RPSC, Oil PYQs). The BUE keeps growing and breaking off – pieces stick to the job and chip, spoiling the finish and size.<br><b>Remedies:</b> <b>increase the cutting speed</b> – the higher temperature stops welding and the BUE becomes smaller and finally disappears (HPPSC PYQ) · <b>increase the rake angle</b> and keep the tool sharp and polished · use a good <b>cutting fluid</b> to reduce adhesion (RRB-CBT2 Apr'25-II: coolants decrease adhesion between chip and tool) · use a carbide or coated tool.<br><b>Why not the others:</b> each of (a), (c) and (d) is a cause of BUE, not a cure."},
+hi:{q:"माइल्ड स्टील को कम गति पर छोटे रेक वाले टूल और खराब कूलेंट से टर्न करने पर बिल्ट-अप एज (BUE) के कारण खुरदरी फ़िनिश मिलती है। सबसे प्रभावी उपाय है:",
+o:["कटिंग स्पीड और घटाना","गति बढ़ाना और बड़ा रेक लेना","भोथरी टूल धार का प्रयोग","बिना कूलेंट के काटना"],
+e:"<b>बिल्ट-अप एज</b> जॉब पदार्थ का वह गुच्छा है जो अधिक दाब व मध्यम तापमान पर टूल सिरे पर वेल्ड हो जाता है। यह <b>तन्य धातुओं को कम गति</b> पर, <b>छोटे रेक</b>, <b>भोथरी धार</b> और खराब स्नेहन से काटने पर बनता है (MECON, RPSC, ऑयल PYQ)। BUE बढ़ता और टूटता रहता है – टुकड़े जॉब व चिप पर चिपककर फ़िनिश व साइज़ बिगाड़ते हैं।<br><b>उपाय:</b> <b>कटिंग स्पीड बढ़ाएँ</b> – अधिक तापमान वेल्डिंग रोकता है और BUE छोटा होकर अंततः समाप्त हो जाता है (HPPSC PYQ) · <b>रेक कोण बढ़ाएँ</b> और टूल तीखा व पॉलिश रखें · आसंजन घटाने हेतु अच्छा <b>कटिंग फ़्लूइड</b> (RRB-CBT2 Apr'25-II: कूलेंट चिप–टूल आसंजन घटाते हैं) · कार्बाइड या कोटेड टूल।<br><b>अन्य क्यों नहीं:</b> (a), (c) और (d) तीनों BUE के कारण हैं, उपाय नहीं।"}},
+
+/* 15 */ {ans:3, lv:"p", tag:{en:"Tool wear",hi:"टूल घिसाव"},
+en:{q:"Crater wear on a carbide tool cutting steel is mainly caused by:",
+o:["abrasion by hard particles","oxidation of the workpiece","mechanical chipping of the edge","diffusion at high temperature"],
+e:"<b>Crater wear</b> is a saucer-shaped hollow on the <b>rake face</b>, a short distance behind the cutting edge, where the chip–tool interface temperature is highest (Railway SSE, RPSC PYQs). At that temperature, atoms of the tool (tungsten, carbon, cobalt) <b>diffuse into the fast-moving chip</b> and are carried away – the main mechanism is <b>diffusion</b> (Railway SSE PYQ). It is therefore most severe for <b>carbide tools cutting steel</b> at high speed (SSC JE, Railway JE PYQs). A deep crater weakens the edge until it breaks.<br><b>Flank wear</b>, by contrast, is mainly <b>abrasion</b> by hard particles in the work rubbing the flank – option (a) is the flank-wear trap.<br><b>Remedies for crater wear:</b> coated carbides (titanium carbide, titanium nitride, aluminium oxide coatings), grades with titanium/tantalum carbide, lower speed, good coolant.<br><b>Other mechanisms:</b> adhesion (welding and plucking), oxidation (of the tool at high temperature), chemical/electrolytic."},
+hi:{q:"स्टील काटते कार्बाइड टूल पर क्रेटर घिसाव मुख्यतः किस कारण होता है?",
+o:["कठोर कणों द्वारा अपघर्षण","वर्कपीस का ऑक्सीकरण","धार का यांत्रिक चिपिंग","उच्च तापमान पर विसरण"],
+e:"<b>क्रेटर घिसाव</b> <b>रेक फ़ेस</b> पर, कटिंग धार से थोड़ा पीछे, तश्तरी-आकार का गड्ढा है, जहाँ चिप–टूल इंटरफ़ेस तापमान अधिकतम होता है (रेलवे SSE, RPSC PYQ)। उस तापमान पर टूल के परमाणु (टंगस्टन, कार्बन, कोबाल्ट) <b>तेज़ चलती चिप में विसरित</b> होकर बह जाते हैं – मुख्य तंत्र <b>विसरण</b> है (रेलवे SSE PYQ)। इसलिए यह उच्च गति पर <b>स्टील काटते कार्बाइड टूल</b> में सबसे गंभीर (SSC JE, रेलवे JE PYQ)। गहरा क्रेटर धार को कमज़ोर कर तोड़ देता है।<br><b>फ़्लैंक घिसाव</b>, इसके विपरीत, मुख्यतः जॉब के कठोर कणों द्वारा फ़्लैंक पर <b>अपघर्षण</b> है – विकल्प (a) फ़्लैंक-घिसाव ट्रैप है।<br><b>क्रेटर घिसाव के उपाय:</b> कोटेड कार्बाइड (टाइटेनियम कार्बाइड, टाइटेनियम नाइट्राइड, एल्युमिनियम ऑक्साइड कोटिंग), टाइटेनियम/टैंटलम कार्बाइड वाले ग्रेड, कम गति, अच्छा कूलेंट।<br><b>अन्य तंत्र:</b> आसंजन (वेल्डिंग व उखड़ना), ऑक्सीकरण (उच्च तापमान पर टूल का), रासायनिक/विद्युत-अपघटनी।"}},
+
+/* 16 */ {ans:0, lv:"h", tag:{en:"Tool life",hi:"टूल जीवन"},
+en:{q:"The Taylor tool-life exponent n, in decreasing order for common tool materials, is:",
+o:["ceramic > carbide > HSS","HSS > carbide > ceramic","carbide > ceramic > HSS","carbide > HSS > ceramic"],
+e:"In VTⁿ = C, the exponent n is the (negative) slope of the log V – log T line. Typical values (Railway SSE, HPCL PYQs):<br>high-speed steel (HSS) ≈ 0.08–0.2 · cast alloy (stellite) ≈ 0.18 · cemented carbide ≈ 0.2–0.5 · <b>ceramic ≈ 0.4–0.6</b>.<br>So <b>ceramic &gt; carbide &gt; HSS</b>.<br><b>Meaning:</b> a larger n gives a flatter curve – tool life falls <b>less sharply</b> when speed is raised, so ceramic and carbide tools tolerate high speeds better. For HSS (small n), a small rise in speed causes a large drop in tool life.<br><b>n and C depend on:</b> tool material, work material and cutting fluid (DMRC PYQ).<br><b>Extended form:</b> V Tⁿ f<sup>a</sup> d<sup>b</sup> = C – speed has the greatest effect on tool life, then feed, then depth of cut."},
+hi:{q:"सामान्य टूल पदार्थों हेतु टेलर टूल-जीवन घातांक n का घटता क्रम है:",
+o:["सिरेमिक > कार्बाइड > HSS","HSS > कार्बाइड > सिरेमिक","कार्बाइड > सिरेमिक > HSS","कार्बाइड > HSS > सिरेमिक"],
+e:"VTⁿ = C में घातांक n, log V – log T रेखा का (ऋणात्मक) ढलान है। सामान्य मान (रेलवे SSE, HPCL PYQ):<br>हाई-स्पीड स्टील (HSS) ≈ 0.08–0.2 · कास्ट मिश्रधातु (स्टेलाइट) ≈ 0.18 · सीमेंटेड कार्बाइड ≈ 0.2–0.5 · <b>सिरेमिक ≈ 0.4–0.6</b>।<br>अतः <b>सिरेमिक &gt; कार्बाइड &gt; HSS</b>।<br><b>अर्थ:</b> बड़ा n सपाट वक्र देता है – गति बढ़ाने पर टूल जीवन <b>कम तेज़ी से</b> घटता है, इसलिए सिरेमिक व कार्बाइड टूल उच्च गति बेहतर सहते हैं। HSS (छोटा n) में गति थोड़ी बढ़ाने पर टूल जीवन बहुत घटता है।<br><b>n और C निर्भर:</b> टूल पदार्थ, जॉब पदार्थ और कटिंग फ़्लूइड पर (DMRC PYQ)।<br><b>विस्तारित रूप:</b> V Tⁿ f<sup>a</sup> d<sup>b</sup> = C – टूल जीवन पर सबसे अधिक प्रभाव गति का, फिर फ़ीड, फिर कट की गहराई।"}},
+
+/* 17 */ {ans:2, lv:"h", tag:{en:"Numerical – Taylor",hi:"न्यूमेरिकल – टेलर"},
+en:{q:"For a tool, n = 0.2 in Taylor's equation VTⁿ = C. If the cutting speed is halved, the tool life becomes:",
+o:["2 times","10 times","32 times","5 times"],
+e:"From VTⁿ = C: V₁T₁ⁿ = V₂T₂ⁿ → T₂/T₁ = (V₁/V₂)<sup>1/n</sup>.<br>Speed halved → V₁/V₂ = 2, and 1/n = 1/0.2 = 5.<br>T₂/T₁ = 2⁵ = <b>32 times</b>.<br><b>Distractor check:</b> (a) 2 times assumes life ∝ 1/speed; (d) 5 times uses 1/n as the answer; (b) 10 times multiplies 2 × 5.<br><b>Lesson:</b> because n is small for high-speed steel, tool life is extremely sensitive to speed – a small speed reduction gives a big gain in life.<br><b>Same pattern with other numbers:</b> n = 0.25, speed halved → 2⁴ = 16 times (Railway JE PYQ); n = 0.5, speed cut by 25 % → (1/0.75)² = 1.78, i.e. +78 % (Railway JE PYQ); n = 0.5, speed halved → 4 times, i.e. +300 % (Railway SSE PYQ)."},
+hi:{q:"एक टूल के लिए टेलर समीकरण VTⁿ = C में n = 0.2 है। कटिंग स्पीड आधी करने पर टूल जीवन हो जाता है:",
+o:["2 गुना","10 गुना","32 गुना","5 गुना"],
+e:"VTⁿ = C से: V₁T₁ⁿ = V₂T₂ⁿ → T₂/T₁ = (V₁/V₂)<sup>1/n</sup>।<br>गति आधी → V₁/V₂ = 2, और 1/n = 1/0.2 = 5।<br>T₂/T₁ = 2⁵ = <b>32 गुना</b>।<br><b>गलत विकल्प कैसे बने:</b> (a) 2 गुना में जीवन ∝ 1/गति मान लिया; (d) 5 गुना में 1/n को ही उत्तर मान लिया; (b) 10 गुना में 2 × 5।<br><b>सीख:</b> हाई-स्पीड स्टील में n छोटा होने से टूल जीवन गति के प्रति अत्यधिक संवेदनशील – थोड़ी गति घटाने से जीवन में बड़ा लाभ।<br><b>अन्य संख्याओं में यही पैटर्न:</b> n = 0.25, गति आधी → 2⁴ = 16 गुना (रेलवे JE PYQ); n = 0.5, गति 25 % कम → (1/0.75)² = 1.78, अर्थात +78 % (रेलवे JE PYQ); n = 0.5, गति आधी → 4 गुना, अर्थात +300 % (रेलवे SSE PYQ)।"}},
+
+/* 18 */ {ans:1, lv:"e", tag:{en:"Tool materials",hi:"टूल पदार्थ"},
+en:{q:"The property that lets a tool material keep its hardness at a high cutting temperature is:",
+o:["toughness","hot (red) hardness","wear resistance","machinability"],
+e:"<b>Hot (red) hardness</b> = the ability to retain hardness at high temperature – even when the tool tip glows dull red. It is the <b>most important property of a cutting-tool material</b> (SSC JE PYQ), because the tip reaches several hundred degrees during cutting and a tool that softens loses its edge at once.<br><b>Hot-hardness ladder:</b> plain carbon tool steel ≈ 250 °C · high-speed steel ≈ 600 °C · cast alloy (stellite) ≈ 800 °C · cemented carbide ≈ 1000 °C · ceramic ≈ 1200 °C – which is why the permissible cutting speed rises in the same order.<br><b>Other needed properties:</b> toughness (to resist chipping and shock), wear resistance, low friction, good thermal conductivity, ease of grinding and low cost.<br><b>Why not the others:</b> toughness resists shock, not softening; wear resistance depends on hot hardness but is a separate property; machinability belongs to the work material."},
+hi:{q:"वह गुण जो टूल पदार्थ को उच्च कटिंग तापमान पर भी कठोर बनाए रखता है:",
+o:["टफ़नेस","गर्म (रेड) कठोरता","घिसाव-प्रतिरोध","मशीनीयता"],
+e:"<b>गर्म (रेड) कठोरता</b> = उच्च तापमान पर कठोरता बनाए रखने की क्षमता – टूल सिरा हल्का लाल चमकने पर भी। यह <b>कटिंग-टूल पदार्थ का सबसे महत्वपूर्ण गुण</b> है (SSC JE PYQ), क्योंकि कटिंग में सिरा सैकड़ों डिग्री तक गर्म होता है और नरम होने वाला टूल तुरंत धार खो देता है।<br><b>गर्म-कठोरता सीढ़ी:</b> सादा कार्बन टूल स्टील ≈ 250 °C · हाई-स्पीड स्टील ≈ 600 °C · कास्ट मिश्रधातु (स्टेलाइट) ≈ 800 °C · सीमेंटेड कार्बाइड ≈ 1000 °C · सिरेमिक ≈ 1200 °C – इसीलिए अनुमेय कटिंग स्पीड इसी क्रम में बढ़ती है।<br><b>अन्य आवश्यक गुण:</b> टफ़नेस (चिपिंग व झटके से बचाव), घिसाव-प्रतिरोध, कम घर्षण, अच्छी ऊष्मा चालकता, आसान ग्राइंडिंग व कम लागत।<br><b>अन्य क्यों नहीं:</b> टफ़नेस झटका सहती है, नरम होना नहीं रोकती; घिसाव-प्रतिरोध गर्म कठोरता पर निर्भर पर अलग गुण है; मशीनीयता जॉब पदार्थ का गुण है।"}},
+
+/* 19 */ {ans:3, lv:"h", tag:{en:"Cutting edge angle",hi:"कटिंग एज कोण"},
+en:{q:"Increasing the side cutting edge angle of a turning tool (with the same feed and depth of cut):",
+o:["makes the chip thicker and narrower","reduces the radial thrust force","concentrates the load at the nose","spreads the cut over a longer edge"],
+e:"The <b>side cutting edge angle</b> (C<sub>s</sub>, 15–30° typically) is the angle between the side cutting edge and the axis of the shank, seen from above; approach angle λ = 90° − C<sub>s</sub>.<br>With the same feed f and depth d, uncut chip thickness t = f sin λ and width b = d ÷ sin λ. Raising C<sub>s</sub> lowers λ, so the chip becomes <b>thinner and wider</b> – the same metal is removed by a <b>longer length of cutting edge</b>. Load and heat per unit length fall, the nose is protected (the edge enters the work gradually), and tool life improves.<br><b>Price:</b> the <b>radial (thrust) force increases</b>, which can cause chatter and bend slender jobs (MPSC, HPPSC PYQ: 'thrust force will increase with the increase in → side cutting edge angle').<br><b>Why not the others:</b> (a), (b) and (c) all describe the opposite effect.<br><b>Also:</b> chip equivalent rises with nose radius and side cutting edge angle (MPSC PYQ)."},
+hi:{q:"टर्निंग टूल का साइड कटिंग एज कोण बढ़ाने पर (समान फ़ीड व कट की गहराई के साथ):",
+o:["चिप मोटी और संकरी होती है","त्रिज्य थ्रस्ट बल घटता है","भार नोज़ पर केंद्रित होता है","कट लंबी धार पर फैल जाता है"],
+e:"<b>साइड कटिंग एज कोण</b> (C<sub>s</sub>, सामान्यतः 15–30°) ऊपर से देखने पर साइड कटिंग धार और शैंक अक्ष के बीच का कोण है; अप्रोच कोण λ = 90° − C<sub>s</sub>।<br>समान फ़ीड f और गहराई d पर बिना कटी चिप मोटाई t = f sin λ और चौड़ाई b = d ÷ sin λ। C<sub>s</sub> बढ़ाने से λ घटता है, इसलिए चिप <b>पतली और चौड़ी</b> होती है – उतनी ही धातु <b>लंबी कटिंग धार</b> से हटती है। प्रति इकाई लंबाई भार व ऊष्मा घटती है, नोज़ सुरक्षित रहता है (धार जॉब में धीरे प्रवेश करती है), और टूल जीवन बढ़ता है।<br><b>कीमत:</b> <b>त्रिज्य (थ्रस्ट) बल बढ़ता</b> है, जो चैटर और पतले जॉब को मोड़ सकता है (MPSC, HPPSC PYQ: 'थ्रस्ट बल बढ़ेगा → साइड कटिंग एज कोण बढ़ाने पर')।<br><b>अन्य क्यों नहीं:</b> (a), (b) और (c) तीनों उल्टा प्रभाव बताते हैं।<br><b>यह भी:</b> चिप इक्विवेलेंट नोज़ त्रिज्या व साइड कटिंग एज कोण से बढ़ता है (MPSC PYQ)।"}},
+
+/* 20 */ {ans:0, lv:"p", tag:{en:"Types of chips",hi:"चिप के प्रकार"},
+en:{q:"Which combination of conditions most favours continuous chips?",
+o:["ductile metal, high speed, large rake","brittle metal, low speed, small rake","ductile metal, low speed, small rake","brittle metal, high speed, zero rake"],
+e:"<b>Continuous chip</b> – a long, unbroken ribbon: <b>ductile</b> work (mild steel, aluminium, copper – KPSC PYQ), <b>high cutting speed</b>, <b>large positive rake</b>, sharp polished tool, small feed and good cutting fluid. It gives the best finish and steady forces, but long chips must be broken by a chip breaker for safety.<br><b>Continuous chip with built-up edge</b> – ductile work at <b>low speed with a small rake</b>, dull tool, poor coolant (option c; MECON PYQ).<br><b>Discontinuous (segmented) chip</b> – <b>brittle</b> work such as cast iron and brass at low speed (option b; UPRVUNL, OPSC PYQs; 'cast iron produces discontinuous chips' – RPSC).<br><b>Serrated (saw-tooth) chip</b> – hard-to-machine metals like titanium at high speed.<br><b>Option d</b> – brittle metals give discontinuous chips whatever the speed."},
+hi:{q:"कौन-सा संयोजन सतत (continuous) चिप के लिए सबसे अनुकूल है?",
+o:["तन्य धातु, उच्च गति, बड़ा रेक","भंगुर धातु, कम गति, छोटा रेक","तन्य धातु, कम गति, छोटा रेक","भंगुर धातु, उच्च गति, शून्य रेक"],
+e:"<b>सतत चिप</b> – लंबी, अटूट पट्टी: <b>तन्य</b> जॉब (माइल्ड स्टील, एल्युमिनियम, कॉपर – KPSC PYQ), <b>उच्च कटिंग स्पीड</b>, <b>बड़ा धनात्मक रेक</b>, तीखा पॉलिश टूल, कम फ़ीड और अच्छा कटिंग फ़्लूइड। सर्वोत्तम फ़िनिश और स्थिर बल देती है, पर सुरक्षा हेतु लंबी चिप को चिप ब्रेकर से तोड़ना पड़ता है।<br><b>बिल्ट-अप एज वाली सतत चिप</b> – तन्य जॉब, <b>कम गति, छोटा रेक</b>, भोथरा टूल, खराब कूलेंट (विकल्प c; MECON PYQ)।<br><b>असतत (खंडित) चिप</b> – कास्ट आयरन व पीतल जैसे <b>भंगुर</b> जॉब, कम गति (विकल्प b; UPRVUNL, OPSC PYQ; 'कास्ट आयरन असतत चिप देता है' – RPSC)।<br><b>सेरेटेड (आरी-दाँत) चिप</b> – टाइटेनियम जैसी कठिन धातुएँ, उच्च गति।<br><b>विकल्प d</b> – भंगुर धातु किसी भी गति पर असतत चिप देती है।"}},
+
+/* 21 */ {ans:2, lv:"h", tag:{en:"Merchant circle",hi:"मर्चेंट वृत्त"},
+en:{q:"In Merchant's circle analysis, the two forces measured directly with a tool dynamometer are the:",
+o:["shear force and the force normal to the shear plane","friction force and the normal force on the tool face","cutting force and the thrust force","resultant force and the shear angle"],
+e:"A tool <b>dynamometer</b> measures forces during metal cutting (APPSC, Oil PYQ). In orthogonal cutting it measures the two components along fixed machine directions:<br>• <b>cutting force F<sub>c</sub></b> – horizontal, along the cutting velocity;<br>• <b>thrust force F<sub>t</sub></b> – vertical, perpendicular to it.<br>From these two, Merchant's circle (diameter = resultant force R – HPSC, WBPSC PYQ) gives all the others:<br>on the tool face – friction force F = F<sub>c</sub> sin α + F<sub>t</sub> cos α and normal force N = F<sub>c</sub> cos α − F<sub>t</sub> sin α;<br>on the shear plane – shear force F<sub>s</sub> = F<sub>c</sub> cos φ − F<sub>t</sub> sin φ and normal force F<sub>n</sub> = F<sub>c</sub> sin φ + F<sub>t</sub> cos φ.<br><b>Why not the others:</b> the shear-plane and tool-face forces cannot be measured directly – they are calculated; the shear angle is found from the chip ratio.<br><b>Power:</b> P = F<sub>c</sub> × V."},
+hi:{q:"मर्चेंट वृत्त विश्लेषण में टूल डायनेमोमीटर से सीधे मापे जाने वाले दो बल हैं:",
+o:["शियर बल और शियर तल पर अभिलंब बल","घर्षण बल और टूल फ़ेस पर अभिलंब बल","कटिंग बल और थ्रस्ट बल","परिणामी बल और शियर कोण"],
+e:"टूल <b>डायनेमोमीटर</b> धातु कटिंग के दौरान बल मापता है (APPSC, ऑयल PYQ)। ऑर्थोगोनल कटिंग में यह स्थिर मशीन दिशाओं में दो घटक मापता है:<br>• <b>कटिंग बल F<sub>c</sub></b> – क्षैतिज, कटिंग वेग की दिशा में;<br>• <b>थ्रस्ट बल F<sub>t</sub></b> – ऊर्ध्व, उसके लंबवत।<br>इन दोनों से मर्चेंट वृत्त (व्यास = परिणामी बल R – HPSC, WBPSC PYQ) बाकी सब देता है:<br>टूल फ़ेस पर – घर्षण बल F = F<sub>c</sub> sin α + F<sub>t</sub> cos α और अभिलंब बल N = F<sub>c</sub> cos α − F<sub>t</sub> sin α;<br>शियर तल पर – शियर बल F<sub>s</sub> = F<sub>c</sub> cos φ − F<sub>t</sub> sin φ और अभिलंब बल F<sub>n</sub> = F<sub>c</sub> sin φ + F<sub>t</sub> cos φ।<br><b>अन्य क्यों नहीं:</b> शियर-तल व टूल-फ़ेस बल सीधे नहीं मापे जा सकते – गणना से; शियर कोण चिप अनुपात से मिलता है।<br><b>शक्ति:</b> P = F<sub>c</sub> × V।"}},
+
+/* 22 */ {ans:3, lv:"p", tag:{en:"Tool life",hi:"टूल जीवन"},
+en:{q:"In Taylor's extended tool-life equation, tool life is affected most by:",
+o:["depth of cut","feed","tool overhang","cutting speed"],
+e:"Extended Taylor equation: <b>V Tⁿ f<sup>a</sup> d<sup>b</sup> = C</b>, with n &lt; a &lt; b (typically n ≈ 0.1–0.5, while the exponents of feed and depth are larger). Writing it for T, the exponent on V (1/n) is the largest, so a change in <b>cutting speed</b> changes tool life the most; feed has a smaller effect, and depth of cut the least (SSC JE PYQ: 'influence on tool life – cutting speed &gt; feed &gt; depth of cut'; Assam PYQ: 'tool life is most affected by → cutting speed').<br><b>Why:</b> speed raises the tool–chip temperature most strongly, and wear rates rise steeply with temperature.<br><b>Practical rule:</b> to remove metal faster with the least loss of tool life, take a <b>larger depth of cut</b> first, then a larger feed, and raise speed last.<br><b>Tool overhang</b> affects rigidity and chatter, not the Taylor relation."},
+hi:{q:"टेलर के विस्तारित टूल-जीवन समीकरण में टूल जीवन पर सबसे अधिक प्रभाव किसका है?",
+o:["कट की गहराई","फ़ीड","टूल ओवरहैंग","कटिंग स्पीड"],
+e:"विस्तारित टेलर समीकरण: <b>V Tⁿ f<sup>a</sup> d<sup>b</sup> = C</b>, जहाँ n &lt; a &lt; b (सामान्यतः n ≈ 0.1–0.5, जबकि फ़ीड व गहराई के घातांक बड़े)। T हेतु लिखने पर V पर घातांक (1/n) सबसे बड़ा होता है, इसलिए <b>कटिंग स्पीड</b> में बदलाव टूल जीवन को सबसे अधिक बदलता है; फ़ीड का प्रभाव कम, और कट की गहराई का सबसे कम (SSC JE PYQ: 'टूल जीवन पर प्रभाव – कटिंग स्पीड &gt; फ़ीड &gt; कट की गहराई'; असम PYQ: 'टूल जीवन सबसे अधिक प्रभावित → कटिंग स्पीड से')।<br><b>क्यों:</b> गति टूल–चिप तापमान को सबसे अधिक बढ़ाती है, और घिसाव दर तापमान के साथ तेज़ी से बढ़ती है।<br><b>व्यावहारिक नियम:</b> टूल जीवन की न्यूनतम हानि के साथ तेज़ धातु हटाने हेतु पहले <b>बड़ी कट गहराई</b>, फिर बड़ी फ़ीड, और गति सबसे अंत में बढ़ाएँ।<br><b>टूल ओवरहैंग</b> दृढ़ता व चैटर को प्रभावित करता है, टेलर संबंध को नहीं।"}},
+
+/* 23 */ {ans:1, lv:"t", tag:{en:"Numerical – Merchant circle",hi:"न्यूमेरिकल – मर्चेंट वृत्त"},
+en:{q:"In orthogonal cutting with a tool of 10° rake, a dynamometer reads a cutting force Fc = 1200 N and a thrust force Ft = 500 N. The coefficient of friction at the chip–tool interface is about:",
+o:["0.42","0.64","0.71","1.56"],
+e:"From Merchant's circle, with rake α = 10° (sin 10° = 0.174, cos 10° = 0.985):<br><b>Friction force</b> F = F<sub>c</sub> sin α + F<sub>t</sub> cos α = 1200 × 0.174 + 500 × 0.985 = 208 + 492 ≈ <b>701 N</b>.<br><b>Normal force on the tool face</b> N = F<sub>c</sub> cos α − F<sub>t</sub> sin α = 1200 × 0.985 − 500 × 0.174 = 1182 − 87 ≈ <b>1095 N</b>.<br><b>Coefficient of friction</b> μ = F ÷ N = 701 ÷ 1095 ≈ <b>0.64</b>; friction angle β = tan⁻¹ 0.64 ≈ 32.6°.<br><b>Distractor check:</b> (a) 0.42 = F<sub>t</sub> ÷ F<sub>c</sub> – correct only when the rake is zero (then F = F<sub>t</sub>, N = F<sub>c</sub>); (d) 1.56 = N ÷ F, upside down; (c) is a near-miss value.<br><b>Next step (Merchant):</b> φ = 45° + α/2 − β/2 = 45 + 5 − 16.3 ≈ 33.7°, then F<sub>s</sub> = F<sub>c</sub> cos φ − F<sub>t</sub> sin φ.<br><b>Notes example:</b> α = 0 → F = F<sub>t</sub>, N = F<sub>c</sub> directly."},
+hi:{q:"10° रेक वाले टूल से ऑर्थोगोनल कटिंग में डायनेमोमीटर कटिंग बल Fc = 1200 N और थ्रस्ट बल Ft = 500 N पढ़ता है। चिप–टूल इंटरफ़ेस पर घर्षण गुणांक लगभग है:",
+o:["0.42","0.64","0.71","1.56"],
+e:"मर्चेंट वृत्त से, रेक α = 10° (sin 10° = 0.174, cos 10° = 0.985):<br><b>घर्षण बल</b> F = F<sub>c</sub> sin α + F<sub>t</sub> cos α = 1200 × 0.174 + 500 × 0.985 = 208 + 492 ≈ <b>701 N</b>।<br><b>टूल फ़ेस पर अभिलंब बल</b> N = F<sub>c</sub> cos α − F<sub>t</sub> sin α = 1200 × 0.985 − 500 × 0.174 = 1182 − 87 ≈ <b>1095 N</b>।<br><b>घर्षण गुणांक</b> μ = F ÷ N = 701 ÷ 1095 ≈ <b>0.64</b>; घर्षण कोण β = tan⁻¹ 0.64 ≈ 32.6°।<br><b>गलत विकल्प कैसे बने:</b> (a) 0.42 = F<sub>t</sub> ÷ F<sub>c</sub> – केवल शून्य रेक पर सही (तब F = F<sub>t</sub>, N = F<sub>c</sub>); (d) 1.56 = N ÷ F, उलटा; (c) निकट-भ्रामक मान।<br><b>अगला चरण (मर्चेंट):</b> φ = 45° + α/2 − β/2 = 45 + 5 − 16.3 ≈ 33.7°, फिर F<sub>s</sub> = F<sub>c</sub> cos φ − F<sub>t</sub> sin φ।<br><b>नोट्स उदाहरण:</b> α = 0 → सीधे F = F<sub>t</sub>, N = F<sub>c</sub>।"}},
+
+/* 24 */ {ans:0, lv:"p", tag:{en:"Tool wear",hi:"टूल घिसाव"},
+en:{q:"Growth of the flank wear land on a turning tool directly affects:",
+o:["the size and finish of the job","the colour of the chip only","the spindle speed of the machine","the rake angle of the tool"],
+e:"<b>Flank wear</b> is a flat wear land that grows on the <b>relief (flank) faces and the nose</b> (MPSC, Railway JE PYQs), mainly by <b>abrasion</b> from hard particles in the work rubbing the flank. As the land widens, the cutting edge recedes – the tool effectively moves away from the job, so the <b>job diameter grows (size changes)</b>; the wider rubbing area also raises friction, heat and force, causes chatter and spoils the <b>surface finish</b>.<br>That is why flank wear is the usual <b>criterion of tool life</b> – the tool is reground when the wear land reaches a set width (for example 0.3–0.6 mm), or when finish, size or power crosses its limit (Railway JE PYQ: tool life is over if any limit is crossed).<br><b>Why not the others:</b> chip colour may change with heat, but that is not the main effect; spindle speed and rake angle are set values that wear does not change directly.<br><b>Compare:</b> crater wear – rake face, diffusion, weakens the edge."},
+hi:{q:"टर्निंग टूल पर फ़्लैंक घिसाव पट्टी का बढ़ना सीधे प्रभावित करता है:",
+o:["जॉब का साइज़ और फ़िनिश","केवल चिप का रंग","मशीन की स्पिंडल गति","टूल का रेक कोण"],
+e:"<b>फ़्लैंक घिसाव</b> एक सपाट घिसाव पट्टी है जो <b>रिलीफ़ (फ़्लैंक) फ़ेस और नोज़</b> पर बढ़ती है (MPSC, रेलवे JE PYQ), मुख्यतः जॉब के कठोर कणों द्वारा फ़्लैंक पर रगड़ से <b>अपघर्षण</b>। पट्टी चौड़ी होने पर कटिंग धार पीछे हटती है – टूल प्रभावी रूप से जॉब से दूर जाता है, इसलिए <b>जॉब का व्यास बढ़ता (साइज़ बदलता)</b> है; अधिक रगड़ क्षेत्र घर्षण, ऊष्मा व बल भी बढ़ाता है, चैटर लाता है और <b>सतह फ़िनिश</b> बिगाड़ता है।<br>इसीलिए फ़्लैंक घिसाव <b>टूल जीवन का सामान्य मापदंड</b> है – घिसाव पट्टी तय चौड़ाई (जैसे 0.3–0.6 mm) तक पहुँचने, या फ़िनिश, साइज़ या शक्ति सीमा पार होने पर टूल दोबारा ग्राइंड होता है (रेलवे JE PYQ: कोई भी सीमा पार होने पर टूल जीवन समाप्त)।<br><b>अन्य क्यों नहीं:</b> ऊष्मा से चिप का रंग बदल सकता है, पर यह मुख्य प्रभाव नहीं; स्पिंडल गति और रेक कोण तय मान हैं जिन्हें घिसाव सीधे नहीं बदलता।<br><b>तुलना:</b> क्रेटर घिसाव – रेक फ़ेस, विसरण, धार कमज़ोर करता है।"}},
+
+/* 25 */ {ans:3, lv:"p", tag:{en:"Tool materials",hi:"टूल पदार्थ"},
+en:{q:"Cemented carbide tool tips are made by:",
+o:["casting molten tungsten carbide","forging tungsten steel bars","hardening high-carbon steel","sintering carbide powder with cobalt"],
+e:"<b>Cemented carbide</b> is a <b>powder-metallurgy</b> product: fine powders of tungsten carbide (with titanium or tantalum carbide for steel-cutting grades) are mixed with <b>cobalt</b> powder as the <b>binder</b> (NPSC, UKPSC PYQ: 'binding material in cemented carbide tools → cobalt'), pressed to shape and <b>sintered</b> at about 1400–1500 °C. The cobalt melts and 'cements' the hard carbide grains together. More cobalt → tougher but softer; less cobalt → harder but more brittle.<br>The tips are then <b>brazed</b> onto steel shanks or made as <b>indexable inserts</b> clamped mechanically; they are often coated (titanium nitride, aluminium oxide) for longer life.<br><b>Properties:</b> hot hardness up to about 1000 °C, high wear resistance, brittle – so negative rake and rigid set-ups are used.<br><b>Why not the others:</b> tungsten carbide cannot be cast into a useful tool; forging and hardening produce high-speed steel and carbon tool steel, not carbides."},
+hi:{q:"सीमेंटेड कार्बाइड टूल टिप किस प्रकार बनाए जाते हैं?",
+o:["पिघले टंगस्टन कार्बाइड को ढालकर","टंगस्टन स्टील छड़ें फ़ोर्ज करके","हाई-कार्बन स्टील को कठोर करके","कोबाल्ट सहित कार्बाइड पाउडर सिंटर कर"],
+e:"<b>सीमेंटेड कार्बाइड</b> एक <b>पाउडर-धातुकर्म</b> उत्पाद है: टंगस्टन कार्बाइड के बारीक पाउडर (स्टील-कटिंग ग्रेड में टाइटेनियम या टैंटलम कार्बाइड सहित) <b>बाइंडर</b> के रूप में <b>कोबाल्ट</b> पाउडर के साथ मिलाए जाते हैं (NPSC, UKPSC PYQ: 'सीमेंटेड कार्बाइड टूल में बंधक → कोबाल्ट'), आकार में दबाए जाते हैं और लगभग 1400–1500 °C पर <b>सिंटर</b> किए जाते हैं। कोबाल्ट पिघलकर कठोर कार्बाइड कणों को 'सीमेंट' करता है। अधिक कोबाल्ट → अधिक टफ़ पर नरम; कम कोबाल्ट → अधिक कठोर पर भंगुर।<br>टिप फिर स्टील शैंक पर <b>ब्रेज़</b> किए जाते हैं या यांत्रिक रूप से क्लैंप होने वाले <b>इंडेक्सेबल इंसर्ट</b> के रूप में बनते हैं; लंबे जीवन हेतु प्रायः कोटेड (टाइटेनियम नाइट्राइड, एल्युमिनियम ऑक्साइड)।<br><b>गुण:</b> लगभग 1000 °C तक गर्म कठोरता, अधिक घिसाव-प्रतिरोध, भंगुर – इसलिए ऋणात्मक रेक और दृढ़ सेट-अप।<br><b>अन्य क्यों नहीं:</b> टंगस्टन कार्बाइड को ढालकर उपयोगी टूल नहीं बनता; फ़ोर्जिंग व हार्डनिंग से हाई-स्पीड स्टील व कार्बन टूल स्टील बनते हैं, कार्बाइड नहीं।"}}
+];
+
+const LIMIT = 20*60;
+let lang = "en";
+let mode = "test";
+let picked = new Array(Q.length).fill(null);
+let showAll = false;
+let submitted = false;
+let autoSub = false;
+let left = LIMIT;
+let tick = null;
+const L = ["a","b","c","d"];
+const $ = id => document.getElementById(id);
+
+function fmt(t){ const m=Math.floor(t/60), s=t%60; return String(m).padStart(2,"0")+":"+String(s).padStart(2,"0"); }
+
+function startTimer(){
+  stopTimer();
+  if(mode!=="test" || submitted) return;
+  tick = setInterval(()=>{
+    left--;
+    if(left<=0){ left=0; autoSub=true; doSubmit(); return; }
+    paintTimer();
+  },1000);
+}
+function stopTimer(){ if(tick){clearInterval(tick); tick=null;} }
+function paintTimer(){
+  const t=$("timer"), u=UI[lang];
+  if(mode!=="test"){ t.classList.add("hidden"); return; }
+  t.classList.remove("hidden");
+  t.textContent = submitted ? u.taken+": "+fmt(LIMIT-left) : u.time+": "+fmt(left);
+  t.classList.toggle("low", !submitted && left<=120);
+}
+
+function isRevealed(i){ return mode==="practice" ? (picked[i]!==null || showAll) : submitted; }
+
+function render(){
+  const u = UI[lang];
+  document.documentElement.lang = lang;
+  $("title").textContent = u.title;
+  $("subtitle").textContent = u.sub;
+  $("rules").textContent = mode==="test" ? u.rules : u.rulesP;
+  $("foot").textContent = u.foot;
+  $("mTest").textContent = u.test; $("mPrac").textContent = u.prac;
+  $("mTest").setAttribute("aria-pressed", mode==="test");
+  $("mPrac").setAttribute("aria-pressed", mode==="practice");
+  $("bSubmit").textContent = u.submit;
+  $("bSubmit").classList.toggle("hidden", !(mode==="test" && !submitted));
+  $("bShow").textContent = showAll ? u.hide : u.show;
+  $("bShow").classList.toggle("hidden", mode!=="practice");
+  $("bReset").textContent = u.reset;
+  $("bEn").setAttribute("aria-pressed", lang==="en");
+  $("bHi").setAttribute("aria-pressed", lang==="hi");
+
+  let html = "";
+  Q.forEach((q,i)=>{
+    if(q.num && i>0 && !Q[i-1].num) html += `<div class="sec">${u.num}</div>`;
+    const d = q[lang], p = picked[i], rev = isRevealed(i);
+    const lvClass = q.lv==="t" ? "lv-t" : q.lv==="h" ? "lv-h" : "";
+    html += `<article class="q" id="q${i}">
+      <div class="qhead"><span class="qno">Q${i+1}.</span><span class="chip">${q.tag[lang]}</span><span class="chip ${lvClass}">${u.lv[q.lv]}</span></div>
+      <div class="qtext">${d.q}</div><div class="opts">`;
+    d.o.forEach((o,j)=>{
+      let cls = "opt";
+      if(rev && j===q.ans) cls += " right";
+      if(rev && p===j && p!==q.ans) cls += " wrong";
+      if(!rev && p===j) cls += " sel";
+      html += `<button class="${cls}" data-q="${i}" data-o="${j}" ${rev?"disabled":""} aria-pressed="${p===j}"><span class="l">(${L[j]})</span><span>${o}</span></button>`;
+    });
+    html += `</div>`;
+    if(rev){
+      let v = "";
+      if(p!==null) v = p===q.ans ? `<div>${u.right}</div>` : `<div class="verdict-bad">${u.yours}</div>`;
+      else if(mode==="test") v = `<div class="verdict-bad">${u.un}</div>`;
+      html += `<div class="ex">${v}<div class="ans">${u.ans}: (${L[q.ans]})</div>${d.e}</div>`;
+    }
+    html += `</article>`;
+  });
+  $("list").innerHTML = html;
+  stats(); paintTimer(); result();
+}
+
+function counts(){
+  let c=0,w=0,a=0;
+  picked.forEach((p,i)=>{ if(p!==null){a++; if(p===Q[i].ans)c++; else w++;} });
+  return {c,w,a,s:(c-w/3).toFixed(2)};
+}
+
+function stats(){
+  const u = UI[lang], k = counts();
+  const hide = mode==="test" && !submitted;
+  $("sAtt").textContent = `${u.att}: ${k.a}/${Q.length}`;
+  $("sC").textContent = `${u.c}: ${k.c}`;
+  $("sW").textContent = `${u.w}: ${k.w}`;
+  $("sS").textContent = `${u.s}: ${k.s}`;
+  ["sC","sW","sS"].forEach(id=>$(id).classList.toggle("hidden", hide));
+}
+
+function result(){
+  const box = $("result");
+  if(!(mode==="test" && submitted)){ box.innerHTML=""; return; }
+  const u = UI[lang], k = counts();
+  const acc = k.a ? Math.round(k.c*100/k.a) : 0;
+  box.innerHTML = `<section class="result" aria-live="polite">
+    <h2>${u.res}: ${k.s} / ${Q.length}</h2>
+    <div class="rgrid">
+      <div>${u.c}<b>${k.c}</b></div><div>${u.w}<b>${k.w}</b></div>
+      <div>${u.un}<b>${Q.length-k.a}</b></div><div>${u.acc}<b>${acc}%</b></div>
+      <div>${u.taken}<b>${fmt(LIMIT-left)}</b></div>
+    </div>
+    <p>${autoSub ? u.auto+" " : ""}${u.resNote}</p></section>`;
+}
+
+function doSubmit(){
+  submitted = true; stopTimer(); render();
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function resetAll(){
+  picked = new Array(Q.length).fill(null);
+  showAll=false; submitted=false; autoSub=false; left=LIMIT;
+  render(); startTimer(); window.scrollTo({top:0});
+}
+
+$("list").addEventListener("click", e=>{
+  const b = e.target.closest(".opt");
+  if(!b || b.disabled) return;
+  const i = +b.dataset.q, j = +b.dataset.o;
+  if(mode==="test"){ picked[i] = picked[i]===j ? null : j; }
+  else { if(picked[i]!==null) return; picked[i] = j; }
+  render();
+  const btn = document.querySelector(`#q${i} .opt[data-o="${j}"]`) || document.querySelector(`#q${i} .opt`);
+  if(btn) btn.focus({preventScroll:true});
+});
+$("bEn").onclick = ()=>{ lang="en"; render(); };
+$("bHi").onclick = ()=>{ lang="hi"; render(); };
+function setMode(m){
+  if(m===mode) return;
+  const dirty = picked.some(p=>p!==null) || submitted;
+  if(dirty && !confirm(UI[lang].cMode)) return;
+  mode = m; resetAll();
+}
+$("mTest").onclick = ()=>setMode("test");
+$("mPrac").onclick = ()=>setMode("practice");
+$("bSubmit").onclick = ()=>{ if(confirm(UI[lang].cSub)) doSubmit(); };
+$("bShow").onclick = ()=>{ showAll=!showAll; render(); };
+$("bReset").onclick = resetAll;
+
+function paintStart(){
+  const u=UI[lang];
+  $("stTitle").textContent=u.title;
+  $("stSub").textContent=u.stSub;
+  $("stTest").innerHTML=u.stT+"<small>"+u.stTs+"</small>";
+  $("stPrac").innerHTML=u.stP+"<small>"+u.stPs+"</small>";
+  $("stEn").setAttribute("aria-pressed",lang==="en");
+  $("stHi").setAttribute("aria-pressed",lang==="hi");
+}
+function begin(m){ mode=m; $("start").classList.add("hidden"); resetAll(); }
+$("stTest").onclick=()=>begin("test");
+$("stPrac").onclick=()=>begin("practice");
+$("stEn").onclick=()=>{ lang="en"; render(); paintStart(); };
+$("stHi").onclick=()=>{ lang="hi"; render(); paintStart(); };
+$("bEn").addEventListener("click",paintStart);
+$("bHi").addEventListener("click",paintStart);
+render(); paintStart(); $("stTest").focus();
+</script>
+</body>
+</html>
