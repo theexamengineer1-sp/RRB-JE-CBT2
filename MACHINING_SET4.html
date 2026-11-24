@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Machining Smart MCQ Set 4 – Cutting Fluids, Drilling, Shaper, Slotter & Planer | THE EXAM ENGINEER</title>
+<style>
+:root{
+  --navy:#12306b; --navy-deep:#0c2350; --orange:#f07f1a;
+  --bg:#f3f6fb; --card:#ffffff; --text:#16213a; --muted:#5b6782;
+  --line:#d9e0ec; --opt:#f7f9fd; --opt-hover:#eaf0fa;
+  --ok:#17803d; --ok-bg:#e6f6ec; --bad:#c0272d; --bad-bg:#fdecec;
+  --ex-bg:#fff7ee; --ex-line:#f3c58f; --chip:#e9eef8;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --navy:#2b4f9a; --navy-deep:#16264a; --orange:#ff9a3d;
+    --bg:#0f1524; --card:#18213a; --text:#e8edf8; --muted:#a3aec6;
+    --line:#2c3857; --opt:#1e2944; --opt-hover:#26345a;
+    --ok:#4cd17e; --ok-bg:#163a26; --bad:#ff6b70; --bad-bg:#3d1a1e;
+    --ex-bg:#2a2216; --ex-line:#6b4b22; --chip:#25304d;
+    color-scheme: dark;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:"Segoe UI","Noto Sans","Nirmala UI","Mangal",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  line-height:1.6;font-size:16px}
+header{background:var(--navy-deep);color:#fff;padding:22px 16px 18px}
+.wrap{max-width:860px;margin:0 auto}
+.brand{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand a{color:var(--orange);font-weight:700;text-decoration:none}
+.brand a:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.channel{font-weight:800;letter-spacing:.5px}
+h1{margin:14px 0 4px;font-size:clamp(1.4rem,4.5vw,2rem);line-height:1.2}
+.sub{margin:0;color:#c9d5ee;font-size:.95rem}
+.rules{margin-top:10px;font-size:.88rem;color:#c9d5ee}
+.bar{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:3px solid var(--orange);
+  box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.bar .wrap{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding:10px 16px}
+.seg{display:inline-flex;border:2px solid var(--navy);border-radius:999px;overflow:hidden}
+.seg button{border:0;background:transparent;color:var(--text);padding:6px 14px;font:inherit;font-weight:700;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--navy);color:#fff}
+.stats{display:flex;gap:12px;flex-wrap:wrap;font-size:.9rem;font-weight:600}
+.stats .c{color:var(--ok)} .stats .w{color:var(--bad)} .stats .s{color:var(--orange)}
+.tools button{border:1px solid var(--line);background:var(--opt);color:var(--text);border-radius:8px;
+  padding:6px 10px;font:inherit;font-size:.85rem;cursor:pointer}
+.tools button:hover{background:var(--opt-hover)}
+button:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+main{padding:18px 16px 40px}
+.q{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--navy);
+  border-radius:10px;padding:16px 16px 14px;margin:0 0 16px}
+.qhead{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.qno{font-weight:800;color:var(--navy)}
+@media (prefers-color-scheme: dark){.qno{color:#8fb0f5}}
+.chip{background:var(--chip);color:var(--muted);font-size:.75rem;font-weight:700;padding:2px 9px;border-radius:999px}
+.chip.lv-t{background:var(--bad-bg);color:var(--bad)}
+.chip.lv-h{background:var(--ex-bg);color:var(--orange)}
+.qtext{font-weight:600;margin:4px 0 12px}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;text-align:left;width:100%;border:1.5px solid var(--line);
+  background:var(--opt);color:var(--text);border-radius:8px;padding:9px 12px;font:inherit;cursor:pointer}
+.opt:hover:not(:disabled){background:var(--opt-hover)}
+.opt:disabled{cursor:default}
+.opt .l{font-weight:800;min-width:1.8em;color:var(--muted)}
+.opt.right{border-color:var(--ok);background:var(--ok-bg)}
+.opt.right .l{color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.opt.wrong .l{color:var(--bad)}
+.opt.sel{border-color:var(--navy);background:var(--opt-hover);box-shadow:inset 0 0 0 1px var(--navy)}
+.opt.sel .l{color:var(--navy)}
+@media (prefers-color-scheme: dark){.opt.sel .l{color:#8fb0f5}.opt.sel{border-color:#8fb0f5;box-shadow:inset 0 0 0 1px #8fb0f5}}
+.timer{font-variant-numeric:tabular-nums;font-weight:800}
+.timer.low{color:var(--bad)}
+.tools{display:flex;gap:6px;flex-wrap:wrap}
+.tools button.primary{background:var(--orange);border-color:var(--orange);color:#fff;font-weight:700}
+.tools button.primary:hover{filter:brightness(1.05);background:var(--orange)}
+.hidden{display:none !important}
+.result{background:var(--card);border:2px solid var(--orange);border-radius:12px;padding:16px;margin-bottom:18px}
+.result h2{margin:0 0 10px;font-size:1.2rem;color:var(--orange)}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+.rgrid div{background:var(--opt);border-radius:8px;padding:8px 10px}
+.rgrid b{display:block;font-size:1.3rem}
+.result p{margin:10px 0 0;color:var(--muted);font-size:.9rem}
+.start{position:fixed;inset:0;z-index:20;background:rgba(8,18,40,.78);display:flex;align-items:center;justify-content:center;padding:16px}
+.start .card{background:var(--card);color:var(--text);border-top:6px solid var(--orange);border-radius:14px;max-width:440px;width:100%;padding:22px 20px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.start h2{margin:0 0 6px;font-size:1.3rem;color:var(--navy)}
+@media (prefers-color-scheme: dark){.start h2{color:#8fb0f5}}
+.start p{margin:0 0 16px;color:var(--muted);font-size:.92rem}
+.start .big{display:block;width:100%;margin:10px 0;padding:14px;border-radius:10px;font:inherit;font-size:1.05rem;font-weight:800;cursor:pointer;border:2px solid var(--navy);background:var(--opt);color:var(--text)}
+.start .big.primary{background:var(--orange);border-color:var(--orange);color:#fff}
+.start .big small{display:block;font-weight:500;font-size:.82rem;opacity:.9;margin-top:2px}
+.start .seg{margin-top:10px}
+.ex{margin-top:12px;background:var(--ex-bg);border:1px solid var(--ex-line);border-radius:8px;padding:12px 14px;font-size:.95rem}
+.ex .ans{font-weight:800;color:var(--ok);margin-bottom:4px}
+.ex .verdict-bad{color:var(--bad)}
+.sec{margin:24px 0 12px;font-weight:800;color:var(--orange);font-size:1.05rem;border-bottom:2px solid var(--line);padding-bottom:4px}
+footer{text-align:center;color:var(--muted);font-size:.82rem;padding:10px 16px 30px}
+footer a{color:var(--orange)}
+@media (prefers-reduced-motion: no-preference){.ex{animation:show .25s ease-out}
+  @keyframes show{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}}
+</style>
+</head>
+<body>
+<div class="start" id="start" role="dialog" aria-modal="true" aria-labelledby="stTitle">
+  <div class="card">
+    <h2 id="stTitle"></h2>
+    <p id="stSub"></p>
+    <button class="big primary" id="stTest"></button>
+    <button class="big" id="stPrac"></button>
+    <div class="seg" role="group" aria-label="Language">
+      <button id="stEn" aria-pressed="true">English</button>
+      <button id="stHi" aria-pressed="false">हिंदी</button>
+    </div>
+  </div>
+</div>
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <span class="channel">THE EXAM ENGINEER</span>
+      <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a>
+    </div>
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+    <p class="rules" id="rules"></p>
+  </div>
+</header>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="seg" role="group" aria-label="Language">
+      <button id="bEn" aria-pressed="true">English</button>
+      <button id="bHi" aria-pressed="false">हिंदी</button>
+    </div>
+    <div class="seg" role="group" aria-label="Mode">
+      <button id="mTest" aria-pressed="true"></button>
+      <button id="mPrac" aria-pressed="false"></button>
+    </div>
+    <div class="stats" aria-live="polite">
+      <span class="timer" id="timer"></span>
+      <span id="sAtt"></span><span class="c" id="sC"></span><span class="w" id="sW"></span><span class="s" id="sS"></span>
+    </div>
+    <div class="tools">
+      <button id="bSubmit" class="primary"></button>
+      <button id="bShow"></button>
+      <button id="bReset"></button>
+    </div>
+  </div>
+</div>
+
+<main><div class="wrap"><div id="result"></div><div id="list"></div></div></main>
+
+<footer>
+  <div id="foot"></div>
+  <div>© 2026 THE EXAM ENGINEER · <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a> · theexamengineer1@gmail.com</div>
+  <div>SSC JE AIR 14 · RRB JE 2025 (DMS)</div>
+</footer>
+
+<script>
+const UI = {
+  en:{title:"Machining Smart MCQ – Set 4",
+      sub:"Cutting Fluids, Drilling & Hole-making, Shaper, Slotter & Planer · RRB JE CBT-2 (Mechanical & Allied) · RRB JE PYQ based",
+      rules:"25 questions · 20 minutes (RRB CBT-2 pace: 150 Qs in 120 min) · +1 correct, −1/3 wrong",
+      stT:"Start Test",stTs:"20 minutes · timer · submit · full result",stP:"Practice Mode",stPs:"no timer · answer and explanation instantly",stSub:"Choose how you want to attempt this set",
+      rulesP:"Practice mode · no timer · tap an option to see the answer with full explanation instantly",
+      test:"Test",prac:"Practice",submit:"Submit test",time:"Time left",
+      cSub:"Submit the test now? You cannot change answers after submitting.",
+      cMode:"Switching mode will reset your current attempt. Continue?",
+      res:"Your result",un:"Not attempted",taken:"Time taken",acc:"Accuracy",auto:"Time over – test submitted automatically.",
+      resNote:"Answers and full explanations are now shown below each question. Read the explanation of every wrong and unattempted question.",
+      att:"Attempted",c:"Correct",w:"Wrong",s:"Score",show:"Show all answers",hide:"Hide unattempted answers",reset:"Reset",
+      ans:"Correct answer",yours:"Your answer is wrong.",right:"Your answer is correct.",num:"Simple numericals",
+      lv:{e:"Easy",p:"PYQ level",h:"Higher",t:"Tough"},
+      foot:"Original work, free for personal study. Share as it is with the channel link – no re-branding."},
+  hi:{title:"मशीनिंग स्मार्ट MCQ – सेट 4",
+      sub:"कटिंग फ़्लूइड, ड्रिलिंग एवं होल-निर्माण, शेपर, स्लॉटर एवं प्लेनर · RRB JE CBT-2 (मैकेनिकल एवं संबद्ध) · RRB JE PYQ आधारित",
+      rules:"25 प्रश्न · 20 मिनट (RRB CBT-2 गति: 120 मिनट में 150 प्रश्न) · सही +1, गलत −1/3",
+      stT:"टेस्ट शुरू करें",stTs:"20 मिनट · टाइमर · सबमिट · पूरा परिणाम",stP:"प्रैक्टिस मोड",stPs:"कोई टाइमर नहीं · उत्तर व व्याख्या तुरंत",stSub:"यह सेट कैसे हल करना है, चुनें",
+      rulesP:"प्रैक्टिस मोड · कोई टाइमर नहीं · विकल्प पर टैप करें, उत्तर और पूरी व्याख्या तुरंत दिखेगी",
+      test:"टेस्ट",prac:"प्रैक्टिस",submit:"टेस्ट सबमिट करें",time:"शेष समय",
+      cSub:"क्या अभी टेस्ट सबमिट करें? सबमिट के बाद उत्तर नहीं बदल सकेंगे।",
+      cMode:"मोड बदलने पर आपका वर्तमान प्रयास रीसेट हो जाएगा। जारी रखें?",
+      res:"आपका परिणाम",un:"बिना प्रयास",taken:"लिया गया समय",acc:"सटीकता",auto:"समय समाप्त – टेस्ट स्वतः सबमिट हो गया।",
+      resNote:"अब हर प्रश्न के नीचे उत्तर और पूरी व्याख्या दिख रही है। हर गलत और बिना प्रयास वाले प्रश्न की व्याख्या ज़रूर पढ़ें।",
+      att:"प्रयास",c:"सही",w:"गलत",s:"स्कोर",show:"सभी उत्तर दिखाएँ",hide:"बिना प्रयास वाले उत्तर छिपाएँ",reset:"रीसेट",
+      ans:"सही उत्तर",yours:"आपका उत्तर गलत है।",right:"आपका उत्तर सही है।",num:"सरल न्यूमेरिकल",
+      lv:{e:"आसान",p:"PYQ स्तर",h:"उच्च",t:"कठिन"},
+      foot:"मौलिक कार्य, व्यक्तिगत अध्ययन हेतु निःशुल्क। चैनल लिंक सहित जैसा है वैसा ही शेयर करें – री-ब्रांडिंग नहीं।"}
+};
+
+const Q = [
+/* 1 */ {ans:3, lv:"e", tag:{en:"Cutting fluids",hi:"कटिंग फ़्लूइड"},
+en:{q:"Which of the following is NOT a function of a cutting fluid?",
+o:["cooling the tool and work","washing away chips","protecting against rust","raising chip–tool friction"],
+e:"A cutting fluid is meant to <b>reduce</b> friction, not raise it. Its functions:<br>• <b>cools</b> the tool, chip and work – longer tool life, better dimensional accuracy (less thermal expansion);<br>• <b>lubricates</b> the chip–tool and tool–work interfaces – lower friction and force, less built-up edge, better finish (RRB-CBT2 Apr'25-II: coolants decrease adhesion between chip and tool);<br>• <b>washes away chips</b> from the cutting zone;<br>• <b>protects</b> the job and machine against rust;<br>• reduces power consumption and tool wear.<br><b>PYQs:</b> 'which is not a function of a cutting fluid → abrasion of the workpiece' (BPSC 2017); 'main function of cutting fluid → all – lubrication, cooling, washing away chips' (KRCL 2017).<br><b>Drawbacks of fluids:</b> cost of supply and filtration, disposal, skin problems (dermatitis) if mishandled."},
+hi:{q:"निम्न में से कौन-सा कटिंग फ़्लूइड का कार्य नहीं है?",
+o:["टूल और जॉब को ठंडा करना","चिप को बहाकर हटाना","जंग से सुरक्षा देना","चिप–टूल घर्षण बढ़ाना"],
+e:"कटिंग फ़्लूइड घर्षण <b>घटाने</b> के लिए है, बढ़ाने के लिए नहीं। इसके कार्य:<br>• टूल, चिप व जॉब को <b>ठंडा</b> करना – अधिक टूल जीवन, बेहतर आयामी सटीकता (कम तापीय प्रसार);<br>• चिप–टूल व टूल–जॉब इंटरफ़ेस को <b>स्नेहन</b> – कम घर्षण व बल, कम बिल्ट-अप एज, बेहतर फ़िनिश (RRB-CBT2 Apr'25-II: कूलेंट चिप–टूल आसंजन घटाते हैं);<br>• कटिंग क्षेत्र से <b>चिप बहाना</b>;<br>• जॉब व मशीन को जंग से <b>बचाना</b>;<br>• शक्ति खपत व टूल घिसाव घटाना।<br><b>PYQ:</b> 'कटिंग फ़्लूइड का कार्य नहीं → जॉब का अपघर्षण' (BPSC 2017); 'कटिंग फ़्लूइड का मुख्य कार्य → सभी – स्नेहन, ठंडा करना, चिप बहाना' (KRCL 2017)।<br><b>फ़्लूइड की कमियाँ:</b> आपूर्ति व छनन की लागत, निपटान, गलत प्रयोग से त्वचा रोग (डर्मेटाइटिस)।"}},
+
+/* 2 */ {ans:0, lv:"h", tag:{en:"Cutting fluids · scenario",hi:"कटिंग फ़्लूइड · परिस्थिति"},
+en:{q:"Tapping and broaching tough alloy steel are done at low speeds, where finish and tool wear depend on preventing chip–tool welding. The fluid chosen should mainly provide:",
+o:["lubrication with extreme-pressure oil","maximum cooling from plain water alone","only a strong blast of compressed air","no fluid, as low speed makes no heat"],
+e:"<b>Rule:</b> at <b>high speed</b> (turning, milling) heat is the main problem, so <b>cooling</b> matters most; at <b>low speed</b> (broaching, tapping, threading, reaming) the chip presses hard on the tool for a long time, so <b>lubrication</b> matters most – it prevents chip–tool welding (built-up edge), tearing of the surface and rapid wear of costly tools.<br>For tough alloy steels the best choice is a <b>neat (straight) mineral oil with extreme-pressure additives</b> – sulphurised or chlorinated oil – which forms protective films under very high pressure (Railway SSE PYQ: 'cutting fluid mostly used for machining alloy steel → sulphurised mineral oil').<br><b>Why not the others:</b> plain water cools but hardly lubricates and causes rust; compressed air only cools and blows chips; low speed still generates heat and very high pressure.<br><b>Fluid reaches the interface</b> mainly by capillary action between chip and tool."},
+hi:{q:"कठोर मिश्र-धातु स्टील की टैपिंग और ब्रोचिंग कम गति पर होती है, जहाँ फ़िनिश व टूल घिसाव चिप–टूल वेल्डिंग रोकने पर निर्भर है। चुना गया फ़्लूइड मुख्यतः देना चाहिए:",
+o:["एक्सट्रीम-प्रेशर योजकों सहित स्नेहन","सादे पानी से अधिकतम ठंडक","केवल संपीडित वायु का झोंका","कोई फ़्लूइड नहीं, कम गति पर ऊष्मा नहीं"],
+e:"<b>नियम:</b> <b>उच्च गति</b> (टर्निंग, मिलिंग) पर ऊष्मा मुख्य समस्या है, इसलिए <b>ठंडक</b> सबसे महत्वपूर्ण; <b>कम गति</b> (ब्रोचिंग, टैपिंग, थ्रेडिंग, रीमिंग) पर चिप लंबे समय तक टूल पर ज़ोर से दबती है, इसलिए <b>स्नेहन</b> सबसे महत्वपूर्ण – यह चिप–टूल वेल्डिंग (बिल्ट-अप एज), सतह फटने और महँगे टूलों के तेज़ घिसाव को रोकता है।<br>कठोर मिश्र-धातु स्टील हेतु सर्वोत्तम विकल्प <b>एक्सट्रीम-प्रेशर योजकों वाला सीधा (नीट) खनिज तेल</b> – सल्फ़राइज़्ड या क्लोरिनेटेड तेल – जो बहुत अधिक दाब में सुरक्षा परत बनाता है (रेलवे SSE PYQ: 'मिश्र-धातु स्टील मशीनिंग हेतु अधिकतर → सल्फ़राइज़्ड खनिज तेल')।<br><b>अन्य क्यों नहीं:</b> सादा पानी ठंडा करता है पर लगभग स्नेहन नहीं देता और जंग लगाता है; संपीडित वायु केवल ठंडा करती व चिप उड़ाती है; कम गति पर भी ऊष्मा व बहुत अधिक दाब बनता है।<br><b>फ़्लूइड इंटरफ़ेस तक</b> मुख्यतः चिप व टूल के बीच केशिका क्रिया से पहुँचता है।"}},
+
+/* 3 */ {ans:2, lv:"e", tag:{en:"Twist drill",hi:"ट्विस्ट ड्रिल"},
+en:{q:"For drilling hard steel, the point angle of a twist drill is usually made:",
+o:["about 90°","about 60°","about 135°","about 118°"],
+e:"The <b>standard point angle of 118°</b> suits general work in mild steel and cast iron (Railway SSE, GPSC PYQs). It is changed for other materials:<br>• <b>hard and tough materials</b> (hard steels, stainless steel, manganese steel) → <b>larger point angle, about 130–140°</b> – a blunter, stronger point with a shorter cutting lip that withstands the high load and heat;<br>• <b>soft materials and plastics</b> → smaller angle, about 60–90°, for easier penetration;<br>• brass → about 118° with zero rake ground on the lips.<br><b>Trap:</b> 118° is the 'standard' answer – but the question asks for hard steel.<br><b>Other drill angles:</b> helix ≈ 30° (NPSC PYQ), lip clearance 8–12°, chisel-edge angle 120–135° (MECON PYQ)."},
+hi:{q:"कठोर स्टील ड्रिल करने हेतु ट्विस्ट ड्रिल का पॉइंट कोण सामान्यतः रखा जाता है:",
+o:["लगभग 90°","लगभग 60°","लगभग 135°","लगभग 118°"],
+e:"<b>मानक पॉइंट कोण 118°</b> माइल्ड स्टील व कास्ट आयरन के सामान्य कार्य हेतु है (रेलवे SSE, GPSC PYQ)। अन्य पदार्थों हेतु बदला जाता है:<br>• <b>कठोर व टफ़ पदार्थ</b> (कठोर स्टील, स्टेनलेस स्टील, मैंगनीज़ स्टील) → <b>बड़ा पॉइंट कोण, लगभग 130–140°</b> – भोथरा, मज़बूत सिरा और छोटा कटिंग लिप जो अधिक भार व ऊष्मा सह सके;<br>• <b>नरम पदार्थ व प्लास्टिक</b> → छोटा कोण, लगभग 60–90°, आसान प्रवेश हेतु;<br>• पीतल → लगभग 118°, लिप पर शून्य रेक।<br><b>ट्रैप:</b> 118° 'मानक' उत्तर है – पर प्रश्न कठोर स्टील का है।<br><b>ड्रिल के अन्य कोण:</b> हेलिक्स ≈ 30° (NPSC PYQ), लिप क्लीयरेंस 8–12°, चिज़ल-एज कोण 120–135° (MECON PYQ)।"}},
+
+/* 4 */ {ans:1, lv:"p", tag:{en:"Drilling machines · scenario",hi:"ड्रिलिंग मशीन · परिस्थिति"},
+en:{q:"A heavy cast-iron gearbox housing needs holes at many positions on its top face, and moving the job is difficult. The most suitable machine is:",
+o:["sensitive bench drill","radial drilling machine","gang drilling machine","pillar drilling machine"],
+e:"In a <b>radial drilling machine</b> the drill head slides along a long <b>radial arm</b>, the arm swings about a vertical column and can be raised or lowered. So the drill can be brought to <b>any point over a large, heavy job</b> while the job stays clamped in one place – ideal for big castings, housings and frames (ESE 2020 PYQ: 'heavy workpieces can be machined in any position without moving them'; HPPSC PYQ: 'most versatile drilling machine → radial').<br><b>Why not the others:</b> a <b>sensitive</b> (bench) drill is hand-fed for small holes up to about 12.5 mm in light jobs (RRB-CBT2 Apr'25-I concept); a <b>gang</b> drill has several fixed spindles in a row for a sequence of operations; a <b>pillar</b> drill has a fixed head – the job must be moved under it for each hole.<br><b>Others:</b> multi-spindle – many holes at once in mass production; deep-hole (gun) drill – long straight holes with coolant through the drill."},
+hi:{q:"भारी कास्ट-आयरन गियरबॉक्स हाउसिंग की ऊपरी सतह पर कई स्थानों पर होल चाहिए, और जॉब को हिलाना कठिन है। सबसे उपयुक्त मशीन है:",
+o:["सेंसिटिव बेंच ड्रिल","रेडियल ड्रिलिंग मशीन","गैंग ड्रिलिंग मशीन","पिलर ड्रिलिंग मशीन"],
+e:"<b>रेडियल ड्रिलिंग मशीन</b> में ड्रिल हेड लंबी <b>रेडियल आर्म</b> पर खिसकता है, आर्म ऊर्ध्व कॉलम पर घूमती है और ऊपर-नीचे हो सकती है। इसलिए जॉब एक जगह क्लैंप रहते हुए ड्रिल को <b>बड़े, भारी जॉब के किसी भी बिंदु</b> तक लाया जा सकता है – बड़ी कास्टिंग, हाउसिंग व फ्रेम हेतु आदर्श (ESE 2020 PYQ: 'भारी जॉब को बिना हिलाए किसी भी स्थिति में मशीन'; HPPSC PYQ: 'सबसे बहुमुखी ड्रिलिंग मशीन → रेडियल')।<br><b>अन्य क्यों नहीं:</b> <b>सेंसिटिव</b> (बेंच) ड्रिल हल्के जॉब में लगभग 12.5 mm तक के छोटे होल हेतु हाथ फ़ीड (RRB-CBT2 Apr'25-I अवधारणा); <b>गैंग</b> ड्रिल में संक्रियाओं के क्रम हेतु एक पंक्ति में कई स्थिर स्पिंडल; <b>पिलर</b> ड्रिल का हेड स्थिर – हर होल हेतु जॉब उसके नीचे खिसकाना पड़ता है।<br><b>अन्य:</b> मल्टी-स्पिंडल – बड़े उत्पादन में एक साथ कई होल; डीप-होल (गन) ड्रिल – ड्रिल से होकर कूलेंट, लंबे सीधे होल।"}},
+
+/* 5 */ {ans:1, lv:"h", tag:{en:"Fluids for metals · scenario",hi:"धातु अनुसार फ़्लूइड · परिस्थिति"},
+en:{q:"A shop machining bronze bushes switches to a sulphurised cutting oil and finds dark stains on the parts. The reason is:",
+o:["sulphurised oil has too low a flash point","sulphur reacts with copper and stains it","bronze absorbs the oil into its pores","the oil cools the bronze too quickly"],
+e:"Sulphurised (and active chlorinated) oils contain free sulphur that reacts with <b>copper</b> at cutting temperatures to form dark copper sulphide – the parts are <b>stained and corroded</b>. So for <b>yellow metals</b> (brass, bronze, copper) and free-cutting steels, use <b>water-soluble oil</b> (RRB-CBT2 Apr'25-I concept) or an inactive (non-staining) mineral oil – never active sulphurised oil.<br><b>Fluid by work material:</b> mild/carbon steel – soluble oil (best all-round) · tough alloy steel – sulphurised mineral oil · aluminium – kerosene, kerosene + mineral oil, or soda water (RRB-CBT2 Jul'26; KRCL PYQ) · cast iron – dry or compressed air · brass, bronze – soluble oil or dry · grinding – oil-in-water emulsion.<br><b>Why not the others:</b> flash point affects fire risk, not staining; bronze bushes are not porous castings in this sense; cooling rate does not discolour metal."},
+hi:{q:"कांस्य (bronze) बुश मशीन करने वाली शॉप सल्फ़राइज़्ड कटिंग तेल पर जाती है और पुर्ज़ों पर गहरे दाग पाती है। कारण है:",
+o:["सल्फ़राइज़्ड तेल का फ़्लैश पॉइंट बहुत कम है","सल्फ़र कॉपर से क्रिया कर दाग लगाता है","कांस्य तेल को अपने छिद्रों में सोख लेता है","तेल कांस्य को बहुत जल्दी ठंडा कर देता है"],
+e:"सल्फ़राइज़्ड (और सक्रिय क्लोरिनेटेड) तेलों में मुक्त सल्फ़र होता है जो कटिंग तापमान पर <b>कॉपर</b> से क्रिया कर गहरा कॉपर सल्फ़ाइड बनाता है – पुर्ज़ों पर <b>दाग व संक्षारण</b>। इसलिए <b>पीली धातुओं</b> (पीतल, कांस्य, कॉपर) और फ़्री-कटिंग स्टील हेतु <b>जल-घुलनशील तेल</b> (RRB-CBT2 Apr'25-I अवधारणा) या निष्क्रिय (दाग न लगाने वाला) खनिज तेल – कभी सक्रिय सल्फ़राइज़्ड तेल नहीं।<br><b>जॉब पदार्थ अनुसार फ़्लूइड:</b> माइल्ड/कार्बन स्टील – सॉल्युबल तेल (सर्वश्रेष्ठ) · कठोर मिश्र-धातु स्टील – सल्फ़राइज़्ड खनिज तेल · एल्युमिनियम – केरोसिन, केरोसिन + खनिज तेल, या सोडा वाटर (RRB-CBT2 Jul'26; KRCL PYQ) · कास्ट आयरन – सूखा या संपीडित वायु · पीतल, कांस्य – सॉल्युबल तेल या सूखा · ग्राइंडिंग – तेल-जल इमल्शन।<br><b>अन्य क्यों नहीं:</b> फ़्लैश पॉइंट आग के जोखिम से जुड़ा है, दाग से नहीं; ये बुश उस अर्थ में छिद्रयुक्त कास्टिंग नहीं; ठंडक की दर धातु का रंग नहीं बदलती।"}},
+
+/* 6 */ {ans:0, lv:"p", tag:{en:"Numerical – quick return",hi:"न्यूमेरिकल – क्विक रिटर्न"},
+en:{q:"A shaper has a cutting-to-return time ratio of 3 : 2. The fraction of each cycle spent cutting is:",
+o:["0.6","0.4","1.5","0.67"],
+e:"Each cycle = cutting stroke + return stroke = 3 + 2 = 5 parts.<br>Fraction cutting = 3 ÷ 5 = <b>0.6</b> (60 % of the time); the return stroke takes 0.4.<br><b>Distractor check:</b> (b) 0.4 is the return fraction; (c) 1.5 is the ratio 3/2 itself; (d) 0.67 is 2/3.<br><b>Quick-return mechanism</b> (crank and slotted lever, Whitworth, or hydraulic) makes the idle return stroke faster than the cutting stroke, saving time (Railway SSE PYQ: quick return is used in a shaping machine). The usual cutting : return ratio is about 3 : 2 (Railway JE PYQ).<br><b>Crank and slotted lever:</b> cutting time : return time = angle turned by the crank during cutting (α) ÷ angle during return (β), with α + β = 360° – e.g. 216° : 144° = 3 : 2.<br><b>Shaper speed formula:</b> V = N<sub>s</sub> L (1 + m) ÷ 1000, where m = return time ÷ cutting time."},
+hi:{q:"एक शेपर में कटिंग और रिटर्न समय का अनुपात 3 : 2 है। प्रत्येक चक्र में कटिंग में बीतने वाला अंश है:",
+o:["0.6","0.4","1.5","0.67"],
+e:"प्रत्येक चक्र = कटिंग स्ट्रोक + रिटर्न स्ट्रोक = 3 + 2 = 5 भाग।<br>कटिंग अंश = 3 ÷ 5 = <b>0.6</b> (60 % समय); रिटर्न स्ट्रोक 0.4।<br><b>गलत विकल्प कैसे बने:</b> (b) 0.4 रिटर्न अंश है; (c) 1.5 स्वयं 3/2 अनुपात है; (d) 0.67 = 2/3।<br><b>क्विक-रिटर्न तंत्र</b> (क्रैंक व स्लॉटेड लीवर, व्हिटवर्थ, या हाइड्रॉलिक) निष्क्रिय रिटर्न स्ट्रोक को कटिंग स्ट्रोक से तेज़ बनाकर समय बचाता है (रेलवे SSE PYQ: क्विक रिटर्न → शेपिंग मशीन)। सामान्य कटिंग : रिटर्न अनुपात लगभग 3 : 2 (रेलवे JE PYQ)।<br><b>क्रैंक व स्लॉटेड लीवर:</b> कटिंग समय : रिटर्न समय = कटिंग में क्रैंक का घूमा कोण (α) ÷ रिटर्न में कोण (β), α + β = 360° – जैसे 216° : 144° = 3 : 2।<br><b>शेपर गति सूत्र:</b> V = N<sub>s</sub> L (1 + m) ÷ 1000, जहाँ m = रिटर्न समय ÷ कटिंग समय।"}},
+
+/* 7 */ {ans:3, lv:"p", tag:{en:"Types of cutting fluid",hi:"कटिंग फ़्लूइड के प्रकार"},
+en:{q:"Which cutting fluid gives the best lubrication but the poorest cooling?",
+o:["soluble-oil emulsion","synthetic fluid","plain water","straight mineral oil"],
+e:"<b>Four types of cutting fluid:</b><br><b>Straight (neat) oils</b> – mineral or fatty oils, often with extreme-pressure additives, used undiluted: <b>best lubrication, poorest cooling</b> (oil has about half the specific heat of water) – for low-speed, heavy-pressure work like broaching, tapping, gear cutting.<br><b>Soluble oils</b> – oil + emulsifier mixed with water (about 1 : 20) to form a milky emulsion: <b>good cooling and fair lubrication</b>, cheapest and most widely used (DMRC, OPSC PYQ: 'best all-round coolant → soluble oil').<br><b>Synthetic fluids</b> – no petroleum oil; chemicals in water: <b>best cooling</b>, clean, with corrosion inhibitors.<br><b>Semi-synthetic</b> – a blend, properties in between.<br><b>Plain water</b> – excellent cooling but almost no lubrication, poor wetting (high surface tension – RRB-CBT2 Jul'26) and rusting."},
+hi:{q:"कौन-सा कटिंग फ़्लूइड सबसे अच्छा स्नेहन पर सबसे कम ठंडक देता है?",
+o:["सॉल्युबल-ऑयल इमल्शन","सिंथेटिक फ़्लूइड","सादा पानी","सीधा खनिज तेल"],
+e:"<b>कटिंग फ़्लूइड के चार प्रकार:</b><br><b>सीधे (नीट) तेल</b> – खनिज या वसीय तेल, प्रायः एक्सट्रीम-प्रेशर योजकों सहित, बिना मिलाए: <b>सर्वश्रेष्ठ स्नेहन, सबसे कम ठंडक</b> (तेल की विशिष्ट ऊष्मा पानी की लगभग आधी) – ब्रोचिंग, टैपिंग, गियर कटिंग जैसे कम गति, अधिक दाब कार्य हेतु।<br><b>सॉल्युबल तेल</b> – तेल + इमल्सीफ़ायर, पानी में (लगभग 1 : 20) मिलाकर दूधिया इमल्शन: <b>अच्छी ठंडक व ठीक-ठाक स्नेहन</b>, सबसे सस्ता व सर्वाधिक प्रयुक्त (DMRC, OPSC PYQ: 'सर्वश्रेष्ठ ऑल-राउंड कूलेंट → सॉल्युबल तेल')।<br><b>सिंथेटिक फ़्लूइड</b> – पेट्रोलियम तेल नहीं; पानी में रसायन: <b>सर्वश्रेष्ठ ठंडक</b>, साफ़, संक्षारण-रोधकों सहित।<br><b>सेमी-सिंथेटिक</b> – मिश्रण, गुण बीच में।<br><b>सादा पानी</b> – उत्कृष्ट ठंडक पर लगभग स्नेहन नहीं, खराब गीलापन (उच्च पृष्ठ तनाव – RRB-CBT2 Jul'26) और जंग।"}},
+
+/* 8 */ {ans:2, lv:"p", tag:{en:"Drilling machines · scenario",hi:"ड्रिलिंग मशीन · परिस्थिति"},
+en:{q:"A production line must drill, ream and then tap the same hole on each part, one after another, without changing tools. The machine best suited is:",
+o:["sensitive drilling machine","radial drilling machine","gang drilling machine","deep-hole drilling machine"],
+e:"A <b>gang drilling machine</b> has <b>several spindles mounted side by side on one long table</b>, each with its own drive and a different tool – for example drill, reamer, counterbore and tap. The job is slid from one spindle to the next, so a <b>sequence of operations</b> is done without changing tools – ideal for batch production (TSPSC, JPSC PYQ: 'drilling, reaming, counterboring on a workpiece → gang drilling machine'; SSC JE).<br><b>Don't confuse with multi-spindle:</b> a multi-spindle drill has many spindles driven from one head to drill <b>many holes at the same time</b> in one part.<br><b>Why not the others:</b> a sensitive drill has one spindle for small holes; a radial drill is for large, heavy jobs; a deep-hole drill is for long, straight holes."},
+hi:{q:"एक उत्पादन लाइन को हर पुर्ज़े पर एक ही होल को एक के बाद एक ड्रिल, रीम और फिर टैप करना है, बिना टूल बदले। सबसे उपयुक्त मशीन है:",
+o:["सेंसिटिव ड्रिलिंग मशीन","रेडियल ड्रिलिंग मशीन","गैंग ड्रिलिंग मशीन","डीप-होल ड्रिलिंग मशीन"],
+e:"<b>गैंग ड्रिलिंग मशीन</b> में <b>एक लंबी टेबल पर अगल-बगल कई स्पिंडल</b> होते हैं, हर एक की अपनी ड्राइव और अलग टूल – जैसे ड्रिल, रीमर, काउंटरबोर और टैप। जॉब को एक स्पिंडल से अगले तक खिसकाया जाता है, इसलिए बिना टूल बदले <b>संक्रियाओं का क्रम</b> पूरा होता है – बैच उत्पादन हेतु आदर्श (TSPSC, JPSC PYQ: 'जॉब पर ड्रिलिंग, रीमिंग, काउंटरबोरिंग → गैंग ड्रिलिंग मशीन'; SSC JE)।<br><b>मल्टी-स्पिंडल से भ्रमित न हों:</b> मल्टी-स्पिंडल ड्रिल में एक हेड से चलने वाले कई स्पिंडल एक पुर्ज़े में <b>एक साथ कई होल</b> बनाते हैं।<br><b>अन्य क्यों नहीं:</b> सेंसिटिव ड्रिल में छोटे होल हेतु एक स्पिंडल; रेडियल ड्रिल बड़े, भारी जॉब हेतु; डीप-होल ड्रिल लंबे, सीधे होल हेतु।"}},
+
+/* 9 */ {ans:0, lv:"e", tag:{en:"Hole operations",hi:"होल संक्रियाएँ"},
+en:{q:"A cone-shaped enlargement at the mouth of a hole, so that a flat-head screw sits flush, is made by:",
+o:["countersinking","counterboring","spot facing","reaming"],
+e:"<b>Countersinking</b> makes a <b>cone-shaped</b> enlargement at the end of a hole (usually 82° or 90° included angle) so that a flat (countersunk) head screw or rivet sits flush with the surface (GPSC, HPPSC PYQ).<br><b>Look-alikes:</b> <b>counterboring</b> – a <b>flat-bottomed, cylindrical</b> step to seat socket-head (Allen) screws and bolt heads below the surface (Railway SSE PYQ); <b>spot facing</b> – a shallow, smooth, flat seat square to the hole for a nut, washer or bolt head on a rough surface (RRB-CBT2 2019); <b>reaming</b> – sizing and finishing the whole hole (best accuracy).<br><b>Memory:</b> cone → countersink · flat step → counterbore · shallow flat seat → spot face · size and finish → ream."},
+hi:{q:"होल के मुँह पर शंक्वाकार विस्तार, ताकि फ़्लैट-हेड स्क्रू सतह के बराबर बैठे, बनाया जाता है:",
+o:["काउंटरसिंकिंग से","काउंटरबोरिंग से","स्पॉट फ़ेसिंग से","रीमिंग से"],
+e:"<b>काउंटरसिंकिंग</b> होल के सिरे पर <b>शंक्वाकार</b> विस्तार (सामान्यतः 82° या 90° सम्मिलित कोण) बनाती है ताकि फ़्लैट (काउंटरसंक) हेड स्क्रू या रिवेट सतह के बराबर बैठे (GPSC, HPPSC PYQ)।<br><b>मिलते-जुलते:</b> <b>काउंटरबोरिंग</b> – सॉकेट-हेड (एलन) स्क्रू व बोल्ट हेड को सतह से नीचे बैठाने हेतु <b>सपाट-तल, बेलनाकार</b> सीढ़ी (रेलवे SSE PYQ); <b>स्पॉट फ़ेसिंग</b> – खुरदरी सतह पर नट, वॉशर या बोल्ट हेड हेतु होल के लंबवत उथली, चिकनी, सपाट सीट (RRB-CBT2 2019); <b>रीमिंग</b> – पूरे होल का साइज़ व फ़िनिश (सर्वोत्तम सटीकता)।<br><b>याद रखें:</b> शंकु → काउंटरसिंक · सपाट सीढ़ी → काउंटरबोर · उथली सपाट सीट → स्पॉट फ़ेस · साइज़ व फ़िनिश → रीम।"}},
+
+/* 10 */ {ans:3, lv:"h", tag:{en:"Cutting oil additives",hi:"कटिंग तेल योजक"},
+en:{q:"Extreme-pressure additives such as sulphur, chlorine and phosphorus are added to neat cutting oils to:",
+o:["raise the specific heat of the oil","make the oil mix easily with water","give the oil a pleasant colour","form films that stop chip–tool welding"],
+e:"Under the very high pressure and temperature at the chip–tool contact, an ordinary oil film is squeezed out and metal-to-metal welding begins. <b>Extreme-pressure (EP) additives</b> – sulphur, chlorine and phosphorus compounds – react with the hot fresh metal surface to form thin <b>iron sulphide, chloride or phosphate films</b>. These films have low shear strength, so they act as a solid lubricant and <b>prevent welding, built-up edge and tearing</b>, even where the oil film has broken down.<br><b>Uses:</b> heavy cuts and low-speed operations on tough steels – broaching, tapping, threading, gear cutting (Railway SSE PYQ: alloy steel → sulphurised mineral oil).<br><b>Limit:</b> active sulphur stains copper alloys (see the bronze-bush question), and chlorine can corrode if left on the work.<br><b>Why not the others:</b> additives do not change specific heat; emulsifiers (not EP additives) make oil mix with water; colour is irrelevant."},
+hi:{q:"नीट कटिंग तेलों में सल्फ़र, क्लोरीन और फ़ॉस्फ़ोरस जैसे एक्सट्रीम-प्रेशर योजक किसलिए मिलाए जाते हैं?",
+o:["तेल की विशिष्ट ऊष्मा बढ़ाने हेतु","तेल को पानी में आसानी से मिलाने हेतु","तेल को सुहावना रंग देने हेतु","चिप–टूल वेल्डिंग रोकने वाली परत हेतु"],
+e:"चिप–टूल संपर्क पर बहुत अधिक दाब व तापमान में सामान्य तेल परत निचुड़ जाती है और धातु-से-धातु वेल्डिंग शुरू होती है। <b>एक्सट्रीम-प्रेशर (EP) योजक</b> – सल्फ़र, क्लोरीन व फ़ॉस्फ़ोरस यौगिक – गर्म ताज़ी धातु सतह से क्रिया कर पतली <b>आयरन सल्फ़ाइड, क्लोराइड या फ़ॉस्फ़ेट परतें</b> बनाते हैं। इन परतों की शियर सामर्थ्य कम होती है, इसलिए ये ठोस स्नेहक की तरह काम कर <b>वेल्डिंग, बिल्ट-अप एज और सतह फटना रोकती</b> हैं, वहाँ भी जहाँ तेल परत टूट चुकी हो।<br><b>उपयोग:</b> कठोर स्टील पर भारी कट और कम गति संक्रियाएँ – ब्रोचिंग, टैपिंग, थ्रेडिंग, गियर कटिंग (रेलवे SSE PYQ: मिश्र-धातु स्टील → सल्फ़राइज़्ड खनिज तेल)।<br><b>सीमा:</b> सक्रिय सल्फ़र कॉपर मिश्रधातुओं पर दाग लगाता है (कांस्य बुश वाला प्रश्न देखें), और क्लोरीन जॉब पर छूटने पर संक्षारण कर सकता है।<br><b>अन्य क्यों नहीं:</b> योजक विशिष्ट ऊष्मा नहीं बदलते; तेल को पानी में इमल्सीफ़ायर मिलाते हैं (EP योजक नहीं); रंग अप्रासंगिक।"}},
+
+/* 11 */ {ans:2, lv:"h", tag:{en:"Numerical – drilling time",hi:"न्यूमेरिकल – ड्रिलिंग समय"},
+en:{q:"A 20 mm hole is drilled through a 40 mm thick plate with a 118° drill at 300 rpm and a feed of 0.25 mm/rev. The approach is (D/2)/tan 59° ≈ 6 mm and the over-travel is 2 mm. The drilling time is about:",
+o:["0.53 min","0.61 min","0.64 min","1.28 min"],
+e:"<b>Step 1 – approach:</b> the drill point must travel its own cone height before the full diameter cuts: A = (D/2) ÷ tan(point angle/2) = 10 ÷ tan 59° = 10 ÷ 1.664 ≈ 6 mm (≈ 0.3 D for a 118° drill).<br><b>Step 2 – total travel:</b> L = plate thickness + approach + over-travel = 40 + 6 + 2 = 48 mm.<br><b>Step 3 – time:</b> T = L ÷ (f × N) = 48 ÷ (0.25 × 300) = 48 ÷ 75 = <b>0.64 min</b> (about 38 s).<br><b>Distractor check:</b> (a) 0.53 min uses only the plate thickness (40/75); (b) 0.61 min leaves out the over-travel (46/75); (d) 1.28 min doubles the feed effect.<br><b>Feed note:</b> if feed is given per lip, feed per revolution = 2 × feed per lip for a two-lip drill (notes correction).<br><b>MRR in drilling</b> = (π D² ÷ 4) × f × N mm³/min."},
+hi:{q:"40 mm मोटी प्लेट में 118° ड्रिल से 300 rpm और 0.25 mm/rev फ़ीड पर 20 mm का आर-पार होल ड्रिल किया जाता है। अप्रोच = (D/2)/tan 59° ≈ 6 mm और ओवर-ट्रैवल 2 mm है। ड्रिलिंग समय लगभग है:",
+o:["0.53 मिनट","0.61 मिनट","0.64 मिनट","1.28 मिनट"],
+e:"<b>चरण 1 – अप्रोच:</b> पूरा व्यास काटने से पहले ड्रिल सिरे को अपनी शंकु ऊँचाई जितना चलना होता है: A = (D/2) ÷ tan(पॉइंट कोण/2) = 10 ÷ tan 59° = 10 ÷ 1.664 ≈ 6 mm (118° ड्रिल हेतु ≈ 0.3 D)।<br><b>चरण 2 – कुल यात्रा:</b> L = प्लेट मोटाई + अप्रोच + ओवर-ट्रैवल = 40 + 6 + 2 = 48 mm।<br><b>चरण 3 – समय:</b> T = L ÷ (f × N) = 48 ÷ (0.25 × 300) = 48 ÷ 75 = <b>0.64 मिनट</b> (लगभग 38 सेकंड)।<br><b>गलत विकल्प कैसे बने:</b> (a) 0.53 मिनट में केवल प्लेट मोटाई (40/75); (b) 0.61 मिनट में ओवर-ट्रैवल छूटा (46/75); (d) 1.28 मिनट में फ़ीड का प्रभाव दोगुना।<br><b>फ़ीड नोट:</b> यदि फ़ीड प्रति लिप दी हो, तो दो-लिप ड्रिल हेतु फ़ीड प्रति चक्कर = 2 × प्रति लिप फ़ीड (नोट्स सुधार)।<br><b>ड्रिलिंग में MRR</b> = (π D² ÷ 4) × f × N mm³/min।"}},
+
+/* 12 */ {ans:1, lv:"p", tag:{en:"Water as fluid",hi:"फ़्लूइड के रूप में पानी"},
+en:{q:"Plain water is rarely used alone as a cutting fluid mainly because it:",
+o:["has a very low specific heat","rusts the job and the machine","is far too viscous to flow","catches fire easily when hot"],
+e:"Water is actually an <b>excellent coolant</b> – it has a <b>high</b> specific heat and high thermal conductivity (so option a is a trap). But used alone it has two big drawbacks:<br>• it <b>rusts</b> ferrous jobs, machine slideways and the coolant system;<br>• it <b>wets poorly</b> because of its <b>high surface tension</b> (RRB-CBT2 Jul'26) and gives almost no lubrication.<br>So water is used as the carrier in <b>soluble-oil emulsions</b> (oil + emulsifier, about 1 : 20) or <b>synthetic fluids</b>, with wetting agents and <b>rust inhibitors</b> added – these keep water's cooling while fixing its weaknesses.<br><b>Why not the others:</b> water has low viscosity, flows easily and does not burn – in fact a high flash point is a desirable fluid property (CGPSC PYQ)."},
+hi:{q:"सादा पानी अकेले कटिंग फ़्लूइड के रूप में कम ही प्रयोग होता है, मुख्यतः क्योंकि यह:",
+o:["बहुत कम विशिष्ट ऊष्मा रखता है","जॉब और मशीन में जंग लगाता है","बहने के लिए बहुत अधिक श्यान है","गर्म होने पर आसानी से जल उठता है"],
+e:"पानी वास्तव में <b>उत्कृष्ट कूलेंट</b> है – इसकी विशिष्ट ऊष्मा व ऊष्मा चालकता <b>अधिक</b> है (इसलिए विकल्प a ट्रैप है)। पर अकेले इसकी दो बड़ी कमियाँ हैं:<br>• यह लौह जॉब, मशीन स्लाइडवे व कूलेंट तंत्र में <b>जंग</b> लगाता है;<br>• <b>उच्च पृष्ठ तनाव</b> के कारण <b>खराब गीलापन</b> (RRB-CBT2 Jul'26) और लगभग कोई स्नेहन नहीं।<br>इसलिए पानी को <b>सॉल्युबल-ऑयल इमल्शन</b> (तेल + इमल्सीफ़ायर, लगभग 1 : 20) या <b>सिंथेटिक फ़्लूइड</b> में वाहक के रूप में, वेटिंग एजेंट और <b>जंग-रोधकों</b> सहित प्रयोग किया जाता है – इससे पानी की ठंडक बनी रहती है और कमियाँ दूर होती हैं।<br><b>अन्य क्यों नहीं:</b> पानी की श्यानता कम है, आसानी से बहता है और जलता नहीं – वास्तव में उच्च फ़्लैश पॉइंट वांछित गुण है (CGPSC PYQ)।"}},
+
+/* 13 */ {ans:0, lv:"p", tag:{en:"Shaper",hi:"शेपर"},
+en:{q:"In a mechanical shaper, the feed to the table is given:",
+o:["intermittently, at the end of the return stroke","continuously during the cutting stroke","only at the middle of the forward stroke","by the ram at the start of each cut"],
+e:"In a shaper the <b>tool</b>, held on the reciprocating ram, makes the cutting motion; the <b>work</b>, clamped on the table, receives the feed (Other exams PYQ: 'tool reciprocates and feed is given to the job'). The feed is <b>intermittent</b>: a <b>ratchet and pawl</b> mechanism, driven from the bull gear by a crank and connecting rod, turns the cross-feed screw by a few teeth <b>at the end of the return stroke</b>, while the tool is clear of the work. So the next cut starts on fresh metal, and the tool never cuts while the table is moving sideways.<br><b>Why not the others:</b> feeding during the cut would twist the tool and spoil the surface; feed is not given at mid-stroke or by the ram.<br><b>Other shaper facts:</b> cutting on the forward stroke; ram speed maximum at mid-stroke (Railway SSE PYQ); size = maximum stroke length (RRB-CBT2 2019); stroke length increased by increasing the crank-pin radius on the bull gear (MECON PYQ)."},
+hi:{q:"मैकेनिकल शेपर में टेबल को फ़ीड दी जाती है:",
+o:["रुक-रुक कर, रिटर्न स्ट्रोक के अंत में","कटिंग स्ट्रोक के दौरान लगातार","केवल फ़ॉरवर्ड स्ट्रोक के बीच में","हर कट की शुरुआत में रैम द्वारा"],
+e:"शेपर में आगे-पीछे चलते रैम पर लगा <b>टूल</b> कटिंग गति करता है; टेबल पर क्लैंप <b>जॉब</b> फ़ीड पाता है (PYQ: 'टूल आगे-पीछे और फ़ीड जॉब को')। फ़ीड <b>रुक-रुक कर</b> होती है: बुल गियर से क्रैंक व कनेक्टिंग रॉड द्वारा चलने वाला <b>रैचेट व पॉल</b> तंत्र <b>रिटर्न स्ट्रोक के अंत में</b>, जब टूल जॉब से दूर होता है, क्रॉस-फ़ीड स्क्रू को कुछ दाँत घुमाता है। इसलिए अगला कट ताज़ी धातु पर शुरू होता है, और टेबल बगल में चलते समय टूल कभी नहीं काटता।<br><b>अन्य क्यों नहीं:</b> कट के दौरान फ़ीड देने से टूल मुड़ेगा और सतह बिगड़ेगी; फ़ीड बीच स्ट्रोक में या रैम द्वारा नहीं दी जाती।<br><b>शेपर के अन्य तथ्य:</b> फ़ॉरवर्ड स्ट्रोक पर कटिंग; रैम गति मध्य-स्ट्रोक पर अधिकतम (रेलवे SSE PYQ); आकार = अधिकतम स्ट्रोक लंबाई (RRB-CBT2 2019); बुल गियर पर क्रैंक-पिन त्रिज्या बढ़ाकर स्ट्रोक लंबाई बढ़ती है (MECON PYQ)।"}},
+
+/* 14 */ {ans:2, lv:"h", tag:{en:"Cutting fluids · scenario",hi:"कटिंग फ़्लूइड · परिस्थिति"},
+en:{q:"Turning steel at high speed with carbide inserts produces intense heat, and here lubrication matters less than removing heat. The best choice is:",
+o:["a neat sulphurised oil by drip","dry cutting with a brush of grease","a water-based emulsion by flooding","kerosene applied with a brush"],
+e:"At high cutting speeds the contact time is very short, so a lubricant has little chance to act – the main job of the fluid is to <b>carry heat away</b>. A <b>water-based fluid</b> (soluble-oil emulsion or synthetic) has a high specific heat and conductivity, and applying it by <b>flooding</b> – a continuous, large-volume stream over the tool, chip and work – removes the most heat and flushes the chips (RRB-CBT2 Jul'26 concept: flooding is most effective at high speed; DMRC PYQ: best all-round coolant for carbide tools → soluble oil).<br><b>Carbide caution:</b> the flow must be continuous and generous – intermittent cooling causes thermal shock and cracking of the carbide; if a steady flood is not possible, carbide is often run dry.<br><b>Why not the others:</b> neat oil by drip cools poorly and may smoke; grease does not cool at all (and is not water-based – RRB-CBT2 Jul'26); kerosene is for aluminium."},
+hi:{q:"कार्बाइड इंसर्ट से स्टील को उच्च गति पर टर्न करने में तीव्र ऊष्मा बनती है, और यहाँ स्नेहन से अधिक ऊष्मा हटाना महत्वपूर्ण है। सर्वोत्तम विकल्प है:",
+o:["ड्रिप से नीट सल्फ़राइज़्ड तेल","ग्रीस का ब्रश लगाकर सूखी कटिंग","फ़्लडिंग द्वारा जल-आधारित इमल्शन","ब्रश से केरोसिन लगाना"],
+e:"उच्च कटिंग गति पर संपर्क समय बहुत कम होता है, इसलिए स्नेहक को काम करने का मौका कम मिलता है – फ़्लूइड का मुख्य कार्य <b>ऊष्मा हटाना</b> है। <b>जल-आधारित फ़्लूइड</b> (सॉल्युबल-ऑयल इमल्शन या सिंथेटिक) की विशिष्ट ऊष्मा व चालकता अधिक है, और इसे <b>फ़्लडिंग</b> से – टूल, चिप व जॉब पर लगातार, अधिक मात्रा की धारा – लगाने से सबसे अधिक ऊष्मा हटती है और चिप बहती है (RRB-CBT2 Jul'26 अवधारणा: उच्च गति पर फ़्लडिंग सबसे प्रभावी; DMRC PYQ: कार्बाइड टूल हेतु सर्वश्रेष्ठ ऑल-राउंड कूलेंट → सॉल्युबल तेल)।<br><b>कार्बाइड सावधानी:</b> प्रवाह लगातार व भरपूर होना चाहिए – रुक-रुक कर ठंडक से तापीय झटका लगकर कार्बाइड दरकता है; स्थिर फ़्लड संभव न हो तो कार्बाइड प्रायः सूखा चलाया जाता है।<br><b>अन्य क्यों नहीं:</b> ड्रिप से नीट तेल कम ठंडा करता व धुआँ दे सकता है; ग्रीस बिल्कुल ठंडा नहीं करती (और जल-आधारित नहीं – RRB-CBT2 Jul'26); केरोसिन एल्युमिनियम हेतु है।"}},
+
+/* 15 */ {ans:3, lv:"p", tag:{en:"Fluid properties",hi:"फ़्लूइड के गुण"},
+en:{q:"Consider the following properties of a cutting fluid:<br>I. a high specific heat<br>II. a low flash point<br>III. no corrosive effect on the work and machine<br>Which of these are desirable?",
+o:["I only","II and III only","I and II only","I and III only"],
+e:"<b>I ✔</b> – a <b>high specific heat</b> and high thermal conductivity let the fluid absorb and carry away more heat (DMRC PYQ: 'a good cutting fluid should have → high specific heat').<br><b>III ✔</b> – it must be <b>non-corrosive</b> to the job and machine, and also non-toxic and kind to the skin.<br><b>II ✘</b> – the fluid should have a <b>high flash point</b>, so it does not catch fire or smoke near the hot cutting zone (CGPSC PYQ: 'cutting fluid should not → have low flash point').<br><b>Other desirable properties:</b> low viscosity (flows freely into the cutting zone), good wetting and lubricity, chemical stability (long life, no rancidity), no foaming, no unpleasant smell, easy to filter and dispose of, low cost."},
+hi:{q:"कटिंग फ़्लूइड के निम्न गुणों पर विचार करें:<br>I. उच्च विशिष्ट ऊष्मा<br>II. कम फ़्लैश पॉइंट<br>III. जॉब व मशीन पर कोई संक्षारक प्रभाव नहीं<br>इनमें से कौन-से वांछनीय हैं?",
+o:["केवल I","केवल II और III","केवल I और II","केवल I और III"],
+e:"<b>I ✔</b> – <b>उच्च विशिष्ट ऊष्मा</b> व उच्च ऊष्मा चालकता से फ़्लूइड अधिक ऊष्मा सोखकर ले जाता है (DMRC PYQ: 'अच्छे कटिंग फ़्लूइड में → उच्च विशिष्ट ऊष्मा')।<br><b>III ✔</b> – यह जॉब व मशीन हेतु <b>असंक्षारक</b>, साथ ही विषरहित व त्वचा के अनुकूल होना चाहिए।<br><b>II ✘</b> – फ़्लूइड का <b>फ़्लैश पॉइंट उच्च</b> होना चाहिए, ताकि गर्म कटिंग क्षेत्र के पास आग न पकड़े या धुआँ न दे (CGPSC PYQ: 'कटिंग फ़्लूइड में नहीं होना चाहिए → कम फ़्लैश पॉइंट')।<br><b>अन्य वांछनीय गुण:</b> कम श्यानता (कटिंग क्षेत्र में आसानी से बहे), अच्छा गीलापन व स्नेहकता, रासायनिक स्थिरता (लंबा जीवन, सड़े नहीं), झाग नहीं, अप्रिय गंध नहीं, आसान छनन व निपटान, कम लागत।"}},
+
+/* 16 */ {ans:1, lv:"e", tag:{en:"Planer",hi:"प्लेनर"},
+en:{q:"The 3 m long bed of a lathe is to be machined flat. The machine used is a:",
+o:["shaper","planer","slotter","radial drill"],
+e:"A <b>planer</b> is built for <b>large, long, heavy jobs</b>: the <b>work, clamped on a long table, reciprocates</b> under a stationary tool (Railway SSE PYQ: 'in a planer, work reciprocates and tool is stationary'; ISRO: 'the job reciprocates → planer'), and the tool head receives the feed. Several tool heads can cut at once – a double-housing planer can machine three surfaces in one setting (Railway SSE PYQ). Its size is quoted as width × height × length of work, e.g. 750 × 350 × 2.5 m (DMRC PYQ).<br><b>Why not the others:</b> a <b>shaper</b> has a tool on an overhanging ram with a stroke of only up to about 900 mm – for small and medium jobs; a <b>slotter</b> is a vertical shaper for internal slots and keyways; a radial drill makes holes.<br><b>Typical planer jobs:</b> machine-tool beds and guideways, large columns and frames, long plates."},
+hi:{q:"एक लेथ का 3 m लंबा बेड सपाट मशीन करना है। प्रयुक्त मशीन है:",
+o:["शेपर","प्लेनर","स्लॉटर","रेडियल ड्रिल"],
+e:"<b>प्लेनर</b> <b>बड़े, लंबे, भारी जॉब</b> हेतु बना है: लंबी टेबल पर क्लैंप <b>जॉब आगे-पीछे</b> चलता है और टूल स्थिर रहता है (रेलवे SSE PYQ: 'प्लेनर में जॉब आगे-पीछे और टूल स्थिर'; ISRO: 'जॉब आगे-पीछे → प्लेनर'), और टूल हेड फ़ीड पाता है। कई टूल हेड एक साथ काट सकते हैं – डबल-हाउसिंग प्लेनर एक सेटिंग में तीन सतहें मशीन कर सकता है (रेलवे SSE PYQ)। इसका आकार जॉब की चौड़ाई × ऊँचाई × लंबाई में, जैसे 750 × 350 × 2.5 m (DMRC PYQ)।<br><b>अन्य क्यों नहीं:</b> <b>शेपर</b> में टूल बाहर निकले रैम पर, स्ट्रोक केवल लगभग 900 mm तक – छोटे व मध्यम जॉब; <b>स्लॉटर</b> भीतरी स्लॉट व की-वे हेतु ऊर्ध्व शेपर; रेडियल ड्रिल होल बनाता है।<br><b>सामान्य प्लेनर जॉब:</b> मशीन-टूल बेड व गाइडवे, बड़े कॉलम व फ्रेम, लंबी प्लेटें।"}},
+
+/* 17 */ {ans:0, lv:"h", tag:{en:"Twist drill",hi:"ट्विस्ट ड्रिल"},
+en:{q:"The chisel edge at the centre of a twist drill:",
+o:["cuts poorly and mainly pushes the metal","gives the drill its final hole size","carries chips up the flutes","guides the drill along the hole wall"],
+e:"The <b>web</b> – the central core joining the two flutes, thicker towards the shank for strength – ends at the point as a short straight <b>chisel edge</b>. Because the cutting speed at the drill centre is nearly zero and the chisel edge has a large negative rake, it <b>does not cut efficiently</b>; it mostly <b>pushes and extrudes</b> the metal aside. This produces a large part of the <b>thrust force</b> in drilling and makes the drill wander at the start – hence centre drilling first, and web thinning on large drills.<br><b>Other parts:</b> <b>lips</b> – the two main cutting edges · <b>margin</b> – narrow strip along the flute edge that guides the drill and sizes the hole · <b>body clearance</b> – relieved diameter behind the margin to reduce friction · <b>flutes</b> – carry chips out and let coolant in (SSC JE) · <b>tang</b> – drives a taper-shank drill.<br><b>Chisel-edge angle:</b> the obtuse angle between the chisel edge and a lip seen from the end, about 120–135° (MECON PYQ)."},
+hi:{q:"ट्विस्ट ड्रिल के केंद्र पर स्थित चिज़ल एज:",
+o:["कम काटती है, मुख्यतः धातु को धकेलती है","ड्रिल को अंतिम होल साइज़ देती है","फ़्लूट से चिप ऊपर ले जाती है","होल की दीवार पर ड्रिल को निर्देशित करती है"],
+e:"<b>वेब</b> – दोनों फ़्लूट को जोड़ने वाला केंद्रीय भाग, मज़बूती हेतु शैंक की ओर मोटा – सिरे पर छोटी सीधी <b>चिज़ल एज</b> के रूप में समाप्त होता है। ड्रिल केंद्र पर कटिंग गति लगभग शून्य होने और चिज़ल एज के बड़े ऋणात्मक रेक के कारण यह <b>कुशलता से नहीं काटती</b>; यह मुख्यतः धातु को <b>धकेलकर बाहर निकालती</b> है। इससे ड्रिलिंग का बड़ा <b>थ्रस्ट बल</b> बनता है और शुरुआत में ड्रिल भटकता है – इसलिए पहले सेंटर ड्रिलिंग, और बड़े ड्रिल में वेब थिनिंग।<br><b>अन्य भाग:</b> <b>लिप</b> – दो मुख्य कटिंग धार · <b>मार्जिन</b> – फ़्लूट किनारे की संकरी पट्टी जो ड्रिल को निर्देशित कर होल का साइज़ देती है · <b>बॉडी क्लीयरेंस</b> – घर्षण घटाने हेतु मार्जिन के पीछे घटा व्यास · <b>फ़्लूट</b> – चिप बाहर और कूलेंट अंदर (SSC JE) · <b>टैंग</b> – टेपर-शैंक ड्रिल को चलाता है।<br><b>चिज़ल-एज कोण:</b> सिरे से देखने पर चिज़ल एज और लिप के बीच अधिक कोण, लगभग 120–135° (MECON PYQ)।"}},
+
+/* 18 */ {ans:2, lv:"p", tag:{en:"Cast iron machining",hi:"कास्ट आयरन मशीनिंग"},
+en:{q:"Grey cast iron is usually machined dry or with compressed air because:",
+o:["cast iron reacts with every cutting oil","its chips are long and must stay hot","graphite lubricates; fluid forms sludge","its speeds are too low to need cooling"],
+e:"Grey cast iron contains <b>free graphite flakes</b>. During cutting the graphite smears on the tool and acts as a built-in <b>lubricant</b>, and the metal breaks into short <b>discontinuous chips</b> and fine dust (RPSC PYQ). A liquid coolant would mix with the graphite and iron dust into an abrasive <b>sludge</b> that clogs the machine and slideways and is hard to clean. So cast iron is machined <b>dry</b>, with <b>compressed air</b> used to cool and blow away the dust (Railway JE PYQs: 'dry and compressed air is used for machining → cast iron'; 'for drilling cast iron → dry air'; DMRC: 'no cutting fluid is normally used while machining → cast iron'; 'no lubricant is required when cutting threads in → cast iron').<br><b>Why not the others:</b> cast iron does not react with oils; its chips are short, not long; cutting speeds for cast iron are moderate, not negligible."},
+hi:{q:"ग्रे कास्ट आयरन को सामान्यतः सूखा या संपीडित वायु से मशीन किया जाता है, क्योंकि:",
+o:["कास्ट आयरन हर कटिंग तेल से क्रिया करता है","इसकी चिप लंबी होती है और गर्म रहनी चाहिए","ग्रेफ़ाइट स्नेहन देता, फ़्लूइड कीचड़ बनाते","कटिंग गति इतनी कम कि ठंडक नहीं चाहिए"],
+e:"ग्रे कास्ट आयरन में <b>मुक्त ग्रेफ़ाइट फ़्लेक</b> होते हैं। कटिंग में ग्रेफ़ाइट टूल पर फैलकर अंतर्निहित <b>स्नेहक</b> का कार्य करता है, और धातु छोटी <b>असतत चिप</b> व बारीक धूल में टूटती है (RPSC PYQ)। द्रव कूलेंट ग्रेफ़ाइट व आयरन धूल से मिलकर अपघर्षक <b>कीचड़</b> बनाएगा जो मशीन व स्लाइडवे जाम करता है और साफ़ करना कठिन है। इसलिए कास्ट आयरन <b>सूखा</b> मशीन किया जाता है, ठंडक व धूल उड़ाने हेतु <b>संपीडित वायु</b> से (रेलवे JE PYQ: 'सूखी व संपीडित वायु → कास्ट आयरन'; 'कास्ट आयरन ड्रिलिंग → सूखी वायु'; DMRC: 'सामान्यतः कटिंग फ़्लूइड नहीं → कास्ट आयरन'; 'थ्रेड काटने में स्नेहक नहीं → कास्ट आयरन')।<br><b>अन्य क्यों नहीं:</b> कास्ट आयरन तेलों से क्रिया नहीं करता; इसकी चिप छोटी होती है, लंबी नहीं; कास्ट आयरन की कटिंग गति मध्यम होती है, नगण्य नहीं।"}},
+
+/* 19 */ {ans:3, lv:"p", tag:{en:"Numerical – coolant mix",hi:"न्यूमेरिकल – कूलेंट मिश्रण"},
+en:{q:"A coolant is prepared by mixing soluble oil and water in the ratio 1 : 20. For a 42-litre tank, the oil needed is:",
+o:["2.1 L","20 L","4 L","2 L"],
+e:"Ratio oil : water = 1 : 20 → total parts = 1 + 20 = 21.<br>Oil = 42 × 1/21 = <b>2 L</b>; water = 40 L.<br><b>Trap:</b> (a) 2.1 L divides 42 by 20 – it treats the ratio as oil : total instead of oil : water.<br><b>Standard practice:</b> soluble oil is usually diluted about <b>1 : 20</b> for general machining (DMRC, Railway SSE PYQ: 'general ratio of soluble oil and water → 1 : 20'); richer mixes (1 : 10) give more lubrication for heavy work, leaner mixes (1 : 40 or more) are used for grinding.<br><b>Mixing rule:</b> always add oil to water, not water to oil, to get a stable milky emulsion."},
+hi:{q:"सॉल्युबल तेल और पानी को 1 : 20 अनुपात में मिलाकर कूलेंट बनाया जाता है। 42 लीटर टैंक हेतु आवश्यक तेल है:",
+o:["2.1 L","20 L","4 L","2 L"],
+e:"अनुपात तेल : पानी = 1 : 20 → कुल भाग = 1 + 20 = 21।<br>तेल = 42 × 1/21 = <b>2 L</b>; पानी = 40 L।<br><b>ट्रैप:</b> (a) 2.1 L में 42 को 20 से भाग दिया – अनुपात को तेल : पानी के स्थान पर तेल : कुल मान लिया।<br><b>मानक अभ्यास:</b> सामान्य मशीनिंग हेतु सॉल्युबल तेल लगभग <b>1 : 20</b> पतला किया जाता है (DMRC, रेलवे SSE PYQ: 'सॉल्युबल तेल व पानी का सामान्य अनुपात → 1 : 20'); भारी कार्य हेतु गाढ़ा मिश्रण (1 : 10) अधिक स्नेहन, ग्राइंडिंग हेतु पतला (1 : 40 या अधिक)।<br><b>मिलाने का नियम:</b> स्थिर दूधिया इमल्शन हेतु हमेशा तेल को पानी में डालें, पानी को तेल में नहीं।"}},
+
+/* 20 */ {ans:1, lv:"p", tag:{en:"Slotter · scenario",hi:"स्लॉटर · परिस्थिति"},
+en:{q:"An internal keyway is to be cut in the bore of a single gear hub in a repair shop. The machine used is a:",
+o:["planer","slotter","radial drill","surface grinder"],
+e:"A <b>slotter</b> is a <b>vertical shaper</b>: its ram carries a single-point tool up and down, and <b>cutting takes place on the downward stroke</b> (Railway SSE PYQ). The job sits on a table that can move longitudinally, crosswise and rotate. It is used for <b>internal work</b> – keyways and slots in bores, internal splines, square or hexagonal holes, and internal and external contours – especially for single pieces or small batches in tool rooms and repair shops.<br>For <b>mass production</b> the same keyway would be cut far faster by <b>broaching</b>.<br><b>Why not the others:</b> a planer machines large flat surfaces; a radial drill makes holes; a surface grinder finishes flat surfaces.<br><b>Quick return in a slotter:</b> usually a Whitworth mechanism."},
+hi:{q:"एक रिपेयर शॉप में एकल गियर हब के बोर में भीतरी की-वे काटना है। प्रयुक्त मशीन है:",
+o:["प्लेनर","स्लॉटर","रेडियल ड्रिल","सरफ़ेस ग्राइंडर"],
+e:"<b>स्लॉटर</b> एक <b>ऊर्ध्व शेपर</b> है: इसका रैम सिंगल-पॉइंट टूल को ऊपर-नीचे चलाता है, और <b>कटिंग नीचे वाले स्ट्रोक पर</b> होती है (रेलवे SSE PYQ)। जॉब ऐसी टेबल पर बैठता है जो अनुदैर्ध्य, आर-पार व घूर्णन गति कर सके। यह <b>भीतरी कार्य</b> हेतु है – बोर में की-वे व स्लॉट, भीतरी स्प्लाइन, वर्गाकार या षट्कोणीय होल, और भीतरी व बाहरी कंटूर – विशेषकर टूल रूम व रिपेयर शॉप में एकल पुर्ज़े या छोटे बैच हेतु।<br><b>बड़े उत्पादन</b> में यही की-वे <b>ब्रोचिंग</b> से कहीं तेज़ कटेगा।<br><b>अन्य क्यों नहीं:</b> प्लेनर बड़ी सपाट सतहें; रेडियल ड्रिल होल; सरफ़ेस ग्राइंडर सपाट सतहों की फ़िनिशिंग।<br><b>स्लॉटर में क्विक रिटर्न:</b> सामान्यतः व्हिटवर्थ तंत्र।"}},
+
+/* 21 */ {ans:0, lv:"h", tag:{en:"Numerical – shaping time",hi:"न्यूमेरिकल – शेपिंग समय"},
+en:{q:"A plate 120 mm wide is shaped with the stroke along its length, at a feed of 0.4 mm per stroke and 20 cutting strokes per minute. The time for one complete cut across the width is:",
+o:["15 min","6 min","7.5 min","24 min"],
+e:"The tool moves along the length on each stroke; the table feeds 0.4 mm sideways after each stroke, so the cut must cover the whole <b>width</b>:<br>number of strokes = width ÷ feed per stroke = 120 ÷ 0.4 = 300 strokes.<br>Time = strokes ÷ strokes per minute = 300 ÷ 20 = <b>15 min</b>.<br><b>Distractor check:</b> (b) 6 min = 120 ÷ 20 (forgot the feed); (c) 7.5 min halves the strokes; (d) 24 min is an arithmetic slip.<br><b>Rule (notes):</b> if not stated, take the longer side as the stroke direction, and add over-travel at both ends to the stroke length.<br><b>When the cutting speed is given instead:</b> V = N<sub>s</sub> × L × (1 + m) ÷ 1000, where m = return time ÷ cutting time – find N<sub>s</sub> first (notes example: 600 × 30 mm plate, V = 8 m/min → 12 min)."},
+hi:{q:"120 mm चौड़ी प्लेट को उसकी लंबाई के साथ स्ट्रोक रखकर, 0.4 mm प्रति स्ट्रोक फ़ीड और 20 कटिंग स्ट्रोक प्रति मिनट पर शेप किया जाता है। पूरी चौड़ाई में एक पूर्ण कट का समय है:",
+o:["15 मिनट","6 मिनट","7.5 मिनट","24 मिनट"],
+e:"हर स्ट्रोक पर टूल लंबाई के साथ चलता है; हर स्ट्रोक के बाद टेबल बगल में 0.4 mm फ़ीड होती है, इसलिए कट को पूरी <b>चौड़ाई</b> तय करनी है:<br>स्ट्रोक की संख्या = चौड़ाई ÷ प्रति स्ट्रोक फ़ीड = 120 ÷ 0.4 = 300 स्ट्रोक।<br>समय = स्ट्रोक ÷ प्रति मिनट स्ट्रोक = 300 ÷ 20 = <b>15 मिनट</b>।<br><b>गलत विकल्प कैसे बने:</b> (b) 6 मिनट = 120 ÷ 20 (फ़ीड भूल गए); (c) 7.5 मिनट में स्ट्रोक आधे; (d) 24 मिनट गणना की भूल।<br><b>नियम (नोट्स):</b> न दिया हो तो लंबी भुजा को स्ट्रोक दिशा लें, और दोनों सिरों पर ओवर-ट्रैवल स्ट्रोक लंबाई में जोड़ें।<br><b>यदि कटिंग स्पीड दी हो:</b> V = N<sub>s</sub> × L × (1 + m) ÷ 1000, जहाँ m = रिटर्न समय ÷ कटिंग समय – पहले N<sub>s</sub> निकालें (नोट्स उदाहरण: 600 × 30 mm प्लेट, V = 8 m/min → 12 मिनट)।"}},
+
+/* 22 */ {ans:2, lv:"p", tag:{en:"Soluble oil",hi:"सॉल्युबल तेल"},
+en:{q:"Soluble-oil coolant looks milky because:",
+o:["a white pigment is added to it","the water carries tiny chips","oil droplets are dispersed in the water","the oil reacts and forms soap foam"],
+e:"'Soluble' oil does not really dissolve in water. It is a mineral oil blended with an <b>emulsifier</b> (a soap-like agent). When it is mixed with water, the oil breaks into countless <b>tiny droplets dispersed throughout the water</b> – an <b>oil-in-water emulsion</b>. These droplets scatter light, so the coolant looks <b>milky white</b>, just as milk is fat droplets in water.<br><b>Why use it:</b> the water gives high cooling; the oil droplets give lubrication and rust protection – the best all-round, cheapest coolant (DMRC, OPSC PYQs).<br><b>Water-based fluid family:</b> <b>emulsion</b> – oil droplets in water (milky) · <b>solution</b> – chemicals truly dissolved (clear, synthetic fluids) · <b>dispersion</b> – fine solid particles suspended. Grease is not water-based (RRB-CBT2 Jul'26)."},
+hi:{q:"सॉल्युबल-ऑयल कूलेंट दूधिया क्यों दिखता है?",
+o:["इसमें सफ़ेद रंजक मिलाया जाता है","पानी में बारीक चिप तैरती हैं","तेल की बूँदें पानी में फैली रहती हैं","तेल क्रिया कर साबुनी झाग बनाता है"],
+e:"'सॉल्युबल' तेल वास्तव में पानी में घुलता नहीं। यह <b>इमल्सीफ़ायर</b> (साबुन जैसा पदार्थ) मिला खनिज तेल है। पानी में मिलाने पर तेल असंख्य <b>बहुत छोटी बूँदों में टूटकर पूरे पानी में फैल</b> जाता है – <b>तेल-में-पानी इमल्शन</b>। ये बूँदें प्रकाश बिखेरती हैं, इसलिए कूलेंट <b>दूधिया सफ़ेद</b> दिखता है, जैसे दूध पानी में वसा की बूँदें है।<br><b>क्यों प्रयोग:</b> पानी अधिक ठंडक देता है; तेल की बूँदें स्नेहन व जंग-सुरक्षा – सर्वश्रेष्ठ ऑल-राउंड, सबसे सस्ता कूलेंट (DMRC, OPSC PYQ)।<br><b>जल-आधारित फ़्लूइड परिवार:</b> <b>इमल्शन</b> – पानी में तेल की बूँदें (दूधिया) · <b>सॉल्यूशन</b> – वास्तव में घुले रसायन (साफ़, सिंथेटिक फ़्लूइड) · <b>डिस्पर्शन</b> – निलंबित बारीक ठोस कण। ग्रीस जल-आधारित नहीं (RRB-CBT2 Jul'26)।"}},
+
+/* 23 */ {ans:3, lv:"h", tag:{en:"Twist drill",hi:"ट्विस्ट ड्रिल"},
+en:{q:"Twist drills with a low (slow) helix angle are preferred for drilling:",
+o:["aluminium alloys","pure copper","mild steel plate","brass and plastics"],
+e:"The <b>helix angle</b> of a twist drill is the effective <b>rake angle</b> at its lips; the normal value is about 30° (NPSC PYQ).<br>• <b>Low (slow) helix</b> (about 10–20°) – nearly zero rake, a stronger edge that does not 'grab' or dig in: preferred for <b>brass, bronze and plastics</b> (UPPSC, PSPCL PYQ: 'low helix angle drills are preferred for → plastic'), and for hard, brittle materials.<br>• <b>High (fast) helix</b> (about 35–45°) – large rake, quick chip removal: preferred for soft, ductile metals such as <b>aluminium and copper</b> that produce long, sticky chips (KRCL PYQ: fast helix drill about 35°).<br><b>Why it matters:</b> a normal or high-helix drill in brass self-feeds violently and can snap or pull the job.<br><b>Same idea as turning tools:</b> brass needs zero rake; aluminium needs a large positive rake."},
+hi:{q:"कम (धीमे) हेलिक्स कोण वाले ट्विस्ट ड्रिल किसे ड्रिल करने हेतु पसंद किए जाते हैं?",
+o:["एल्युमिनियम मिश्रधातु","शुद्ध कॉपर","माइल्ड स्टील प्लेट","पीतल व प्लास्टिक"],
+e:"ट्विस्ट ड्रिल का <b>हेलिक्स कोण</b> उसके लिप पर प्रभावी <b>रेक कोण</b> है; सामान्य मान लगभग 30° (NPSC PYQ)।<br>• <b>कम (धीमा) हेलिक्स</b> (लगभग 10–20°) – लगभग शून्य रेक, मज़बूत धार जो 'पकड़ती' या धँसती नहीं: <b>पीतल, कांस्य और प्लास्टिक</b> हेतु पसंद (UPPSC, PSPCL PYQ: 'कम हेलिक्स कोण ड्रिल → प्लास्टिक हेतु'), तथा कठोर, भंगुर पदार्थों हेतु।<br>• <b>अधिक (तेज़) हेलिक्स</b> (लगभग 35–45°) – बड़ा रेक, तेज़ चिप निकासी: लंबी, चिपचिपी चिप देने वाली <b>एल्युमिनियम व कॉपर</b> जैसी नरम, तन्य धातुओं हेतु (KRCL PYQ: तेज़ हेलिक्स ड्रिल लगभग 35°)।<br><b>महत्व:</b> पीतल में सामान्य या अधिक हेलिक्स ड्रिल अपने-आप तेज़ी से धँसता है और टूट सकता है या जॉब खींच सकता है।<br><b>टर्निंग टूल जैसा विचार:</b> पीतल को शून्य रेक; एल्युमिनियम को बड़ा धनात्मक रेक।"}},
+
+/* 24 */ {ans:1, lv:"p", tag:{en:"Fluid application",hi:"फ़्लूइड लगाने की विधि"},
+en:{q:"Mist (atomised-spray) application of cutting fluid is preferred when:",
+o:["deep holes are being gun-drilled fast","cuts are light and must stay visible","heavy roughing cuts produce great heat","cast iron is being machined fully dry"],
+e:"In <b>mist</b> application, a small amount of fluid is atomised by compressed air into fine droplets and blown at the cutting zone. Evaporation of the droplets gives some cooling, the air blows chips away, and the operator can <b>see the cut clearly</b> – there is no flood of fluid. It suits <b>light cuts</b>, finishing, and jobs or machines where flooding is impractical (with fume extraction to protect the operator).<br><b>Other methods:</b> <b>flooding</b> – continuous large flow, most effective at high speed and for heavy heat (RRB-CBT2 Jul'26) · <b>jet / high-pressure</b> – deep holes, gun drilling, coolant through the tool · <b>drip / hand brush</b> – low speed, manual work.<br><b>Why not the others:</b> deep holes need high-pressure through-tool coolant; heavy roughing needs flooding; dry cast-iron machining uses air, not mist."},
+hi:{q:"कटिंग फ़्लूइड को मिस्ट (परमाणुकृत स्प्रे) से कब लगाना पसंद किया जाता है?",
+o:["जब गहरे होल गन-ड्रिल किए जा रहे हों","जब कट हल्के हों और कट दिखता रहना चाहिए","जब भारी रफ़िंग कट बहुत ऊष्मा बनाएँ","जब कास्ट आयरन सूखा मशीन हो रहा हो"],
+e:"<b>मिस्ट</b> विधि में थोड़ा फ़्लूइड संपीडित वायु से बारीक बूँदों में परमाणुकृत कर कटिंग क्षेत्र पर फूँका जाता है। बूँदों का वाष्पन कुछ ठंडक देता है, वायु चिप उड़ाती है, और ऑपरेटर <b>कट साफ़ देख</b> सकता है – फ़्लूइड की बाढ़ नहीं होती। यह <b>हल्के कट</b>, फ़िनिशिंग, और उन जॉब या मशीनों हेतु है जहाँ फ़्लडिंग व्यावहारिक नहीं (ऑपरेटर सुरक्षा हेतु धुआँ निकासी सहित)।<br><b>अन्य विधियाँ:</b> <b>फ़्लडिंग</b> – लगातार अधिक प्रवाह, उच्च गति व अधिक ऊष्मा हेतु सबसे प्रभावी (RRB-CBT2 Jul'26) · <b>जेट / उच्च-दाब</b> – गहरे होल, गन ड्रिलिंग, टूल से होकर कूलेंट · <b>ड्रिप / हाथ ब्रश</b> – कम गति, हाथ का कार्य।<br><b>अन्य क्यों नहीं:</b> गहरे होल हेतु टूल से होकर उच्च-दाब कूलेंट; भारी रफ़िंग हेतु फ़्लडिंग; सूखी कास्ट-आयरन मशीनिंग में वायु, मिस्ट नहीं।"}},
+
+/* 25 */ {ans:3, lv:"p", tag:{en:"Hole operations",hi:"होल संक्रियाएँ"},
+en:{q:"On a rough casting, a smooth, flat seat square to a hole is machined so that a bolt head or washer sits properly. This operation is:",
+o:["counterboring","countersinking","reaming","spot facing"],
+e:"<b>Spot facing</b> machines a <b>shallow, smooth, flat circular seat</b> around the mouth of a hole, <b>square to the hole axis</b>, on a rough or uneven surface such as a casting or forging – so that a bolt head, nut or washer bears evenly and the bolt is not bent (RRB-CBT2 2019 concept: 'smoothing and squaring the surface around a hole → spot facing'). The cut is only deep enough to clean up the surface.<br><b>Compare:</b> <b>counterboring</b> – a deeper flat-bottomed step so a socket-head screw sits below the surface (Railway SSE PYQ) · <b>countersinking</b> – a cone for flat-head screws · <b>reaming</b> – sizing and finishing the hole itself.<br><b>Tools:</b> spot facers and counterbores usually have a pilot that enters the existing hole to keep the cut concentric."},
+hi:{q:"खुरदरी कास्टिंग पर होल के लंबवत चिकनी, सपाट सीट मशीन की जाती है ताकि बोल्ट हेड या वॉशर ठीक बैठे। यह संक्रिया है:",
+o:["काउंटरबोरिंग","काउंटरसिंकिंग","रीमिंग","स्पॉट फ़ेसिंग"],
+e:"<b>स्पॉट फ़ेसिंग</b> कास्टिंग या फ़ोर्जिंग जैसी खुरदरी या असमान सतह पर होल के मुँह के चारों ओर <b>होल अक्ष के लंबवत</b> <b>उथली, चिकनी, सपाट वृत्ताकार सीट</b> मशीन करती है – ताकि बोल्ट हेड, नट या वॉशर समान रूप से टिके और बोल्ट न मुड़े (RRB-CBT2 2019 अवधारणा: 'होल के चारों ओर सतह चिकनी व वर्गाकार करना → स्पॉट फ़ेसिंग')। कट केवल सतह साफ़ करने जितना गहरा।<br><b>तुलना:</b> <b>काउंटरबोरिंग</b> – गहरी सपाट-तल सीढ़ी ताकि सॉकेट-हेड स्क्रू सतह से नीचे बैठे (रेलवे SSE PYQ) · <b>काउंटरसिंकिंग</b> – फ़्लैट-हेड स्क्रू हेतु शंकु · <b>रीमिंग</b> – स्वयं होल का साइज़ व फ़िनिश।<br><b>टूल:</b> स्पॉट फ़ेसर व काउंटरबोर में प्रायः पायलट होता है जो मौजूदा होल में जाकर कट को संकेंद्रित रखता है।"}}
+];
+
+const LIMIT = 20*60;
+let lang = "en";
+let mode = "test";
+let picked = new Array(Q.length).fill(null);
+let showAll = false;
+let submitted = false;
+let autoSub = false;
+let left = LIMIT;
+let tick = null;
+const L = ["a","b","c","d"];
+const $ = id => document.getElementById(id);
+
+function fmt(t){ const m=Math.floor(t/60), s=t%60; return String(m).padStart(2,"0")+":"+String(s).padStart(2,"0"); }
+
+function startTimer(){
+  stopTimer();
+  if(mode!=="test" || submitted) return;
+  tick = setInterval(()=>{
+    left--;
+    if(left<=0){ left=0; autoSub=true; doSubmit(); return; }
+    paintTimer();
+  },1000);
+}
+function stopTimer(){ if(tick){clearInterval(tick); tick=null;} }
+function paintTimer(){
+  const t=$("timer"), u=UI[lang];
+  if(mode!=="test"){ t.classList.add("hidden"); return; }
+  t.classList.remove("hidden");
+  t.textContent = submitted ? u.taken+": "+fmt(LIMIT-left) : u.time+": "+fmt(left);
+  t.classList.toggle("low", !submitted && left<=120);
+}
+
+function isRevealed(i){ return mode==="practice" ? (picked[i]!==null || showAll) : submitted; }
+
+function render(){
+  const u = UI[lang];
+  document.documentElement.lang = lang;
+  $("title").textContent = u.title;
+  $("subtitle").textContent = u.sub;
+  $("rules").textContent = mode==="test" ? u.rules : u.rulesP;
+  $("foot").textContent = u.foot;
+  $("mTest").textContent = u.test; $("mPrac").textContent = u.prac;
+  $("mTest").setAttribute("aria-pressed", mode==="test");
+  $("mPrac").setAttribute("aria-pressed", mode==="practice");
+  $("bSubmit").textContent = u.submit;
+  $("bSubmit").classList.toggle("hidden", !(mode==="test" && !submitted));
+  $("bShow").textContent = showAll ? u.hide : u.show;
+  $("bShow").classList.toggle("hidden", mode!=="practice");
+  $("bReset").textContent = u.reset;
+  $("bEn").setAttribute("aria-pressed", lang==="en");
+  $("bHi").setAttribute("aria-pressed", lang==="hi");
+
+  let html = "";
+  Q.forEach((q,i)=>{
+    if(q.num && i>0 && !Q[i-1].num) html += `<div class="sec">${u.num}</div>`;
+    const d = q[lang], p = picked[i], rev = isRevealed(i);
+    const lvClass = q.lv==="t" ? "lv-t" : q.lv==="h" ? "lv-h" : "";
+    html += `<article class="q" id="q${i}">
+      <div class="qhead"><span class="qno">Q${i+1}.</span><span class="chip">${q.tag[lang]}</span><span class="chip ${lvClass}">${u.lv[q.lv]}</span></div>
+      <div class="qtext">${d.q}</div><div class="opts">`;
+    d.o.forEach((o,j)=>{
+      let cls = "opt";
+      if(rev && j===q.ans) cls += " right";
+      if(rev && p===j && p!==q.ans) cls += " wrong";
+      if(!rev && p===j) cls += " sel";
+      html += `<button class="${cls}" data-q="${i}" data-o="${j}" ${rev?"disabled":""} aria-pressed="${p===j}"><span class="l">(${L[j]})</span><span>${o}</span></button>`;
+    });
+    html += `</div>`;
+    if(rev){
+      let v = "";
+      if(p!==null) v = p===q.ans ? `<div>${u.right}</div>` : `<div class="verdict-bad">${u.yours}</div>`;
+      else if(mode==="test") v = `<div class="verdict-bad">${u.un}</div>`;
+      html += `<div class="ex">${v}<div class="ans">${u.ans}: (${L[q.ans]})</div>${d.e}</div>`;
+    }
+    html += `</article>`;
+  });
+  $("list").innerHTML = html;
+  stats(); paintTimer(); result();
+}
+
+function counts(){
+  let c=0,w=0,a=0;
+  picked.forEach((p,i)=>{ if(p!==null){a++; if(p===Q[i].ans)c++; else w++;} });
+  return {c,w,a,s:(c-w/3).toFixed(2)};
+}
+
+function stats(){
+  const u = UI[lang], k = counts();
+  const hide = mode==="test" && !submitted;
+  $("sAtt").textContent = `${u.att}: ${k.a}/${Q.length}`;
+  $("sC").textContent = `${u.c}: ${k.c}`;
+  $("sW").textContent = `${u.w}: ${k.w}`;
+  $("sS").textContent = `${u.s}: ${k.s}`;
+  ["sC","sW","sS"].forEach(id=>$(id).classList.toggle("hidden", hide));
+}
+
+function result(){
+  const box = $("result");
+  if(!(mode==="test" && submitted)){ box.innerHTML=""; return; }
+  const u = UI[lang], k = counts();
+  const acc = k.a ? Math.round(k.c*100/k.a) : 0;
+  box.innerHTML = `<section class="result" aria-live="polite">
+    <h2>${u.res}: ${k.s} / ${Q.length}</h2>
+    <div class="rgrid">
+      <div>${u.c}<b>${k.c}</b></div><div>${u.w}<b>${k.w}</b></div>
+      <div>${u.un}<b>${Q.length-k.a}</b></div><div>${u.acc}<b>${acc}%</b></div>
+      <div>${u.taken}<b>${fmt(LIMIT-left)}</b></div>
+    </div>
+    <p>${autoSub ? u.auto+" " : ""}${u.resNote}</p></section>`;
+}
+
+function doSubmit(){
+  submitted = true; stopTimer(); render();
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function resetAll(){
+  picked = new Array(Q.length).fill(null);
+  showAll=false; submitted=false; autoSub=false; left=LIMIT;
+  render(); startTimer(); window.scrollTo({top:0});
+}
+
+$("list").addEventListener("click", e=>{
+  const b = e.target.closest(".opt");
+  if(!b || b.disabled) return;
+  const i = +b.dataset.q, j = +b.dataset.o;
+  if(mode==="test"){ picked[i] = picked[i]===j ? null : j; }
+  else { if(picked[i]!==null) return; picked[i] = j; }
+  render();
+  const btn = document.querySelector(`#q${i} .opt[data-o="${j}"]`) || document.querySelector(`#q${i} .opt`);
+  if(btn) btn.focus({preventScroll:true});
+});
+$("bEn").onclick = ()=>{ lang="en"; render(); };
+$("bHi").onclick = ()=>{ lang="hi"; render(); };
+function setMode(m){
+  if(m===mode) return;
+  const dirty = picked.some(p=>p!==null) || submitted;
+  if(dirty && !confirm(UI[lang].cMode)) return;
+  mode = m; resetAll();
+}
+$("mTest").onclick = ()=>setMode("test");
+$("mPrac").onclick = ()=>setMode("practice");
+$("bSubmit").onclick = ()=>{ if(confirm(UI[lang].cSub)) doSubmit(); };
+$("bShow").onclick = ()=>{ showAll=!showAll; render(); };
+$("bReset").onclick = resetAll;
+
+function paintStart(){
+  const u=UI[lang];
+  $("stTitle").textContent=u.title;
+  $("stSub").textContent=u.stSub;
+  $("stTest").innerHTML=u.stT+"<small>"+u.stTs+"</small>";
+  $("stPrac").innerHTML=u.stP+"<small>"+u.stPs+"</small>";
+  $("stEn").setAttribute("aria-pressed",lang==="en");
+  $("stHi").setAttribute("aria-pressed",lang==="hi");
+}
+function begin(m){ mode=m; $("start").classList.add("hidden"); resetAll(); }
+$("stTest").onclick=()=>begin("test");
+$("stPrac").onclick=()=>begin("practice");
+$("stEn").onclick=()=>{ lang="en"; render(); paintStart(); };
+$("stHi").onclick=()=>{ lang="hi"; render(); paintStart(); };
+$("bEn").addEventListener("click",paintStart);
+$("bHi").addEventListener("click",paintStart);
+render(); paintStart(); $("stTest").focus();
+</script>
+</body>
+</html>
