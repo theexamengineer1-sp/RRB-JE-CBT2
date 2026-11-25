@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Machining Smart MCQ Set 5 – Milling, Indexing, Gears & Broaching | THE EXAM ENGINEER</title>
+<style>
+:root{
+  --navy:#12306b; --navy-deep:#0c2350; --orange:#f07f1a;
+  --bg:#f3f6fb; --card:#ffffff; --text:#16213a; --muted:#5b6782;
+  --line:#d9e0ec; --opt:#f7f9fd; --opt-hover:#eaf0fa;
+  --ok:#17803d; --ok-bg:#e6f6ec; --bad:#c0272d; --bad-bg:#fdecec;
+  --ex-bg:#fff7ee; --ex-line:#f3c58f; --chip:#e9eef8;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --navy:#2b4f9a; --navy-deep:#16264a; --orange:#ff9a3d;
+    --bg:#0f1524; --card:#18213a; --text:#e8edf8; --muted:#a3aec6;
+    --line:#2c3857; --opt:#1e2944; --opt-hover:#26345a;
+    --ok:#4cd17e; --ok-bg:#163a26; --bad:#ff6b70; --bad-bg:#3d1a1e;
+    --ex-bg:#2a2216; --ex-line:#6b4b22; --chip:#25304d;
+    color-scheme: dark;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:"Segoe UI","Noto Sans","Nirmala UI","Mangal",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  line-height:1.6;font-size:16px}
+header{background:var(--navy-deep);color:#fff;padding:22px 16px 18px}
+.wrap{max-width:860px;margin:0 auto}
+.brand{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand a{color:var(--orange);font-weight:700;text-decoration:none}
+.brand a:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.channel{font-weight:800;letter-spacing:.5px}
+h1{margin:14px 0 4px;font-size:clamp(1.4rem,4.5vw,2rem);line-height:1.2}
+.sub{margin:0;color:#c9d5ee;font-size:.95rem}
+.rules{margin-top:10px;font-size:.88rem;color:#c9d5ee}
+.bar{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:3px solid var(--orange);
+  box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.bar .wrap{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding:10px 16px}
+.seg{display:inline-flex;border:2px solid var(--navy);border-radius:999px;overflow:hidden}
+.seg button{border:0;background:transparent;color:var(--text);padding:6px 14px;font:inherit;font-weight:700;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--navy);color:#fff}
+.stats{display:flex;gap:12px;flex-wrap:wrap;font-size:.9rem;font-weight:600}
+.stats .c{color:var(--ok)} .stats .w{color:var(--bad)} .stats .s{color:var(--orange)}
+.tools button{border:1px solid var(--line);background:var(--opt);color:var(--text);border-radius:8px;
+  padding:6px 10px;font:inherit;font-size:.85rem;cursor:pointer}
+.tools button:hover{background:var(--opt-hover)}
+button:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+main{padding:18px 16px 40px}
+.q{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--navy);
+  border-radius:10px;padding:16px 16px 14px;margin:0 0 16px}
+.qhead{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.qno{font-weight:800;color:var(--navy)}
+@media (prefers-color-scheme: dark){.qno{color:#8fb0f5}}
+.chip{background:var(--chip);color:var(--muted);font-size:.75rem;font-weight:700;padding:2px 9px;border-radius:999px}
+.chip.lv-t{background:var(--bad-bg);color:var(--bad)}
+.chip.lv-h{background:var(--ex-bg);color:var(--orange)}
+.qtext{font-weight:600;margin:4px 0 12px}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;text-align:left;width:100%;border:1.5px solid var(--line);
+  background:var(--opt);color:var(--text);border-radius:8px;padding:9px 12px;font:inherit;cursor:pointer}
+.opt:hover:not(:disabled){background:var(--opt-hover)}
+.opt:disabled{cursor:default}
+.opt .l{font-weight:800;min-width:1.8em;color:var(--muted)}
+.opt.right{border-color:var(--ok);background:var(--ok-bg)}
+.opt.right .l{color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.opt.wrong .l{color:var(--bad)}
+.opt.sel{border-color:var(--navy);background:var(--opt-hover);box-shadow:inset 0 0 0 1px var(--navy)}
+.opt.sel .l{color:var(--navy)}
+@media (prefers-color-scheme: dark){.opt.sel .l{color:#8fb0f5}.opt.sel{border-color:#8fb0f5;box-shadow:inset 0 0 0 1px #8fb0f5}}
+.timer{font-variant-numeric:tabular-nums;font-weight:800}
+.timer.low{color:var(--bad)}
+.tools{display:flex;gap:6px;flex-wrap:wrap}
+.tools button.primary{background:var(--orange);border-color:var(--orange);color:#fff;font-weight:700}
+.tools button.primary:hover{filter:brightness(1.05);background:var(--orange)}
+.hidden{display:none !important}
+.result{background:var(--card);border:2px solid var(--orange);border-radius:12px;padding:16px;margin-bottom:18px}
+.result h2{margin:0 0 10px;font-size:1.2rem;color:var(--orange)}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+.rgrid div{background:var(--opt);border-radius:8px;padding:8px 10px}
+.rgrid b{display:block;font-size:1.3rem}
+.result p{margin:10px 0 0;color:var(--muted);font-size:.9rem}
+.start{position:fixed;inset:0;z-index:20;background:rgba(8,18,40,.78);display:flex;align-items:center;justify-content:center;padding:16px}
+.start .card{background:var(--card);color:var(--text);border-top:6px solid var(--orange);border-radius:14px;max-width:440px;width:100%;padding:22px 20px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.start h2{margin:0 0 6px;font-size:1.3rem;color:var(--navy)}
+@media (prefers-color-scheme: dark){.start h2{color:#8fb0f5}}
+.start p{margin:0 0 16px;color:var(--muted);font-size:.92rem}
+.start .big{display:block;width:100%;margin:10px 0;padding:14px;border-radius:10px;font:inherit;font-size:1.05rem;font-weight:800;cursor:pointer;border:2px solid var(--navy);background:var(--opt);color:var(--text)}
+.start .big.primary{background:var(--orange);border-color:var(--orange);color:#fff}
+.start .big small{display:block;font-weight:500;font-size:.82rem;opacity:.9;margin-top:2px}
+.start .seg{margin-top:10px}
+.ex{margin-top:12px;background:var(--ex-bg);border:1px solid var(--ex-line);border-radius:8px;padding:12px 14px;font-size:.95rem}
+.ex .ans{font-weight:800;color:var(--ok);margin-bottom:4px}
+.ex .verdict-bad{color:var(--bad)}
+.sec{margin:24px 0 12px;font-weight:800;color:var(--orange);font-size:1.05rem;border-bottom:2px solid var(--line);padding-bottom:4px}
+footer{text-align:center;color:var(--muted);font-size:.82rem;padding:10px 16px 30px}
+footer a{color:var(--orange)}
+@media (prefers-reduced-motion: no-preference){.ex{animation:show .25s ease-out}
+  @keyframes show{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}}
+</style>
+</head>
+<body>
+<div class="start" id="start" role="dialog" aria-modal="true" aria-labelledby="stTitle">
+  <div class="card">
+    <h2 id="stTitle"></h2>
+    <p id="stSub"></p>
+    <button class="big primary" id="stTest"></button>
+    <button class="big" id="stPrac"></button>
+    <div class="seg" role="group" aria-label="Language">
+      <button id="stEn" aria-pressed="true">English</button>
+      <button id="stHi" aria-pressed="false">हिंदी</button>
+    </div>
+  </div>
+</div>
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <span class="channel">THE EXAM ENGINEER</span>
+      <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a>
+    </div>
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+    <p class="rules" id="rules"></p>
+  </div>
+</header>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="seg" role="group" aria-label="Language">
+      <button id="bEn" aria-pressed="true">English</button>
+      <button id="bHi" aria-pressed="false">हिंदी</button>
+    </div>
+    <div class="seg" role="group" aria-label="Mode">
+      <button id="mTest" aria-pressed="true"></button>
+      <button id="mPrac" aria-pressed="false"></button>
+    </div>
+    <div class="stats" aria-live="polite">
+      <span class="timer" id="timer"></span>
+      <span id="sAtt"></span><span class="c" id="sC"></span><span class="w" id="sW"></span><span class="s" id="sS"></span>
+    </div>
+    <div class="tools">
+      <button id="bSubmit" class="primary"></button>
+      <button id="bShow"></button>
+      <button id="bReset"></button>
+    </div>
+  </div>
+</div>
+
+<main><div class="wrap"><div id="result"></div><div id="list"></div></div></main>
+
+<footer>
+  <div id="foot"></div>
+  <div>© 2026 THE EXAM ENGINEER · <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a> · theexamengineer1@gmail.com</div>
+  <div>SSC JE AIR 14 · RRB JE 2025 (DMS)</div>
+</footer>
+
+<script>
+const UI = {
+  en:{title:"Machining Smart MCQ – Set 5",
+      sub:"Milling & Indexing, Gear Manufacture & Heat Treatment, Broaching · RRB JE CBT-2 (Mechanical & Allied) · RRB JE PYQ based",
+      rules:"25 questions · 20 minutes (RRB CBT-2 pace: 150 Qs in 120 min) · +1 correct, −1/3 wrong",
+      stT:"Start Test",stTs:"20 minutes · timer · submit · full result",stP:"Practice Mode",stPs:"no timer · answer and explanation instantly",stSub:"Choose how you want to attempt this set",
+      rulesP:"Practice mode · no timer · tap an option to see the answer with full explanation instantly",
+      test:"Test",prac:"Practice",submit:"Submit test",time:"Time left",
+      cSub:"Submit the test now? You cannot change answers after submitting.",
+      cMode:"Switching mode will reset your current attempt. Continue?",
+      res:"Your result",un:"Not attempted",taken:"Time taken",acc:"Accuracy",auto:"Time over – test submitted automatically.",
+      resNote:"Answers and full explanations are now shown below each question. Read the explanation of every wrong and unattempted question.",
+      att:"Attempted",c:"Correct",w:"Wrong",s:"Score",show:"Show all answers",hide:"Hide unattempted answers",reset:"Reset",
+      ans:"Correct answer",yours:"Your answer is wrong.",right:"Your answer is correct.",num:"Simple numericals",
+      lv:{e:"Easy",p:"PYQ level",h:"Higher",t:"Tough"},
+      foot:"Original work, free for personal study. Share as it is with the channel link – no re-branding."},
+  hi:{title:"मशीनिंग स्मार्ट MCQ – सेट 5",
+      sub:"मिलिंग एवं इंडेक्सिंग, गियर निर्माण एवं ऊष्मा उपचार, ब्रोचिंग · RRB JE CBT-2 (मैकेनिकल एवं संबद्ध) · RRB JE PYQ आधारित",
+      rules:"25 प्रश्न · 20 मिनट (RRB CBT-2 गति: 120 मिनट में 150 प्रश्न) · सही +1, गलत −1/3",
+      stT:"टेस्ट शुरू करें",stTs:"20 मिनट · टाइमर · सबमिट · पूरा परिणाम",stP:"प्रैक्टिस मोड",stPs:"कोई टाइमर नहीं · उत्तर व व्याख्या तुरंत",stSub:"यह सेट कैसे हल करना है, चुनें",
+      rulesP:"प्रैक्टिस मोड · कोई टाइमर नहीं · विकल्प पर टैप करें, उत्तर और पूरी व्याख्या तुरंत दिखेगी",
+      test:"टेस्ट",prac:"प्रैक्टिस",submit:"टेस्ट सबमिट करें",time:"शेष समय",
+      cSub:"क्या अभी टेस्ट सबमिट करें? सबमिट के बाद उत्तर नहीं बदल सकेंगे।",
+      cMode:"मोड बदलने पर आपका वर्तमान प्रयास रीसेट हो जाएगा। जारी रखें?",
+      res:"आपका परिणाम",un:"बिना प्रयास",taken:"लिया गया समय",acc:"सटीकता",auto:"समय समाप्त – टेस्ट स्वतः सबमिट हो गया।",
+      resNote:"अब हर प्रश्न के नीचे उत्तर और पूरी व्याख्या दिख रही है। हर गलत और बिना प्रयास वाले प्रश्न की व्याख्या ज़रूर पढ़ें।",
+      att:"प्रयास",c:"सही",w:"गलत",s:"स्कोर",show:"सभी उत्तर दिखाएँ",hide:"बिना प्रयास वाले उत्तर छिपाएँ",reset:"रीसेट",
+      ans:"सही उत्तर",yours:"आपका उत्तर गलत है।",right:"आपका उत्तर सही है।",num:"सरल न्यूमेरिकल",
+      lv:{e:"आसान",p:"PYQ स्तर",h:"उच्च",t:"कठिन"},
+      foot:"मौलिक कार्य, व्यक्तिगत अध्ययन हेतु निःशुल्क। चैनल लिंक सहित जैसा है वैसा ही शेयर करें – री-ब्रांडिंग नहीं।"}
+};
+
+const Q = [
+/* 1 */ {ans:3, lv:"e", tag:{en:"Milling principle",hi:"मिलिंग सिद्धांत"},
+en:{q:"In milling, the cutting motion and the feed are given by:",
+o:["the work rotates; the cutter is fed","the cutter reciprocates; the work rotates","the work reciprocates; the cutter is fixed","the cutter rotates; the work is fed"],
+e:"In <b>milling</b> a <b>multi-point cutter rotates</b> (the cutting motion, from the spindle) while the <b>work, clamped on the table, is fed</b> against it – longitudinally, crosswise or vertically. Each tooth cuts intermittently, removing a small comma-shaped chip, so milling gives flat, stepped, slotted, profiled and gear surfaces at a high metal-removal rate.<br><b>Why not the others:</b> (a) work rotating with a fed tool is turning; (b) and (c) describe shaping and planing, where tool or work reciprocates.<br><b>Multi-point tools:</b> milling cutters and broaches are multi-point; a turning tool is single-point (RRB-CBT2 2019; Assam PYQ).<br><b>Table feed:</b> f<sub>m</sub> (mm/min) = feed per tooth × number of teeth × rpm."},
+hi:{q:"मिलिंग में कटिंग गति और फ़ीड किसके द्वारा दी जाती है?",
+o:["जॉब घूमता है; कटर को फ़ीड दी जाती है","कटर आगे-पीछे चलता है; जॉब घूमता है","जॉब आगे-पीछे चलता है; कटर स्थिर रहता है","कटर घूमता है; जॉब को फ़ीड दी जाती है"],
+e:"<b>मिलिंग</b> में <b>बहु-बिंदु कटर घूमता</b> है (कटिंग गति, स्पिंडल से) जबकि टेबल पर क्लैंप <b>जॉब को कटर के विरुद्ध फ़ीड</b> दी जाती है – अनुदैर्ध्य, आर-पार या ऊर्ध्व। हर दाँत रुक-रुक कर काटता है और अल्पविराम-आकार की छोटी चिप निकालता है, इसलिए मिलिंग अधिक धातु-निष्कासन दर पर सपाट, सीढ़ीदार, खाँचेदार, प्रोफ़ाइल व गियर सतहें देती है।<br><b>अन्य क्यों नहीं:</b> (a) घूमता जॉब और फ़ीड होता टूल टर्निंग है; (b) और (c) शेपिंग व प्लेनिंग हैं, जहाँ टूल या जॉब आगे-पीछे चलता है।<br><b>बहु-बिंदु टूल:</b> मिलिंग कटर और ब्रोच बहु-बिंदु; टर्निंग टूल सिंगल-पॉइंट (RRB-CBT2 2019; असम PYQ)।<br><b>टेबल फ़ीड:</b> f<sub>m</sub> (mm/min) = प्रति दाँत फ़ीड × दाँतों की संख्या × rpm।"}},
+
+/* 2 */ {ans:0, lv:"h", tag:{en:"Up vs down milling · scenario",hi:"अप बनाम डाउन मिलिंग · परिस्थिति"},
+en:{q:"A cast-iron block with a hard, sandy skin is to be milled on an older machine whose table screw has noticeable backlash. The method preferred is:",
+o:["up milling, against the feed","down milling, with the feed","straddle milling, two faces","gang milling, many cutters"],
+e:"<b>Up (conventional) milling</b> – the cutter rotates <b>against</b> the direction of feed (RRB-CBT2 Jun'25 concept). Each tooth enters at zero chip thickness and leaves at maximum, so it starts <b>under the hard scale</b> and lifts it off from below – the cutting edge is not hammered on the abrasive skin of castings and forgings. The cutting force tends to push the table <b>away</b> from the cutter, taking up the play in the feed screw, so <b>backlash does no harm</b>.<br><b>Down (climb) milling</b> – cutter rotates <b>with</b> the feed (RRB-CBT2 Apr'25-II concept): each tooth strikes the hard skin first at full thickness, and the cutter pulls the work in, so backlash makes the table jump – it needs a <b>backlash eliminator</b>; but on clean material it gives a better finish and tool life (Railway JE PYQ).<br><b>Why not the others:</b> straddle and gang milling describe cutter arrangements, not the direction of rotation."},
+hi:{q:"कठोर, रेतीली परत वाले कास्ट-आयरन ब्लॉक को ऐसी पुरानी मशीन पर मिल करना है जिसके टेबल स्क्रू में स्पष्ट बैकलैश है। पसंदीदा विधि है:",
+o:["अप मिलिंग, फ़ीड के विरुद्ध","डाउन मिलिंग, फ़ीड के साथ","स्ट्रैडल मिलिंग, दो फ़ेस","गैंग मिलिंग, अनेक कटर"],
+e:"<b>अप (पारंपरिक) मिलिंग</b> – कटर फ़ीड की दिशा के <b>विरुद्ध</b> घूमता है (RRB-CBT2 Jun'25 अवधारणा)। हर दाँत शून्य चिप मोटाई पर प्रवेश कर अधिकतम पर निकलता है, इसलिए वह <b>कठोर परत के नीचे से</b> शुरू होकर उसे नीचे से उठाता है – कास्टिंग व फ़ोर्जिंग की अपघर्षक परत पर कटिंग धार पर चोट नहीं पड़ती। कटिंग बल टेबल को कटर से <b>दूर</b> धकेलता है, फ़ीड स्क्रू का ढीलापन भर जाता है, इसलिए <b>बैकलैश हानि नहीं</b> करता।<br><b>डाउन (क्लाइंब) मिलिंग</b> – कटर फ़ीड के <b>साथ</b> घूमता है (RRB-CBT2 Apr'25-II अवधारणा): हर दाँत पूरी मोटाई पर पहले कठोर परत से टकराता है, और कटर जॉब को अंदर खींचता है, इसलिए बैकलैश से टेबल उछलती है – <b>बैकलैश एलिमिनेटर</b> चाहिए; पर साफ़ पदार्थ पर बेहतर फ़िनिश व टूल जीवन (रेलवे JE PYQ)।<br><b>अन्य क्यों नहीं:</b> स्ट्रैडल व गैंग मिलिंग कटर की व्यवस्था बताते हैं, घूमने की दिशा नहीं।"}},
+
+/* 3 */ {ans:2, lv:"e", tag:{en:"Gear heat treatment",hi:"गियर ऊष्मा उपचार"},
+en:{q:"Automobile gears are usually case-carburised and hardened to obtain:",
+o:["a soft surface and a hard core","uniform hardness throughout","a hard surface with a tough core","a brittle core for strength"],
+e:"Gear teeth need a <b>hard, wear-resistant surface</b> to resist pitting and wear at the tooth contact, and a <b>tough core</b> to absorb shock loads without the teeth breaking. In <b>case carburising</b> a low-carbon alloy steel gear is heated in a carbon-rich atmosphere so carbon diffuses into the surface; on quenching and tempering, the high-carbon <b>case becomes very hard</b> while the low-carbon <b>core stays tough</b>.<br><b>Other gear treatments:</b> <b>nitriding</b> – very hard thin case, little distortion (no quench) · <b>induction / flame hardening</b> – only the tooth surface of large gears · <b>carbonitriding / cyaniding</b> – shallow case on small gears · <b>through hardening + tempering</b> – medium-carbon gears needing uniform strength.<br><b>Why not the others:</b> a uniformly hard gear would be brittle; a soft surface would wear; a brittle core would let teeth snap."},
+hi:{q:"ऑटोमोबाइल गियर सामान्यतः केस-कार्बुराइज़ व कठोर किए जाते हैं ताकि मिले:",
+o:["नरम सतह और कठोर कोर","पूरे में एकसमान कठोरता","कठोर सतह के साथ टफ़ कोर","सामर्थ्य हेतु भंगुर कोर"],
+e:"गियर दाँतों को संपर्क पर पिटिंग व घिसाव से बचने हेतु <b>कठोर, घिसाव-प्रतिरोधी सतह</b>, और दाँत टूटे बिना झटका भार सोखने हेतु <b>टफ़ कोर</b> चाहिए। <b>केस कार्बुराइज़िंग</b> में लो-कार्बन मिश्र-धातु स्टील गियर को कार्बन-समृद्ध वातावरण में गर्म किया जाता है ताकि कार्बन सतह में विसरित हो; क्वेंचिंग व टेम्परिंग पर उच्च-कार्बन <b>केस बहुत कठोर</b> हो जाता है जबकि लो-कार्बन <b>कोर टफ़</b> रहता है।<br><b>अन्य गियर उपचार:</b> <b>नाइट्राइडिंग</b> – बहुत कठोर पतला केस, कम विकृति (क्वेंच नहीं) · <b>इंडक्शन / फ़्लेम हार्डनिंग</b> – बड़े गियर की केवल दाँत सतह · <b>कार्बोनाइट्राइडिंग / साइनाइडिंग</b> – छोटे गियर पर उथला केस · <b>थ्रू हार्डनिंग + टेम्परिंग</b> – एकसमान सामर्थ्य वाले मध्यम-कार्बन गियर।<br><b>अन्य क्यों नहीं:</b> पूरा कठोर गियर भंगुर होगा; नरम सतह घिसेगी; भंगुर कोर से दाँत टूटेंगे।"}},
+
+/* 4 */ {ans:1, lv:"p", tag:{en:"Numerical – table feed",hi:"न्यूमेरिकल – टेबल फ़ीड"},
+en:{q:"A milling cutter with 12 teeth runs at 150 rpm with a feed of 0.08 mm per tooth. The table feed is:",
+o:["12 mm/min","144 mm/min","1.44 mm/min","1800 mm/min"],
+e:"Table feed f<sub>m</sub> = feed per tooth × number of teeth × rpm = 0.08 × 12 × 150 = <b>144 mm/min</b>.<br>Feed per revolution = 0.08 × 12 = 0.96 mm/rev.<br><b>Distractor check:</b> (a) 12 mm/min = 0.08 × 150 (forgot the number of teeth); (c) a decimal slip; (d) 1800 = 12 × 150 (forgot feed per tooth).<br><b>Same formula in PYQs:</b> 8 teeth, 200 rpm, 0.1 mm/tooth → 160 mm/min (Railway SSE 2012); 8 teeth, 150 rpm, 0.1 → 120 mm/min (Railway SSE 2009); reverse – find feed per tooth from table feed (RRB-CBT2 2019: 125 mm cutter, 10 teeth, 14 m/min, 100 mm/min → ≈ 0.28 mm/tooth).<br><b>Machining time:</b> T = (L + approach + over-run) ÷ f<sub>m</sub>; slab-milling approach = √(d(D − d))."},
+hi:{q:"12 दाँतों वाला मिलिंग कटर 150 rpm पर 0.08 mm प्रति दाँत फ़ीड से चलता है। टेबल फ़ीड है:",
+o:["12 mm/min","144 mm/min","1.44 mm/min","1800 mm/min"],
+e:"टेबल फ़ीड f<sub>m</sub> = प्रति दाँत फ़ीड × दाँतों की संख्या × rpm = 0.08 × 12 × 150 = <b>144 mm/min</b>।<br>प्रति चक्कर फ़ीड = 0.08 × 12 = 0.96 mm/rev।<br><b>गलत विकल्प कैसे बने:</b> (a) 12 mm/min = 0.08 × 150 (दाँतों की संख्या भूले); (c) दशमलव भूल; (d) 1800 = 12 × 150 (प्रति दाँत फ़ीड भूले)।<br><b>PYQ में यही सूत्र:</b> 8 दाँत, 200 rpm, 0.1 mm/दाँत → 160 mm/min (रेलवे SSE 2012); 8 दाँत, 150 rpm, 0.1 → 120 mm/min (रेलवे SSE 2009); उल्टा – टेबल फ़ीड से प्रति दाँत फ़ीड (RRB-CBT2 2019: 125 mm कटर, 10 दाँत, 14 m/min, 100 mm/min → ≈ 0.28 mm/दाँत)।<br><b>मशीनिंग समय:</b> T = (L + अप्रोच + ओवर-रन) ÷ f<sub>m</sub>; स्लैब मिलिंग अप्रोच = √(d(D − d))।"}},
+
+/* 5 */ {ans:1, lv:"p", tag:{en:"Broach teeth",hi:"ब्रोच दाँत"},
+en:{q:"The finishing teeth at the end of a broach:",
+o:["have the largest rise per tooth","are all of the same size","are left blunt for burnishing","cut most of the material"],
+e:"A broach has <b>three groups of teeth</b> (RRB-CBT2 2019, TSPSC PYQ): <b>roughing teeth</b> – the largest rise per tooth (step), they remove most of the metal; <b>semi-finishing teeth</b> – a smaller rise; <b>finishing (sizing) teeth</b> – all of the <b>same size</b>, equal to the final dimension, with <b>zero rise</b>. They only clean up and size the surface; having several of them means the broach can be resharpened (each regrind slightly reduces the size) and still finish correctly.<br>Burnishing buttons (smooth, rounded rings) may follow the finishing teeth to compress and polish the surface (Railway JE PYQ) – they are separate from the finishing teeth.<br><b>Other broach parts:</b> pull end / shank – grips and aligns (RRB-CBT2 Apr'25-I concept); front pilot – centres the broach in the hole; rear pilot; back-off (clearance) angle prevents rubbing; hook (rake) angle on the tooth face; gullet – chip space between teeth.<br><b>Broach length</b> = Σ (number of teeth × pitch) of all groups."},
+hi:{q:"ब्रोच के अंत में स्थित फ़िनिशिंग दाँत:",
+o:["प्रति दाँत सबसे अधिक राइज़ रखते हैं","सभी एक ही आकार के होते हैं","बर्निशिंग हेतु भोथरे छोड़े जाते हैं","अधिकांश धातु काटते हैं"],
+e:"ब्रोच में <b>दाँतों के तीन समूह</b> होते हैं (RRB-CBT2 2019, TSPSC PYQ): <b>रफ़िंग दाँत</b> – प्रति दाँत सबसे अधिक राइज़ (स्टेप), अधिकांश धातु हटाते हैं; <b>सेमी-फ़िनिशिंग दाँत</b> – कम राइज़; <b>फ़िनिशिंग (साइज़िंग) दाँत</b> – सभी <b>एक ही आकार</b> के, अंतिम माप के बराबर, <b>शून्य राइज़</b>। ये केवल सतह साफ़ कर साइज़ देते हैं; अनेक होने से ब्रोच को दोबारा धार दी जा सकती है (हर ग्राइंडिंग से आकार थोड़ा घटता है) और फिर भी सही फ़िनिश मिलती है।<br>फ़िनिशिंग दाँतों के बाद बर्निशिंग बटन (चिकने, गोल छल्ले) सतह को दबाकर चमकाने हेतु हो सकते हैं (रेलवे JE PYQ) – ये फ़िनिशिंग दाँतों से अलग हैं।<br><b>ब्रोच के अन्य भाग:</b> पुल एंड / शैंक – पकड़ता व संरेखित करता (RRB-CBT2 Apr'25-I अवधारणा); फ़्रंट पायलट – होल में ब्रोच को केंद्रित करता; रियर पायलट; बैक-ऑफ़ (क्लीयरेंस) कोण रगड़ रोकता; दाँत फ़ेस पर हुक (रेक) कोण; गलेट – दाँतों के बीच चिप स्थान।<br><b>ब्रोच लंबाई</b> = सभी समूहों का Σ (दाँतों की संख्या × पिच)।"}},
+
+/* 6 */ {ans:0, lv:"h", tag:{en:"Down milling",hi:"डाउन मिलिंग"},
+en:{q:"Consider the following statements about down (climb) milling:<br>I. The chip goes from thick to thin.<br>II. The cutter tends to pull the work in, so a backlash eliminator is needed.<br>III. The cutting force lifts the work off the table.<br>Which of the statements are correct?",
+o:["I and II only","II and III only","I and III only","I, II and III"],
+e:"<b>I ✔</b> – in down milling each tooth enters the work at <b>maximum chip thickness</b> and leaves at zero – thick to thin. There is no rubbing at entry, so tool life and finish are better (Railway JE PYQ: 'better tool life and good surface finish → down milling').<br><b>II ✔</b> – the cutter rotates in the <b>same direction as the feed</b> (RRB-CBT2 Apr'25-II concept); it tends to <b>pull the table along</b>, so any backlash in the feed screw lets the table jump forward and damage the cutter – a <b>backlash eliminator</b> is required.<br><b>III ✘</b> – in down milling the force <b>presses the work down</b> onto the table, so lighter clamping is enough. It is <b>up milling</b> whose force tends to <b>lift</b> the work.<br><b>Up milling:</b> chip thin → thick, tooth rubs at entry, lifts work, safe with backlash, suits scaly castings (MECON PYQ: entry angle zero → up milling)."},
+hi:{q:"डाउन (क्लाइंब) मिलिंग के बारे में निम्न कथनों पर विचार करें:<br>I. चिप मोटी से पतली होती है।<br>II. कटर जॉब को अंदर खींचता है, इसलिए बैकलैश एलिमिनेटर चाहिए।<br>III. कटिंग बल जॉब को टेबल से उठाता है।<br>कौन-से कथन सही हैं?",
+o:["केवल I और II","केवल II और III","केवल I और III","I, II और III"],
+e:"<b>I ✔</b> – डाउन मिलिंग में हर दाँत <b>अधिकतम चिप मोटाई</b> पर प्रवेश कर शून्य पर निकलता है – मोटी से पतली। प्रवेश पर रगड़ नहीं, इसलिए बेहतर टूल जीवन व फ़िनिश (रेलवे JE PYQ: 'बेहतर टूल जीवन व अच्छी फ़िनिश → डाउन मिलिंग')।<br><b>II ✔</b> – कटर फ़ीड की <b>दिशा में ही</b> घूमता है (RRB-CBT2 Apr'25-II अवधारणा); यह <b>टेबल को साथ खींचता</b> है, इसलिए फ़ीड स्क्रू का कोई भी बैकलैश टेबल को आगे उछालकर कटर को क्षति पहुँचाता है – <b>बैकलैश एलिमिनेटर</b> आवश्यक।<br><b>III ✘</b> – डाउन मिलिंग में बल जॉब को टेबल पर <b>नीचे दबाता</b> है, इसलिए हल्की क्लैंपिंग पर्याप्त। जॉब को <b>उठाने</b> वाला बल <b>अप मिलिंग</b> का है।<br><b>अप मिलिंग:</b> चिप पतली → मोटी, प्रवेश पर दाँत रगड़ता, जॉब उठाता, बैकलैश में सुरक्षित, परतदार कास्टिंग हेतु (MECON PYQ: प्रवेश कोण शून्य → अप मिलिंग)।"}},
+
+/* 7 */ {ans:3, lv:"h", tag:{en:"Gear shaping · scenario",hi:"गियर शेपिंग · परिस्थिति"},
+en:{q:"The internal ring gear of a planetary gearbox is to be cut in batch production. The suitable process is:",
+o:["gear hobbing","form milling on a horizontal machine","gear shaving","gear shaping with a pinion cutter"],
+e:"In <b>gear shaping</b> a cutter shaped like a <b>pinion</b> (or a rack) with hardened, relieved teeth <b>reciprocates</b> along the gear axis while the cutter and blank <b>rotate together</b> as if in mesh – the tooth profile is <b>generated</b>. Because the short cutter only needs space to over-run a little, it can cut <b>internal gears</b>, cluster gears and gears close to a shoulder (Railway SSE, Railway JE, DMRC, MECON PYQs: 'internal gear can be made by → gear shaping with pinion cutter').<br><b>Why not the others:</b> a <b>hob</b> (a worm-shaped cutter) cannot be placed inside a ring gear – hobbing cannot cut internal gears (Railway JE PYQ); <b>form milling</b> of internal teeth is impractical and slow; <b>shaving</b> only finishes teeth already cut.<br><b>Other route:</b> for mass-produced, fine-finish internal gears, <b>broaching</b> is used (Metro, Railway JE PYQ)."},
+hi:{q:"प्लैनेटरी गियरबॉक्स का भीतरी रिंग गियर बैच उत्पादन में काटना है। उपयुक्त प्रक्रिया है:",
+o:["गियर हॉबिंग","क्षैतिज मशीन पर फ़ॉर्म मिलिंग","गियर शेविंग","पिनियन कटर से गियर शेपिंग"],
+e:"<b>गियर शेपिंग</b> में कठोर, रिलीव्ड दाँतों वाला <b>पिनियन</b> (या रैक) आकार का कटर गियर अक्ष के साथ <b>आगे-पीछे</b> चलता है जबकि कटर व ब्लैंक मेश की तरह <b>साथ घूमते</b> हैं – दाँत प्रोफ़ाइल <b>जनरेट</b> होती है। छोटे कटर को थोड़ा ही ओवर-रन स्थान चाहिए, इसलिए यह <b>भीतरी गियर</b>, क्लस्टर गियर और शोल्डर के पास के गियर काट सकता है (रेलवे SSE, रेलवे JE, DMRC, MECON PYQ: 'भीतरी गियर बनता है → पिनियन कटर से गियर शेपिंग')।<br><b>अन्य क्यों नहीं:</b> <b>हॉब</b> (वर्म-आकार कटर) रिंग गियर के अंदर नहीं रखा जा सकता – हॉबिंग भीतरी गियर नहीं काटती (रेलवे JE PYQ); भीतरी दाँतों की <b>फ़ॉर्म मिलिंग</b> अव्यावहारिक व धीमी; <b>शेविंग</b> केवल कटे दाँतों की फ़िनिशिंग।<br><b>दूसरा मार्ग:</b> बड़े उत्पादन, बारीक फ़िनिश वाले भीतरी गियर हेतु <b>ब्रोचिंग</b> (मेट्रो, रेलवे JE PYQ)।"}},
+
+/* 8 */ {ans:2, lv:"e", tag:{en:"Numerical – indexing",hi:"न्यूमेरिकल – इंडेक्सिंग"},
+en:{q:"Using simple indexing on a dividing head with a 40 : 1 worm ratio, the crank movement to cut a 20-tooth gear is:",
+o:["20 turns","half a turn","2 turns","4 turns"],
+e:"In a <b>dividing (indexing) head</b> the crank drives a single-start worm meshing with a 40-tooth worm wheel on the spindle, so <b>40 turns of the crank = 1 turn of the job</b>.<br>For N equal divisions, crank turns per division = <b>40 ÷ N</b> = 40 ÷ 20 = <b>2 full turns</b>.<br><b>Distractor check:</b> (a) 20 turns would divide the job into only 2 parts; (b) half a turn would give 80 divisions; (d) 4 turns would give 10.<br><b>When 40/N is not a whole number:</b> use an index plate – e.g. N = 14 → 40/14 = 2 6/7 = 2 turns + 18 holes of a 21-hole circle (KPSC PYQ).<br><b>Other methods:</b> direct (rapid) indexing – 24-hole plate on the spindle (APGCL PYQ); angular – crank turns = θ ÷ 9°; differential – for numbers like 97, with change gears."},
+hi:{q:"40 : 1 वर्म अनुपात वाले डिवाइडिंग हेड पर सिंपल इंडेक्सिंग से 20 दाँतों का गियर काटने हेतु क्रैंक गति है:",
+o:["20 चक्कर","आधा चक्कर","2 चक्कर","4 चक्कर"],
+e:"<b>डिवाइडिंग (इंडेक्सिंग) हेड</b> में क्रैंक एक सिंगल-स्टार्ट वर्म चलाता है जो स्पिंडल पर 40 दाँत वाले वर्म व्हील से मेश करता है, इसलिए <b>क्रैंक के 40 चक्कर = जॉब का 1 चक्कर</b>।<br>N समान भागों हेतु प्रति भाग क्रैंक चक्कर = <b>40 ÷ N</b> = 40 ÷ 20 = <b>2 पूरे चक्कर</b>।<br><b>गलत विकल्प कैसे बने:</b> (a) 20 चक्कर जॉब को केवल 2 भागों में बाँटेंगे; (b) आधा चक्कर 80 भाग देगा; (d) 4 चक्कर 10 भाग।<br><b>जब 40/N पूर्ण संख्या न हो:</b> इंडेक्स प्लेट प्रयोग – जैसे N = 14 → 40/14 = 2 6/7 = 2 चक्कर + 21-होल वृत्त के 18 होल (KPSC PYQ)।<br><b>अन्य विधियाँ:</b> डायरेक्ट (रैपिड) इंडेक्सिंग – स्पिंडल पर 24-होल प्लेट (APGCL PYQ); एंगुलर – क्रैंक चक्कर = θ ÷ 9°; डिफ़रेंशियल – 97 जैसी संख्याओं हेतु, चेंज गियर सहित।"}},
+
+/* 9 */ {ans:0, lv:"p", tag:{en:"Gear hobbing",hi:"गियर हॉबिंग"},
+en:{q:"Gear hobbing is faster and more accurate than form milling of gears mainly because:",
+o:["indexing is continuous as teeth are generated","the hob is made of a softer, cheaper material","each tooth space is cut separately, one by one","the blank stays stationary throughout the cut"],
+e:"A <b>hob</b> is a worm-shaped cutter with gashes forming rows of cutting teeth. During hobbing the hob and the blank <b>rotate continuously together</b> in a fixed ratio (like a worm and wheel) while the hob is fed across the face. The tooth profile is <b>generated</b> by this rolling action, and <b>indexing is continuous</b> – there is no stopping to index between teeth, and several teeth are being cut at a time (Railway JE PYQ: 'hobbing is more accurate than milling because → there is continuous indexing'; Railway SSE: 'faster because several teeth are cut at a time').<br><b>Form milling</b> (forming): a disc cutter with the exact tooth-space profile cuts <b>one space at a time</b>, then the blank is indexed with a dividing head – slow, and a separate cutter is needed for each module and range of teeth; accuracy depends on indexing (DMRC PYQ: 'gear cutting with involute profile cutter → gear forming').<br><b>Hobbing uses:</b> spur, helical gears and worm wheels; fastest method; automobile gears (Railway JE, TSPSC PYQs)."},
+hi:{q:"गियर हॉबिंग, गियरों की फ़ॉर्म मिलिंग से तेज़ और अधिक सटीक मुख्यतः क्यों है?",
+o:["इंडेक्सिंग लगातार होती है और दाँत जनरेट होते हैं","हॉब नरम व सस्ते पदार्थ का बना होता है","प्रत्येक दाँत-स्थान एक-एक करके अलग से काटा जाता है","कटिंग के दौरान ब्लैंक पूरे समय स्थिर रहता है"],
+e:"<b>हॉब</b> एक वर्म-आकार का कटर है जिसमें कटाव से कटिंग दाँतों की पंक्तियाँ बनती हैं। हॉबिंग में हॉब और ब्लैंक निश्चित अनुपात में <b>लगातार साथ घूमते</b> हैं (वर्म व व्हील की तरह) जबकि हॉब फ़ेस के आर-पार फ़ीड होता है। इस रोलिंग क्रिया से दाँत प्रोफ़ाइल <b>जनरेट</b> होती है, और <b>इंडेक्सिंग लगातार</b> होती है – दाँतों के बीच इंडेक्स हेतु रुकना नहीं, और एक साथ कई दाँत कटते हैं (रेलवे JE PYQ: 'हॉबिंग मिलिंग से अधिक सटीक क्योंकि → लगातार इंडेक्सिंग'; रेलवे SSE: 'तेज़ क्योंकि एक साथ कई दाँत कटते हैं')।<br><b>फ़ॉर्म मिलिंग</b> (फ़ॉर्मिंग): ठीक दाँत-स्थान प्रोफ़ाइल वाला डिस्क कटर <b>एक बार में एक स्थान</b> काटता है, फिर डिवाइडिंग हेड से ब्लैंक इंडेक्स – धीमा, और हर मॉड्यूल व दाँत दायरे हेतु अलग कटर; सटीकता इंडेक्सिंग पर निर्भर (DMRC PYQ: 'इनवॉल्यूट प्रोफ़ाइल कटर से गियर कटिंग → गियर फ़ॉर्मिंग')।<br><b>हॉबिंग उपयोग:</b> स्पर, हेलिकल गियर व वर्म व्हील; सबसे तेज़ विधि; ऑटोमोबाइल गियर (रेलवे JE, TSPSC PYQ)।"}},
+
+/* 10 */ {ans:3, lv:"h", tag:{en:"Broaching · scenario",hi:"ब्रोचिंग · परिस्थिति"},
+en:{q:"A broach costs far more than a slotting tool, yet splined hubs for a car gearbox are broached. Broaching suits only such mass production because:",
+o:["broaching needs a highly skilled operator","broaching gives a poor surface finish","broaching is slower than slotting","a broach is costly and makes one form only"],
+e:"A broach is a long, precision, multi-tooth tool – expensive to design and make – and each broach produces <b>only one size and shape</b>. Its cost is justified only when it is spread over <b>thousands of identical parts</b> (Railway JE PYQ: 'main advantage of broaching → removal of material in one stroke').<br>In return, broaching is <b>very fast</b> (a whole spline or keyway in one stroke, roughing and finishing together), gives <b>good accuracy and finish</b>, needs <b>little operator skill</b>, and can produce odd internal and external shapes – splines, keyways, square and hexagonal holes, internal gears (Railway JE, Metro PYQs: spline holes → broaching).<br><b>Limitations:</b> costly tool, one size per broach, the work must withstand large forces, not for blind internal holes.<br><b>Why not the others:</b> all three are the opposite of the truth – low skill, good finish, very fast."},
+hi:{q:"ब्रोच स्लॉटिंग टूल से कहीं महँगा होता है, फिर भी कार गियरबॉक्स के स्प्लाइन्ड हब ब्रोच किए जाते हैं। ब्रोचिंग केवल ऐसे बड़े उत्पादन हेतु उपयुक्त है, क्योंकि:",
+o:["ब्रोचिंग को बहुत कुशल ऑपरेटर चाहिए","ब्रोचिंग खराब सतह फ़िनिश देती है","ब्रोचिंग स्लॉटिंग से धीमी है","ब्रोच महँगा है और एक ही आकार बनाता है"],
+e:"ब्रोच एक लंबा, परिशुद्ध, बहु-दाँत टूल है – डिज़ाइन व निर्माण में महँगा – और हर ब्रोच <b>केवल एक साइज़ व आकार</b> बनाता है। इसकी लागत तभी उचित है जब यह <b>हज़ारों एक जैसे पुर्ज़ों</b> पर बँटे (रेलवे JE PYQ: 'ब्रोचिंग का मुख्य लाभ → एक स्ट्रोक में धातु निष्कासन')।<br>बदले में ब्रोचिंग <b>बहुत तेज़</b> (पूरा स्प्लाइन या की-वे एक स्ट्रोक में, रफ़िंग व फ़िनिशिंग साथ), <b>अच्छी सटीकता व फ़िनिश</b> देती है, <b>कम कौशल</b> चाहिए, और विचित्र भीतरी व बाहरी आकार – स्प्लाइन, की-वे, वर्गाकार व षट्कोणीय होल, भीतरी गियर – बना सकती है (रेलवे JE, मेट्रो PYQ: स्प्लाइन होल → ब्रोचिंग)।<br><b>सीमाएँ:</b> महँगा टूल, हर ब्रोच एक साइज़, जॉब को अधिक बल सहना होगा, बंद भीतरी होल हेतु नहीं।<br><b>अन्य क्यों नहीं:</b> तीनों सच के उलट हैं – कम कौशल, अच्छी फ़िनिश, बहुत तेज़।"}},
+
+/* 11 */ {ans:1, lv:"p", tag:{en:"Milling operations",hi:"मिलिंग संक्रियाएँ"},
+en:{q:"Two parallel faces across the flats of a bolt head are milled in one pass using two side milling cutters on the same arbor. This is:",
+o:["gang milling","straddle milling","form milling","face milling"],
+e:"<b>Straddle milling</b> – two <b>side milling cutters</b> are mounted on the arbor with a spacer between them, set at the required distance; they 'straddle' the job and machine <b>two parallel vertical faces in one pass</b> – e.g. across the flats of bolt heads and nuts, or both sides of a lug (Railway SSE, HPPSC PYQs; SSC JE).<br><b>Gang milling</b> – <b>three or more cutters</b> of different types and sizes are mounted together to machine <b>several different surfaces</b> at once (Railway SSE, NPSC, GPSC PYQs).<br><b>Form milling</b> – a form cutter reproduces an irregular profile (e.g. gear teeth); <b>face milling</b> – a face mill with its axis perpendicular to the surface makes a flat face.<br><b>Memory:</b> straddle = two cutters, two parallel faces · gang = many cutters, many surfaces."},
+hi:{q:"बोल्ट हेड के फ़्लैट के आर-पार दो समानांतर फ़ेस, एक ही आर्बर पर दो साइड मिलिंग कटर से एक पास में मिल किए जाते हैं। यह है:",
+o:["गैंग मिलिंग","स्ट्रैडल मिलिंग","फ़ॉर्म मिलिंग","फ़ेस मिलिंग"],
+e:"<b>स्ट्रैडल मिलिंग</b> – दो <b>साइड मिलिंग कटर</b> आर्बर पर बीच में स्पेसर के साथ आवश्यक दूरी पर लगाए जाते हैं; वे जॉब को 'घेरकर' <b>एक पास में दो समानांतर ऊर्ध्व फ़ेस</b> मशीन करते हैं – जैसे बोल्ट हेड व नट के फ़्लैट, या लग के दोनों ओर (रेलवे SSE, HPPSC PYQ; SSC JE)।<br><b>गैंग मिलिंग</b> – अलग प्रकार व आकार के <b>तीन या अधिक कटर</b> साथ लगाकर एक साथ <b>कई अलग सतहें</b> मशीन करना (रेलवे SSE, NPSC, GPSC PYQ)।<br><b>फ़ॉर्म मिलिंग</b> – फ़ॉर्म कटर अनियमित प्रोफ़ाइल (जैसे गियर दाँत) बनाता है; <b>फ़ेस मिलिंग</b> – सतह के लंबवत अक्ष वाला फ़ेस मिल सपाट फ़ेस बनाता है।<br><b>याद रखें:</b> स्ट्रैडल = दो कटर, दो समानांतर फ़ेस · गैंग = अनेक कटर, अनेक सतहें।"}},
+
+/* 12 */ {ans:2, lv:"p", tag:{en:"Milling cutters",hi:"मिलिंग कटर"},
+en:{q:"Match each milling cutter (List-I) with its use (List-II):<br>P. Plain slab cutter<br>Q. Side and face cutter<br>R. Form cutter<br>S. Fly cutter<br>1. Involute gear tooth spaces<br>2. Flat horizontal surfaces<br>3. Steps and slots<br>4. Light facing with a single-point tool",
+o:["P-3, Q-2, R-1, S-4","P-2, Q-1, R-3, S-4","P-2, Q-3, R-1, S-4","P-4, Q-3, R-1, S-2"],
+e:"<b>Plain (slab) cutter</b> – teeth on the periphery only, straight or helical; mills <b>wide flat horizontal surfaces</b> on a horizontal machine.<br><b>Side and face cutter</b> – teeth on the periphery and both sides; cuts <b>steps, slots and grooves</b>, and is used in pairs for straddle milling.<br><b>Form cutter</b> – teeth ground to a profile, e.g. an <b>involute gear cutter</b> for tooth spaces, concave/convex cutters for radii (HPPSC PYQ: involute profile on a milling machine → profile milling cutter; VIZAG: gears → form milling).<br><b>Fly cutter</b> – a <b>single-point tool</b> held in a bar on the arbor; cheap, for <b>light facing</b> or special profiles (Railway JE PYQ: fly cutter is used on → milling machine).<br><b>Others:</b> metal slitting saw – thin slots and parting-off (RRB-CBT2 Apr'25-I concept); end mill – slots, pockets, keyways; T-slot, dovetail and angle cutters for special slots."},
+hi:{q:"प्रत्येक मिलिंग कटर (सूची-I) को उसके उपयोग (सूची-II) से सुमेलित करें:<br>P. प्लेन स्लैब कटर<br>Q. साइड एंड फ़ेस कटर<br>R. फ़ॉर्म कटर<br>S. फ़्लाई कटर<br>1. इनवॉल्यूट गियर दाँत-स्थान<br>2. सपाट क्षैतिज सतहें<br>3. सीढ़ियाँ और खाँचे<br>4. सिंगल-पॉइंट टूल से हल्की फ़ेसिंग",
+o:["P-3, Q-2, R-1, S-4","P-2, Q-1, R-3, S-4","P-2, Q-3, R-1, S-4","P-4, Q-3, R-1, S-2"],
+e:"<b>प्लेन (स्लैब) कटर</b> – केवल परिधि पर दाँत, सीधे या हेलिकल; क्षैतिज मशीन पर <b>चौड़ी सपाट क्षैतिज सतहें</b>।<br><b>साइड एंड फ़ेस कटर</b> – परिधि व दोनों ओर दाँत; <b>सीढ़ियाँ, स्लॉट व खाँचे</b> काटता है, स्ट्रैडल मिलिंग में जोड़े में।<br><b>फ़ॉर्म कटर</b> – प्रोफ़ाइल पर ग्राइंड दाँत, जैसे दाँत-स्थान हेतु <b>इनवॉल्यूट गियर कटर</b>, त्रिज्या हेतु अवतल/उत्तल कटर (HPPSC PYQ: मिलिंग मशीन पर इनवॉल्यूट प्रोफ़ाइल → प्रोफ़ाइल मिलिंग कटर; VIZAG: गियर → फ़ॉर्म मिलिंग)।<br><b>फ़्लाई कटर</b> – आर्बर पर बार में पकड़ा <b>सिंगल-पॉइंट टूल</b>; सस्ता, <b>हल्की फ़ेसिंग</b> या विशेष प्रोफ़ाइल हेतु (रेलवे JE PYQ: फ़्लाई कटर → मिलिंग मशीन पर)।<br><b>अन्य:</b> मेटल स्लिटिंग सॉ – पतले स्लॉट व पार्टिंग-ऑफ़ (RRB-CBT2 Apr'25-I अवधारणा); एंड मिल – स्लॉट, पॉकेट, की-वे; विशेष स्लॉट हेतु T-स्लॉट, डवटेल व एंगल कटर।"}},
+
+/* 13 */ {ans:2, lv:"h", tag:{en:"Gear process sequence",hi:"गियर प्रक्रिया क्रम"},
+en:{q:"For alloy-steel automobile gears, the correct sequence of operations is:",
+o:["hobbing → heat treatment → turning → shaving","turning → heat treatment → hobbing → grinding","turning → hobbing → shaving → heat treatment","shaving → turning → hobbing → heat treatment"],
+e:"<b>1. Turning</b> – the blank is turned and bored to size (it must exist before teeth can be cut).<br><b>2. Hobbing</b> (or shaping) – teeth are cut while the steel is <b>soft</b>.<br><b>3. Shaving</b> – a hardened, serrated shaving cutter removes a few hundredths of a millimetre to correct the profile and finish; it works only on <b>soft</b> teeth, so it comes <b>before hardening</b>.<br><b>4. Heat treatment</b> – case carburising and quenching harden the teeth (with some distortion).<br><b>(5. Grinding / lapping)</b> – for high-precision gears, done <b>after</b> hardening to remove distortion.<br><b>PYQ:</b> 'correct sequence for making alloy-steel gears → turning, hobbing, shaving, heat treatment' (BPSC 2017).<br><b>Hook:</b> shave BEFORE hardening, grind AFTER. <b>Hobbing is not a finishing process</b> – shaving, burnishing, grinding and lapping are (Railway SSE, Metro PYQs)."},
+hi:{q:"मिश्र-धातु स्टील के ऑटोमोबाइल गियरों हेतु संक्रियाओं का सही क्रम है:",
+o:["हॉबिंग → ऊष्मा उपचार → टर्निंग → शेविंग","टर्निंग → ऊष्मा उपचार → हॉबिंग → ग्राइंडिंग","टर्निंग → हॉबिंग → शेविंग → ऊष्मा उपचार","शेविंग → टर्निंग → हॉबिंग → ऊष्मा उपचार"],
+e:"<b>1. टर्निंग</b> – ब्लैंक को साइज़ तक टर्न व बोर किया जाता है (दाँत काटने से पहले ब्लैंक चाहिए)।<br><b>2. हॉबिंग</b> (या शेपिंग) – स्टील <b>नरम</b> रहते दाँत काटे जाते हैं।<br><b>3. शेविंग</b> – कठोर, दाँतेदार शेविंग कटर मिलीमीटर के कुछ सौवें भाग हटाकर प्रोफ़ाइल व फ़िनिश सुधारता है; यह केवल <b>नरम</b> दाँतों पर काम करता है, इसलिए <b>कठोर करने से पहले</b>।<br><b>4. ऊष्मा उपचार</b> – केस कार्बुराइज़िंग व क्वेंचिंग से दाँत कठोर (कुछ विकृति सहित)।<br><b>(5. ग्राइंडिंग / लैपिंग)</b> – उच्च-परिशुद्धता गियर हेतु, विकृति हटाने को कठोर करने के <b>बाद</b>।<br><b>PYQ:</b> 'मिश्र-धातु स्टील गियर बनाने का सही क्रम → टर्निंग, हॉबिंग, शेविंग, ऊष्मा उपचार' (BPSC 2017)।<br><b>याद रखें:</b> शेविंग कठोर करने से पहले, ग्राइंडिंग बाद में। <b>हॉबिंग फ़िनिशिंग प्रक्रिया नहीं</b> – शेविंग, बर्निशिंग, ग्राइंडिंग व लैपिंग हैं (रेलवे SSE, मेट्रो PYQ)।"}},
+
+/* 14 */ {ans:1, lv:"p", tag:{en:"Numerical – gear module",hi:"न्यूमेरिकल – गियर मॉड्यूल"},
+en:{q:"A standard spur gear has a module of 3 mm. Its whole depth (addendum + dedendum) is:",
+o:["6 mm","6.75 mm","3.75 mm","9.42 mm"],
+e:"For standard full-depth involute teeth:<br>addendum = 1 × module = 3 mm (height of the tooth <b>above</b> the pitch circle – RRB-CBT2 2019 PYQ);<br>dedendum = 1.25 × module = 3.75 mm (depth <b>below</b> the pitch circle – extra 0.25 m gives bottom clearance for the mating tooth);<br>whole depth = 2.25 m = 3 + 3.75 = <b>6.75 mm</b>.<br><b>Distractor check:</b> (a) 6 mm = 2 m, forgets the clearance; (c) 3.75 mm is the dedendum alone; (d) 9.42 mm = πm, the circular pitch.<br><b>Other gear relations:</b> module m = pitch-circle diameter ÷ number of teeth · circular pitch = π m · working depth = 2 m · clearance = 0.25 m.<br><b>Rack and pinion:</b> rack = straight-line gear, pinion = circular wheel (RRB-CBT2 Apr'25-II concept)."},
+hi:{q:"एक मानक स्पर गियर का मॉड्यूल 3 mm है। इसकी पूर्ण गहराई (एडेंडम + डीडेंडम) है:",
+o:["6 mm","6.75 mm","3.75 mm","9.42 mm"],
+e:"मानक पूर्ण-गहराई इनवॉल्यूट दाँतों हेतु:<br>एडेंडम = 1 × मॉड्यूल = 3 mm (पिच वृत्त के <b>ऊपर</b> दाँत की ऊँचाई – RRB-CBT2 2019 PYQ);<br>डीडेंडम = 1.25 × मॉड्यूल = 3.75 mm (पिच वृत्त के <b>नीचे</b> गहराई – अतिरिक्त 0.25 m मिलते दाँत हेतु तली क्लीयरेंस देता है);<br>पूर्ण गहराई = 2.25 m = 3 + 3.75 = <b>6.75 mm</b>।<br><b>गलत विकल्प कैसे बने:</b> (a) 6 mm = 2 m, क्लीयरेंस भूले; (c) 3.75 mm केवल डीडेंडम; (d) 9.42 mm = πm, वृत्तीय पिच।<br><b>अन्य गियर संबंध:</b> मॉड्यूल m = पिच-वृत्त व्यास ÷ दाँतों की संख्या · वृत्तीय पिच = π m · कार्यकारी गहराई = 2 m · क्लीयरेंस = 0.25 m।<br><b>रैक व पिनियन:</b> रैक = सीधी-रेखा गियर, पिनियन = वृत्ताकार पहिया (RRB-CBT2 Apr'25-II अवधारणा)।"}},
+
+/* 15 */ {ans:0, lv:"p", tag:{en:"Milling machine parts",hi:"मिलिंग मशीन भाग"},
+en:{q:"On a horizontal milling machine, the draw-in bar:",
+o:["pulls the arbor tight into the spindle taper","supports the free outer end of the long arbor","raises and lowers the knee and the table","holds the cutter on the arbor key and collars"],
+e:"The <b>arbor</b> is the shaft on which milling cutters are mounted and rotated (RRB-CBT2 Jun'25 concept). Its tapered end fits into the internal taper of the hollow spindle. The <b>draw-in bar</b> is a long rod passed through the hollow spindle from the back; it is <b>screwed into the end of the arbor and tightened</b>, pulling the arbor firmly into the spindle taper so that it cannot loosen or vibrate (HPPSC 2021 PYQ). Driving keys on the spindle nose transmit the torque.<br><b>Why not the others:</b> the free end of a long arbor is supported by the <b>overarm and arbor support</b>; table height is set by the <b>knee</b> (column-and-knee machine – Metro PYQ: a knee is part of a milling machine); cutters are keyed and clamped on the arbor with <b>spacing collars and a nut</b>.<br><b>Table movements</b> of a plain column-and-knee machine: longitudinal, cross and vertical (DMRC PYQ)."},
+hi:{q:"क्षैतिज मिलिंग मशीन पर ड्रॉ-इन बार:",
+o:["आर्बर को स्पिंडल टेपर में कसकर खींचता है","लंबे आर्बर के मुक्त सिरे को सहारा देता है","नी (knee) सहित टेबल को ऊपर-नीचे चलाता है","कटर को आर्बर की चाबी व कॉलर पर पकड़ता है"],
+e:"<b>आर्बर</b> वह शाफ़्ट है जिस पर मिलिंग कटर लगाकर घुमाए जाते हैं (RRB-CBT2 Jun'25 अवधारणा)। इसका टेपर सिरा खोखले स्पिंडल के भीतरी टेपर में बैठता है। <b>ड्रॉ-इन बार</b> पीछे से खोखले स्पिंडल में डाली गई लंबी छड़ है; यह <b>आर्बर के सिरे में पेंच होकर कसी</b> जाती है, आर्बर को स्पिंडल टेपर में मज़बूती से खींचती है ताकि वह ढीला न हो या कंपन न करे (HPPSC 2021 PYQ)। स्पिंडल नोज़ की ड्राइविंग चाबियाँ टॉर्क पहुँचाती हैं।<br><b>अन्य क्यों नहीं:</b> लंबे आर्बर का मुक्त सिरा <b>ओवरआर्म व आर्बर सपोर्ट</b> सँभालते हैं; टेबल ऊँचाई <b>नी</b> से तय (कॉलम-एंड-नी मशीन – मेट्रो PYQ: नी मिलिंग मशीन का भाग); कटर आर्बर पर <b>स्पेसिंग कॉलर व नट</b> से चाबी सहित कसे जाते हैं।<br>सादी कॉलम-एंड-नी मशीन की <b>टेबल गतियाँ</b>: अनुदैर्ध्य, आर-पार व ऊर्ध्व (DMRC PYQ)।"}},
+
+/* 16 */ {ans:3, lv:"h", tag:{en:"Indexing · scenario",hi:"इंडेक्सिंग · परिस्थिति"},
+en:{q:"A gear with 97 teeth must be cut, but no index plate gives this number by simple indexing. The method used is:",
+o:["direct indexing with a 24-hole plate","angular indexing in degrees","plain indexing with a 49-hole plate","differential indexing with change gears"],
+e:"Simple indexing needs a hole circle divisible by the denominator of 40/N. For a prime number like <b>97</b>, 40/97 would need a 97-hole circle, which standard plates do not have. In <b>differential indexing</b> the index plate is <b>unlocked</b> and connected to the dividing-head spindle through a train of <b>change gears</b>. The plate is set for a convenient nearby number (e.g. 100), and as the crank turns, the plate itself rotates slightly forward or backward to correct the difference – giving exactly 97 divisions (Railway JE PYQ: 'differential indexing → numbers not possible by simple indexing'; 'a universal dividing head performs → differential indexing').<br><b>Why not the others:</b> direct (rapid) indexing with a 24-hole plate gives only factors of 24 (2, 3, 4, 6, 8, 12, 24); angular indexing sets angles (θ ÷ 9° crank turns), not awkward tooth numbers; 97 is not obtainable by plain indexing on a 49-hole plate.<br><b>Also:</b> a Geneva wheel gives intermittent indexing on machines (HPSC PYQ)."},
+hi:{q:"97 दाँतों का गियर काटना है, पर कोई इंडेक्स प्लेट सिंपल इंडेक्सिंग से यह संख्या नहीं देती। प्रयुक्त विधि है:",
+o:["24-होल प्लेट से डायरेक्ट इंडेक्सिंग","डिग्री में एंगुलर इंडेक्सिंग","49-होल प्लेट से प्लेन इंडेक्सिंग","चेंज गियर से डिफ़रेंशियल इंडेक्सिंग"],
+e:"सिंपल इंडेक्सिंग को 40/N के हर से विभाज्य होल वृत्त चाहिए। <b>97</b> जैसी अभाज्य संख्या हेतु 40/97 को 97-होल वृत्त चाहिए, जो मानक प्लेटों में नहीं होता। <b>डिफ़रेंशियल इंडेक्सिंग</b> में इंडेक्स प्लेट <b>खोलकर</b> डिवाइडिंग-हेड स्पिंडल से <b>चेंज गियर</b> श्रृंखला द्वारा जोड़ी जाती है। प्लेट पास की सुविधाजनक संख्या (जैसे 100) हेतु सेट होती है, और क्रैंक घूमने पर प्लेट स्वयं थोड़ा आगे या पीछे घूमकर अंतर सुधारती है – ठीक 97 भाग (रेलवे JE PYQ: 'डिफ़रेंशियल इंडेक्सिंग → सिंपल से संभव न होने वाली संख्याएँ'; 'यूनिवर्सल डिवाइडिंग हेड → डिफ़रेंशियल इंडेक्सिंग')।<br><b>अन्य क्यों नहीं:</b> 24-होल प्लेट से डायरेक्ट (रैपिड) इंडेक्सिंग केवल 24 के गुणनखंड देती है (2, 3, 4, 6, 8, 12, 24); एंगुलर इंडेक्सिंग कोण सेट करती है (θ ÷ 9° क्रैंक चक्कर), कठिन दाँत संख्याएँ नहीं; 49-होल प्लेट पर प्लेन इंडेक्सिंग से 97 नहीं मिलता।<br><b>यह भी:</b> जेनेवा व्हील मशीनों पर रुक-रुक कर इंडेक्सिंग देता है (HPSC PYQ)।"}},
+
+/* 17 */ {ans:0, lv:"p", tag:{en:"Broaching",hi:"ब्रोचिंग"},
+en:{q:"Unlike a shaper, a broaching machine needs no quick-return mechanism because:",
+o:["the job is finished in a single stroke","the broach cuts on both forward and return strokes","the broach stays still while the job moves","broaching is done only on hand-operated presses"],
+e:"In a shaper the job needs <b>hundreds of strokes</b>, so making the idle return stroke faster saves a lot of time – hence a quick-return mechanism. A broach, however, has <b>progressively larger teeth</b> along its length: roughing, semi-finishing and finishing teeth pass through the work one after another in <b>a single stroke</b>, so the whole job is completed in one pass (Railway JE PYQ: 'main advantage of broaching → removal of material in one stroke'). There is only one cutting stroke per part, so a quick return gains almost nothing (Railway SSE PYQ: 'machine that does not require a quick-return mechanism → broaching').<br><b>Why not the others:</b> a broach cuts on one stroke only (push or pull); it does move (or the work moves past it in continuous broaching); broaching machines are power-driven (hydraulic or mechanical)."},
+hi:{q:"शेपर के विपरीत ब्रोचिंग मशीन को क्विक-रिटर्न तंत्र की आवश्यकता नहीं होती, क्योंकि:",
+o:["जॉब एक ही स्ट्रोक में पूरा हो जाता है","ब्रोच आगे व वापसी दोनों स्ट्रोक पर काटता है","ब्रोच स्थिर रहता है और केवल जॉब चलता है","ब्रोचिंग केवल हाथ से चलने वाले प्रेस पर होती है"],
+e:"शेपर में जॉब को <b>सैकड़ों स्ट्रोक</b> चाहिए, इसलिए निष्क्रिय रिटर्न स्ट्रोक तेज़ करने से बहुत समय बचता है – इसीलिए क्विक-रिटर्न तंत्र। ब्रोच में लंबाई के साथ <b>क्रमशः बड़े दाँत</b> होते हैं: रफ़िंग, सेमी-फ़िनिशिंग व फ़िनिशिंग दाँत <b>एक ही स्ट्रोक</b> में एक के बाद एक जॉब से गुज़रते हैं, इसलिए पूरा कार्य एक पास में होता है (रेलवे JE PYQ: 'ब्रोचिंग का मुख्य लाभ → एक स्ट्रोक में धातु निष्कासन')। हर पुर्ज़े पर केवल एक कटिंग स्ट्रोक, इसलिए क्विक रिटर्न से लगभग कुछ लाभ नहीं (रेलवे SSE PYQ: 'क्विक-रिटर्न तंत्र नहीं चाहिए → ब्रोचिंग')।<br><b>अन्य क्यों नहीं:</b> ब्रोच केवल एक स्ट्रोक पर काटता है (पुश या पुल); ब्रोच चलता है (या कंटीन्युअस ब्रोचिंग में जॉब उसके पास से गुज़रता है); ब्रोचिंग मशीनें पावर-चालित (हाइड्रॉलिक या मैकेनिकल) होती हैं।"}},
+
+/* 18 */ {ans:2, lv:"h", tag:{en:"Gear hobbing",hi:"गियर हॉबिंग"},
+en:{q:"Gear hobbing cannot be used to cut:<br>I. internal gears<br>II. bevel gears<br>III. helical gears<br>Select the correct answer:",
+o:["I only","II and III only","I and II only","I, II and III"],
+e:"<b>I ✔ (cannot)</b> – a hob is a long worm-shaped cutter that must rotate in mesh outside the blank; it cannot be placed inside a ring gear (Railway JE PYQ: 'not a feature of gear hobbing → generation of internal gears'). Internal gears are cut by gear shaping or broaching.<br><b>II ✔ (cannot)</b> – bevel gears have teeth on a cone with tooth size changing along the face; a hob's constant pitch cannot generate them (Railway JE PYQ: 'hobbing is not suitable for → bevel gears'). Bevel gears use bevel-gear generators or planers.<br><b>III ✘ (can)</b> – <b>helical gears</b> are routinely hobbed by tilting the hob and adding a differential motion – hobbing cuts spur and helical gears and worm wheels.<br><b>Hobbing strengths:</b> continuous indexing, fastest and accurate, mass production of automobile gears (Railway JE PYQs)."},
+hi:{q:"गियर हॉबिंग से निम्न नहीं काटे जा सकते:<br>I. भीतरी गियर<br>II. बेवल गियर<br>III. हेलिकल गियर<br>सही उत्तर चुनें:",
+o:["केवल I","केवल II और III","केवल I और II","I, II और III"],
+e:"<b>I ✔ (नहीं कटते)</b> – हॉब लंबा वर्म-आकार कटर है जिसे ब्लैंक के बाहर मेश में घूमना होता है; इसे रिंग गियर के अंदर नहीं रखा जा सकता (रेलवे JE PYQ: 'गियर हॉबिंग की विशेषता नहीं → भीतरी गियर बनाना')। भीतरी गियर गियर शेपिंग या ब्रोचिंग से।<br><b>II ✔ (नहीं कटते)</b> – बेवल गियर के दाँत शंकु पर होते हैं और फ़ेस के साथ दाँत आकार बदलता है; हॉब की स्थिर पिच इन्हें जनरेट नहीं कर सकती (रेलवे JE PYQ: 'हॉबिंग उपयुक्त नहीं → बेवल गियर हेतु')। बेवल गियर हेतु बेवल-गियर जनरेटर या प्लेनर।<br><b>III ✘ (कटते हैं)</b> – <b>हेलिकल गियर</b> हॉब को झुकाकर और डिफ़रेंशियल गति जोड़कर सामान्य रूप से हॉब होते हैं – हॉबिंग स्पर व हेलिकल गियर और वर्म व्हील काटती है।<br><b>हॉबिंग की ताकत:</b> लगातार इंडेक्सिंग, सबसे तेज़ व सटीक, ऑटोमोबाइल गियरों का बड़ा उत्पादन (रेलवे JE PYQ)।"}},
+
+/* 19 */ {ans:3, lv:"h", tag:{en:"Numerical – broach length",hi:"न्यूमेरिकल – ब्रोच लंबाई"},
+en:{q:"A keyway 3 mm deep is broached with a rise per tooth of 0.05 mm and a tooth pitch of 15 mm. Ignoring the semi-finishing and finishing teeth, the length of the cutting portion is:",
+o:["60 mm","45 mm","600 mm","900 mm"],
+e:"<b>Step 1 – number of teeth</b> = total depth ÷ rise per tooth = 3 ÷ 0.05 = <b>60 teeth</b>.<br><b>Step 2 – length</b> = number of teeth × pitch = 60 × 15 = <b>900 mm</b>.<br><b>Distractor check:</b> (a) 60 is the number of teeth, not a length; (b) 45 mm = 3 × 15; (c) 600 mm uses a 10 mm pitch.<br><b>Full broach length</b> = Σ (teeth × pitch) of roughing + semi-finishing + finishing teeth, plus shank and pilots. <b>Notes example:</b> keyway 4.5 mm; 8 semi-finishing teeth with 0.0125 mm rise (pitch 20) take 0.1 mm; roughing rise 0.1 mm (pitch 22) takes the remaining 4.4 mm → 44 teeth; 4 finishing teeth (pitch 20) → L = 44 × 22 + 8 × 20 + 4 × 20 = 1208 mm.<br><b>Design note:</b> pitch must leave enough gullet (chip space) and keep at least two teeth cutting at once for steady motion."},
+hi:{q:"3 mm गहरा की-वे 0.05 mm प्रति दाँत राइज़ और 15 mm दाँत पिच से ब्रोच किया जाता है। सेमी-फ़िनिशिंग व फ़िनिशिंग दाँत छोड़कर, कटिंग भाग की लंबाई है:",
+o:["60 mm","45 mm","600 mm","900 mm"],
+e:"<b>चरण 1 – दाँतों की संख्या</b> = कुल गहराई ÷ प्रति दाँत राइज़ = 3 ÷ 0.05 = <b>60 दाँत</b>।<br><b>चरण 2 – लंबाई</b> = दाँतों की संख्या × पिच = 60 × 15 = <b>900 mm</b>।<br><b>गलत विकल्प कैसे बने:</b> (a) 60 दाँतों की संख्या है, लंबाई नहीं; (b) 45 mm = 3 × 15; (c) 600 mm में 10 mm पिच ली।<br><b>पूर्ण ब्रोच लंबाई</b> = रफ़िंग + सेमी-फ़िनिशिंग + फ़िनिशिंग दाँतों का Σ (दाँत × पिच), साथ में शैंक व पायलट। <b>नोट्स उदाहरण:</b> की-वे 4.5 mm; 0.0125 mm राइज़ वाले 8 सेमी-फ़िनिशिंग दाँत (पिच 20) 0.1 mm लेते हैं; रफ़िंग राइज़ 0.1 mm (पिच 22) शेष 4.4 mm → 44 दाँत; 4 फ़िनिशिंग दाँत (पिच 20) → L = 44 × 22 + 8 × 20 + 4 × 20 = 1208 mm।<br><b>डिज़ाइन नोट:</b> पिच में पर्याप्त गलेट (चिप स्थान) हो और स्थिर गति हेतु कम से कम दो दाँत एक साथ काटें।"}},
+
+/* 20 */ {ans:1, lv:"e", tag:{en:"Face milling",hi:"फ़ेस मिलिंग"},
+en:{q:"In face milling, the axis of the cutter is:",
+o:["parallel to the machined surface","perpendicular to the machined surface","at 45° to the machined surface","along the direction of feed"],
+e:"In <b>face milling</b> the cutter axis is <b>perpendicular to the surface being machined</b>; the teeth on the face and periphery of a face mill (or end mill) produce a flat surface (KRCL 2017 PYQ: 'flat surfaces produced by cutters with axes perpendicular to the milling surface → face milling'). It is done mostly on vertical machines, gives a good finish and is efficient for large flat faces because many inserts cut at once.<br>In <b>plain (slab / peripheral) milling</b>, by contrast, the cutter axis is <b>parallel</b> to the surface, and teeth on the periphery do the cutting (option a).<br><b>Approach in face milling (symmetrical):</b> x = D/2 − √((D/2)² − (w/2)²); slab milling approach = √(d(D − d)) – used in machining-time numericals."},
+hi:{q:"फ़ेस मिलिंग में कटर का अक्ष होता है:",
+o:["मशीन सतह के समानांतर","मशीन सतह के लंबवत","मशीन सतह से 45° पर","फ़ीड की दिशा में"],
+e:"<b>फ़ेस मिलिंग</b> में कटर अक्ष <b>मशीन की जा रही सतह के लंबवत</b> होता है; फ़ेस मिल (या एंड मिल) के फ़ेस व परिधि के दाँत सपाट सतह बनाते हैं (KRCL 2017 PYQ: 'सतह के लंबवत अक्ष वाले कटरों से सपाट सतह → फ़ेस मिलिंग')। यह अधिकतर ऊर्ध्व मशीनों पर होती है, अच्छी फ़िनिश देती है और बड़े सपाट फ़ेस हेतु कुशल है क्योंकि अनेक इंसर्ट एक साथ काटते हैं।<br>इसके विपरीत <b>प्लेन (स्लैब / परिधीय) मिलिंग</b> में कटर अक्ष सतह के <b>समानांतर</b> होता है, और परिधि के दाँत काटते हैं (विकल्प a)।<br><b>फ़ेस मिलिंग में अप्रोच (सममित):</b> x = D/2 − √((D/2)² − (w/2)²); स्लैब मिलिंग अप्रोच = √(d(D − d)) – मशीनिंग-समय न्यूमेरिकल में प्रयोग।"}},
+
+/* 21 */ {ans:1, lv:"h", tag:{en:"Numerical – indexing",hi:"न्यूमेरिकल – इंडेक्सिंग"},
+en:{q:"Using simple indexing (40 : 1), the crank movement for a 35-tooth gear, with a 21-hole circle available, is:",
+o:["1 turn and 5 holes","1 turn and 3 holes","1 turn and 7 holes","3 turns and 1 hole"],
+e:"Crank movement = 40 ÷ N = 40 ÷ 35 = 1 5/35 = <b>1 1/7</b> turns.<br>The fraction 1/7 must be expressed on an available hole circle: 1/7 = 3/21, so on the <b>21-hole circle</b> move <b>3 holes</b>.<br>Answer: <b>1 full turn + 3 holes</b> of the 21-hole circle (sector arms set to span 3 spaces).<br><b>Distractor check:</b> (a) uses 5/35 directly as 5 holes on the wrong circle; (c) 7 holes = 1/3 turn on a 21-hole circle; (d) inverts the ratio.<br><b>PYQ pattern:</b> N = 14 → 40/14 = 2 6/7 = 2 turns + 18 holes in a 21-hole circle (KPSC 2017).<br><b>Rule:</b> choose a hole circle whose number is a multiple of the denominator; the sector arms are set so the operator need not count holes each time."},
+hi:{q:"सिंपल इंडेक्सिंग (40 : 1) से, 21-होल वृत्त उपलब्ध होने पर, 35 दाँतों के गियर हेतु क्रैंक गति है:",
+o:["1 चक्कर और 5 होल","1 चक्कर और 3 होल","1 चक्कर और 7 होल","3 चक्कर और 1 होल"],
+e:"क्रैंक गति = 40 ÷ N = 40 ÷ 35 = 1 5/35 = <b>1 1/7</b> चक्कर।<br>भिन्न 1/7 को उपलब्ध होल वृत्त पर व्यक्त करना होगा: 1/7 = 3/21, इसलिए <b>21-होल वृत्त</b> पर <b>3 होल</b> चलें।<br>उत्तर: 21-होल वृत्त पर <b>1 पूरा चक्कर + 3 होल</b> (सेक्टर आर्म 3 खाने घेरने हेतु सेट)।<br><b>गलत विकल्प कैसे बने:</b> (a) 5/35 को सीधे गलत वृत्त पर 5 होल माना; (c) 21-होल वृत्त पर 7 होल = 1/3 चक्कर; (d) अनुपात उलटा।<br><b>PYQ पैटर्न:</b> N = 14 → 40/14 = 2 6/7 = 21-होल वृत्त में 2 चक्कर + 18 होल (KPSC 2017)।<br><b>नियम:</b> ऐसा होल वृत्त चुनें जिसकी संख्या हर का गुणज हो; सेक्टर आर्म ऐसे सेट हों कि ऑपरेटर को हर बार होल न गिनने पड़ें।"}},
+
+/* 22 */ {ans:3, lv:"p", tag:{en:"Milling machines · scenario",hi:"मिलिंग मशीन · परिस्थिति"},
+en:{q:"The helical flutes of a large twist drill are to be milled using a dividing head geared to the table. The machine needed is:",
+o:["plain horizontal milling machine","simple vertical milling machine","planer-type milling machine","universal milling machine"],
+e:"Cutting a <b>helix</b> needs two things: the work must rotate (dividing head geared to the table lead screw) while the table feeds, and the <b>table must be swivelled</b> to the helix angle so the cutter lies along the groove. A <b>universal milling machine</b> has a table that can be <b>swivelled in the horizontal plane</b> (usually up to 45°) – so it can mill helical gears, twist-drill flutes, spiral grooves and reamer flutes (Railway SSE PYQ: 'table can be swivelled and set at an angle → universal milling machine'; 'grooves around the periphery of a cylindrical work → helical milling').<br><b>Why not the others:</b> a plain horizontal machine's table moves only longitudinally, crosswise and vertically – no swivel; a simple vertical machine and a planer-type machine are not built for helical work.<br><b>Omniversal machine:</b> the table can also be tilted in a vertical plane – useful in tool rooms (Railway SSE, Railway JE PYQs)."},
+hi:{q:"बड़े ट्विस्ट ड्रिल की हेलिकल फ़्लूट, टेबल से गियर द्वारा जुड़े डिवाइडिंग हेड से मिल करनी हैं। आवश्यक मशीन है:",
+o:["प्लेन क्षैतिज मिलिंग मशीन","साधारण ऊर्ध्व मिलिंग मशीन","प्लेनर-प्रकार मिलिंग मशीन","यूनिवर्सल मिलिंग मशीन"],
+e:"<b>हेलिक्स</b> काटने हेतु दो बातें चाहिए: टेबल फ़ीड होते समय जॉब घूमे (डिवाइडिंग हेड टेबल लीड स्क्रू से गियर द्वारा जुड़ा), और <b>टेबल हेलिक्स कोण पर घुमाई</b> जाए ताकि कटर खाँचे की दिशा में रहे। <b>यूनिवर्सल मिलिंग मशीन</b> की टेबल <b>क्षैतिज तल में घुमाई</b> जा सकती है (सामान्यतः 45° तक) – इसलिए यह हेलिकल गियर, ट्विस्ट-ड्रिल फ़्लूट, सर्पिल खाँचे व रीमर फ़्लूट मिल कर सकती है (रेलवे SSE PYQ: 'टेबल घुमाकर कोण पर सेट → यूनिवर्सल मिलिंग मशीन'; 'बेलनाकार जॉब की परिधि पर खाँचे → हेलिकल मिलिंग')।<br><b>अन्य क्यों नहीं:</b> प्लेन क्षैतिज मशीन की टेबल केवल अनुदैर्ध्य, आर-पार व ऊर्ध्व चलती है – घुमाव नहीं; साधारण ऊर्ध्व मशीन और प्लेनर-प्रकार मशीन हेलिकल कार्य हेतु नहीं बनीं।<br><b>ऑम्नीवर्सल मशीन:</b> टेबल ऊर्ध्व तल में भी झुकाई जा सकती है – टूल रूम में उपयोगी (रेलवे SSE, रेलवे JE PYQ)।"}},
+
+/* 23 */ {ans:0, lv:"h", tag:{en:"Gear heat treatment",hi:"गियर ऊष्मा उपचार"},
+en:{q:"Nitriding is preferred for precision alloy-steel gears mainly because:",
+o:["no quench is needed, so distortion is minimal","it gives the deepest hardened case of all methods","it works best on plain low-carbon steel parts","it softens the core to give better toughness"],
+e:"In <b>nitriding</b>, finished and hardened-and-tempered alloy-steel gears are heated in ammonia (nitrogen) at a low temperature, about <b>500–550 °C</b> – below the transformation range. Nitrogen diffuses in and forms very hard nitrides with aluminium, chromium and molybdenum. <b>No quenching</b> is needed and the temperature is low, so there is <b>almost no distortion</b> – precision gears can be nitrided after final machining without regrinding.<br><b>Features:</b> very high surface hardness, good wear and fatigue resistance, but a <b>thin case</b> (about 0.1–0.6 mm) and a long cycle (tens of hours); needs special nitriding steels containing aluminium, chromium or molybdenum.<br><b>Why not the others:</b> carburising gives a deeper case; plain carbon steel does not form hard nitrides; nitriding does not soften the core.<br><b>Compare:</b> case carburising – deep, hard case, but quenching causes distortion, so grinding may be needed afterwards."},
+hi:{q:"परिशुद्ध मिश्र-धातु स्टील गियरों हेतु नाइट्राइडिंग मुख्यतः क्यों पसंद की जाती है?",
+o:["क्वेंचिंग नहीं चाहिए, इसलिए विकृति न्यूनतम","यह सभी विधियों में सबसे गहरा कठोर केस देती है","यह सादे लो-कार्बन स्टील पर सबसे अच्छी है","यह बेहतर टफ़नेस हेतु कोर नरम करती है"],
+e:"<b>नाइट्राइडिंग</b> में तैयार व कठोर-टेम्पर्ड मिश्र-धातु स्टील गियरों को अमोनिया (नाइट्रोजन) में कम तापमान, लगभग <b>500–550 °C</b> पर – रूपांतरण दायरे से नीचे – गर्म किया जाता है। नाइट्रोजन विसरित होकर एल्युमिनियम, क्रोमियम व मॉलिब्डेनम के साथ बहुत कठोर नाइट्राइड बनाती है। <b>क्वेंचिंग नहीं</b> चाहिए और तापमान कम है, इसलिए <b>लगभग कोई विकृति नहीं</b> – परिशुद्ध गियर अंतिम मशीनिंग के बाद बिना दोबारा ग्राइंडिंग के नाइट्राइड किए जा सकते हैं।<br><b>विशेषताएँ:</b> बहुत अधिक सतह कठोरता, अच्छा घिसाव व थकान प्रतिरोध, पर <b>पतला केस</b> (लगभग 0.1–0.6 mm) और लंबा चक्र (दसियों घंटे); एल्युमिनियम, क्रोमियम या मॉलिब्डेनम युक्त विशेष नाइट्राइडिंग स्टील चाहिए।<br><b>अन्य क्यों नहीं:</b> कार्बुराइज़िंग गहरा केस देती है; सादा कार्बन स्टील कठोर नाइट्राइड नहीं बनाता; नाइट्राइडिंग कोर को नरम नहीं करती।<br><b>तुलना:</b> केस कार्बुराइज़िंग – गहरा, कठोर केस, पर क्वेंचिंग से विकृति, इसलिए बाद में ग्राइंडिंग चाहिए हो सकती है।"}},
+
+/* 24 */ {ans:2, lv:"p", tag:{en:"Broaching",hi:"ब्रोचिंग"},
+en:{q:"Internal broaching cannot normally be used for a keyway in a blind hole because:",
+o:["the broach would overheat in the hole","blind holes are too short to grip","the broach must pass right through the hole","the broach cannot be made of high-speed steel"],
+e:"An internal broach is <b>pulled or pushed completely through</b> the hole: the pilot enters first, then roughing, semi-finishing and finishing teeth follow in a single stroke, and the broach leaves from the other side. In a <b>blind hole</b> there is no exit – the teeth cannot pass through, chips cannot escape, and the later finishing teeth never reach the work. So blind keyways are cut by <b>slotting</b> or <b>end milling</b> instead (notes limitation: not for blind internal holes).<br><b>Gripping (RRB-CBT2 Apr'25-II concept):</b> for an internal hole, the broach is gripped by the <b>puller at the pilot (pull end)</b>.<br><b>Why not the others:</b> overheating is not the reason; grip is on the broach, not the hole; broaches are commonly made of <b>high-speed steel</b> – the most widely used broach material (RRB-CBT2 Apr'25-I concept).<br><b>External (surface) broaching</b> of outside surfaces has no such limit (RRB-CBT2 Apr'25-II concept)."},
+hi:{q:"बंद (ब्लाइंड) होल में की-वे हेतु सामान्यतः भीतरी ब्रोचिंग का प्रयोग नहीं हो सकता, क्योंकि:",
+o:["होल में ब्रोच अधिक गर्म हो जाएगा","बंद होल पकड़ने हेतु बहुत छोटे होते हैं","ब्रोच को होल के आर-पार निकलना होता है","ब्रोच हाई-स्पीड स्टील का नहीं बन सकता"],
+e:"भीतरी ब्रोच होल में से <b>पूरा खींचा या धकेला</b> जाता है: पहले पायलट, फिर रफ़िंग, सेमी-फ़िनिशिंग व फ़िनिशिंग दाँत एक ही स्ट्रोक में गुज़रते हैं, और ब्रोच दूसरी ओर से निकलता है। <b>बंद होल</b> में निकास नहीं – दाँत पार नहीं जा सकते, चिप नहीं निकल सकती, और बाद के फ़िनिशिंग दाँत जॉब तक पहुँचते ही नहीं। इसलिए बंद की-वे <b>स्लॉटिंग</b> या <b>एंड मिलिंग</b> से काटे जाते हैं (नोट्स सीमा: बंद भीतरी होल हेतु नहीं)।<br><b>पकड़ (RRB-CBT2 Apr'25-II अवधारणा):</b> भीतरी होल हेतु ब्रोच <b>पायलट (पुल एंड) पर पुलर</b> द्वारा पकड़ा जाता है।<br><b>अन्य क्यों नहीं:</b> गर्म होना कारण नहीं; पकड़ ब्रोच पर होती है, होल पर नहीं; ब्रोच सामान्यतः <b>हाई-स्पीड स्टील</b> के बनते हैं – सबसे अधिक प्रयुक्त ब्रोच पदार्थ (RRB-CBT2 Apr'25-I अवधारणा)।<br>बाहरी सतहों की <b>एक्सटर्नल (सरफ़ेस) ब्रोचिंग</b> पर ऐसी सीमा नहीं (RRB-CBT2 Apr'25-II अवधारणा)।"}},
+
+/* 25 */ {ans:3, lv:"p", tag:{en:"Milling · keyways",hi:"मिलिंग · की-वे"},
+en:{q:"A closed-end (sunk) keyway in the middle of a shaft is cut on a vertical milling machine with:",
+o:["a plain slab cutter","a metal slitting saw","a side and face cutter","an end mill"],
+e:"A <b>closed (sunk or feather) keyway</b> has rounded ends inside the shaft length – it does not run out to the end. An <b>end mill</b> (or slot drill) has cutting teeth on its <b>end and periphery</b>, so it can <b>plunge</b> into the shaft at one end of the keyway, then be fed along the slot and stop at the other end – leaving the rounded ends that match a sunk key (VIZAG PYQ: keyways → slot/keyway milling).<br><b>Why not the others:</b> slab, slitting and side-and-face cutters are arbor-mounted disc cutters; they make <b>open-ended</b> slots with long run-out curves at the ends and cannot plunge into the middle of a shaft. (A side-and-face cutter is fine for a keyway that runs out to the end of the shaft – a Woodruff keyway uses its own special cutter.)<br><b>Other ways to cut keyways:</b> slotter or keyseater (internal keyways in hubs), broaching (mass production), keyway cutting on a lathe with a slotting attachment."},
+hi:{q:"शाफ़्ट के बीच में बंद-सिरे वाला (धँसा) की-वे ऊर्ध्व मिलिंग मशीन पर किससे काटा जाता है?",
+o:["प्लेन स्लैब कटर","मेटल स्लिटिंग सॉ","साइड एंड फ़ेस कटर","एंड मिल"],
+e:"<b>बंद (धँसा या फ़ेदर) की-वे</b> के सिरे शाफ़्ट लंबाई के अंदर गोल होते हैं – यह सिरे तक नहीं जाता। <b>एंड मिल</b> (या स्लॉट ड्रिल) के <b>सिरे व परिधि</b> पर कटिंग दाँत होते हैं, इसलिए यह की-वे के एक सिरे पर शाफ़्ट में <b>सीधा धँस</b> सकता है, फिर स्लॉट के साथ फ़ीड होकर दूसरे सिरे पर रुक सकता है – धँसी चाबी से मेल खाते गोल सिरे छोड़ते हुए (VIZAG PYQ: की-वे → स्लॉट/की-वे मिलिंग)।<br><b>अन्य क्यों नहीं:</b> स्लैब, स्लिटिंग व साइड-एंड-फ़ेस कटर आर्बर पर लगे डिस्क कटर हैं; ये सिरों पर लंबे रन-आउट वक्र वाले <b>खुले सिरे</b> के स्लॉट बनाते हैं और शाफ़्ट के बीच में नहीं धँस सकते। (शाफ़्ट के सिरे तक जाने वाले की-वे हेतु साइड-एंड-फ़ेस कटर ठीक है – वुडरफ़ की-वे का अपना विशेष कटर।)<br><b>की-वे काटने के अन्य तरीके:</b> स्लॉटर या कीसीटर (हब में भीतरी की-वे), ब्रोचिंग (बड़ा उत्पादन), स्लॉटिंग अटैचमेंट सहित लेथ पर की-वे कटिंग।"}}
+];
+
+const LIMIT = 20*60;
+let lang = "en";
+let mode = "test";
+let picked = new Array(Q.length).fill(null);
+let showAll = false;
+let submitted = false;
+let autoSub = false;
+let left = LIMIT;
+let tick = null;
+const L = ["a","b","c","d"];
+const $ = id => document.getElementById(id);
+
+function fmt(t){ const m=Math.floor(t/60), s=t%60; return String(m).padStart(2,"0")+":"+String(s).padStart(2,"0"); }
+
+function startTimer(){
+  stopTimer();
+  if(mode!=="test" || submitted) return;
+  tick = setInterval(()=>{
+    left--;
+    if(left<=0){ left=0; autoSub=true; doSubmit(); return; }
+    paintTimer();
+  },1000);
+}
+function stopTimer(){ if(tick){clearInterval(tick); tick=null;} }
+function paintTimer(){
+  const t=$("timer"), u=UI[lang];
+  if(mode!=="test"){ t.classList.add("hidden"); return; }
+  t.classList.remove("hidden");
+  t.textContent = submitted ? u.taken+": "+fmt(LIMIT-left) : u.time+": "+fmt(left);
+  t.classList.toggle("low", !submitted && left<=120);
+}
+
+function isRevealed(i){ return mode==="practice" ? (picked[i]!==null || showAll) : submitted; }
+
+function render(){
+  const u = UI[lang];
+  document.documentElement.lang = lang;
+  $("title").textContent = u.title;
+  $("subtitle").textContent = u.sub;
+  $("rules").textContent = mode==="test" ? u.rules : u.rulesP;
+  $("foot").textContent = u.foot;
+  $("mTest").textContent = u.test; $("mPrac").textContent = u.prac;
+  $("mTest").setAttribute("aria-pressed", mode==="test");
+  $("mPrac").setAttribute("aria-pressed", mode==="practice");
+  $("bSubmit").textContent = u.submit;
+  $("bSubmit").classList.toggle("hidden", !(mode==="test" && !submitted));
+  $("bShow").textContent = showAll ? u.hide : u.show;
+  $("bShow").classList.toggle("hidden", mode!=="practice");
+  $("bReset").textContent = u.reset;
+  $("bEn").setAttribute("aria-pressed", lang==="en");
+  $("bHi").setAttribute("aria-pressed", lang==="hi");
+
+  let html = "";
+  Q.forEach((q,i)=>{
+    if(q.num && i>0 && !Q[i-1].num) html += `<div class="sec">${u.num}</div>`;
+    const d = q[lang], p = picked[i], rev = isRevealed(i);
+    const lvClass = q.lv==="t" ? "lv-t" : q.lv==="h" ? "lv-h" : "";
+    html += `<article class="q" id="q${i}">
+      <div class="qhead"><span class="qno">Q${i+1}.</span><span class="chip">${q.tag[lang]}</span><span class="chip ${lvClass}">${u.lv[q.lv]}</span></div>
+      <div class="qtext">${d.q}</div><div class="opts">`;
+    d.o.forEach((o,j)=>{
+      let cls = "opt";
+      if(rev && j===q.ans) cls += " right";
+      if(rev && p===j && p!==q.ans) cls += " wrong";
+      if(!rev && p===j) cls += " sel";
+      html += `<button class="${cls}" data-q="${i}" data-o="${j}" ${rev?"disabled":""} aria-pressed="${p===j}"><span class="l">(${L[j]})</span><span>${o}</span></button>`;
+    });
+    html += `</div>`;
+    if(rev){
+      let v = "";
+      if(p!==null) v = p===q.ans ? `<div>${u.right}</div>` : `<div class="verdict-bad">${u.yours}</div>`;
+      else if(mode==="test") v = `<div class="verdict-bad">${u.un}</div>`;
+      html += `<div class="ex">${v}<div class="ans">${u.ans}: (${L[q.ans]})</div>${d.e}</div>`;
+    }
+    html += `</article>`;
+  });
+  $("list").innerHTML = html;
+  stats(); paintTimer(); result();
+}
+
+function counts(){
+  let c=0,w=0,a=0;
+  picked.forEach((p,i)=>{ if(p!==null){a++; if(p===Q[i].ans)c++; else w++;} });
+  return {c,w,a,s:(c-w/3).toFixed(2)};
+}
+
+function stats(){
+  const u = UI[lang], k = counts();
+  const hide = mode==="test" && !submitted;
+  $("sAtt").textContent = `${u.att}: ${k.a}/${Q.length}`;
+  $("sC").textContent = `${u.c}: ${k.c}`;
+  $("sW").textContent = `${u.w}: ${k.w}`;
+  $("sS").textContent = `${u.s}: ${k.s}`;
+  ["sC","sW","sS"].forEach(id=>$(id).classList.toggle("hidden", hide));
+}
+
+function result(){
+  const box = $("result");
+  if(!(mode==="test" && submitted)){ box.innerHTML=""; return; }
+  const u = UI[lang], k = counts();
+  const acc = k.a ? Math.round(k.c*100/k.a) : 0;
+  box.innerHTML = `<section class="result" aria-live="polite">
+    <h2>${u.res}: ${k.s} / ${Q.length}</h2>
+    <div class="rgrid">
+      <div>${u.c}<b>${k.c}</b></div><div>${u.w}<b>${k.w}</b></div>
+      <div>${u.un}<b>${Q.length-k.a}</b></div><div>${u.acc}<b>${acc}%</b></div>
+      <div>${u.taken}<b>${fmt(LIMIT-left)}</b></div>
+    </div>
+    <p>${autoSub ? u.auto+" " : ""}${u.resNote}</p></section>`;
+}
+
+function doSubmit(){
+  submitted = true; stopTimer(); render();
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function resetAll(){
+  picked = new Array(Q.length).fill(null);
+  showAll=false; submitted=false; autoSub=false; left=LIMIT;
+  render(); startTimer(); window.scrollTo({top:0});
+}
+
+$("list").addEventListener("click", e=>{
+  const b = e.target.closest(".opt");
+  if(!b || b.disabled) return;
+  const i = +b.dataset.q, j = +b.dataset.o;
+  if(mode==="test"){ picked[i] = picked[i]===j ? null : j; }
+  else { if(picked[i]!==null) return; picked[i] = j; }
+  render();
+  const btn = document.querySelector(`#q${i} .opt[data-o="${j}"]`) || document.querySelector(`#q${i} .opt`);
+  if(btn) btn.focus({preventScroll:true});
+});
+$("bEn").onclick = ()=>{ lang="en"; render(); };
+$("bHi").onclick = ()=>{ lang="hi"; render(); };
+function setMode(m){
+  if(m===mode) return;
+  const dirty = picked.some(p=>p!==null) || submitted;
+  if(dirty && !confirm(UI[lang].cMode)) return;
+  mode = m; resetAll();
+}
+$("mTest").onclick = ()=>setMode("test");
+$("mPrac").onclick = ()=>setMode("practice");
+$("bSubmit").onclick = ()=>{ if(confirm(UI[lang].cSub)) doSubmit(); };
+$("bShow").onclick = ()=>{ showAll=!showAll; render(); };
+$("bReset").onclick = resetAll;
+
+function paintStart(){
+  const u=UI[lang];
+  $("stTitle").textContent=u.title;
+  $("stSub").textContent=u.stSub;
+  $("stTest").innerHTML=u.stT+"<small>"+u.stTs+"</small>";
+  $("stPrac").innerHTML=u.stP+"<small>"+u.stPs+"</small>";
+  $("stEn").setAttribute("aria-pressed",lang==="en");
+  $("stHi").setAttribute("aria-pressed",lang==="hi");
+}
+function begin(m){ mode=m; $("start").classList.add("hidden"); resetAll(); }
+$("stTest").onclick=()=>begin("test");
+$("stPrac").onclick=()=>begin("practice");
+$("stEn").onclick=()=>{ lang="en"; render(); paintStart(); };
+$("stHi").onclick=()=>{ lang="hi"; render(); paintStart(); };
+$("bEn").addEventListener("click",paintStart);
+$("bHi").addEventListener("click",paintStart);
+render(); paintStart(); $("stTest").focus();
+</script>
+</body>
+</html>
