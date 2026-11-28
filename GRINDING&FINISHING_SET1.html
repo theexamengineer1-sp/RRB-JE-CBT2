@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grinding &amp; Finishing Smart MCQ Set 1 – Grinding Principle, Abrasives &amp; Bonds | THE EXAM ENGINEER</title>
+<style>
+:root{
+  --navy:#12306b; --navy-deep:#0c2350; --orange:#f07f1a;
+  --bg:#f3f6fb; --card:#ffffff; --text:#16213a; --muted:#5b6782;
+  --line:#d9e0ec; --opt:#f7f9fd; --opt-hover:#eaf0fa;
+  --ok:#17803d; --ok-bg:#e6f6ec; --bad:#c0272d; --bad-bg:#fdecec;
+  --ex-bg:#fff7ee; --ex-line:#f3c58f; --chip:#e9eef8;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --navy:#2b4f9a; --navy-deep:#16264a; --orange:#ff9a3d;
+    --bg:#0f1524; --card:#18213a; --text:#e8edf8; --muted:#a3aec6;
+    --line:#2c3857; --opt:#1e2944; --opt-hover:#26345a;
+    --ok:#4cd17e; --ok-bg:#163a26; --bad:#ff6b70; --bad-bg:#3d1a1e;
+    --ex-bg:#2a2216; --ex-line:#6b4b22; --chip:#25304d;
+    color-scheme: dark;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:"Segoe UI","Noto Sans","Nirmala UI","Mangal",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  line-height:1.6;font-size:16px}
+header{background:var(--navy-deep);color:#fff;padding:22px 16px 18px}
+.wrap{max-width:860px;margin:0 auto}
+.brand{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand a{color:var(--orange);font-weight:700;text-decoration:none}
+.brand a:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.channel{font-weight:800;letter-spacing:.5px}
+h1{margin:14px 0 4px;font-size:clamp(1.4rem,4.5vw,2rem);line-height:1.2}
+.sub{margin:0;color:#c9d5ee;font-size:.95rem}
+.rules{margin-top:10px;font-size:.88rem;color:#c9d5ee}
+.bar{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:3px solid var(--orange);
+  box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.bar .wrap{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding:10px 16px}
+.seg{display:inline-flex;border:2px solid var(--navy);border-radius:999px;overflow:hidden}
+.seg button{border:0;background:transparent;color:var(--text);padding:6px 14px;font:inherit;font-weight:700;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--navy);color:#fff}
+.stats{display:flex;gap:12px;flex-wrap:wrap;font-size:.9rem;font-weight:600}
+.stats .c{color:var(--ok)} .stats .w{color:var(--bad)} .stats .s{color:var(--orange)}
+.tools button{border:1px solid var(--line);background:var(--opt);color:var(--text);border-radius:8px;
+  padding:6px 10px;font:inherit;font-size:.85rem;cursor:pointer}
+.tools button:hover{background:var(--opt-hover)}
+button:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+main{padding:18px 16px 40px}
+.q{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--navy);
+  border-radius:10px;padding:16px 16px 14px;margin:0 0 16px}
+.qhead{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.qno{font-weight:800;color:var(--navy)}
+@media (prefers-color-scheme: dark){.qno{color:#8fb0f5}}
+.chip{background:var(--chip);color:var(--muted);font-size:.75rem;font-weight:700;padding:2px 9px;border-radius:999px}
+.chip.lv-t{background:var(--bad-bg);color:var(--bad)}
+.chip.lv-h{background:var(--ex-bg);color:var(--orange)}
+.qtext{font-weight:600;margin:4px 0 12px}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;text-align:left;width:100%;border:1.5px solid var(--line);
+  background:var(--opt);color:var(--text);border-radius:8px;padding:9px 12px;font:inherit;cursor:pointer}
+.opt:hover:not(:disabled){background:var(--opt-hover)}
+.opt:disabled{cursor:default}
+.opt .l{font-weight:800;min-width:1.8em;color:var(--muted)}
+.opt.right{border-color:var(--ok);background:var(--ok-bg)}
+.opt.right .l{color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.opt.wrong .l{color:var(--bad)}
+.opt.sel{border-color:var(--navy);background:var(--opt-hover);box-shadow:inset 0 0 0 1px var(--navy)}
+.opt.sel .l{color:var(--navy)}
+@media (prefers-color-scheme: dark){.opt.sel .l{color:#8fb0f5}.opt.sel{border-color:#8fb0f5;box-shadow:inset 0 0 0 1px #8fb0f5}}
+.timer{font-variant-numeric:tabular-nums;font-weight:800}
+.timer.low{color:var(--bad)}
+.tools{display:flex;gap:6px;flex-wrap:wrap}
+.tools button.primary{background:var(--orange);border-color:var(--orange);color:#fff;font-weight:700}
+.tools button.primary:hover{filter:brightness(1.05);background:var(--orange)}
+.hidden{display:none !important}
+.result{background:var(--card);border:2px solid var(--orange);border-radius:12px;padding:16px;margin-bottom:18px}
+.result h2{margin:0 0 10px;font-size:1.2rem;color:var(--orange)}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+.rgrid div{background:var(--opt);border-radius:8px;padding:8px 10px}
+.rgrid b{display:block;font-size:1.3rem}
+.result p{margin:10px 0 0;color:var(--muted);font-size:.9rem}
+.start{position:fixed;inset:0;z-index:20;background:rgba(8,18,40,.78);display:flex;align-items:center;justify-content:center;padding:16px}
+.start .card{background:var(--card);color:var(--text);border-top:6px solid var(--orange);border-radius:14px;max-width:440px;width:100%;padding:22px 20px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.start h2{margin:0 0 6px;font-size:1.3rem;color:var(--navy)}
+@media (prefers-color-scheme: dark){.start h2{color:#8fb0f5}}
+.start p{margin:0 0 16px;color:var(--muted);font-size:.92rem}
+.start .big{display:block;width:100%;margin:10px 0;padding:14px;border-radius:10px;font:inherit;font-size:1.05rem;font-weight:800;cursor:pointer;border:2px solid var(--navy);background:var(--opt);color:var(--text)}
+.start .big.primary{background:var(--orange);border-color:var(--orange);color:#fff}
+.start .big small{display:block;font-weight:500;font-size:.82rem;opacity:.9;margin-top:2px}
+.start .seg{margin-top:10px}
+.ex{margin-top:12px;background:var(--ex-bg);border:1px solid var(--ex-line);border-radius:8px;padding:12px 14px;font-size:.95rem}
+.ex .ans{font-weight:800;color:var(--ok);margin-bottom:4px}
+.ex .verdict-bad{color:var(--bad)}
+.sec{margin:24px 0 12px;font-weight:800;color:var(--orange);font-size:1.05rem;border-bottom:2px solid var(--line);padding-bottom:4px}
+footer{text-align:center;color:var(--muted);font-size:.82rem;padding:10px 16px 30px}
+footer a{color:var(--orange)}
+@media (prefers-reduced-motion: no-preference){.ex{animation:show .25s ease-out}
+  @keyframes show{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}}
+</style>
+</head>
+<body>
+<div class="start" id="start" role="dialog" aria-modal="true" aria-labelledby="stTitle">
+  <div class="card">
+    <h2 id="stTitle"></h2>
+    <p id="stSub"></p>
+    <button class="big primary" id="stTest"></button>
+    <button class="big" id="stPrac"></button>
+    <div class="seg" role="group" aria-label="Language">
+      <button id="stEn" aria-pressed="true">English</button>
+      <button id="stHi" aria-pressed="false">हिंदी</button>
+    </div>
+  </div>
+</div>
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <span class="channel">THE EXAM ENGINEER</span>
+      <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a>
+    </div>
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+    <p class="rules" id="rules"></p>
+  </div>
+</header>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="seg" role="group" aria-label="Language">
+      <button id="bEn" aria-pressed="true">English</button>
+      <button id="bHi" aria-pressed="false">हिंदी</button>
+    </div>
+    <div class="seg" role="group" aria-label="Mode">
+      <button id="mTest" aria-pressed="true"></button>
+      <button id="mPrac" aria-pressed="false"></button>
+    </div>
+    <div class="stats" aria-live="polite">
+      <span class="timer" id="timer"></span>
+      <span id="sAtt"></span><span class="c" id="sC"></span><span class="w" id="sW"></span><span class="s" id="sS"></span>
+    </div>
+    <div class="tools">
+      <button id="bSubmit" class="primary"></button>
+      <button id="bShow"></button>
+      <button id="bReset"></button>
+    </div>
+  </div>
+</div>
+
+<main><div class="wrap"><div id="result"></div><div id="list"></div></div></main>
+
+<footer>
+  <div id="foot"></div>
+  <div>© 2026 THE EXAM ENGINEER · <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a> · theexamengineer1@gmail.com</div>
+  <div>SSC JE AIR 14 · RRB JE 2025 (DMS)</div>
+</footer>
+
+<script>
+const UI = {
+  en:{title:"Grinding & Finishing Smart MCQ – Set 1",
+      sub:"Grinding Principle, Abrasives & Bonds · RRB JE CBT-2 (Mechanical & Allied) · RRB JE PYQ based",
+      rules:"25 questions · 20 minutes (RRB CBT-2 pace: 150 Qs in 120 min) · +1 correct, −1/3 wrong",
+      stT:"Start Test",stTs:"20 minutes · timer · submit · full result",stP:"Practice Mode",stPs:"no timer · answer and explanation instantly",stSub:"Choose how you want to attempt this set",
+      rulesP:"Practice mode · no timer · tap an option to see the answer with full explanation instantly",
+      test:"Test",prac:"Practice",submit:"Submit test",time:"Time left",
+      cSub:"Submit the test now? You cannot change answers after submitting.",
+      cMode:"Switching mode will reset your current attempt. Continue?",
+      res:"Your result",un:"Not attempted",taken:"Time taken",acc:"Accuracy",auto:"Time over – test submitted automatically.",
+      resNote:"Answers and full explanations are now shown below each question. Read the explanation of every wrong and unattempted question.",
+      att:"Attempted",c:"Correct",w:"Wrong",s:"Score",show:"Show all answers",hide:"Hide unattempted answers",reset:"Reset",
+      ans:"Correct answer",yours:"Your answer is wrong.",right:"Your answer is correct.",num:"Simple numericals",
+      lv:{e:"Easy",p:"PYQ level",h:"Higher",t:"Tough"},
+      foot:"Original work, free for personal study. Share as it is with the channel link – no re-branding."},
+  hi:{title:"ग्राइंडिंग एवं फ़िनिशिंग स्मार्ट MCQ – सेट 1",
+      sub:"ग्राइंडिंग सिद्धांत, अपघर्षक एवं बॉन्ड · RRB JE CBT-2 (मैकेनिकल एवं संबद्ध) · RRB JE PYQ आधारित",
+      rules:"25 प्रश्न · 20 मिनट (RRB CBT-2 गति: 120 मिनट में 150 प्रश्न) · सही +1, गलत −1/3",
+      stT:"टेस्ट शुरू करें",stTs:"20 मिनट · टाइमर · सबमिट · पूरा परिणाम",stP:"प्रैक्टिस मोड",stPs:"कोई टाइमर नहीं · उत्तर व व्याख्या तुरंत",stSub:"यह सेट कैसे हल करना है, चुनें",
+      rulesP:"प्रैक्टिस मोड · कोई टाइमर नहीं · विकल्प पर टैप करें, उत्तर और पूरी व्याख्या तुरंत दिखेगी",
+      test:"टेस्ट",prac:"प्रैक्टिस",submit:"टेस्ट सबमिट करें",time:"शेष समय",
+      cSub:"क्या अभी टेस्ट सबमिट करें? सबमिट के बाद उत्तर नहीं बदल सकेंगे।",
+      cMode:"मोड बदलने पर आपका वर्तमान प्रयास रीसेट हो जाएगा। जारी रखें?",
+      res:"आपका परिणाम",un:"बिना प्रयास",taken:"लिया गया समय",acc:"सटीकता",auto:"समय समाप्त – टेस्ट स्वतः सबमिट हो गया।",
+      resNote:"अब हर प्रश्न के नीचे उत्तर और पूरी व्याख्या दिख रही है। हर गलत और बिना प्रयास वाले प्रश्न की व्याख्या ज़रूर पढ़ें।",
+      att:"प्रयास",c:"सही",w:"गलत",s:"स्कोर",show:"सभी उत्तर दिखाएँ",hide:"बिना प्रयास वाले उत्तर छिपाएँ",reset:"रीसेट",
+      ans:"सही उत्तर",yours:"आपका उत्तर गलत है।",right:"आपका उत्तर सही है।",num:"सरल न्यूमेरिकल",
+      lv:{e:"आसान",p:"PYQ स्तर",h:"उच्च",t:"कठिन"},
+      foot:"मौलिक कार्य, व्यक्तिगत अध्ययन हेतु निःशुल्क। चैनल लिंक सहित जैसा है वैसा ही शेयर करें – री-ब्रांडिंग नहीं।"}
+};
+
+const Q = [
+/* 1 */ {ans:2, lv:"e", tag:{en:"Grinding principle",hi:"ग्राइंडिंग सिद्धांत"},
+en:{q:"In a manufacturing sequence, grinding is mainly used as a:",
+o:["primary process for shaping raw metal","bulk deformation process like forging","finishing process for size and surface","joining process for two parts"],
+e:"<b>Grinding</b> removes metal with a rotating wheel whose countless abrasive grains act as tiny cutting edges. Each grain takes a very small cut, so grinding gives <b>close dimensional accuracy and a fine surface finish</b>. It is therefore used mainly as a <b>finishing process</b> after turning, milling or heat treatment – and also for hard materials that cutting tools cannot machine easily.<br><b>Why not the others:</b> (a) primary forming = casting; (b) bulk deformation = forging, rolling, extrusion; (d) joining = welding, brazing, soldering.<br><b>PYQ:</b> 'grinding is mainly a → surface-finishing operation' (RRB-CBT2 2019; Old Railway JE/SSE).<br><b>Linked fact:</b> wheel surface speed ≈ 25–35 m/s, far higher than turning speeds."},
+hi:{q:"विनिर्माण क्रम में ग्राइंडिंग मुख्यतः किस रूप में प्रयुक्त होती है?",
+o:["कच्ची धातु को आकार देने की प्रक्रिया","फ़ोर्जिंग जैसी बल्क विरूपण प्रक्रिया","आकार व सतह हेतु फ़िनिशिंग प्रक्रिया","दो पुर्ज़ों को जोड़ने की प्रक्रिया"],
+e:"<b>ग्राइंडिंग</b> में घूमते पहिए के असंख्य अपघर्षक कण छोटे कटिंग किनारों की तरह धातु हटाते हैं। हर कण बहुत छोटा कट लेता है, इसलिए ग्राइंडिंग <b>सटीक आयाम व महीन सतह फ़िनिश</b> देती है। अतः यह मुख्यतः टर्निंग, मिलिंग या ऊष्मा उपचार के बाद <b>फ़िनिशिंग प्रक्रिया</b> है – और उन कठोर पदार्थों के लिए भी जिन्हें कटिंग टूल आसानी से नहीं काट पाते।<br><b>अन्य क्यों नहीं:</b> (a) प्राथमिक फ़ॉर्मिंग = कास्टिंग; (b) बल्क विरूपण = फ़ोर्जिंग, रोलिंग, एक्सट्रूज़न; (d) जोड़ना = वेल्डिंग, ब्रेज़िंग, सोल्डरिंग।<br><b>PYQ:</b> 'ग्राइंडिंग मुख्यतः → सतह-फ़िनिशिंग संक्रिया' (RRB-CBT2 2019; पुराना रेलवे JE/SSE)।<br><b>संबंधित तथ्य:</b> पहिए की सतह गति ≈ 25–35 m/s, टर्निंग से कहीं अधिक।"}},
+
+/* 2 */ {ans:1, lv:"p", num:1, tag:{en:"Numerical – wheel speed",hi:"न्यूमेरिकल – पहिए की गति"},
+en:{q:"A grinding wheel of 250 mm diameter runs at 2400 rpm. Its peripheral speed is about:",
+o:["1885 m/s","31.4 m/s","15.7 m/s","62.8 m/s"],
+e:"Peripheral (surface) speed of the wheel:<br><b>V = πDN / 60</b> (D in m, N in rpm) = π × 0.25 × 2400 / 60 = 1885 / 60 ≈ <b>31.4 m/s</b>.<br>This lies in the normal range of 25–35 m/s for vitrified wheels.<br><b>Distractor check:</b> (a) 1885 = π × 0.25 × 2400 – the answer in m/min, not divided by 60; (c) 15.7 – the radius used instead of the diameter; (d) 62.8 – the diameter taken twice.<br><b>PYQ link:</b> wheel of 150 mm at 3000 rpm → ≈ 23.6 m/s (Old Railway JE/SSE).<br><b>Safety:</b> never run a wheel above the maximum speed marked on it – it may burst."},
+hi:{q:"250 mm व्यास का ग्राइंडिंग पहिया 2400 rpm पर घूमता है। इसकी परिधीय गति लगभग है:",
+o:["1885 m/s","31.4 m/s","15.7 m/s","62.8 m/s"],
+e:"पहिए की परिधीय (सतह) गति:<br><b>V = πDN / 60</b> (D मीटर में, N rpm में) = π × 0.25 × 2400 / 60 = 1885 / 60 ≈ <b>31.4 m/s</b>।<br>यह विट्रिफ़ाइड पहियों की सामान्य सीमा 25–35 m/s में है।<br><b>गलत विकल्प कैसे बने:</b> (a) 1885 = π × 0.25 × 2400 – उत्तर m/min में, 60 से भाग नहीं दिया; (c) 15.7 – व्यास की जगह त्रिज्या ली; (d) 62.8 – व्यास दो बार लिया।<br><b>PYQ संबंध:</b> 150 mm पहिया 3000 rpm पर → ≈ 23.6 m/s (पुराना रेलवे JE/SSE)।<br><b>सुरक्षा:</b> पहिए को उस पर अंकित अधिकतम गति से कभी तेज़ न चलाएँ – वह फट सकता है।"}},
+
+/* 3 */ {ans:3, lv:"p", tag:{en:"Grit geometry",hi:"ग्रिट ज्यामिति"},
+en:{q:"Each abrasive grit meets the work at a large negative rake angle. A direct result of this is:",
+o:["long, continuous chips","low cutting temperature","weak, easily chipped edges","high specific energy and heat"],
+e:"Abrasive grits are irregular and blunt, so each one meets the work at a <b>large negative rake angle</b>. A negative rake gives a <b>strong edge</b> but <b>poor chip flow</b> – the grit ploughs and rubs more than it cuts. So more energy is needed per mm³ of metal and much of it turns into <b>heat</b> (sparks, burns).<br><b>Why not the others:</b> (a) grinding chips are tiny, not long – long chips need a positive rake; (b) the temperature at the grit is very high; (c) negative rake makes the edge <b>stronger</b>, not weaker.<br><b>Three reasons grinding needs maximum specific energy (notes):</b> ① size effect – tiny chips; ② negative rake; ③ welding (heat) effect – removed metal re-welds and must be cut again (Old Railway JE/SSE).<br><b>HOOK:</b> grinding = many tiny negative-rake tools → tiny chips, high energy, great finish."},
+hi:{q:"प्रत्येक अपघर्षक ग्रिट जॉब से बड़े ऋणात्मक रेक कोण पर मिलती है। इसका सीधा परिणाम है:",
+o:["लंबी, सतत चिप","कम कटिंग तापमान","कमज़ोर, आसानी से टूटने वाले किनारे","अधिक विशिष्ट ऊर्जा और ऊष्मा"],
+e:"अपघर्षक ग्रिट अनियमित व कुंद होती हैं, इसलिए हर ग्रिट जॉब से <b>बड़े ऋणात्मक रेक कोण</b> पर मिलती है। ऋणात्मक रेक से <b>किनारा मज़बूत</b> रहता है पर <b>चिप का प्रवाह खराब</b> होता है – ग्रिट काटने से अधिक जुताई (प्लाउइंग) व रगड़ करती है। अतः प्रति mm³ धातु अधिक ऊर्जा लगती है और उसका बड़ा भाग <b>ऊष्मा</b> (चिंगारी, बर्न) बनता है।<br><b>अन्य क्यों नहीं:</b> (a) ग्राइंडिंग की चिप बहुत छोटी होती है – लंबी चिप हेतु धनात्मक रेक चाहिए; (b) ग्रिट पर तापमान बहुत अधिक होता है; (c) ऋणात्मक रेक किनारे को <b>मज़बूत</b> करता है, कमज़ोर नहीं।<br><b>ग्राइंडिंग में अधिकतम विशिष्ट ऊर्जा के तीन कारण (नोट्स):</b> ① साइज़ प्रभाव – छोटी चिप; ② ऋणात्मक रेक; ③ वेल्डिंग (ऊष्मा) प्रभाव – हटाई धातु फिर चिपकती है और दोबारा काटनी पड़ती है (पुराना रेलवे JE/SSE)।<br><b>याद रखें:</b> ग्राइंडिंग = अनेक छोटे ऋणात्मक-रेक टूल → छोटी चिप, अधिक ऊर्जा, बढ़िया फ़िनिश।"}},
+
+/* 4 */ {ans:0, lv:"h", tag:{en:"Specific energy · assertion–reason",hi:"विशिष्ट ऊर्जा · कथन–कारण"},
+en:{q:"Assertion (A): Grinding needs the highest specific energy among conventional machining processes.<br>Reason (R): Each grit removes a very small chip, so much of the energy is lost in rubbing and ploughing.",
+o:["Both A and R are true, and R explains A","Both are true, but R does not explain A","A is true, but R is false","A is false, but R is true"],
+e:"<b>A is true:</b> specific energy (energy per unit volume removed, e = P/MRR) is highest in grinding – often 10 or more times that of turning.<br><b>R is true and explains A:</b> this is the <b>size effect</b>. Each grit cuts a chip only a few microns thick; most of its contact goes into rubbing and ploughing (pushing metal aside) instead of shearing a chip. Energy spent this way adds heat but removes little metal, so energy per mm³ rises sharply.<br>Other contributors: large negative rake and the welding (heat) effect.<br><b>Linked facts:</b> radial (thrust) force ≈ 2–2.5 × tangential force; grinding ratio G = work volume removed ÷ wheel volume worn – higher G = better wheel (Old Railway JE/SSE)."},
+hi:{q:"कथन (A): पारंपरिक मशीनिंग प्रक्रियाओं में ग्राइंडिंग को सबसे अधिक विशिष्ट ऊर्जा चाहिए।<br>कारण (R): प्रत्येक ग्रिट बहुत छोटी चिप हटाती है, इसलिए ऊर्जा का बड़ा भाग रगड़ और जुताई में खो जाता है।",
+o:["A व R दोनों सत्य, R, A की व्याख्या करता है","दोनों सत्य हैं, पर R, A की व्याख्या नहीं करता","A सत्य है, पर R असत्य है","A असत्य है, पर R सत्य है"],
+e:"<b>A सत्य:</b> विशिष्ट ऊर्जा (हटाए गए प्रति इकाई आयतन पर ऊर्जा, e = P/MRR) ग्राइंडिंग में सबसे अधिक है – प्रायः टर्निंग की 10 गुना या अधिक।<br><b>R सत्य और A की व्याख्या:</b> यह <b>साइज़ प्रभाव</b> है। हर ग्रिट कुछ माइक्रॉन मोटी चिप काटती है; उसका अधिकांश संपर्क चिप काटने के बजाय रगड़ व जुताई (धातु को किनारे धकेलना) में जाता है। इस ऊर्जा से ऊष्मा बढ़ती है पर धातु कम हटती है, अतः प्रति mm³ ऊर्जा बहुत बढ़ जाती है।<br>अन्य कारण: बड़ा ऋणात्मक रेक व वेल्डिंग (ऊष्मा) प्रभाव।<br><b>जुड़े तथ्य:</b> रेडियल (थ्रस्ट) बल ≈ 2–2.5 × स्पर्शरेखीय बल; ग्राइंडिंग अनुपात G = हटाया गया जॉब आयतन ÷ घिसा पहिया आयतन – अधिक G = बेहतर पहिया (पुराना रेलवे JE/SSE)।"}},
+
+/* 5 */ {ans:2, lv:"p", tag:{en:"Natural abrasives",hi:"प्राकृतिक अपघर्षक"},
+en:{q:"Which group contains only natural abrasives?",
+o:["emery, carborundum, quartz","corundum, CBN, garnet","emery, corundum, garnet","garnet, boron carbide, sandstone"],
+e:"<b>Natural abrasives:</b> sandstone/quartz (SiO₂), <b>emery</b> (Al₂O₃ + iron oxide), <b>corundum</b> (≈ 85% Al₂O₃), <b>garnet</b> and natural diamond. So (c) has only natural ones.<br><b>Why not the others – each hides one artificial abrasive:</b> (a) <b>carborundum</b> = silicon carbide, made in an electric furnace; (b) <b>CBN</b> (cubic boron nitride) is synthetic; (d) <b>boron carbide</b> is manufactured.<br><b>Artificial list:</b> aluminium oxide 'A' (aloxite), silicon carbide 'C', CBN, synthetic diamond 'D', boron carbide, zirconia 'Z'.<br><b>TRAP:</b> Al₂O₃ is both – natural form = corundum; manufactured form = 'A' abrasive used in most wheels (notes; RRB-CBT2 2019)."},
+hi:{q:"किस समूह में केवल प्राकृतिक अपघर्षक हैं?",
+o:["एमरी, कार्बोरंडम, क्वार्ट्ज़","कोरंडम, CBN, गार्नेट","एमरी, कोरंडम, गार्नेट","गार्नेट, बोरॉन कार्बाइड, बलुआ पत्थर"],
+e:"<b>प्राकृतिक अपघर्षक:</b> बलुआ पत्थर/क्वार्ट्ज़ (SiO₂), <b>एमरी</b> (Al₂O₃ + आयरन ऑक्साइड), <b>कोरंडम</b> (≈ 85% Al₂O₃), <b>गार्नेट</b> व प्राकृतिक हीरा। अतः (c) में केवल प्राकृतिक हैं।<br><b>अन्य क्यों नहीं – हर एक में एक कृत्रिम छिपा है:</b> (a) <b>कार्बोरंडम</b> = सिलिकॉन कार्बाइड, विद्युत भट्टी में बनता है; (b) <b>CBN</b> (क्यूबिक बोरॉन नाइट्राइड) कृत्रिम है; (d) <b>बोरॉन कार्बाइड</b> निर्मित है।<br><b>कृत्रिम सूची:</b> एल्युमिनियम ऑक्साइड 'A' (एलोक्साइट), सिलिकॉन कार्बाइड 'C', CBN, कृत्रिम हीरा 'D', बोरॉन कार्बाइड, ज़िरकोनिया 'Z'।<br><b>चाल:</b> Al₂O₃ दोनों है – प्राकृतिक रूप = कोरंडम; निर्मित रूप = अधिकांश पहियों में प्रयुक्त 'A' अपघर्षक (नोट्स; RRB-CBT2 2019)।"}},
+
+/* 6 */ {ans:0, lv:"p", tag:{en:"Abrasive selection",hi:"अपघर्षक चयन"},
+en:{q:"A tool room has to grind high-speed steel form tools. The most suitable abrasive is:",
+o:["aluminium oxide","silicon carbide","natural diamond","boron carbide"],
+e:"<b>Aluminium oxide (A)</b> is <b>tough</b> and less brittle – its grits do not fracture too easily under the high pressure of grinding strong metals. It is the standard abrasive for <b>high-tensile materials</b>: steels, alloy steels, HSS and tool steel (Old Railway JE/SSE).<br><b>Why not the others:</b> (b) silicon carbide is harder but more brittle – it suits low-tensile and brittle materials (cast iron, brass, glass, carbide); on steel it wears fast and reacts with iron; (c) diamond reacts with iron at high temperature – not for steel; (d) boron carbide is used as a loose powder for lapping, not in grinding wheels for HSS.<br><b>Rule:</b> high tensile → Al₂O₃ · low tensile / brittle / non-ferrous → SiC · carbide tools → diamond · hardened steels in production → CBN."},
+hi:{q:"एक टूल-रूम को हाई-स्पीड स्टील के फ़ॉर्म टूल ग्राइंड करने हैं। सबसे उपयुक्त अपघर्षक है:",
+o:["एल्युमिनियम ऑक्साइड","सिलिकॉन कार्बाइड","प्राकृतिक हीरा","बोरॉन कार्बाइड"],
+e:"<b>एल्युमिनियम ऑक्साइड (A)</b> <b>टफ़</b> व कम भंगुर है – मज़बूत धातुओं की ग्राइंडिंग के अधिक दबाव में इसकी ग्रिट जल्दी नहीं टूटती। यह <b>उच्च-तन्यता पदार्थों</b> का मानक अपघर्षक है: स्टील, मिश्र स्टील, HSS व टूल स्टील (पुराना रेलवे JE/SSE)।<br><b>अन्य क्यों नहीं:</b> (b) सिलिकॉन कार्बाइड अधिक कठोर पर अधिक भंगुर है – निम्न-तन्यता व भंगुर पदार्थों (कास्ट आयरन, पीतल, काँच, कार्बाइड) हेतु; स्टील पर जल्दी घिसता है और लोहे से क्रिया करता है; (c) हीरा उच्च ताप पर लोहे से क्रिया करता है – स्टील हेतु नहीं; (d) बोरॉन कार्बाइड लैपिंग हेतु ढीले पाउडर के रूप में प्रयुक्त होता है, HSS के पहियों में नहीं।<br><b>नियम:</b> उच्च तन्यता → Al₂O₃ · निम्न तन्यता / भंगुर / अलौह → SiC · कार्बाइड टूल → हीरा · उत्पादन में कठोर स्टील → CBN।"}},
+
+/* 7 */ {ans:3, lv:"p", tag:{en:"Abrasive selection",hi:"अपघर्षक चयन"},
+en:{q:"The final sharpening of cemented-carbide tool tips is best done with a wheel of:",
+o:["aluminium oxide","emery","cubic boron nitride","diamond"],
+e:"Cemented carbide (tungsten carbide in cobalt) is extremely hard – only an abrasive <b>harder</b> than it can cut it well. <b>Diamond</b>, the hardest material, is the standard wheel for finish-grinding and lapping carbide tools (Old Railway JE/SSE). Since carbide contains no iron, diamond's reaction with iron is not a problem here. Rough grinding of carbide is often done on green silicon carbide, then finished on diamond.<br><b>Why not the others:</b> (a) aluminium oxide is softer than carbide – it would wear away quickly; (b) emery is a weak natural abrasive; (c) CBN is the choice for <b>hardened steels</b>, while diamond is better for carbide and other non-ferrous hard materials.<br><b>Bond for diamond wheels:</b> metal or resinoid (RRB-CBT2 Jun'25 – super-abrasives use metal bond)."},
+hi:{q:"सीमेंटेड-कार्बाइड टूल टिप की अंतिम धार किस पहिए से सबसे अच्छी की जाती है?",
+o:["एल्युमिनियम ऑक्साइड","एमरी","क्यूबिक बोरॉन नाइट्राइड","हीरा"],
+e:"सीमेंटेड कार्बाइड (कोबाल्ट में टंगस्टन कार्बाइड) अत्यंत कठोर है – केवल उससे <b>अधिक कठोर</b> अपघर्षक ही इसे ठीक से काट सकता है। <b>हीरा</b>, सबसे कठोर पदार्थ, कार्बाइड टूल की फ़िनिश-ग्राइंडिंग व लैपिंग का मानक पहिया है (पुराना रेलवे JE/SSE)। कार्बाइड में लोहा नहीं होता, अतः यहाँ हीरे की लोहे से क्रिया की समस्या नहीं है। रफ़ ग्राइंडिंग प्रायः हरे सिलिकॉन कार्बाइड पर, फिर फ़िनिश हीरे पर।<br><b>अन्य क्यों नहीं:</b> (a) एल्युमिनियम ऑक्साइड कार्बाइड से नरम है – जल्दी घिस जाएगा; (b) एमरी कमज़ोर प्राकृतिक अपघर्षक है; (c) CBN <b>कठोर स्टील</b> हेतु है, जबकि कार्बाइड व अन्य अलौह कठोर पदार्थों हेतु हीरा बेहतर।<br><b>हीरे के पहियों का बॉन्ड:</b> मेटल या रेज़िनॉइड (RRB-CBT2 Jun'25 – सुपर-अपघर्षक में मेटल बॉन्ड)।"}},
+
+/* 8 */ {ans:1, lv:"h", tag:{en:"Diamond vs CBN",hi:"हीरा बनाम CBN"},
+en:{q:"Diamond wheels are generally not used for grinding steel because diamond:",
+o:["is too soft for hardened steel","reacts with iron at high temperature","cannot be held by any bond","gives a very rough surface on steel"],
+e:"Diamond is pure carbon. At the high temperature of the grinding zone, carbon from the diamond <b>diffuses into iron</b> (iron has a strong affinity for carbon) and the diamond also oxidises/graphitises. So the diamond grits wear away chemically and very quickly on steel.<br><b>That is why CBN exists:</b> cubic boron nitride is the second-hardest material, is stable at high temperature and <b>does not react with iron</b> – so it is the super-abrasive for hardened steels.<br><b>Why not the others:</b> (a) diamond is the hardest material known; (c) diamond is held well in metal, resinoid or vitrified bonds; (d) the finish problem is not the reason – the chemical wear is.<br><b>Rule:</b> diamond → carbides, ceramics, glass, stone · CBN → hardened tool and bearing steels (notes)."},
+hi:{q:"हीरे के पहिए सामान्यतः स्टील की ग्राइंडिंग में प्रयुक्त नहीं होते, क्योंकि हीरा:",
+o:["कठोर स्टील हेतु बहुत नरम है","उच्च ताप पर लोहे से क्रिया करता है","किसी भी बॉन्ड से नहीं पकड़ा जा सकता","स्टील पर बहुत खुरदरी सतह देता है"],
+e:"हीरा शुद्ध कार्बन है। ग्राइंडिंग क्षेत्र के उच्च ताप पर हीरे का कार्बन <b>लोहे में विसरित</b> हो जाता है (लोहे का कार्बन से प्रबल आकर्षण है) और हीरा ऑक्सीकृत/ग्रेफ़ाइट भी बनता है। अतः स्टील पर हीरे की ग्रिट रासायनिक रूप से बहुत जल्दी घिसती है।<br><b>इसीलिए CBN है:</b> क्यूबिक बोरॉन नाइट्राइड दूसरा सबसे कठोर पदार्थ है, उच्च ताप पर स्थिर है और <b>लोहे से क्रिया नहीं करता</b> – अतः कठोर स्टील हेतु सुपर-अपघर्षक है।<br><b>अन्य क्यों नहीं:</b> (a) हीरा ज्ञात सबसे कठोर पदार्थ है; (c) हीरा मेटल, रेज़िनॉइड या विट्रिफ़ाइड बॉन्ड में अच्छी तरह पकड़ा जाता है; (d) फ़िनिश कारण नहीं – रासायनिक घिसाव कारण है।<br><b>नियम:</b> हीरा → कार्बाइड, सिरेमिक, काँच, पत्थर · CBN → कठोर टूल व बेयरिंग स्टील (नोट्स)।"}},
+
+/* 9 */ {ans:1, lv:"e", tag:{en:"Abrasive properties",hi:"अपघर्षक गुण"},
+en:{q:"The ability of an abrasive grain to fracture under load and expose fresh, sharp edges is called:",
+o:["toughness","friability","hardness","porosity"],
+e:"<b>Friability</b> is the tendency of an abrasive grain to <b>fracture under pressure</b> and expose new sharp cutting edges – a kind of self-sharpening at the grain level.<br>Silicon carbide is <b>more friable</b> than aluminium oxide, so it stays sharp on hard, brittle materials; aluminium oxide is <b>tougher</b> (less friable), so its grains survive the high forces of grinding steel.<br><b>Why not the others:</b> (a) toughness is the opposite – resistance to fracture; (c) hardness is resistance to wear or indentation; (d) porosity refers to the voids in the wheel, not to the grain.<br><b>Linked:</b> at the wheel level, self-sharpening comes from a <b>soft grade</b> – the bond lets dull grains fall out (Set 2)."},
+hi:{q:"भार पड़ने पर अपघर्षक कण के टूटकर नए, तेज़ किनारे खोलने की क्षमता कहलाती है:",
+o:["टफ़नेस","फ़्रायबिलिटी","कठोरता","सरंध्रता"],
+e:"<b>फ़्रायबिलिटी</b> अपघर्षक कण की <b>दबाव में टूटने</b> और नए तेज़ कटिंग किनारे खोलने की प्रवृत्ति है – कण स्तर पर एक प्रकार की स्व-धार (सेल्फ़-शार्पनिंग)।<br>सिलिकॉन कार्बाइड एल्युमिनियम ऑक्साइड से <b>अधिक फ़्रायबल</b> है, इसलिए कठोर, भंगुर पदार्थों पर तेज़ रहता है; एल्युमिनियम ऑक्साइड <b>अधिक टफ़</b> (कम फ़्रायबल) है, इसलिए स्टील ग्राइंडिंग के अधिक बल में टिका रहता है।<br><b>अन्य क्यों नहीं:</b> (a) टफ़नेस उल्टा है – टूटने का प्रतिरोध; (c) कठोरता घिसाव या दबाव का प्रतिरोध है; (d) सरंध्रता पहिए के रिक्त स्थान हैं, कण का गुण नहीं।<br><b>संबंधित:</b> पहिए के स्तर पर स्व-धार <b>सॉफ़्ट ग्रेड</b> से आती है – बॉन्ड कुंद कणों को गिरने देता है (सेट 2)।"}},
+
+/* 10 */ {ans:3, lv:"p", tag:{en:"Silicon carbide",hi:"सिलिकॉन कार्बाइड"},
+en:{q:"Consider these statements about silicon carbide:<br>I. It is harder and more brittle than aluminium oxide.<br>II. It suits cast iron, brass and glass.<br>III. It is preferred for high-tensile steels.<br>Which of these are correct?",
+o:["I only","II and III only","I, II and III","I and II only"],
+e:"<b>I – correct:</b> silicon carbide (C, 'carborundum') is harder, sharper and more brittle (friable) than aluminium oxide.<br><b>II – correct:</b> it is the choice for <b>low-tensile, brittle and non-ferrous</b> materials – grey cast iron, brass, bronze, aluminium, glass, ceramics, stone and cemented carbide (RRB-CBT2 Jun'25: glass → SiC).<br><b>III – wrong:</b> on tough, high-tensile steels its brittle grains fracture too fast and SiC also reacts with iron; <b>aluminium oxide</b> is used for steels (Old Railway JE/SSE).<br><b>Marking letters:</b> A = aluminium oxide, C = silicon carbide (green SiC for carbide tools, black SiC for cast iron)."},
+hi:{q:"सिलिकॉन कार्बाइड के बारे में निम्न कथनों पर विचार करें:<br>I. यह एल्युमिनियम ऑक्साइड से अधिक कठोर और अधिक भंगुर है।<br>II. यह कास्ट आयरन, पीतल और काँच हेतु उपयुक्त है।<br>III. यह उच्च-तन्यता स्टील हेतु पसंद किया जाता है।<br>इनमें से कौन-से सही हैं?",
+o:["केवल I","केवल II और III","I, II और III","केवल I और II"],
+e:"<b>I – सही:</b> सिलिकॉन कार्बाइड (C, 'कार्बोरंडम') एल्युमिनियम ऑक्साइड से अधिक कठोर, तीखा व भंगुर (फ़्रायबल) है।<br><b>II – सही:</b> यह <b>निम्न-तन्यता, भंगुर व अलौह</b> पदार्थों हेतु है – ग्रे कास्ट आयरन, पीतल, काँसा, एल्युमिनियम, काँच, सिरेमिक, पत्थर व सीमेंटेड कार्बाइड (RRB-CBT2 Jun'25: काँच → SiC)।<br><b>III – गलत:</b> टफ़, उच्च-तन्यता स्टील पर इसके भंगुर कण बहुत जल्दी टूटते हैं और SiC लोहे से क्रिया भी करता है; स्टील हेतु <b>एल्युमिनियम ऑक्साइड</b> (पुराना रेलवे JE/SSE)।<br><b>मार्किंग अक्षर:</b> A = एल्युमिनियम ऑक्साइड, C = सिलिकॉन कार्बाइड (कार्बाइड टूल हेतु हरा SiC, कास्ट आयरन हेतु काला SiC)।"}},
+
+/* 11 */ {ans:2, lv:"p", num:1, tag:{en:"Numerical – specific energy",hi:"न्यूमेरिकल – विशिष्ट ऊर्जा"},
+en:{q:"A grinding operation uses 2.4 kW of power while removing 200 mm³ of metal per second. The specific energy is:",
+o:["1.2 J/mm³","0.083 J/mm³","12 J/mm³","120 J/mm³"],
+e:"Specific energy = energy needed to remove a unit volume of metal:<br><b>e = P / MRR</b> = 2400 W / 200 mm³/s = 2400 J/s ÷ 200 mm³/s = <b>12 J/mm³</b>.<br><b>Distractor check:</b> (b) 0.083 = 200/2400 – the ratio inverted; (a) 1.2 – power left as 2.4 kW with a decimal slip (240/200); (d) 120 – an extra zero.<br><b>Sense check:</b> turning steel needs about 2–5 J/mm³; grinding typically 20–60 J/mm³ or more – far higher, because of the size effect, negative rake and re-welding.<br><b>Same idea:</b> grinding power 3 kW at MRR 300 mm³/s → 10 J/mm³ (notes, practice). Also e = Fc / (b × d)."},
+hi:{q:"एक ग्राइंडिंग संक्रिया 2.4 kW शक्ति लेकर प्रति सेकंड 200 mm³ धातु हटाती है। विशिष्ट ऊर्जा है:",
+o:["1.2 J/mm³","0.083 J/mm³","12 J/mm³","120 J/mm³"],
+e:"विशिष्ट ऊर्जा = धातु का एक इकाई आयतन हटाने हेतु आवश्यक ऊर्जा:<br><b>e = P / MRR</b> = 2400 W / 200 mm³/s = 2400 J/s ÷ 200 mm³/s = <b>12 J/mm³</b>।<br><b>गलत विकल्प कैसे बने:</b> (b) 0.083 = 200/2400 – अनुपात उल्टा; (a) 1.2 – 2.4 kW में दशमलव की गलती (240/200); (d) 120 – एक शून्य अधिक।<br><b>जाँच:</b> स्टील टर्निंग में लगभग 2–5 J/mm³; ग्राइंडिंग में प्रायः 20–60 J/mm³ या अधिक – साइज़ प्रभाव, ऋणात्मक रेक व पुनः वेल्डिंग के कारण कहीं अधिक।<br><b>समान प्रश्न:</b> 300 mm³/s MRR पर 3 kW शक्ति → 10 J/mm³ (नोट्स, अभ्यास)। साथ ही e = Fc / (b × d)।"}},
+
+/* 12 */ {ans:0, lv:"e", tag:{en:"Bonds – vitrified",hi:"बॉन्ड – विट्रिफ़ाइड"},
+en:{q:"A wheel bond made from clay and feldspar, fired in a kiln at about 1250 °C into a glass-like mass, is the:",
+o:["vitrified bond","silicate bond","resinoid bond","oxychloride bond"],
+e:"The <b>vitrified bond (V)</b> is made of clay, feldspar, flint and frit. The moulded wheel is fired in a kiln at about <b>1250 °C</b>; the clay fuses into a glass-like (vitreous) bridge holding the grits. About <b>80% of all wheels</b> are vitrified (Old Railway JE/SSE; RRB-CBT2 2019).<br><b>Properties:</b> strong, rigid and porous; not affected by water, oil, acids or temperature changes; but <b>brittle</b> – not for thin cut-off wheels or heavy shocks. Used for general and precision grinding with high stock removal.<br><b>Why not the others:</b> (b) silicate – sodium silicate, moderate firing ≈ 260 °C; (c) resinoid – synthetic resin (bakelite) cured at ≈ 200 °C; (d) oxychloride – magnesium oxychloride cement, no firing.<br><b>HOOK:</b> only vitrified needs a high-temperature kiln."},
+hi:{q:"मिट्टी और फ़ेल्डस्पार से बना, भट्टी में लगभग 1250 °C पर पकाकर काँच-जैसा बनाया गया पहिए का बॉन्ड है:",
+o:["विट्रिफ़ाइड बॉन्ड","सिलिकेट बॉन्ड","रेज़िनॉइड बॉन्ड","ऑक्सीक्लोराइड बॉन्ड"],
+e:"<b>विट्रिफ़ाइड बॉन्ड (V)</b> मिट्टी, फ़ेल्डस्पार, फ़्लिंट व फ़्रिट से बनता है। साँचे में ढले पहिए को भट्टी में लगभग <b>1250 °C</b> पर पकाया जाता है; मिट्टी पिघलकर काँच-जैसे (विट्रियस) पुल बनाती है जो ग्रिट को पकड़ते हैं। लगभग <b>80% पहिए</b> विट्रिफ़ाइड होते हैं (पुराना रेलवे JE/SSE; RRB-CBT2 2019)।<br><b>गुण:</b> मज़बूत, दृढ़ व सरंध्र; पानी, तेल, अम्ल या ताप-परिवर्तन से अप्रभावित; पर <b>भंगुर</b> – पतले कट-ऑफ़ पहियों या भारी झटकों हेतु नहीं। सामान्य व परिशुद्ध ग्राइंडिंग, अधिक स्टॉक हटाने हेतु।<br><b>अन्य क्यों नहीं:</b> (b) सिलिकेट – सोडियम सिलिकेट, मध्यम तापन ≈ 260 °C; (c) रेज़िनॉइड – कृत्रिम रेज़िन (बैकेलाइट), ≈ 200 °C पर क्योर; (d) ऑक्सीक्लोराइड – मैग्नीशियम ऑक्सीक्लोराइड सीमेंट, तापन नहीं।<br><b>याद रखें:</b> केवल विट्रिफ़ाइड को उच्च-ताप भट्टी चाहिए।"}},
+
+/* 13 */ {ans:2, lv:"p", tag:{en:"Bond letters · match",hi:"बॉन्ड अक्षर · मिलान"},
+en:{q:"Match each bond (List-I) with its letter in the wheel marking (List-II):<br>P. Shellac<br>Q. Resinoid<br>R. Silicate<br>S. Rubber<br>1. B<br>2. R<br>3. S<br>4. E",
+o:["P-3, Q-1, R-4, S-2","P-4, Q-2, R-3, S-1","P-4, Q-1, R-3, S-2","P-1, Q-4, R-3, S-2"],
+e:"<b>Bond letters (IS marking):</b> V – vitrified · <b>S – silicate</b> · <b>E – shellac</b> · <b>R – rubber</b> · <b>B – resinoid</b> (bakelite) · M – metal · O – oxychloride.<br>So P (shellac) – 4 (E), Q (resinoid) – 1 (B), R (silicate) – 3 (S), S (rubber) – 2 (R).<br><b>TRAPS:</b> shellac is <b>E</b>, not S – S is silicate; resinoid is <b>B</b> (from bakelite), not R – R is rubber. Option (a) swaps shellac and silicate; option (b) swaps resinoid and rubber.<br><b>HOOK:</b> V S E R B M O → \"Very Smart Engineers Read Books More Often\".<br><b>PYQs:</b> 'V in wheel marking → vitrified bond' (RRB-CBT2 2019); 'B → resinoid' (Old Railway JE/SSE)."},
+hi:{q:"प्रत्येक बॉन्ड (सूची-I) का पहिए की मार्किंग में उसके अक्षर (सूची-II) से मिलान करें:<br>P. शेलैक<br>Q. रेज़िनॉइड<br>R. सिलिकेट<br>S. रबर<br>1. B<br>2. R<br>3. S<br>4. E",
+o:["P-3, Q-1, R-4, S-2","P-4, Q-2, R-3, S-1","P-4, Q-1, R-3, S-2","P-1, Q-4, R-3, S-2"],
+e:"<b>बॉन्ड अक्षर (IS मार्किंग):</b> V – विट्रिफ़ाइड · <b>S – सिलिकेट</b> · <b>E – शेलैक</b> · <b>R – रबर</b> · <b>B – रेज़िनॉइड</b> (बैकेलाइट) · M – मेटल · O – ऑक्सीक्लोराइड।<br>अतः P (शेलैक) – 4 (E), Q (रेज़िनॉइड) – 1 (B), R (सिलिकेट) – 3 (S), S (रबर) – 2 (R)।<br><b>चालें:</b> शेलैक <b>E</b> है, S नहीं – S सिलिकेट है; रेज़िनॉइड <b>B</b> (बैकेलाइट से) है, R नहीं – R रबर है। विकल्प (a) शेलैक व सिलिकेट उलटता है; (b) रेज़िनॉइड व रबर उलटता है।<br><b>याद रखें:</b> V S E R B M O → \"Very Smart Engineers Read Books More Often\"।<br><b>PYQ:</b> 'मार्किंग में V → विट्रिफ़ाइड बॉन्ड' (RRB-CBT2 2019); 'B → रेज़िनॉइड' (पुराना रेलवे JE/SSE)।"}},
+
+/* 14 */ {ans:3, lv:"h", tag:{en:"Bonds – silicate · scenario",hi:"बॉन्ड – सिलिकेट · परिस्थिति"},
+en:{q:"A cutlery maker grinds knife edges on large wheels and wants the least possible heat, so the edges do not lose their temper. The most suitable bond is:",
+o:["vitrified","metal","resinoid","silicate"],
+e:"The <b>silicate bond (S)</b> uses sodium silicate (water glass) and is baked at a moderate temperature (≈ 260 °C). Its hold on the grits is mild, so grits are <b>released easily</b> – the wheel cuts <b>cool</b> with the least heat. That is why it suits <b>large wheels</b> and the grinding of <b>cutlery, knives and edge tools</b>, where heat would draw the temper of the thin hardened edge (Old Railway JE/SSE).<br><b>Why not the others:</b> (a) vitrified is strong and rigid but holds grits longer – more heat; (b) metal bond is for diamond/CBN super-abrasives; (c) resinoid is for high-speed, heavy, shock-loaded work like snagging and cut-off.<br><b>PYQ (other angle):</b> 'how are silicate-bonded wheels set? → controlled firing at moderate temperature' (RRB-CBT2 Jul'26)."},
+hi:{q:"एक कटलरी निर्माता बड़े पहियों पर चाकू की धार ग्राइंड करता है और कम-से-कम ऊष्मा चाहता है, ताकि धार का टेम्पर न बिगड़े। सबसे उपयुक्त बॉन्ड है:",
+o:["विट्रिफ़ाइड","मेटल","रेज़िनॉइड","सिलिकेट"],
+e:"<b>सिलिकेट बॉन्ड (S)</b> में सोडियम सिलिकेट (वॉटर ग्लास) होता है और इसे मध्यम ताप (≈ 260 °C) पर पकाया जाता है। इसकी ग्रिट पर पकड़ हल्की है, इसलिए ग्रिट <b>आसानी से छूटती</b> हैं – पहिया कम-से-कम ऊष्मा के साथ <b>ठंडा</b> काटता है। इसीलिए यह <b>बड़े पहियों</b> तथा <b>कटलरी, चाकू व धार वाले टूल</b> की ग्राइंडिंग हेतु उपयुक्त है, जहाँ ऊष्मा पतली कठोर धार का टेम्पर बिगाड़ देगी (पुराना रेलवे JE/SSE)।<br><b>अन्य क्यों नहीं:</b> (a) विट्रिफ़ाइड मज़बूत व दृढ़ है पर ग्रिट देर तक पकड़ता है – अधिक ऊष्मा; (b) मेटल बॉन्ड हीरा/CBN सुपर-अपघर्षक हेतु; (c) रेज़िनॉइड तेज़ गति, भारी व झटके वाले कार्य जैसे स्नैगिंग व कट-ऑफ़ हेतु।<br><b>PYQ (दूसरा पहलू):</b> 'सिलिकेट-बॉन्ड पहिए कैसे सेट होते हैं? → मध्यम ताप पर नियंत्रित तापन' (RRB-CBT2 Jul'26)।"}},
+
+/* 15 */ {ans:1, lv:"p", tag:{en:"Bonds – resinoid · scenario",hi:"बॉन्ड – रेज़िनॉइड · परिस्थिति"},
+en:{q:"A foundry removes risers and fins from castings at high wheel speed, with heavy shocks. The bond best suited is:",
+o:["silicate","resinoid","shellac","vitrified"],
+e:"Removing risers, gates and fins from castings is called <b>snagging</b> – rough, heavy grinding with impact. The <b>resinoid bond (B)</b>, made of synthetic resin (bakelite) cured at about 200 °C, is <b>strong, shock-resistant and safe at high speeds</b> (often 45–80 m/s), so it is used for snagging, cut-off and rough, high-speed grinding (Old Railway JE/SSE).<br><b>Why not the others:</b> (a) silicate is mild and releases grits easily – it would wear away fast under heavy load; (c) shellac is elastic and gives a fine finish – for thin wheels and finishing, not rough work; (d) vitrified is brittle and limited in speed – it may crack under impact.<br><b>Note:</b> resinoid is softened by alkaline coolants and heat over time."},
+hi:{q:"एक फ़ाउंड्री तेज़ गति के पहिए से, भारी झटकों के साथ, कास्टिंग से राइज़र और फ़िन हटाती है। सबसे उपयुक्त बॉन्ड है:",
+o:["सिलिकेट","रेज़िनॉइड","शेलैक","विट्रिफ़ाइड"],
+e:"कास्टिंग से राइज़र, गेट व फ़िन हटाना <b>स्नैगिंग</b> कहलाता है – झटकों वाली रफ़, भारी ग्राइंडिंग। <b>रेज़िनॉइड बॉन्ड (B)</b>, लगभग 200 °C पर क्योर किए कृत्रिम रेज़िन (बैकेलाइट) से बना, <b>मज़बूत, झटका-प्रतिरोधी और तेज़ गति पर सुरक्षित</b> (प्रायः 45–80 m/s) है, अतः स्नैगिंग, कट-ऑफ़ व रफ़, तेज़ ग्राइंडिंग हेतु प्रयुक्त (पुराना रेलवे JE/SSE)।<br><b>अन्य क्यों नहीं:</b> (a) सिलिकेट हल्का है और ग्रिट आसानी से छोड़ता है – भारी भार में जल्दी घिसेगा; (c) शेलैक लचीला है और महीन फ़िनिश देता है – पतले पहियों व फ़िनिशिंग हेतु, रफ़ कार्य हेतु नहीं; (d) विट्रिफ़ाइड भंगुर है और गति सीमित – झटके से चटक सकता है।<br><b>नोट:</b> क्षारीय कूलेंट व ऊष्मा से समय के साथ रेज़िनॉइड नरम होता है।"}},
+
+/* 16 */ {ans:0, lv:"p", tag:{en:"Bonds – vitrified",hi:"बॉन्ड – विट्रिफ़ाइड"},
+en:{q:"Vitrified bonds are not used for very thin cut-off wheels because they are:",
+o:["rigid and brittle under side loads","softened by water and oil","too porous to hold any grit","only made in small diameters"],
+e:"A thin cut-off wheel (1–3 mm) bends and gets side loads in the slot. A <b>vitrified</b> bond is glass-like – <b>rigid and brittle</b> – so a thin vitrified disc would crack or shatter. Thin cut-off and slitting wheels therefore use <b>flexible, tough bonds</b>: resinoid (often fibre-reinforced), rubber or shellac (notes notebook correction).<br><b>Why not the others:</b> (b) vitrified bonds are <b>not</b> affected by water, oil or acids – that is one of their strengths; (c) their porosity carries coolant and chips, and they hold grit well; (d) vitrified wheels are made in a very wide range of sizes, including large ones.<br><b>Bond-use quick map:</b> vitrified – general & precision · silicate – cool cutting, large wheels · shellac – fine finish, thin wheels · rubber – regulating wheels, thin cut-off · resinoid – snagging, high speed · metal – diamond/CBN."},
+hi:{q:"बहुत पतले कट-ऑफ़ पहियों में विट्रिफ़ाइड बॉन्ड प्रयुक्त नहीं होते, क्योंकि वे:",
+o:["साइड भार में दृढ़ और भंगुर होते हैं","पानी और तेल से नरम हो जाते हैं","इतने सरंध्र हैं कि ग्रिट नहीं पकड़ते","केवल छोटे व्यास में बनते हैं"],
+e:"पतला कट-ऑफ़ पहिया (1–3 mm) खाँचे में मुड़ता है और उस पर साइड भार आता है। <b>विट्रिफ़ाइड</b> बॉन्ड काँच-जैसा – <b>दृढ़ व भंगुर</b> – होता है, अतः पतली विट्रिफ़ाइड डिस्क चटक या टूट जाएगी। इसलिए पतले कट-ऑफ़ व स्लिटिंग पहियों में <b>लचीले, टफ़ बॉन्ड</b> प्रयुक्त होते हैं: रेज़िनॉइड (प्रायः फ़ाइबर-प्रबलित), रबर या शेलैक (नोट्स नोटबुक सुधार)।<br><b>अन्य क्यों नहीं:</b> (b) विट्रिफ़ाइड बॉन्ड पानी, तेल या अम्ल से <b>प्रभावित नहीं</b> होते – यही इनकी ताकत है; (c) इनकी सरंध्रता कूलेंट व चिप ले जाती है, और ये ग्रिट अच्छी पकड़ते हैं; (d) विट्रिफ़ाइड पहिए बड़े सहित बहुत विस्तृत आकारों में बनते हैं।<br><b>बॉन्ड-उपयोग मानचित्र:</b> विट्रिफ़ाइड – सामान्य व परिशुद्ध · सिलिकेट – ठंडी कटिंग, बड़े पहिए · शेलैक – महीन फ़िनिश, पतले पहिए · रबर – रेगुलेटिंग पहिए, पतले कट-ऑफ़ · रेज़िनॉइड – स्नैगिंग, तेज़ गति · मेटल – हीरा/CBN।"}},
+
+/* 17 */ {ans:2, lv:"p", tag:{en:"Bonds – metal",hi:"बॉन्ड – मेटल"},
+en:{q:"Electroplated nickel bonds are mainly used to hold:",
+o:["aluminium oxide grits","silicon carbide grits","diamond or CBN grits","natural emery grains"],
+e:"<b>Metal bonds (M)</b> – bronze or nickel, either <b>sintered</b> or <b>electroplated</b> – are very strong and grip expensive <b>super-abrasive</b> grains (diamond and CBN) firmly, so the costly grains are fully used before they fall out. In an electroplated wheel, a single layer of diamond/CBN grits is held on a steel hub by a nickel deposit – used for form wheels and profile grinding.<br><b>Why not the others:</b> conventional abrasives – aluminium oxide, silicon carbide and emery – are cheap and are normally held in vitrified, resinoid, rubber, shellac or silicate bonds, where controlled grit release (self-sharpening) matters more than holding power.<br><b>PYQ (other angle):</b> 'bond commonly employed in super-abrasive grinding wheels → metal bond' (RRB-CBT2 Jun'25)."},
+hi:{q:"इलेक्ट्रोप्लेटेड निकल बॉन्ड मुख्यतः किसे पकड़ने हेतु प्रयुक्त होते हैं?",
+o:["एल्युमिनियम ऑक्साइड ग्रिट","सिलिकॉन कार्बाइड ग्रिट","हीरा या CBN ग्रिट","प्राकृतिक एमरी कण"],
+e:"<b>मेटल बॉन्ड (M)</b> – काँसा या निकल, <b>सिंटर्ड</b> या <b>इलेक्ट्रोप्लेटेड</b> – बहुत मज़बूत होते हैं और महँगे <b>सुपर-अपघर्षक</b> कणों (हीरा व CBN) को कसकर पकड़ते हैं, ताकि महँगे कण गिरने से पहले पूरी तरह काम आएँ। इलेक्ट्रोप्लेटेड पहिए में हीरा/CBN ग्रिट की एक परत निकल जमाव द्वारा स्टील हब पर पकड़ी जाती है – फ़ॉर्म पहियों व प्रोफ़ाइल ग्राइंडिंग हेतु।<br><b>अन्य क्यों नहीं:</b> पारंपरिक अपघर्षक – एल्युमिनियम ऑक्साइड, सिलिकॉन कार्बाइड व एमरी – सस्ते हैं और सामान्यतः विट्रिफ़ाइड, रेज़िनॉइड, रबर, शेलैक या सिलिकेट बॉन्ड में पकड़े जाते हैं, जहाँ पकड़ से अधिक नियंत्रित ग्रिट-मुक्ति (स्व-धार) मायने रखती है।<br><b>PYQ (दूसरा पहलू):</b> 'सुपर-अपघर्षक ग्राइंडिंग पहियों में सामान्य बॉन्ड → मेटल बॉन्ड' (RRB-CBT2 Jun'25)।"}},
+
+/* 18 */ {ans:3, lv:"p", num:1, tag:{en:"Numerical – grinding forces",hi:"न्यूमेरिकल – ग्राइंडिंग बल"},
+en:{q:"In a grinding test the tangential force is 40 N. The radial (thrust) force is expected to be about:",
+o:["16 N","40 N","400 N","100 N"],
+e:"In grinding, the <b>radial (thrust) force is about 2 to 2.5 times the tangential (cutting) force</b>, because the blunt grits with a large negative rake press hard into the work while ploughing (notes; Old Railway JE/SSE).<br>F<sub>r</sub> ≈ 2.5 × 40 = <b>100 N</b> (range 80–100 N).<br><b>Distractor check:</b> (a) 16 N = 40 ÷ 2.5 – the ratio applied the wrong way; (b) 40 N – assuming the forces are equal; (c) 400 N – an extra zero (× 10).<br><b>Contrast with turning:</b> in turning with a positive rake, the cutting force is the largest and the thrust force is smaller – grinding reverses this.<br><b>Why it matters:</b> the large radial force deflects slender work and the spindle – hence steady rests and light finishing passes."},
+hi:{q:"एक ग्राइंडिंग परीक्षण में स्पर्शरेखीय बल 40 N है। रेडियल (थ्रस्ट) बल लगभग कितना अपेक्षित है?",
+o:["16 N","40 N","400 N","100 N"],
+e:"ग्राइंडिंग में <b>रेडियल (थ्रस्ट) बल स्पर्शरेखीय (कटिंग) बल का लगभग 2 से 2.5 गुना</b> होता है, क्योंकि बड़े ऋणात्मक रेक वाली कुंद ग्रिट जुताई करते समय जॉब में ज़ोर से दबती हैं (नोट्स; पुराना रेलवे JE/SSE)।<br>F<sub>r</sub> ≈ 2.5 × 40 = <b>100 N</b> (सीमा 80–100 N)।<br><b>गलत विकल्प कैसे बने:</b> (a) 16 N = 40 ÷ 2.5 – अनुपात उल्टा लगाया; (b) 40 N – दोनों बल बराबर मान लिए; (c) 400 N – एक शून्य अधिक (× 10)।<br><b>टर्निंग से तुलना:</b> धनात्मक रेक वाली टर्निंग में कटिंग बल सबसे बड़ा और थ्रस्ट बल छोटा होता है – ग्राइंडिंग में उल्टा।<br><b>महत्व:</b> बड़ा रेडियल बल पतले जॉब व स्पिंडल को मोड़ता है – इसीलिए स्टेडी रेस्ट व हल्के फ़िनिशिंग पास।"}},
+
+/* 19 */ {ans:1, lv:"p", tag:{en:"Grinding ratio",hi:"ग्राइंडिंग अनुपात"},
+en:{q:"A wheel with a higher grinding ratio is considered better because it:",
+o:["can run safely at a higher speed","removes more work per unit of wheel wear","gives a coarser, faster-cut surface","needs less coolant while dressing"],
+e:"<b>Grinding ratio G = volume of work material removed ÷ volume of wheel worn.</b> A higher G means the wheel removes more metal for the same wheel loss – it lasts longer and costs less per part. So <b>higher G = better wheel</b> (Old Railway JE/SSE).<br>Typical values: tens for conventional wheels (e.g. 20–80), and hundreds or thousands for CBN on hardened steel.<br><b>Why not the others:</b> (a) G is a volume ratio and says nothing about wheel speed; (c) surface finish depends on grit size, dressing and feed, not on G; (d) coolant use is not part of the definition.<br><b>Numerical angle:</b> wheel-wear volume = (π/4)(D<sub>i</sub>² − D<sub>f</sub>²) × width – asked in Set 2."},
+hi:{q:"अधिक ग्राइंडिंग अनुपात वाला पहिया बेहतर माना जाता है, क्योंकि वह:",
+o:["अधिक गति पर सुरक्षित चल सकता है","प्रति इकाई पहिया-घिसाव पर अधिक जॉब हटाता है","तेज़ कटाई वाली खुरदरी सतह देता है","ड्रेसिंग के समय कम कूलेंट लेता है"],
+e:"<b>ग्राइंडिंग अनुपात G = हटाए गए जॉब पदार्थ का आयतन ÷ घिसे पहिए का आयतन।</b> अधिक G का अर्थ है उतने ही पहिया-घिसाव में अधिक धातु हटाना – पहिया अधिक चलता है और प्रति पुर्ज़ा लागत कम। अतः <b>अधिक G = बेहतर पहिया</b> (पुराना रेलवे JE/SSE)।<br>सामान्य मान: पारंपरिक पहियों हेतु दहाई में (जैसे 20–80), कठोर स्टील पर CBN हेतु सैकड़ों या हज़ारों में।<br><b>अन्य क्यों नहीं:</b> (a) G आयतन अनुपात है, पहिए की गति से इसका संबंध नहीं; (c) सतह फ़िनिश ग्रिट आकार, ड्रेसिंग व फ़ीड पर निर्भर है, G पर नहीं; (d) कूलेंट उपयोग परिभाषा का भाग नहीं।<br><b>न्यूमेरिकल पहलू:</b> पहिया-घिसाव आयतन = (π/4)(D<sub>i</sub>² − D<sub>f</sub>²) × चौड़ाई – सेट 2 में पूछा गया।"}},
+
+/* 20 */ {ans:2, lv:"e", tag:{en:"Wheel structure",hi:"पहिए की संरचना"},
+en:{q:"The pores (voids) in a grinding wheel mainly:",
+o:["make the wheel lighter to rotate","hold the grits firmly in place","carry coolant and give room for chips","raise the hardness of the wheel"],
+e:"A grinding wheel has three elements: <b>abrasive grains</b> (cut), <b>bond</b> (holds the grains) and <b>pores</b> (voids). The pores give <b>chip clearance</b> – room for the tiny chips until they are thrown off – and <b>carry coolant</b> into the grinding zone, keeping it cool and reducing loading (notes Sec 1).<br><b>Why not the others:</b> (a) weight reduction is not their purpose; (b) the <b>bond</b>, not the pores, holds the grits; (d) wheel hardness (grade) depends on the amount and strength of bond.<br><b>Linked:</b> structure number = grit spacing – 1–8 dense (finishing), 9–15 open (rough work, soft materials, large contact area) (Set 2)."},
+hi:{q:"ग्राइंडिंग पहिए के छिद्र (रिक्त स्थान) मुख्यतः:",
+o:["पहिए को घुमाने हेतु हल्का बनाते हैं","ग्रिट को अपनी जगह कसकर पकड़ते हैं","कूलेंट ले जाते व चिप को जगह देते हैं","पहिए की कठोरता व ग्रेड बढ़ाते हैं"],
+e:"ग्राइंडिंग पहिए के तीन तत्व हैं: <b>अपघर्षक कण</b> (काटते हैं), <b>बॉन्ड</b> (कणों को पकड़ता है) और <b>छिद्र</b> (रिक्त स्थान)। छिद्र <b>चिप हेतु जगह</b> देते हैं – छोटी चिप बाहर फेंके जाने तक उनमें रहती हैं – और ग्राइंडिंग क्षेत्र तक <b>कूलेंट ले जाते हैं</b>, जिससे ठंडक रहती है और लोडिंग घटती है (नोट्स Sec 1)।<br><b>अन्य क्यों नहीं:</b> (a) भार घटाना इनका उद्देश्य नहीं; (b) ग्रिट को <b>बॉन्ड</b> पकड़ता है, छिद्र नहीं; (d) पहिए की कठोरता (ग्रेड) बॉन्ड की मात्रा व मज़बूती पर निर्भर है।<br><b>संबंधित:</b> स्ट्रक्चर संख्या = ग्रिट की दूरी – 1–8 घना (फ़िनिशिंग), 9–15 खुला (रफ़ कार्य, नरम पदार्थ, बड़ा संपर्क क्षेत्र) (सेट 2)।"}},
+
+/* 21 */ {ans:0, lv:"p", tag:{en:"Abrasive-free finishing",hi:"बिना अपघर्षक फ़िनिशिंग"},
+en:{q:"Which of these finishing processes uses no abrasive at all?",
+o:["burnishing","lapping","honing","buffing"],
+e:"<b>Burnishing</b> presses a hardened, smooth roller or ball against the rotating work. The peaks of the surface <b>flow plastically</b> into the valleys – the surface is smoothed and work-hardened, with compressive residual stress. <b>No abrasive and no chips</b> (Old Railway JE/SSE: 'abrasives are not used in burnishing').<br><b>Why not the others – all use abrasives:</b> (b) lapping – loose abrasive grains in oil or paste between the work and a lap; (c) honing – bonded abrasive stones; (d) buffing – a cloth wheel charged with buffing compound (fine abrasive in grease).<br><b>Also not abrasives (PYQ):</b> super-alloy, manganese oxide and sodium silicate are not abrasives (RRB-CBT2 Jun'25)."},
+hi:{q:"इनमें से कौन-सी फ़िनिशिंग प्रक्रिया बिल्कुल भी अपघर्षक प्रयोग नहीं करती?",
+o:["बर्निशिंग","लैपिंग","होनिंग","बफ़िंग"],
+e:"<b>बर्निशिंग</b> में कठोर, चिकना रोलर या बॉल घूमते जॉब पर दबाया जाता है। सतह के उभार <b>प्लास्टिक रूप से बहकर</b> गड्ढों में भर जाते हैं – सतह चिकनी व वर्क-हार्डन होती है, साथ में संपीडक अवशिष्ट प्रतिबल। <b>न अपघर्षक, न चिप</b> (पुराना रेलवे JE/SSE: 'बर्निशिंग में अपघर्षक प्रयुक्त नहीं होते')।<br><b>अन्य क्यों नहीं – सभी अपघर्षक प्रयोग करते हैं:</b> (b) लैपिंग – जॉब व लैप के बीच तेल या पेस्ट में ढीले अपघर्षक कण; (c) होनिंग – बॉन्डेड अपघर्षक स्टोन; (d) बफ़िंग – बफ़िंग कंपाउंड (ग्रीस में महीन अपघर्षक) लगा कपड़े का पहिया।<br><b>ये भी अपघर्षक नहीं (PYQ):</b> सुपर-अलॉय, मैंगनीज़ ऑक्साइड व सोडियम सिलिकेट अपघर्षक नहीं हैं (RRB-CBT2 Jun'25)।"}},
+
+/* 22 */ {ans:3, lv:"p", tag:{en:"Grinding principle",hi:"ग्राइंडिंग सिद्धांत"},
+en:{q:"Bright sparks fly off during the grinding of steel mainly because:",
+o:["the bond burns at the wheel face","the abrasive grains melt","the coolant ignites in the zone","tiny hot chips oxidise in air"],
+e:"Each grit removes a <b>very tiny chip</b> at very high speed; most of the energy turns into heat, and the chip leaves the zone <b>red-hot</b>. Because the chips are so small (large surface area for their mass), they <b>oxidise (burn) in air</b> as they fly off – these are the sparks.<br><b>Why not the others:</b> (a) the bond is not burning – vitrified bonds are fired at about 1250 °C; (b) aluminium oxide melts above 2000 °C – the grains do not melt; (c) water-based coolants do not ignite – in fact they reduce sparking.<br><b>Linked:</b> spark colour and pattern differ with carbon content – the 'spark test' is used to identify steels in workshops.<br><b>Notes link:</b> grinding = tiny chips, high temperature (sparks) – Sec 1."},
+hi:{q:"स्टील की ग्राइंडिंग में तेज़ चिंगारियाँ मुख्यतः क्यों उड़ती हैं?",
+o:["पहिए की सतह पर बॉन्ड जलने लगता है","अपघर्षक कण गर्मी से पिघल जाते हैं","कटिंग क्षेत्र में कूलेंट जल उठता है","छोटी गर्म चिप हवा में जलती हैं"],
+e:"हर ग्रिट बहुत तेज़ गति से <b>बहुत छोटी चिप</b> हटाती है; अधिकांश ऊर्जा ऊष्मा बनती है, और चिप <b>लाल-गर्म</b> होकर निकलती है। चिप इतनी छोटी हैं (द्रव्यमान की तुलना में बड़ा सतही क्षेत्र) कि उड़ते समय <b>हवा में ऑक्सीकृत (जल)</b> जाती हैं – यही चिंगारियाँ हैं।<br><b>अन्य क्यों नहीं:</b> (a) बॉन्ड नहीं जलता – विट्रिफ़ाइड बॉन्ड लगभग 1250 °C पर पकाए जाते हैं; (b) एल्युमिनियम ऑक्साइड 2000 °C से ऊपर पिघलता है – कण नहीं पिघलते; (c) पानी-आधारित कूलेंट नहीं जलते – बल्कि चिंगारी घटाते हैं।<br><b>संबंधित:</b> कार्बन मात्रा से चिंगारी का रंग व पैटर्न बदलता है – वर्कशॉप में स्टील पहचानने हेतु 'स्पार्क टेस्ट'।<br><b>नोट्स संबंध:</b> ग्राइंडिंग = छोटी चिप, उच्च ताप (चिंगारी) – Sec 1।"}},
+
+/* 23 */ {ans:1, lv:"p", tag:{en:"Abrasive uses",hi:"अपघर्षक उपयोग"},
+en:{q:"Boron carbide is mainly used as a:",
+o:["bond for holding diamond wheels","loose powder for lapping dies","coolant additive in grinding","binder for vitrified wheels"],
+e:"<b>Boron carbide (B₄C)</b> is a very hard <b>artificial abrasive</b> – after diamond and CBN among the hardest. It is used mainly as a <b>loose powder</b> (in oil or paste) for <b>lapping</b> hard parts such as gauges, dies and tungsten-carbide pieces (Old Railway JE/SSE). It is rarely made into bonded wheels.<br><b>Why not the others:</b> (a) diamond wheels use metal, resinoid or vitrified bonds; (c) coolant additives are emulsifiers, rust inhibitors and wetting agents; (d) vitrified binders are clay, feldspar and frit.<br><b>Lapping abrasives (notes):</b> Al₂O₃ and SiC 5–100 µm, boron carbide 5–60 µm, chromium oxide 1–2 µm, diamond 0.5–5 µm."},
+hi:{q:"बोरॉन कार्बाइड मुख्यतः किस रूप में प्रयुक्त होता है?",
+o:["हीरे के पहियों का बॉन्ड","गेज व डाई की लैपिंग हेतु ढीला पाउडर","ग्राइंडिंग में कूलेंट योजक","विट्रिफ़ाइड पहियों का बाइंडर"],
+e:"<b>बोरॉन कार्बाइड (B₄C)</b> एक बहुत कठोर <b>कृत्रिम अपघर्षक</b> है – हीरे व CBN के बाद सबसे कठोर में। यह मुख्यतः <b>ढीले पाउडर</b> (तेल या पेस्ट में) के रूप में गेज, डाई व टंगस्टन-कार्बाइड जैसे कठोर पुर्ज़ों की <b>लैपिंग</b> हेतु प्रयुक्त होता है (पुराना रेलवे JE/SSE)। इसके बॉन्डेड पहिए कम ही बनते हैं।<br><b>अन्य क्यों नहीं:</b> (a) हीरे के पहियों में मेटल, रेज़िनॉइड या विट्रिफ़ाइड बॉन्ड; (c) कूलेंट योजक इमल्सीफ़ायर, जंग रोधक व वेटिंग एजेंट होते हैं; (d) विट्रिफ़ाइड बाइंडर मिट्टी, फ़ेल्डस्पार व फ़्रिट हैं।<br><b>लैपिंग अपघर्षक (नोट्स):</b> Al₂O₃ व SiC 5–100 µm, बोरॉन कार्बाइड 5–60 µm, क्रोमियम ऑक्साइड 1–2 µm, हीरा 0.5–5 µm।"}},
+
+/* 24 */ {ans:0, lv:"h", tag:{en:"Super-abrasives · scenario",hi:"सुपर-अपघर्षक · परिस्थिति"},
+en:{q:"A plant grinds hardened bearing steel (about 60 HRC) in high volume. A diamond wheel is ruled out. The best super-abrasive is:",
+o:["cubic boron nitride","green silicon carbide","white aluminium oxide","natural emery rock"],
+e:"<b>Cubic boron nitride (CBN)</b> is the second-hardest material after diamond, keeps its hardness at high temperature and – unlike diamond – <b>does not react with iron</b>. So it is the super-abrasive for <b>hardened tool, die and bearing steels</b> in high-volume production: the wheel holds its size and form for very long (grinding ratios in the thousands), with less heat damage to the work.<br><b>Why not the others:</b> (b) silicon carbide is for brittle and non-ferrous materials and reacts with iron; (c) aluminium oxide can grind hardened steel, but it wears much faster – it is a conventional, not a super-abrasive; (d) emery is a weak natural abrasive.<br><b>Bond:</b> CBN and diamond wheels are usually metal, resinoid or vitrified bonded (RRB-CBT2 Jun'25 – metal bond for super-abrasives).<br><b>PYQ link:</b> 'CBN – manufactured abrasive' (RRB-CBT2 Apr'25-II)."},
+hi:{q:"एक प्लांट बड़ी मात्रा में कठोर बेयरिंग स्टील (लगभग 60 HRC) ग्राइंड करता है। हीरे का पहिया वर्जित है। सबसे अच्छा सुपर-अपघर्षक है:",
+o:["क्यूबिक बोरॉन नाइट्राइड","हरा सिलिकॉन कार्बाइड","सफ़ेद एल्युमिनियम ऑक्साइड","प्राकृतिक एमरी"],
+e:"<b>क्यूबिक बोरॉन नाइट्राइड (CBN)</b> हीरे के बाद दूसरा सबसे कठोर पदार्थ है, उच्च ताप पर कठोरता बनाए रखता है और – हीरे के विपरीत – <b>लोहे से क्रिया नहीं करता</b>। अतः बड़े उत्पादन में <b>कठोर टूल, डाई व बेयरिंग स्टील</b> हेतु यही सुपर-अपघर्षक है: पहिया बहुत लंबे समय तक आकार व रूप बनाए रखता है (ग्राइंडिंग अनुपात हज़ारों में), और जॉब को कम ऊष्मा क्षति।<br><b>अन्य क्यों नहीं:</b> (b) सिलिकॉन कार्बाइड भंगुर व अलौह पदार्थों हेतु है और लोहे से क्रिया करता है; (c) एल्युमिनियम ऑक्साइड कठोर स्टील ग्राइंड कर सकता है पर बहुत जल्दी घिसता है – यह पारंपरिक है, सुपर-अपघर्षक नहीं; (d) एमरी कमज़ोर प्राकृतिक अपघर्षक है।<br><b>बॉन्ड:</b> CBN व हीरे के पहिए प्रायः मेटल, रेज़िनॉइड या विट्रिफ़ाइड बॉन्ड वाले (RRB-CBT2 Jun'25 – सुपर-अपघर्षक हेतु मेटल बॉन्ड)।<br><b>PYQ संबंध:</b> 'CBN – निर्मित अपघर्षक' (RRB-CBT2 Apr'25-II)।"}},
+
+/* 25 */ {ans:3, lv:"p", tag:{en:"Natural abrasives",hi:"प्राकृतिक अपघर्षक"},
+en:{q:"Emery, a natural abrasive, is mainly:",
+o:["silicon carbide with silica","pure crystalline silica","boron carbide with clay","aluminium oxide with iron oxide"],
+e:"<b>Emery</b> is a natural, dark-grey rock made of <b>aluminium oxide (corundum) mixed with iron oxide</b> (magnetite/haematite) – roughly 55–75% Al₂O₃. Because of the iron oxide it is softer and less uniform than pure corundum, so today it is used mainly for <b>emery paper and cloth, polishing and lapping</b>, not for precision wheels (Old Railway JE/SSE: emery & boron carbide for lapping).<br><b>Why not the others:</b> (a) silicon carbide is artificial – it does not occur as emery; (b) pure crystalline silica is <b>quartz</b> (sandstone); (c) boron carbide is manufactured.<br><b>Natural ladder:</b> quartz (SiO₂) → emery (Al₂O₃ + Fe₃O₄) → corundum (≈ 85% Al₂O₃) → diamond."},
+hi:{q:"एमरी, एक प्राकृतिक अपघर्षक, मुख्यतः है:",
+o:["सिलिका मिश्रित सिलिकॉन कार्बाइड","शुद्ध क्रिस्टलीय सिलिका पत्थर","मिट्टी मिश्रित बोरॉन कार्बाइड","आयरन ऑक्साइड युक्त Al₂O₃"],
+e:"<b>एमरी</b> एक प्राकृतिक, गहरी-धूसर चट्टान है जो <b>आयरन ऑक्साइड (मैग्नेटाइट/हेमेटाइट) मिश्रित एल्युमिनियम ऑक्साइड (कोरंडम)</b> से बनी है – लगभग 55–75% Al₂O₃। आयरन ऑक्साइड के कारण यह शुद्ध कोरंडम से नरम व कम एकसमान है, अतः आज मुख्यतः <b>एमरी पेपर व कपड़े, पॉलिशिंग व लैपिंग</b> हेतु प्रयुक्त होती है, परिशुद्ध पहियों हेतु नहीं (पुराना रेलवे JE/SSE: लैपिंग हेतु एमरी व बोरॉन कार्बाइड)।<br><b>अन्य क्यों नहीं:</b> (a) सिलिकॉन कार्बाइड कृत्रिम है – एमरी के रूप में नहीं मिलता; (b) शुद्ध क्रिस्टलीय सिलिका <b>क्वार्ट्ज़</b> (बलुआ पत्थर) है; (c) बोरॉन कार्बाइड निर्मित है।<br><b>प्राकृतिक क्रम:</b> क्वार्ट्ज़ (SiO₂) → एमरी (Al₂O₃ + Fe₃O₄) → कोरंडम (≈ 85% Al₂O₃) → हीरा।"}}
+];
+
+const LIMIT = 20*60;
+let lang = "en";
+let mode = "test";
+let picked = new Array(Q.length).fill(null);
+let showAll = false;
+let submitted = false;
+let autoSub = false;
+let left = LIMIT;
+let tick = null;
+const L = ["a","b","c","d"];
+const $ = id => document.getElementById(id);
+
+function fmt(t){ const m=Math.floor(t/60), s=t%60; return String(m).padStart(2,"0")+":"+String(s).padStart(2,"0"); }
+
+function startTimer(){
+  stopTimer();
+  if(mode!=="test" || submitted) return;
+  tick = setInterval(()=>{
+    left--;
+    if(left<=0){ left=0; autoSub=true; doSubmit(); return; }
+    paintTimer();
+  },1000);
+}
+function stopTimer(){ if(tick){clearInterval(tick); tick=null;} }
+function paintTimer(){
+  const t=$("timer"), u=UI[lang];
+  if(mode!=="test"){ t.classList.add("hidden"); return; }
+  t.classList.remove("hidden");
+  t.textContent = submitted ? u.taken+": "+fmt(LIMIT-left) : u.time+": "+fmt(left);
+  t.classList.toggle("low", !submitted && left<=120);
+}
+
+function isRevealed(i){ return mode==="practice" ? (picked[i]!==null || showAll) : submitted; }
+
+function render(){
+  const u = UI[lang];
+  document.documentElement.lang = lang;
+  $("title").textContent = u.title;
+  $("subtitle").textContent = u.sub;
+  $("rules").textContent = mode==="test" ? u.rules : u.rulesP;
+  $("foot").textContent = u.foot;
+  $("mTest").textContent = u.test; $("mPrac").textContent = u.prac;
+  $("mTest").setAttribute("aria-pressed", mode==="test");
+  $("mPrac").setAttribute("aria-pressed", mode==="practice");
+  $("bSubmit").textContent = u.submit;
+  $("bSubmit").classList.toggle("hidden", !(mode==="test" && !submitted));
+  $("bShow").textContent = showAll ? u.hide : u.show;
+  $("bShow").classList.toggle("hidden", mode!=="practice");
+  $("bReset").textContent = u.reset;
+  $("bEn").setAttribute("aria-pressed", lang==="en");
+  $("bHi").setAttribute("aria-pressed", lang==="hi");
+
+  let html = "";
+  Q.forEach((q,i)=>{
+    if(q.num && i>0 && !Q[i-1].num) html += `<div class="sec">${u.num}</div>`;
+    const d = q[lang], p = picked[i], rev = isRevealed(i);
+    const lvClass = q.lv==="t" ? "lv-t" : q.lv==="h" ? "lv-h" : "";
+    html += `<article class="q" id="q${i}">
+      <div class="qhead"><span class="qno">Q${i+1}.</span><span class="chip">${q.tag[lang]}</span><span class="chip ${lvClass}">${u.lv[q.lv]}</span></div>
+      <div class="qtext">${d.q}</div><div class="opts">`;
+    d.o.forEach((o,j)=>{
+      let cls = "opt";
+      if(rev && j===q.ans) cls += " right";
+      if(rev && p===j && p!==q.ans) cls += " wrong";
+      if(!rev && p===j) cls += " sel";
+      html += `<button class="${cls}" data-q="${i}" data-o="${j}" ${rev?"disabled":""} aria-pressed="${p===j}"><span class="l">(${L[j]})</span><span>${o}</span></button>`;
+    });
+    html += `</div>`;
+    if(rev){
+      let v = "";
+      if(p!==null) v = p===q.ans ? `<div>${u.right}</div>` : `<div class="verdict-bad">${u.yours}</div>`;
+      else if(mode==="test") v = `<div class="verdict-bad">${u.un}</div>`;
+      html += `<div class="ex">${v}<div class="ans">${u.ans}: (${L[q.ans]})</div>${d.e}</div>`;
+    }
+    html += `</article>`;
+  });
+  $("list").innerHTML = html;
+  stats(); paintTimer(); result();
+}
+
+function counts(){
+  let c=0,w=0,a=0;
+  picked.forEach((p,i)=>{ if(p!==null){a++; if(p===Q[i].ans)c++; else w++;} });
+  return {c,w,a,s:(c-w/3).toFixed(2)};
+}
+
+function stats(){
+  const u = UI[lang], k = counts();
+  const hide = mode==="test" && !submitted;
+  $("sAtt").textContent = `${u.att}: ${k.a}/${Q.length}`;
+  $("sC").textContent = `${u.c}: ${k.c}`;
+  $("sW").textContent = `${u.w}: ${k.w}`;
+  $("sS").textContent = `${u.s}: ${k.s}`;
+  ["sC","sW","sS"].forEach(id=>$(id).classList.toggle("hidden", hide));
+}
+
+function result(){
+  const box = $("result");
+  if(!(mode==="test" && submitted)){ box.innerHTML=""; return; }
+  const u = UI[lang], k = counts();
+  const acc = k.a ? Math.round(k.c*100/k.a) : 0;
+  box.innerHTML = `<section class="result" aria-live="polite">
+    <h2>${u.res}: ${k.s} / ${Q.length}</h2>
+    <div class="rgrid">
+      <div>${u.c}<b>${k.c}</b></div><div>${u.w}<b>${k.w}</b></div>
+      <div>${u.un}<b>${Q.length-k.a}</b></div><div>${u.acc}<b>${acc}%</b></div>
+      <div>${u.taken}<b>${fmt(LIMIT-left)}</b></div>
+    </div>
+    <p>${autoSub ? u.auto+" " : ""}${u.resNote}</p></section>`;
+}
+
+function doSubmit(){
+  submitted = true; stopTimer(); render();
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function resetAll(){
+  picked = new Array(Q.length).fill(null);
+  showAll=false; submitted=false; autoSub=false; left=LIMIT;
+  render(); startTimer(); window.scrollTo({top:0});
+}
+
+$("list").addEventListener("click", e=>{
+  const b = e.target.closest(".opt");
+  if(!b || b.disabled) return;
+  const i = +b.dataset.q, j = +b.dataset.o;
+  if(mode==="test"){ picked[i] = picked[i]===j ? null : j; }
+  else { if(picked[i]!==null) return; picked[i] = j; }
+  render();
+  const btn = document.querySelector(`#q${i} .opt[data-o="${j}"]`) || document.querySelector(`#q${i} .opt`);
+  if(btn) btn.focus({preventScroll:true});
+});
+$("bEn").onclick = ()=>{ lang="en"; render(); };
+$("bHi").onclick = ()=>{ lang="hi"; render(); };
+function setMode(m){
+  if(m===mode) return;
+  const dirty = picked.some(p=>p!==null) || submitted;
+  if(dirty && !confirm(UI[lang].cMode)) return;
+  mode = m; resetAll();
+}
+$("mTest").onclick = ()=>setMode("test");
+$("mPrac").onclick = ()=>setMode("practice");
+$("bSubmit").onclick = ()=>{ if(confirm(UI[lang].cSub)) doSubmit(); };
+$("bShow").onclick = ()=>{ showAll=!showAll; render(); };
+$("bReset").onclick = resetAll;
+
+function paintStart(){
+  const u=UI[lang];
+  $("stTitle").textContent=u.title;
+  $("stSub").textContent=u.stSub;
+  $("stTest").innerHTML=u.stT+"<small>"+u.stTs+"</small>";
+  $("stPrac").innerHTML=u.stP+"<small>"+u.stPs+"</small>";
+  $("stEn").setAttribute("aria-pressed",lang==="en");
+  $("stHi").setAttribute("aria-pressed",lang==="hi");
+}
+function begin(m){ mode=m; $("start").classList.add("hidden"); resetAll(); }
+$("stTest").onclick=()=>begin("test");
+$("stPrac").onclick=()=>begin("practice");
+$("stEn").onclick=()=>{ lang="en"; render(); paintStart(); };
+$("stHi").onclick=()=>{ lang="hi"; render(); paintStart(); };
+$("bEn").addEventListener("click",paintStart);
+$("bHi").addEventListener("click",paintStart);
+render(); paintStart(); $("stTest").focus();
+</script>
+</body>
+</html>
